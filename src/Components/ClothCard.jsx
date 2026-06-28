@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
+import { useDispatch }
+from "react-redux";
 
+import {
+  insertProduct
+}
+from "../Redux/slices/basketSlice";
 import "../Styles/ClothCard.css";
+const dispatch = useDispatch();
+
 
 const ClothCard = ({ item }) => {
 
@@ -57,10 +65,15 @@ const ClothCard = ({ item }) => {
         ))}
       </select>
 
-      <button>
-        Add To Basket
-      </button>
-
+      <button
+  onClick={() =>
+    dispatch(
+      insertProduct(item)
+    )
+  }
+>
+  Add To Basket
+</button>
     </div>
   );
 };
