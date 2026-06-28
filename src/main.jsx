@@ -1,10 +1,63 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import "./root.css";
 
-createRoot(document.getElementById('root')).render(
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import { Provider } from "react-redux";
+import { appStore } from "./Redux/appStore";
+
+import MainLayout from "./MainLayout";
+
+import Dashboard from "./Pages/Dashboard";
+import Collection from "./Pages/Collection";
+import Basket from "./Pages/Basket";
+import Account from "./Pages/Account";
+import ProductDetails from "./Pages/ProductDetails";
+import ErrorPage from "./Pages/ErrorPage";
+
+const siteRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "collection",
+        element: <Collection />,
+      },
+      {
+        path: "basket",
+        element: <Basket />,
+      },
+      {
+        path: "account",
+        element: <Account />,
+      },
+      {
+        path: "collection/:categoryName",
+        element: <Collection />,
+      },
+      {
+        path: "collection/item/:itemName",
+        element: <ProductDetails />,
+      },
+    ],
+  },
+]);
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <Provider store={appStore}>
+      <RouterProvider router={siteRouter} />
+    </Provider>
+  </StrictMode>
+);
