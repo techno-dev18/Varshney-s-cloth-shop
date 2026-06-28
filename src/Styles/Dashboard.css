@@ -2,6 +2,16 @@
     position:relative;
 }
 
+.categorySection{
+    padding:40px;
+}
+
+.categoryGrid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
 .hero img{
     width:80%;
     margin:40px 10%;
