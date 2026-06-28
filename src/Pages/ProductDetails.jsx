@@ -16,10 +16,10 @@ const ClothCard = ({ item }) => {
 
     const dispatch = useDispatch();
   
-    
+    // rest of code
   }
 const ProductDetails = () => {
-
+    const dispatch = useDispatch();
     const { itemName } =
         useParams();
 
@@ -137,7 +137,7 @@ const ProductDetails = () => {
                         onClick={() =>
                             dispatch(
                                 insertProduct(
-                                    selectedProduct
+                                   item
                                 )
                             )
                         }

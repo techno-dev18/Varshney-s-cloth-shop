@@ -7,11 +7,11 @@ import {
 }
 from "../Redux/slices/basketSlice";
 import "../Styles/ClothCard.css";
-const dispatch = useDispatch();
+
 
 
 const ClothCard = ({ item }) => {
-
+    const dispatch = useDispatch();
   const {
     productName,
     ratings,
