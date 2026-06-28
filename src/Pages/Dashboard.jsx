@@ -1,13 +1,28 @@
+import { Link } from "react-router-dom";
+import FooterBar from "../Components/FooterBar";
+
+import "../Styles/Dashboard.css";
+
 const Dashboard = () => {
-    return (
-      <>
-        <h1>Welcome To Varshney's Cloth Shop</h1>
-  
-      </>
-    );
-  };
-  
-  export default Dashboard;
+  return (
+    <>
+      <section className="hero">
+        <img
+          src="https://images.pexels.com/photos/33517294/pexels-photo-33517294.jpeg"
+          alt=""
+        />
 
+        <Link
+          className="shopBtn"
+          to="/collection"
+        >
+          Shop Now
+        </Link>
+      </section>
 
+      <FooterBar />
+    </>
+  );
+};
 
+export default Dashboard;
