@@ -19,9 +19,12 @@ import {
           store.basket
       );
   
-    const dispatch =
-      useDispatch();
-  
+      const ClothCard = ({ item }) => {
+
+        const dispatch = useDispatch();
+      
+        
+      }
     return (
   
       <div className="basketPage">

@@ -12,8 +12,12 @@ import {
 }
     from "../Redux/slices/basketSlice";
 import "../Styles/ProductDetails.css";
-const dispatch =
-    useDispatch();
+const ClothCard = ({ item }) => {
+
+    const dispatch = useDispatch();
+  
+    
+  }
 const ProductDetails = () => {
 
     const { itemName } =
