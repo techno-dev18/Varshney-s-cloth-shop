@@ -1,4 +1,25 @@
 .basketPage{
-    padding:40px;
-    text-align:center;
+    padding:30px;
+}
+
+.basketCard{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:white;
+    padding:20px;
+    margin:20px 0;
+}
+
+.basketCard img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+}
+
+.basketCard button{
+    background:red;
+    color:white;
+    border:none;
+    padding:10px;
 }
