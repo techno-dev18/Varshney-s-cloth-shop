@@ -1,0 +1,56 @@
+.collectionHead{
+    display:flex;
+    justify-content:space-between;
+    padding:20px;
+}
+
+.collectionHead input{
+    width:400px;
+    padding:10px;
+}
+
+.layout{
+    display:flex;
+}
+
+.filters{
+    width:20%;
+    padding:20px;
+}
+
+.filters label{
+    display:block;
+    margin:10px 0;
+}
+
+.productArea{
+    width:80%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+@media(max-width:768px){
+
+    .layout{
+        flex-direction:column;
+    }
+
+    .filters{
+        width:100%;
+    }
+
+    .productArea{
+        width:100%;
+        justify-content:center;
+    }
+
+    .collectionHead{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .collectionHead input{
+        width:100%;
+    }
+}
