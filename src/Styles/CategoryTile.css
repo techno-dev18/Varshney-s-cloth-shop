@@ -1,0 +1,11 @@
+.categoryTile{
+    width:250px;
+    text-decoration:none;
+    color:black;
+}
+
+.categoryTile img{
+    width:250px;
+    height:300px;
+    object-fit:cover;
+}
