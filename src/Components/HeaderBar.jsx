@@ -18,15 +18,19 @@ const HeaderBar = () => {
         <NavLink to="/collection">
           <FaStore />
         </NavLink>
-
+        <NavLink to="/wishlist">
+  ❤️
+</NavLink>
         <NavLink to="/basket">
           <FaShoppingBag />
           🛒 {basketCount}
         </NavLink>
-
+        🌙
+        dispatch(toggleTheme());
         <NavLink to="/account">
           <FaUserCircle />
         </NavLink>
+
       </nav>
     </header>
     

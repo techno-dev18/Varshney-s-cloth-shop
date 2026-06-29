@@ -12,3 +12,7 @@ body{
     background:#f7f7f7;
     font-family:Arial, Helvetica, sans-serif;
 }
+.dark {
+    background:#111;
+    color:white;
+  }

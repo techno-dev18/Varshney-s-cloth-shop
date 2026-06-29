@@ -7,7 +7,8 @@ import {
 }
 from "../Redux/slices/basketSlice";
 import "../Styles/ClothCard.css";
-
+import { addWishlist }
+from "../Redux/slices/wishlistSlice.js";
 
 
 const ClothCard = ({ item }) => {
@@ -73,6 +74,15 @@ const ClothCard = ({ item }) => {
   }
 >
   Add To Basket
+</button>
+<button
+  onClick={() =>
+    dispatch(
+      addWishlist(item)
+    )
+  }
+>
+  ❤️ Wishlist
 </button>
     </div>
   );

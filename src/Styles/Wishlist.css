@@ -1,0 +1,30 @@
+.wishlistPage {
+    padding: 30px;
+  }
+  
+  .wishlistCard {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }
+  
+  .wishlistCard img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
+  
+  .wishlistCard button {
+    margin-left: auto;
+    padding: 10px 15px;
+    border: none;
+    background: #8b0000;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
