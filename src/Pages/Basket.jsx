@@ -5,6 +5,8 @@ import {
   from "react-redux";
   
   import {
+    increaseQuantity,
+  decreaseQuantity,
     deleteProduct
   }
   from "../Redux/slices/basketSlice";
