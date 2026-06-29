@@ -47,6 +47,18 @@ const siteRouter = createBrowserRouter([
         element: <Collection />,
       },
       {
+        path: "wishlist",
+        element: <Wishlist />
+      },
+      {
+        path: "checkout",
+        element: <Checkout />
+      },
+      {
+        path: "success",
+        element: <OrderSuccess />
+      },
+      {
         path: "collection/item/:itemName",
         element: <ProductDetails />,
       },
