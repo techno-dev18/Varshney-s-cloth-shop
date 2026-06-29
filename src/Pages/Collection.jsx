@@ -14,7 +14,8 @@ import "../Styles/Collection.css";
 const Collection = () => {
 
   const { categoryName } = useParams();
-
+  const [sortType, setSortType] =
+  useState("");
   const [allItems] =
     useState(products);
 
@@ -163,6 +164,7 @@ const Collection = () => {
                     e.target.value
                   )
                 }
+                
               />
               Male
             </label>
@@ -210,7 +212,27 @@ const Collection = () => {
             </p>
 
           </div>
+          <select
+  onChange={e =>
+    setSortType(e.target.value)
+  }
+>
+  <option value="">
+    Sort
+  </option>
 
+  <option value="low">
+    Low Price
+  </option>
+
+  <option value="high">
+    High Price
+  </option>
+
+  <option value="rating">
+    Rating
+  </option>
+</select>
           {!categoryName && (
 
             <div>

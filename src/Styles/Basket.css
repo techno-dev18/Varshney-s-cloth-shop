@@ -23,3 +23,17 @@
     border:none;
     padding:10px;
 }
+.quantityBox {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .quantityBox button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: #8b0000;
+    color: white;
+    cursor: pointer;
+  }

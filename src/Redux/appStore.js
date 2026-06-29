@@ -6,6 +6,8 @@ import customerSlice from "./slices/customerSlice";
 export const appStore = configureStore({
   reducer:{
     basket: basketSlice,
-    customer: customerSlice
+    customer: customerSlice,
+    wishlist: wishlistSlice,
+    theme: themeSlice
   }
 });
