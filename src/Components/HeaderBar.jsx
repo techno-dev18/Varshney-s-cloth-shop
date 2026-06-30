@@ -4,10 +4,11 @@ import { FaUserCircle } from "react-icons/fa";
 import { FaStore } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import "../Styles/HeaderBar.css";
-const basketCount = useSelector(
-  store => store.basket.length
-);
+
 const HeaderBar = () => {
+  const basketCount = useSelector(
+    store => store.basket.length
+  );
   return (
     <header className="header">
       <NavLink className="logo" to="/">
@@ -25,8 +26,7 @@ const HeaderBar = () => {
           <FaShoppingBag />
           🛒 {basketCount}
         </NavLink>
-        🌙
-        dispatch(toggleTheme());
+       
         <NavLink to="/account">
           <FaUserCircle />
         </NavLink>

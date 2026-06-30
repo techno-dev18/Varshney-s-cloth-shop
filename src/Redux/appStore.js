@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import basketSlice from "./slices/basketSlice";
 import customerSlice from "./slices/customerSlice";
-import wishlistSlice from "./slices/wishlistSlice.js";
+import wishlistSlice from "./slices/wishlistSlice";
 // import theme from "./slices/themeSlice";
 export const appStore = configureStore({
   reducer:{

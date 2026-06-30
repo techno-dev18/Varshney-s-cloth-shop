@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { removeWishlist } from "../Redux/slices/wishlistSlice";
+import { removeWishlist } from "../Redux/slices/wishlistSlice.js";
 import "../Styles/Wishlist.css";
 
 const Wishlist = () => {

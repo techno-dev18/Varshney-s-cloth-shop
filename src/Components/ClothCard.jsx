@@ -7,8 +7,9 @@ import {
 }
 from "../Redux/slices/basketSlice";
 import "../Styles/ClothCard.css";
-import { addWishlist }
-from "../Redux/slices/wishlistSlice.js";
+import {
+  addWishlist
+} from "../Redux/slices/wishlistSlice.js";
 
 
 const ClothCard = ({ item }) => {
