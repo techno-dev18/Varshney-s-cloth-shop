@@ -6,7 +6,12 @@ import productRoutes from "./routes/productRoutes.js";
 dotenv.config();
 const app = express();
 // MIDDLEWARE
-app.use(cors());
+app.use(cors(
+  {origin:"*",
+    credentials:true,
+    optionsSuccessStatus:200      
+  }
+));
 app.use(express.json());
 // DATABASE
 connectDB();
