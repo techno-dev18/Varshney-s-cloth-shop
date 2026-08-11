@@ -1,23 +1,53 @@
 import { useParams } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import ClothCard from "../Components/ClothCard";
 
-import {
-  products,
-  categories
-} from "../Data/clothData";
 
+import { getAllProducts } from "../API/productApi";
 import "../Styles/Collection.css";
+const [products, setProducts] = useState([]);
+useEffect(() => {
 
+  const fetchProducts = async () => {
+
+    try {
+
+      const response = await fetch(
+        "http://localhost:5000/api/products"
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setProducts(data.products);
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Failed to fetch products:",
+        error
+      );
+
+    }
+  };
+
+  fetchProducts();
+
+}, []);
 const Collection = () => {
 
   const { categoryName } = useParams();
   const [sortType, setSortType] =
   useState("");
-  const [allItems] =
-    useState(products);
+ const [products, setProducts] = useState([]);
+ useEffect(() => {
+
+    loadProducts();
+
+}, []);
 
   const [keyword, setKeyword] =
     useState("");
@@ -31,10 +61,26 @@ const Collection = () => {
   const [chosenCategories,
     setChosenCategories] =
     useState([]);
+const loadProducts = async () => {
 
+    try {
+
+        const response = await getAllProducts();
+
+        setProducts(response.data.products);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+};
   const filterItems = () => {
 
-    let data = [...allItems];
+    let data = [...products];
 
     if (categoryName) {
       data = data.filter(
@@ -77,7 +123,29 @@ const Collection = () => {
         )
       );
     }
+if (sortType === "low") {
 
+    data.sort(
+        (a, b) => a.price - b.price
+    );
+
+}
+
+if (sortType === "high") {
+
+    data.sort(
+        (a, b) => b.price - a.price
+    );
+
+}
+
+if (sortType === "rating") {
+
+    data.sort(
+        (a, b) => b.ratings - a.ratings
+    );
+
+}
     return data;
   };
 
@@ -100,7 +168,11 @@ const Collection = () => {
         ]);
       }
     };
-
+const categories = [
+  ...new Set(
+    products.map(item => item.category)
+  )
+];
   return (
     <>
       <section className="collectionHead">
@@ -244,7 +316,7 @@ const Collection = () => {
 
                   <label
                     key={
-                      category.categoryName
+                      category
                     }
                   >
 
@@ -252,18 +324,18 @@ const Collection = () => {
                       type="checkbox"
                       checked={
                         chosenCategories.includes(
-                          category.categoryName
+                          category
                         )
                       }
                       onChange={() =>
                         toggleCategory(
-                          category.categoryName
+                          category
                         )
                       }
                     />
 
                     {
-                      category.categoryName
+                      category
                     }
 
                   </label>

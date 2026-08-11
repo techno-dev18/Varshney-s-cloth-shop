@@ -12,12 +12,7 @@ import {
 }
     from "../Redux/slices/basketSlice";
 import "../Styles/ProductDetails.css";
-const ClothCard = ({ item }) => {
 
-    const dispatch = useDispatch();
-  
-    // rest of code
-  }
 const ProductDetails = () => {
     const dispatch = useDispatch();
     const { itemName } =
@@ -137,7 +132,7 @@ const ProductDetails = () => {
                         onClick={() =>
                             dispatch(
                                 insertProduct(
-                                   item
+                                selectedProduct
                                 )
                             )
                         }
