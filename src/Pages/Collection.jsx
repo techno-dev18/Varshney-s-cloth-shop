@@ -1,193 +1,286 @@
-import { useParams } from "react-router-dom";
 
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import ClothCard from "../Components/ClothCard";
-
-
 import { getAllProducts } from "../API/productApi";
+
 import "../Styles/Collection.css";
-const [products, setProducts] = useState([]);
-useEffect(() => {
 
-  const fetchProducts = async () => {
-
-    try {
-
-      const response = await fetch(
-        "http://localhost:5000/api/products"
-      );
-
-      const data = await response.json();
-
-      if (data.success) {
-        setProducts(data.products);
-      }
-
-    } catch (error) {
-
-      console.error(
-        "Failed to fetch products:",
-        error
-      );
-
-    }
-  };
-
-  fetchProducts();
-
-}, []);
 const Collection = () => {
 
   const { categoryName } = useParams();
-  const [sortType, setSortType] =
-  useState("");
- const [products, setProducts] = useState([]);
- useEffect(() => {
 
-    loadProducts();
+  // Products received from MongoDB
+  const [products, setProducts] = useState([]);
 
-}, []);
+  // UI states
+  const [keyword, setKeyword] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
+  const [minimumRating, setMinimumRating] = useState(0);
+  const [chosenCategories, setChosenCategories] = useState([]);
+  const [sortType, setSortType] = useState("");
 
-  const [keyword, setKeyword] =
-    useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const [selectedGender, setSelectedGender] =
-    useState("");
+  // =========================
+  // GET PRODUCTS FROM BACKEND
+  // =========================
 
-  const [minimumRating, setMinimumRating] =
-    useState(0);
+  useEffect(() => {
 
-  const [chosenCategories,
-    setChosenCategories] =
-    useState([]);
-const loadProducts = async () => {
+    const loadProducts = async () => {
 
-    try {
+      try {
+
+        setLoading(true);
+        setError("");
 
         const response = await getAllProducts();
 
-        setProducts(response.data.products);
+        console.log("Products from MongoDB:", response.data);
 
-    }
+        setProducts(
+          response.data.products || []
+        );
 
-    catch (error) {
+      } catch (error) {
 
-        console.log(error);
+        console.error(
+          "Failed to fetch products:",
+          error
+        );
 
-    }
+        setError(
+          "Unable to load products."
+        );
 
-};
+      } finally {
+
+        setLoading(false);
+
+      }
+
+    };
+
+    loadProducts();
+
+  }, []);
+
+  // =========================
+  // CATEGORIES FROM MONGODB
+  // =========================
+
+  const categories = [
+    ...new Set(
+      products.map(
+        product => product.category
+      )
+    )
+  ];
+
+  // =========================
+  // FILTER PRODUCTS
+  // =========================
+
   const filterItems = () => {
 
     let data = [...products];
 
+    // Category from URL
+
     if (categoryName) {
+
       data = data.filter(
         item =>
-          item.category.toLowerCase() ===
+          item.category?.toLowerCase() ===
           categoryName.toLowerCase()
       );
+
     }
+
+    // Search
 
     if (keyword) {
-      data = data.filter(item =>
-        item.productName
-          .toLowerCase()
-          .includes(
-            keyword.toLowerCase()
-          )
+
+      data = data.filter(
+        item =>
+          item.productName
+            ?.toLowerCase()
+            .includes(
+              keyword.toLowerCase()
+            )
       );
+
     }
 
+    // Gender
+
     if (selectedGender) {
+
       data = data.filter(
         item =>
           item.gender ===
           selectedGender
       );
+
     }
+
+    // Rating
 
     data = data.filter(
       item =>
-        item.ratings >= minimumRating
+        Number(item.ratings) >=
+        minimumRating
     );
+
+    // Categories
 
     if (
       chosenCategories.length > 0 &&
       !categoryName
     ) {
-      data = data.filter(item =>
-        chosenCategories.includes(
-          item.category
-        )
+
+      data = data.filter(
+        item =>
+          chosenCategories.includes(
+            item.category
+          )
       );
+
     }
-if (sortType === "low") {
 
-    data.sort(
-        (a, b) => a.price - b.price
-    );
+    // =========================
+    // SORTING
+    // =========================
 
-}
+    if (sortType === "low") {
 
-if (sortType === "high") {
+      data.sort(
+        (a, b) =>
+          Number(a.price) -
+          Number(b.price)
+      );
 
-    data.sort(
-        (a, b) => b.price - a.price
-    );
+    }
 
-}
+    if (sortType === "high") {
 
-if (sortType === "rating") {
+      data.sort(
+        (a, b) =>
+          Number(b.price) -
+          Number(a.price)
+      );
 
-    data.sort(
-        (a, b) => b.ratings - a.ratings
-    );
+    }
 
-}
+    if (sortType === "rating") {
+
+      data.sort(
+        (a, b) =>
+          Number(b.ratings) -
+          Number(a.ratings)
+      );
+
+    }
+
     return data;
+
   };
 
-  const toggleCategory =
-    category => {
+  // =========================
+  // CATEGORY CHECKBOX
+  // =========================
 
-      if (
-        chosenCategories.includes(category)
-      ) {
-        setChosenCategories(
-          chosenCategories.filter(
-            item =>
-              item !== category
-          )
-        );
-      } else {
-        setChosenCategories([
-          ...chosenCategories,
-          category
-        ]);
-      }
-    };
-const categories = [
-  ...new Set(
-    products.map(item => item.category)
-  )
-];
+  const toggleCategory = category => {
+
+    if (
+      chosenCategories.includes(
+        category
+      )
+    ) {
+
+      setChosenCategories(
+        chosenCategories.filter(
+          item =>
+            item !== category
+        )
+      );
+
+    } else {
+
+      setChosenCategories([
+        ...chosenCategories,
+        category
+      ]);
+
+    }
+
+  };
+
+  // =========================
+  // LOADING
+  // =========================
+
+  if (loading) {
+
+    return (
+      <div className="loading">
+
+        <h2>
+          Loading Varshney's Collection...
+        </h2>
+
+      </div>
+    );
+
+  }
+
+  // =========================
+  // ERROR
+  // =========================
+
+  if (error) {
+
+    return (
+      <div className="error-message">
+
+        <h2>{error}</h2>
+
+        <p>
+          Make sure your Express server
+          is running on port 5000.
+        </p>
+
+      </div>
+    );
+
+  }
+
+  const displayedProducts =
+    filterItems();
+
+  // =========================
+  // UI
+  // =========================
+
   return (
     <>
+
       <section className="collectionHead">
 
         <h2>
-          {
-            categoryName
+
+          {categoryName
             ? categoryName
-            : "All Collection"
-          }
+            : "All Collection"}
+
         </h2>
 
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Search Products..."
           value={keyword}
           onChange={e =>
             setKeyword(
@@ -198,19 +291,29 @@ const categories = [
 
       </section>
 
+
       <section className="layout">
+
+        {/* =====================
+            FILTERS
+        ===================== */}
 
         <aside className="filters">
 
           <h3>Filters</h3>
+
+
+          {/* GENDER */}
 
           <div>
 
             <h4>Gender</h4>
 
             <label>
+
               <input
                 type="radio"
+                name="gender"
                 value=""
                 checked={
                   selectedGender === ""
@@ -221,32 +324,43 @@ const categories = [
                   )
                 }
               />
+
               All
+
             </label>
 
+
             <label>
+
               <input
                 type="radio"
+                name="gender"
                 value="male"
                 checked={
-                  selectedGender === "male"
+                  selectedGender ===
+                  "male"
                 }
                 onChange={e =>
                   setSelectedGender(
                     e.target.value
                   )
                 }
-                
               />
+
               Male
+
             </label>
 
+
             <label>
+
               <input
                 type="radio"
+                name="gender"
                 value="female"
                 checked={
-                  selectedGender === "female"
+                  selectedGender ===
+                  "female"
                 }
                 onChange={e =>
                   setSelectedGender(
@@ -254,14 +368,21 @@ const categories = [
                   )
                 }
               />
+
               Female
+
             </label>
 
           </div>
 
+
+          {/* RATING */}
+
           <div>
 
-            <h4>Rating</h4>
+            <h4>
+              Minimum Rating
+            </h4>
 
             <input
               type="range"
@@ -284,40 +405,61 @@ const categories = [
             </p>
 
           </div>
-          <select
-  onChange={e =>
-    setSortType(e.target.value)
-  }
->
-  <option value="">
-    Sort
-  </option>
 
-  <option value="low">
-    Low Price
-  </option>
 
-  <option value="high">
-    High Price
-  </option>
+          {/* SORT */}
 
-  <option value="rating">
-    Rating
-  </option>
-</select>
+          <div>
+
+            <h4>
+              Sort Products
+            </h4>
+
+            <select
+              value={sortType}
+              onChange={e =>
+                setSortType(
+                  e.target.value
+                )
+              }
+            >
+
+              <option value="">
+                Default
+              </option>
+
+              <option value="low">
+                Price: Low to High
+              </option>
+
+              <option value="high">
+                Price: High to Low
+              </option>
+
+              <option value="rating">
+                Highest Rated
+              </option>
+
+            </select>
+
+          </div>
+
+
+          {/* CATEGORIES */}
+
           {!categoryName && (
 
             <div>
 
-              <h4>Categories</h4>
+              <h4>
+                Categories
+              </h4>
 
-              {
-                categories.map(category => (
+              {categories.map(
+                category => (
 
                   <label
-                    key={
-                      category
-                    }
+                    key={category}
                   >
 
                     <input
@@ -334,14 +476,12 @@ const categories = [
                       }
                     />
 
-                    {
-                      category
-                    }
+                    {category}
 
                   </label>
 
-                ))
-              }
+                )
+              )}
 
             </div>
 
@@ -349,32 +489,54 @@ const categories = [
 
         </aside>
 
+
+        {/* =====================
+            PRODUCTS
+        ===================== */}
+
         <div className="productArea">
 
-          {
-            filterItems().length > 0 ?
+          {displayedProducts.length >
+          0 ? (
 
-            filterItems().map(item => (
+            displayedProducts.map(
+              item => (
 
-              <ClothCard
-                key={item.productName}
-                item={item}
-              />
+                <ClothCard
+                  key={
+                    item._id ||
+                    item.productName
+                  }
+                  item={item}
+                />
 
-            ))
+              )
+            )
 
-            :
+          ) : (
 
-            <h2>
-              No Products Found
-            </h2>
-          }
+            <div>
+
+              <h2>
+                No Products Found
+              </h2>
+
+              <p>
+                Try changing your
+                filters or search.
+              </p>
+
+            </div>
+
+          )}
 
         </div>
 
       </section>
+
     </>
   );
+
 };
 
 export default Collection;

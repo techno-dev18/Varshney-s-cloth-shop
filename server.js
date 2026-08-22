@@ -16,6 +16,7 @@ app.use(express.json());
 // DATABASE
 connectDB();
 // HOME ROUTE
+app.use("/api/products", productRoutes);
 app.get("/", (req, res) => {
   res.send("Varshney's Cloth Shop API Running");
 });
