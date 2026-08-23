@@ -1,12 +1,10 @@
-
+import ShimmerCard from "../Components/ShimmerCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import ClothCard from "../Components/ClothCard";
 import { getAllProducts } from "../API/productApi";
-
 import "../Styles/Collection.css";
-
+// import "../Styles/ShimmerCard.css";
 const Collection = () => {
 
   const { categoryName } = useParams();
@@ -267,7 +265,7 @@ const Collection = () => {
 
   return (
     <>
-
+<ShimmerCard />
       <section className="collectionHead">
 
         <h2>
