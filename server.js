@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import user from "./models/user";
+import User from "./models/user";
 const bcrypt=require("bcrypt");
 import connectDB from "./db/dbconc.js";
 import productRoutes from "./routes/productRoutes.js";
@@ -147,7 +147,9 @@ app.post("/api/users/register", async (req, res) => {
       });
     }
 
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({
+      email
+    });
 
     if (existingUser) {
       return res.status(409).json({
@@ -156,7 +158,10 @@ app.post("/api/users/register", async (req, res) => {
       });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(
+      password,
+      10
+    );
 
     const user = await User.create({
       name,
@@ -175,7 +180,11 @@ app.post("/api/users/register", async (req, res) => {
     });
 
   } catch (error) {
-    console.error(error);
+
+    console.error(
+      "Registration Error:",
+      error
+    );
 
     res.status(500).json({
       success: false,
