@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-const user=require("./models/user");
+import user from "./models/user";
 const bcrypt=require("bcrypt");
 import connectDB from "./db/dbconc.js";
 import productRoutes from "./routes/productRoutes.js";

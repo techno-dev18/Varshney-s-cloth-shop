@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import "./root.css";
 import { ToastContainer }
-from "react-toastify";
+  from "react-toastify";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -19,7 +19,7 @@ import Collection from "./Pages/Collection";
 import Basket from "./Pages/Basket";
 import Account from "./Pages/Account";
 import Login from "./Pages/Login";
-import Signup from "./Pages/Signup.jsx";
+import Signup from "./Pages/SignUp";
 import ProductDetails from "./Pages/ProductDetails";
 import ErrorPage from "./Pages/ErrorPage";
 import Wishlist from "./Pages/Wishlist.jsx";
@@ -64,6 +64,14 @@ const siteRouter = createBrowserRouter([
       {
         path: "collection/item/:itemName",
         element: <ProductDetails />,
+      },
+      {
+        path: "login",
+        element: <Login />
+      },
+      {
+        path: "signup",
+        element: <Signup />
       },
     ],
   },
