@@ -1,0 +1,76 @@
+.authPage {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.authCard {
+  width: 100%;
+  max-width: 430px;
+  padding: 40px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+}
+
+.authCard h1 {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.authCard > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.authCard form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.authCard input {
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.authCard input:focus {
+  border-color: #111;
+}
+
+.authCard button {
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.authCard button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.authError {
+  color: #d00 !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.authSwitch {
+  margin-top: 20px !important;
+}
+
+.authSwitch a {
+  margin-left: 6px;
+  color: #111;
+  font-weight: bold;
+}

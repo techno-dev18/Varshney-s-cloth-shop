@@ -18,6 +18,8 @@ import Dashboard from "./Pages/Dashboard";
 import Collection from "./Pages/Collection";
 import Basket from "./Pages/Basket";
 import Account from "./Pages/Account";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup.jsx";
 import ProductDetails from "./Pages/ProductDetails";
 import ErrorPage from "./Pages/ErrorPage";
 import Wishlist from "./Pages/Wishlist.jsx";
