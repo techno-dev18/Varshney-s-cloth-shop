@@ -4,13 +4,16 @@ const API = axios.create({
   baseURL: "https://varshney-s-cloth-shop.onrender.com/api"
 });
 
-export const getAllProducts = () =>
-  API.get("/products");
+export const getAllProducts = () => {
+  return API.get("/products");
+};
 
-export const getSingleProduct = (productName) =>
-  API.get(`/products/${productName}`);
+export const getSingleProduct = (productId) => {
+  return API.get(`/products/${productId}`);
+};
 
-export const addProduct = (product) =>
-  API.post("/products", product);
+export const addProduct = (product) => {
+  return API.post("/products", product);
+};
 
 export default API;

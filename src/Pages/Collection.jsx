@@ -221,19 +221,19 @@ const Collection = () => {
   // LOADING
   // =========================
 
-  if (loading) {
+if (loading) {
 
-    return (
-      <div className="loading">
+  return (
+    <div className="productArea">
 
-        <h2>
-          Loading Varshney's Collection...
-        </h2>
+      {Array.from({ length: 8 }).map((_, index) => (
+        <ShimmerCard key={index} />
+      ))}
 
-      </div>
-    );
+    </div>
+  );
 
-  }
+}
 
   // =========================
   // ERROR
@@ -265,7 +265,7 @@ const Collection = () => {
 
   return (
     <>
-<ShimmerCard />
+
       <section className="collectionHead">
 
         <h2>
