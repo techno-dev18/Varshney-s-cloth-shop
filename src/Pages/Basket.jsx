@@ -1,119 +1,183 @@
-import {
-  useSelector,
-  useDispatch
-}
-  from "react-redux";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import {
-  increaseQuantity,
-  decreaseQuantity,
-  deleteProduct
-}
-  from "../Redux/slices/basketSlice";
-
-import "../Styles/Basket.css";
+const API_URL =
+  "https://varshney-s-cloth-shop.onrender.com/api";
 
 const Basket = () => {
 
-  const items =
-    useSelector(
-      store =>
-        store.basket
+  const navigate = useNavigate();
+
+  const [cartItems, setCartItems] =
+    useState([]);
+
+  const [loading, setLoading] =
+    useState(true);
+
+  const fetchCart = async () => {
+
+    const storedUser =
+      localStorage.getItem("user");
+
+    if (!storedUser) {
+      navigate("/login");
+      return;
+    }
+
+    const user = JSON.parse(storedUser);
+
+    try {
+
+      const response = await fetch(
+        `${API_URL}/cart/${user.id}`
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setCartItems(data.cartItems);
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Cart Error:",
+        error
+      );
+
+    } finally {
+
+      setLoading(false);
+
+    }
+  };
+
+  useEffect(() => {
+
+    fetchCart();
+
+  }, []);
+
+  const updateQuantity = async (
+    cartId,
+    action
+  ) => {
+
+    await fetch(
+      `${API_URL}/cart/${cartId}`,
+      {
+        method: "PUT",
+
+        headers: {
+          "Content-Type":
+            "application/json"
+        },
+
+        body: JSON.stringify({
+          action
+        })
+      }
     );
 
-  const ClothCard = ({ item }) => {
+    fetchCart();
+  };
 
-    const dispatch = useDispatch();
+  const removeItem = async (cartId) => {
 
-
-  }
-  const totalAmount = items.reduce(
-    (sum, item) =>
-      sum +
-      Math.round(
-        item.price -
-        item.price *
-        item.discountPercentage / 100
-      ) * item.quantity,
-    0
-  );
-  return (
-
-    <div className="basketPage">
-
-      <h1>
-        Shopping Basket
-      </h1>
-
+    await fetch(
+      `${API_URL}/cart/${cartId}`,
       {
-        items.length === 0 ?
-
-          <h2>
-            Basket Empty
-          </h2>
-
-          :
-
-          items.map(item => (
-
-            <div
-              className="basketCard"
-              key={item.productName}
-            >
-
-              <img
-                src={item.imgURL}
-                alt=""
-              />
-
-              <h3>
-                {item.productName}
-              </h3>
-
-              <button
-                onClick={() =>
-                  dispatch(
-                    deleteProduct(
-                      item.productName
-                    )
-                  )
-                }
-              >
-                Remove
-              </button>
-              <div className="quantityBox">
-                <button
-                  onClick={() =>
-                    dispatch(
-                      decreaseQuantity(
-                        item.productName
-                      )
-                    )
-                  }
-                >
-                  -
-                </button>
-
-                <span>{item.quantity}</span>
-
-                <button
-                  onClick={() =>
-                    dispatch(
-                      increaseQuantity(
-                        item.productName
-                      )
-                    )
-                  }
-                >
-                  +
-                </button>
-              </div>
-            </div>
-
-          ))
+        method: "DELETE"
       }
-<h2>Total: ₹{totalAmount}</h2>
-    </div>
+    );
+
+    fetchCart();
+  };
+
+  if (loading) {
+    return <h2>Loading Basket...</h2>;
+  }
+
+  if (cartItems.length === 0) {
+    return (
+      <h2>
+        Your Basket is Empty
+      </h2>
+    );
+  }
+
+  return (
+    <section className="basketPage">
+
+      <h1>Your Basket</h1>
+
+      {cartItems.map(item => (
+
+        <div
+          className="basketItem"
+          key={item._id}
+        >
+
+          <img
+            src={item.product.imgURL}
+            alt={item.product.productName}
+          />
+
+          <div>
+
+            <h3>
+              {item.product.productName}
+            </h3>
+
+            <p>
+              Size: {item.selectedSize}
+            </p>
+
+            <p>
+              ₹{item.product.price}
+            </p>
+
+            <button
+              onClick={() =>
+                updateQuantity(
+                  item._id,
+                  "decrement"
+                )
+              }
+            >
+              -
+            </button>
+
+            <span>
+              {item.quantity}
+            </span>
+
+            <button
+              onClick={() =>
+                updateQuantity(
+                  item._id,
+                  "increment"
+                )
+              }
+            >
+              +
+            </button>
+
+            <button
+              onClick={() =>
+                removeItem(item._id)
+              }
+            >
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </section>
   );
 };
 

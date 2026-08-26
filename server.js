@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import User from "./models/user.js";
+import Cart from "./models/Cart.js";
 import bcrypt from "bcrypt";
 import connectDB from "./db/dbconc.js";
 import productRoutes from "./routes/productRoutes.js";
@@ -63,76 +64,152 @@ app.use(
   productRoutes
 );
 //cart routes
-app.post("/cart", async (req, res) => {
+app.post("/api/cart", async (req, res) => {
   try {
-    const { selectedSize, quantity, productDetails } = req.body;
-  if(!selectedSize || !quantity || !productDetails){
-return res.status(400).json({ message: "Missing required fields" });
+    const {
+      userId,
+      productId,
+      selectedSize
+    } = req.body;
+
+    if (!userId || !productId || !selectedSize) {
+      return res.status(400).json({
+        success: false,
+        message: "User, product and size are required"
+      });
+    }
+
+    const existingItem = await Cart.findOne({
+      user: userId,
+      product: productId,
+      selectedSize
+    });
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+
+      await existingItem.save();
+
+      return res.status(200).json({
+        success: true,
+        message: "Cart quantity updated",
+        cartItem: existingItem
+      });
+    }
+
+    const cartItem = await Cart.create({
+      user: userId,
+      product: productId,
+      selectedSize,
+      quantity: 1
+    });
+
+    res.status(201).json({
+      success: true,
+      message: "Product added to cart",
+      cartItem
+    });
+
+  } catch (error) {
+
+    console.error("Add Cart Error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to add product to cart"
+    });
   }
-const newCartItem = new Cart(req.body).save();
-res.status(200).json({ message: "Cart item added successfully", cartItem: newCartItem });
- }
-    catch (error) {
-    res.status(500).json({ message: "Internal server error" });}
 });
-app.get("/cart", async (req, res) => {
-    try {
-      const cartItems = await Cart.find().populate("productDetails");
-      if (!cartItems || cartItems.length === 0) {
-        return res.status(404).json({ message: "No cart items found" });
-      }
-      res.status(200).json({ cartItems });
-    } catch (error) {
-      console.error("Error fetching cart items:", error);
-      res.status(500).json({ message: "Internal server error" });
+app.get("/api/cart/:userId", async (req, res) => {
+  try {
+
+    const cartItems = await Cart.find({
+      user: req.params.userId
+    }).populate("product");
+
+    res.status(200).json({
+      success: true,
+      cartItems
+    });
+
+  } catch (error) {
+
+    console.error("Get Cart Error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch cart"
+    });
+  }
+});
+app.put("/api/cart/:cartId", async (req, res) => {
+  try {
+    const { action } = req.body;
+
+    const cartItem = await Cart.findById(
+      req.params.cartId
+    );
+
+    if (!cartItem) {
+      return res.status(404).json({
+        success: false,
+        message: "Cart item not found"
+      });
     }
-  });
-app.get("/cart/:Id", async (req, res) => {
-    try {
-      const cartItem = await Cart.findById(req.params.Id).populate("productDetails");
-      if (!cartItem) {
-        return res.status(404).json({ message: "Cart item not found" });
-      }
-      res.status(200).json({ cartItem });
-    } catch (error) {
-      console.error("Error fetching cart item:", error);
-      res.status(500).json({ message: "Internal server error" });
+
+    if (action === "increment") {
+      cartItem.quantity += 1;
     }
-  });
-  app.delete("/cart/:Id", async (req, res) => {
-    try {
-      const deletedCartItem = await Cart.findByIdAndDelete(req.params.Id);
-      if (!deletedCartItem) {
-        return res.status(404).json({ message: "Cart item not found" });
+
+    if (action === "decrement") {
+      if (cartItem.quantity > 1) {
+        cartItem.quantity -= 1;
       }
-      res.status(200).json({ message: "Cart item deleted successfully" });
-    } catch (error) {
-      console.error("Error deleting cart item:", error);
-      res.status(500).json({ message: "Internal server error" });
     }
-  });
-  app.put("/cart/:Id", async (req, res) => {
-    try {
-      const {action} = req.body;  
-      const updatedCartItem = await Cart.findByIdAndUpdate(req.params.Id, req.body, { new: true });
-      if (!updatedCartItem) {
-        return res.status(404).json({ message: "Cart item not found" });
-      }
-     
-      if(action === "increment" || action === "decrement"){
-        const updatedQuantity = action === "increment" ? updatedCartItem.quantity + 1 : updatedCartItem.quantity - 1;
-        updatedCartItem.quantity = updatedQuantity;
-        await updatedCartItem.save();
-      }
-      else{
-        return res.status(400).json({ message: "Invalid action" });
-      }
-    res.status(200).json({ message: "Cart item updated successfully", cartItem: updatedCartItem });
-    } catch (error) {
-      console.error("Error updating cart item:", error);
-      res.status(500).json({ message: "Internal server error" });
+
+    await cartItem.save();
+
+    res.status(200).json({
+      success: true,
+      cartItem
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to update cart"
+    });
+  }
+});
+app.delete("/api/cart/:cartId", async (req, res) => {
+  try {
+
+    const deletedItem =
+      await Cart.findByIdAndDelete(
+        req.params.cartId
+      );
+
+    if (!deletedItem) {
+      return res.status(404).json({
+        success: false,
+        message: "Cart item not found"
+      });
     }
-  });
+
+    res.status(200).json({
+      success: true,
+      message: "Item removed from cart"
+    });
+
+  } catch (error) {
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to remove item"
+    });
+  }
+});
 //user routes
 
 //signup
