@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import "../Styles/Login.css";
 
 const API_URL =
@@ -51,16 +52,18 @@ const Login = () => {
       const data = await response.json();
 
       if (!response.ok) {
-
         setError(
           data.message ||
           "Login failed"
         );
-
         return;
       }
 
-      // Save logged-in user
+      /*
+        Save logged-in user
+        in browser storage.
+      */
+
       localStorage.setItem(
         "user",
         JSON.stringify(data.user)
@@ -72,7 +75,10 @@ const Login = () => {
 
     } catch (error) {
 
-      console.error(error);
+      console.error(
+        "Login Error:",
+        error
+      );
 
       setError(
         "Unable to connect to server"
