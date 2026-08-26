@@ -1,20 +1,23 @@
 import { Link } from "react-router-dom";
-import { useDispatch }
-from "react-redux";
+import { useDispatch } from "react-redux";
 
 import {
   insertProduct
-}
-from "../Redux/slices/basketSlice";
-import "../Styles/ClothCard.css";
+} from "../Redux/slices/basketSlice";
+
 import {
   addWishlist
 } from "../Redux/slices/wishlistSlice.js";
 
+import "../Styles/ClothCard.css";
+
 
 const ClothCard = ({ item }) => {
-    const dispatch = useDispatch();
+
+  const dispatch = useDispatch();
+
   const {
+    _id,
     productName,
     ratings,
     imgURL,
@@ -24,69 +27,161 @@ const ClothCard = ({ item }) => {
     sizes
   } = item;
 
+
+  // =========================
+  // CALCULATE SELLING PRICE
+  // =========================
+
+  const originalPrice =
+    Number(price || 0);
+
+  const discount =
+    Number(discountPercentage || 0);
+
   const sellingPrice =
     Math.round(
-      price -
-      (price * discountPercentage) / 100
+      originalPrice -
+      (
+        originalPrice *
+        discount
+      ) / 100
     );
 
+
+  // =========================
+  // ADD TO REDUX BASKET
+  // =========================
+
+  const handleAddToBasket = () => {
+
+    dispatch(
+      insertProduct(item)
+    );
+
+    console.log(
+      "Product added to Redux basket:",
+      item
+    );
+
+  };
+
+
+  // =========================
+  // ADD TO WISHLIST
+  // =========================
+
+  const handleWishlist = () => {
+
+    dispatch(
+      addWishlist(item)
+    );
+
+  };
+
+
   return (
+
     <div className="clothCard">
 
+
+      {/* PRODUCT IMAGE */}
+
       <Link
-        to={`/collection/item/${productName}`}
+        to={`/collection/item/${_id}`}
       >
+
         <img
           src={imgURL}
           alt={productName}
         />
+
       </Link>
 
-      <h3>{productName}</h3>
+
+      {/* PRODUCT NAME */}
+
+      <h3>
+        {productName}
+      </h3>
+
+
+      {/* BRAND + RATING */}
 
       <div className="cardTop">
-        <span>{brand}</span>
-        <span>⭐ {ratings}</span>
+
+        <span>
+          {brand}
+        </span>
+
+        <span>
+          ⭐ {ratings}
+        </span>
+
       </div>
 
+
+      {/* PRICE */}
+
       <div className="priceSection">
+
         <span className="oldPrice">
-          ₹{price}
+
+          ₹{originalPrice}
+
         </span>
 
         <span className="newPrice">
+
           ₹{sellingPrice}
+
         </span>
+
       </div>
 
+
+      {/* SIZE */}
+
       <select>
-        {sizes.map(size => (
-          <option key={size}>
-            {size}
-          </option>
-        ))}
+
+        {(sizes || []).map(
+          size => (
+
+            <option
+              key={size}
+              value={size}
+            >
+              {size}
+            </option>
+
+          )
+        )}
+
       </select>
 
+
+      {/* ADD TO BASKET */}
+
       <button
-  onClick={() =>
-    dispatch(
-      insertProduct(item)
-    )
-  }
->
-  Add To Basket
-</button>
-<button
-  onClick={() =>
-    dispatch(
-      addWishlist(item)
-    )
-  }
->
-  ❤️ Wishlist
-</button>
+        onClick={handleAddToBasket}
+      >
+        Add To Basket
+      </button>
+
+
+      {/* WISHLIST */}
+
+      <button
+        onClick={handleWishlist}
+      >
+        ❤️ Wishlist
+      </button>
+
+
     </div>
+
   );
+
 };
+
 
 export default ClothCard;
