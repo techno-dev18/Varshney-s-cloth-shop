@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import User from "./models/user.js";
-const bcrypt=require("bcrypt");
+import bcrypt from "bcrypt";
 import connectDB from "./db/dbconc.js";
 import productRoutes from "./routes/productRoutes.js";
 dotenv.config();
