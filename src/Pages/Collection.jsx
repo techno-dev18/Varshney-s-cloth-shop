@@ -4,27 +4,28 @@ import { useEffect, useState } from "react";
 import ClothCard from "../Components/ClothCard";
 import { getAllProducts } from "../API/productApi";
 import "../Styles/Collection.css";
-// import "../Styles/ShimmerCard.css";
+
 const Collection = () => {
 
   const { categoryName } = useParams();
 
-  // Products received from MongoDB
+  // Products from MongoDB
   const [products, setProducts] = useState([]);
 
-  // UI states
+  // Filters
   const [keyword, setKeyword] = useState("");
   const [selectedGender, setSelectedGender] = useState("");
   const [minimumRating, setMinimumRating] = useState(0);
   const [chosenCategories, setChosenCategories] = useState([]);
   const [sortType, setSortType] = useState("");
 
+  // Loading / error
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // =========================
-  // GET PRODUCTS FROM BACKEND
-  // =========================
+  // ==========================================
+  // FETCH PRODUCTS FROM RENDER + MONGODB
+  // ==========================================
 
   useEffect(() => {
 
@@ -35,13 +36,36 @@ const Collection = () => {
         setLoading(true);
         setError("");
 
+        console.log("Fetching products...");
+
         const response = await getAllProducts();
 
-        console.log("Products from MongoDB:", response.data);
-
-        setProducts(
-          response.data.products || []
+        console.log(
+          "Products API response:",
+          response.data
         );
+
+        // Backend normally returns:
+        // { success: true, products: [...] }
+
+        const productsFromDB =
+          response.data.products ||
+          response.data;
+
+        if (!Array.isArray(productsFromDB)) {
+
+          console.error(
+            "Invalid products response:",
+            productsFromDB
+          );
+
+          throw new Error(
+            "Products data is not an array"
+          );
+
+        }
+
+        setProducts(productsFromDB);
 
       } catch (error) {
 
@@ -66,27 +90,27 @@ const Collection = () => {
 
   }, []);
 
-  // =========================
-  // CATEGORIES FROM MONGODB
-  // =========================
+  // ==========================================
+  // GET UNIQUE CATEGORIES
+  // ==========================================
 
   const categories = [
     ...new Set(
-      products.map(
-        product => product.category
-      )
+      products
+        .map(product => product.category)
+        .filter(Boolean)
     )
   ];
 
-  // =========================
+  // ==========================================
   // FILTER PRODUCTS
-  // =========================
+  // ==========================================
 
   const filterItems = () => {
 
     let data = [...products];
 
-    // Category from URL
+    // CATEGORY FROM URL
 
     if (categoryName) {
 
@@ -98,9 +122,9 @@ const Collection = () => {
 
     }
 
-    // Search
+    // SEARCH
 
-    if (keyword) {
+    if (keyword.trim()) {
 
       data = data.filter(
         item =>
@@ -113,27 +137,27 @@ const Collection = () => {
 
     }
 
-    // Gender
+    // GENDER
 
     if (selectedGender) {
 
       data = data.filter(
         item =>
-          item.gender ===
-          selectedGender
+          item.gender?.toLowerCase() ===
+          selectedGender.toLowerCase()
       );
 
     }
 
-    // Rating
+    // RATING
 
     data = data.filter(
       item =>
-        Number(item.ratings) >=
+        Number(item.ratings || 0) >=
         minimumRating
     );
 
-    // Categories
+    // CATEGORY CHECKBOX
 
     if (
       chosenCategories.length > 0 &&
@@ -149,16 +173,16 @@ const Collection = () => {
 
     }
 
-    // =========================
-    // SORTING
-    // =========================
+    // ==========================================
+    // SORT
+    // ==========================================
 
     if (sortType === "low") {
 
       data.sort(
         (a, b) =>
-          Number(a.price) -
-          Number(b.price)
+          Number(a.price || 0) -
+          Number(b.price || 0)
       );
 
     }
@@ -167,8 +191,8 @@ const Collection = () => {
 
       data.sort(
         (a, b) =>
-          Number(b.price) -
-          Number(a.price)
+          Number(b.price || 0) -
+          Number(a.price || 0)
       );
 
     }
@@ -177,8 +201,8 @@ const Collection = () => {
 
       data.sort(
         (a, b) =>
-          Number(b.ratings) -
-          Number(a.ratings)
+          Number(b.ratings || 0) -
+          Number(a.ratings || 0)
       );
 
     }
@@ -187,16 +211,14 @@ const Collection = () => {
 
   };
 
-  // =========================
+  // ==========================================
   // CATEGORY CHECKBOX
-  // =========================
+  // ==========================================
 
   const toggleCategory = category => {
 
     if (
-      chosenCategories.includes(
-        category
-      )
+      chosenCategories.includes(category)
     ) {
 
       setChosenCategories(
@@ -217,54 +239,81 @@ const Collection = () => {
 
   };
 
-  // =========================
-  // LOADING
-  // =========================
+  // ==========================================
+  // LOADING SCREEN
+  // ==========================================
 
-if (loading) {
-
-  return (
-    <div className="productArea">
-
-      {Array.from({ length: 8 }).map((_, index) => (
-        <ShimmerCard key={index} />
-      ))}
-
-    </div>
-  );
-
-}
-
-  // =========================
-  // ERROR
-  // =========================
-
-  if (error) {
+  if (loading) {
 
     return (
-      <div className="error-message">
 
-        <h2>{error}</h2>
+      <div className="productArea">
 
-        <p>
-          Make sure your Express server
-          is running on port 5000.
-        </p>
+        {Array.from({ length: 8 }).map(
+          (_, index) => (
+
+            <ShimmerCard
+              key={index}
+            />
+
+          )
+        )}
 
       </div>
+
     );
 
   }
 
+  // ==========================================
+  // ERROR SCREEN
+  // ==========================================
+
+  if (error) {
+
+    return (
+
+      <div className="error-message">
+
+        <h2>
+          {error}
+        </h2>
+
+        <p>
+          Please check your internet
+          connection and try again.
+        </p>
+
+        <button
+          onClick={() =>
+            window.location.reload()
+          }
+        >
+          Retry
+        </button>
+
+      </div>
+
+    );
+
+  }
+
+  // ==========================================
+  // DISPLAY PRODUCTS
+  // ==========================================
+
   const displayedProducts =
     filterItems();
 
-  // =========================
+  // ==========================================
   // UI
-  // =========================
+  // ==========================================
 
   return (
+
     <>
+
+      {/* HEADER */}
 
       <section className="collectionHead">
 
@@ -290,22 +339,29 @@ if (loading) {
       </section>
 
 
+      {/* MAIN LAYOUT */}
+
       <section className="layout">
 
-        {/* =====================
-            FILTERS
-        ===================== */}
+
+        {/* ==========================
+            FILTER SIDEBAR
+        ========================== */}
 
         <aside className="filters">
 
-          <h3>Filters</h3>
+          <h3>
+            Filters
+          </h3>
 
 
           {/* GENDER */}
 
           <div>
 
-            <h4>Gender</h4>
+            <h4>
+              Gender
+            </h4>
 
             <label>
 
@@ -335,8 +391,7 @@ if (loading) {
                 name="gender"
                 value="male"
                 checked={
-                  selectedGender ===
-                  "male"
+                  selectedGender === "male"
                 }
                 onChange={e =>
                   setSelectedGender(
@@ -357,8 +412,7 @@ if (loading) {
                 name="gender"
                 value="female"
                 checked={
-                  selectedGender ===
-                  "female"
+                  selectedGender === "female"
                 }
                 onChange={e =>
                   setSelectedGender(
@@ -398,8 +452,10 @@ if (loading) {
             />
 
             <p>
+
               {minimumRating}
               ⭐ & Above
+
             </p>
 
           </div>
@@ -488,14 +544,13 @@ if (loading) {
         </aside>
 
 
-        {/* =====================
+        {/* ==========================
             PRODUCTS
-        ===================== */}
+        ========================== */}
 
         <div className="productArea">
 
-          {displayedProducts.length >
-          0 ? (
+          {displayedProducts.length > 0 ? (
 
             displayedProducts.map(
               item => (
@@ -513,15 +568,15 @@ if (loading) {
 
           ) : (
 
-            <div>
+            <div className="no-products">
 
               <h2>
                 No Products Found
               </h2>
 
               <p>
-                Try changing your
-                filters or search.
+                Try changing your filters
+                or search.
               </p>
 
             </div>
@@ -533,6 +588,7 @@ if (loading) {
       </section>
 
     </>
+
   );
 
 };
