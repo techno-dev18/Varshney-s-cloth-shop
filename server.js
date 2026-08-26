@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import User from "./models/user.js";
 import Cart from "./models/Cart.js";
+import ProductModel from "./models/ProductModel.js";
 import bcrypt from "bcrypt";
 import connectDB from "./db/dbconc.js";
 import productRoutes from "./routes/productRoutes.js";
