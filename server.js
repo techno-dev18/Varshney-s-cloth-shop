@@ -136,7 +136,7 @@ app.get("/cart/:Id", async (req, res) => {
 //user routes
 
 //signup
-app.post("/api/users/register", async (req, res) => {
+app.post("https://varshney-s-cloth-shop.onrender.com/api/users/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
