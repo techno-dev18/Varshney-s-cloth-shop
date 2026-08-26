@@ -356,10 +356,12 @@ const addToCart = async () => {
 
 
           {/* ADD TO CART */}
-
-          <button type="button" onClick={addToCart}>
-            Add To Basket
-          </button>
+<button
+  type="button"
+  onClick={addToCart}
+>
+  Add To Basket
+</button>
 
         </div>
 
