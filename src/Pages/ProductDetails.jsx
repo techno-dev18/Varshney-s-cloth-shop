@@ -139,102 +139,62 @@ const ProductDetails = () => {
     );
 
   // Add product to MongoDB cart
-  const addToCart = async () => {
+const addToCart = async () => {
+  console.log("ADD TO CART CLICKED");
 
-    const storedUser =
-      localStorage.getItem("user");
+  const storedUser = localStorage.getItem("user");
 
-    // User must login
-    if (!storedUser) {
+  console.log("USER:", storedUser);
 
-      alert(
-        "Please login before adding products to basket"
-      );
+  if (!storedUser) {
+    alert("Please login before adding products to basket");
+    return;
+  }
 
-      return;
-    }
+  const user = JSON.parse(storedUser);
 
-    const user =
-      JSON.parse(storedUser);
+  console.log("USER ID:", user.id);
+  console.log("PRODUCT ID:", selectedProduct._id);
+  console.log("SIZE:", currentSize);
 
-    // Check required IDs
-    if (!user.id) {
+  try {
+    const response = await fetch(
+      "https://varshney-s-cloth-shop.onrender.com/api/cart",
+      {
+        method: "POST",
 
-      alert(
-        "User information is missing. Please login again."
-      );
+        headers: {
+          "Content-Type": "application/json"
+        },
 
-      return;
-    }
-
-    if (!selectedProduct._id) {
-
-      alert(
-        "Product ID is missing."
-      );
-
-      return;
-    }
-
-    try {
-
-      const response =
-        await fetch(
-          `${API_URL}/cart`,
-          {
-            method: "POST",
-
-            headers: {
-              "Content-Type":
-                "application/json"
-            },
-
-            body: JSON.stringify({
-              userId: user.id,
-
-              productId:
-                selectedProduct._id,
-
-              selectedSize:
-                currentSize
-            })
-          }
-        );
-
-      const data =
-        await response.json();
-
-      console.log(
-        "Cart Response:",
-        data
-      );
-
-      if (!response.ok) {
-
-        alert(
-          data.message ||
-          "Failed to add product to basket"
-        );
-
-        return;
+        body: JSON.stringify({
+          userId: user.id,
+          productId: selectedProduct._id,
+          selectedSize: currentSize
+        })
       }
+    );
 
-      alert(
-        "Product added to basket!"
-      );
+    console.log("HTTP STATUS:", response.status);
 
-    } catch (error) {
+    const data = await response.json();
 
-      console.error(
-        "Cart Error:",
-        error
-      );
+    console.log("CART RESPONSE:", data);
 
-      alert(
-        "Unable to connect to server"
-      );
+    if (!response.ok) {
+      alert(data.message || "Failed to add product");
+      return;
     }
-  };
+
+    alert("Product added to basket!");
+
+  } catch (error) {
+
+    console.error("CART ERROR:", error);
+
+    alert("Unable to connect to server");
+  }
+};
 
   return (
 
@@ -397,9 +357,7 @@ const ProductDetails = () => {
 
           {/* ADD TO CART */}
 
-          <button
-            onClick={addToCart}
-          >
+          <button type="button" onClick={addToCart}>
             Add To Basket
           </button>
 
