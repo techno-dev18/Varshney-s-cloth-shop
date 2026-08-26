@@ -5,77 +5,85 @@ const productSchema = new mongoose.Schema(
     productName: {
       type: String,
       required: true,
-      unique: true,
-      trim: true,
+      trim: true
     },
 
     category: {
       type: String,
       required: true,
+      trim: true
     },
 
     gender: {
       type: String,
-      required: true,
       enum: ["male", "female", "unisex"],
+      required: true
     },
 
     ratings: {
       type: Number,
       default: 0,
+      min: 0,
+      max: 5
     },
 
     brand: {
       type: String,
       required: true,
+      trim: true
     },
 
     price: {
       type: Number,
       required: true,
+      min: 0
     },
 
     discountPercentage: {
       type: Number,
       default: 0,
+      min: 0,
+      max: 100
     },
 
     imgURL: {
       type: String,
-      required: true,
+      required: true
     },
 
     sizes: {
       type: [String],
-      default: [],
+      required: true
     },
 
     tagline: {
       type: String,
+      required: true
     },
 
     description: {
       type: String,
+      required: true
     },
 
     features: {
       type: [String],
-      default: [],
+      default: []
     },
 
     details: {
       type: [String],
-      default: [],
-    },
+      default: []
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 
-const ProductModel = mongoose.model(
+const Product = mongoose.model(
   "Product",
   productSchema
 );
 
-export default ProductModel;
+export default Product;

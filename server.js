@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import User from "./models/user.js";
 import Cart from "./models/Cart.js";
-import ProductModel from "./models/ProductModel.js";
+import Product from "./models/ProductModel.js";
 import bcrypt from "bcrypt";
 import connectDB from "./db/dbconc.js";
 import productRoutes from "./routes/productRoutes.js";
@@ -20,50 +20,24 @@ app.use(express.json());
 // DATABASE
 connectDB();
 // HOME ROUTE
-app.use("/api/products", productRoutes);
+
 app.get("/", (req, res) => {
   res.send("Varshney's Cloth Shop API Running");
 });
-const createProduct = async (productData) => {
-  try{
-const newProduct = new ProductModel(productData);
-   const savedProduct = await newProduct.save();
-   return savedProduct;
-  }catch(error){
-    console.error("Error creating product:", error);
-    throw error;
-  }
-}
-app.get("/api/products/:productId", async (req, res) => {
-  try {
-    const product = await ProductModel.findById(req.params.productId);
-    if (!product) {
-      return res.status(404).json({ message: "Product not found" });
-    }
-    res.status(200).json({ product });
-  } catch (error) {
-    console.error("Error fetching product:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
+app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/users", userRoutes);
+
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Varshney's Cloth Shop API is running"
+  });
 });
-app.post("/api/products", async (req, res) => {
-  try {
-    const savedProduct = await createProduct(req.body);
-    if(savedProduct){
-       res.status(200).json({ message: "Product created successfully", product: savedProduct });
-    }
-  }
-  catch (error) {
-    console.error("Error creating product:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }});
 
 // PRODUCT ROUTES
 
-app.use(
-  "/api/products",
-  productRoutes
-);
+
 //cart routes
 app.post("/api/cart", async (req, res) => {
   try {
