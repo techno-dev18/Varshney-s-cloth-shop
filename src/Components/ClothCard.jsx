@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 import {
   insertProduct
@@ -8,6 +9,10 @@ import {
 import {
   addWishlist
 } from "../Redux/slices/wishlistSlice.js";
+
+import {
+  addToCart
+} from "../API/productApi";
 
 import "../Styles/ClothCard.css";
 
@@ -28,8 +33,18 @@ const ClothCard = ({ item }) => {
   } = item;
 
 
+  const [selectedSize, setSelectedSize] =
+    useState(
+      sizes?.[0] || ""
+    );
+
+
+  const [addingToCart, setAddingToCart] =
+    useState(false);
+
+
   // =========================
-  // CALCULATE SELLING PRICE
+  // PRICE
   // =========================
 
   const originalPrice =
@@ -49,25 +64,131 @@ const ClothCard = ({ item }) => {
 
 
   // =========================
-  // ADD TO REDUX BASKET
+  // ADD TO CART
   // =========================
 
-  const handleAddToBasket = () => {
+  const handleAddToBasket =
+    async () => {
 
-    dispatch(
-      insertProduct(item)
-    );
+      try {
 
-    console.log(
-      "Product added to Redux basket:",
-      item
-    );
+        // Check login
 
-  };
+        const storedUser =
+          localStorage.getItem("user");
+
+        if (!storedUser) {
+
+          alert(
+            "Please login before adding products to basket."
+          );
+
+          return;
+        }
+
+
+        const user =
+          JSON.parse(storedUser);
+
+
+        if (!user._id) {
+
+          alert(
+            "User information is missing. Please login again."
+          );
+
+          return;
+        }
+
+
+        if (!selectedSize) {
+
+          alert(
+            "Please select a size."
+          );
+
+          return;
+        }
+
+
+        setAddingToCart(true);
+
+
+        // =========================
+        // SEND TO MONGODB
+        // =========================
+
+        const cartData = {
+
+          user: user._id,
+
+          product: _id,
+
+          selectedSize: selectedSize,
+
+          quantity: 1
+
+        };
+
+
+        console.log(
+          "Adding to MongoDB cart:",
+          cartData
+        );
+
+
+        const response =
+          await addToCart(cartData);
+
+
+        console.log(
+          "Cart API response:",
+          response.data
+        );
+
+
+        // =========================
+        // UPDATE REDUX
+        // =========================
+
+        dispatch(
+          insertProduct({
+            ...item,
+            selectedSize
+          })
+        );
+
+
+        alert(
+          "Product added to basket!"
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "Add to cart error:",
+          error
+        );
+
+
+        alert(
+          error.response?.data?.message ||
+          "Unable to add product to basket."
+        );
+
+
+      } finally {
+
+        setAddingToCart(false);
+
+      }
+
+    };
 
 
   // =========================
-  // ADD TO WISHLIST
+  // WISHLIST
   // =========================
 
   const handleWishlist = () => {
@@ -84,7 +205,7 @@ const ClothCard = ({ item }) => {
     <div className="clothCard">
 
 
-      {/* PRODUCT IMAGE */}
+      {/* IMAGE */}
 
       <Link
         to={`/collection/item/${_id}`}
@@ -98,7 +219,7 @@ const ClothCard = ({ item }) => {
       </Link>
 
 
-      {/* PRODUCT NAME */}
+      {/* NAME */}
 
       <h3>
         {productName}
@@ -125,15 +246,11 @@ const ClothCard = ({ item }) => {
       <div className="priceSection">
 
         <span className="oldPrice">
-
           ₹{originalPrice}
-
         </span>
 
         <span className="newPrice">
-
           ₹{sellingPrice}
-
         </span>
 
       </div>
@@ -141,7 +258,14 @@ const ClothCard = ({ item }) => {
 
       {/* SIZE */}
 
-      <select>
+      <select
+        value={selectedSize}
+        onChange={(e) =>
+          setSelectedSize(
+            e.target.value
+          )
+        }
+      >
 
         {(sizes || []).map(
           size => (
@@ -159,19 +283,28 @@ const ClothCard = ({ item }) => {
       </select>
 
 
-      {/* ADD TO BASKET */}
+      {/* BASKET */}
 
       <button
-        onClick={handleAddToBasket}
+        onClick={
+          handleAddToBasket
+        }
+        disabled={addingToCart}
       >
-        Add To Basket
+
+        {addingToCart
+          ? "Adding..."
+          : "Add To Basket"}
+
       </button>
 
 
       {/* WISHLIST */}
 
       <button
-        onClick={handleWishlist}
+        onClick={
+          handleWishlist
+        }
       >
         ❤️ Wishlist
       </button>
