@@ -59,7 +59,7 @@ const ClothCard = ({ item }) => {
     try {
 
       const response = await addToCart(
-        user._id,
+        user.id,
         item._id,
         selectedSize
       );
