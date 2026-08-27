@@ -1,16 +1,14 @@
 import express from "express";
-import Cart from "../models/Cart.js";
+import Cart from "./models/Cart.js";
 
 const router = express.Router();
 
 
-// ========================================
+// ===============================
 // ADD PRODUCT TO CART
-// POST /api/cart
-// ========================================
+// ===============================
 
 router.post("/", async (req, res) => {
-
   try {
 
     const {
@@ -19,37 +17,18 @@ router.post("/", async (req, res) => {
       selectedSize
     } = req.body;
 
-
-    // Validate request
-
-    if (
-      !userId ||
-      !productId ||
-      !selectedSize
-    ) {
-
+    if (!userId || !productId || !selectedSize) {
       return res.status(400).json({
         success: false,
-        message:
-          "User, product and size are required"
+        message: "User, product and size are required"
       });
-
     }
 
-
-    // Check if product with same size
-    // already exists in user's cart
-
-    const existingItem =
-      await Cart.findOne({
-        user: userId,
-        product: productId,
-        selectedSize
-      });
-
-
-    // If already exists,
-    // increase quantity
+    const existingItem = await Cart.findOne({
+      user: userId,
+      product: productId,
+      selectedSize: selectedSize
+    });
 
     if (existingItem) {
 
@@ -58,114 +37,63 @@ router.post("/", async (req, res) => {
       await existingItem.save();
 
       return res.status(200).json({
-
         success: true,
-
-        message:
-          "Cart quantity updated",
-
-        cartItem:
-          existingItem
-
+        message: "Cart quantity updated",
+        cartItem: existingItem
       });
-
     }
 
-
-    // Create new cart item
-
-    const cartItem =
-      await Cart.create({
-
-        user: userId,
-
-        product: productId,
-
-        selectedSize,
-
-        quantity: 1
-
-      });
-
-
-    res.status(201).json({
-
-      success: true,
-
-      message:
-        "Product added to cart",
-
-      cartItem
-
+    const cartItem = await Cart.create({
+      user: userId,
+      product: productId,
+      selectedSize: selectedSize,
+      quantity: 1
     });
 
+    res.status(201).json({
+      success: true,
+      message: "Product added to cart",
+      cartItem
+    });
 
   } catch (error) {
 
-    console.error(
-      "Add Cart Error:",
-      error
-    );
+    console.error("Add Cart Error:", error);
 
     res.status(500).json({
-
       success: false,
-
-      message:
-        "Failed to add product to cart",
-
-      error:
-        error.message
-
+      message: "Failed to add product to cart",
+      error: error.message
     });
 
   }
-
 });
 
 
-// ========================================
+// ===============================
 // GET USER CART
-// GET /api/cart/:userId
-// ========================================
+// ===============================
 
 router.get("/:userId", async (req, res) => {
 
   try {
 
-    const cartItems =
-      await Cart.find({
-        user: req.params.userId
-      })
-      .populate("product");
-
+    const cartItems = await Cart.find({
+      user: req.params.userId
+    }).populate("product");
 
     res.status(200).json({
-
       success: true,
-
       cartItems
-
     });
-
 
   } catch (error) {
 
-    console.error(
-      "Get Cart Error:",
-      error
-    );
+    console.error("Get Cart Error:", error);
 
     res.status(500).json({
-
       success: false,
-
-      message:
-        "Failed to fetch cart",
-
-      error:
-        error.message
-
+      message: "Failed to fetch cart"
     });
 
   }
@@ -173,115 +101,62 @@ router.get("/:userId", async (req, res) => {
 });
 
 
-// ========================================
+// ===============================
 // UPDATE CART QUANTITY
-// PUT /api/cart/:cartId
-// ========================================
+// ===============================
 
 router.put("/:cartId", async (req, res) => {
 
   try {
 
-    const { action } =
-      req.body;
+    const { action } = req.body;
 
-
-    const cartItem =
-      await Cart.findById(
-        req.params.cartId
-      );
-
+    const cartItem = await Cart.findById(
+      req.params.cartId
+    );
 
     if (!cartItem) {
 
       return res.status(404).json({
-
         success: false,
-
-        message:
-          "Cart item not found"
-
+        message: "Cart item not found"
       });
 
     }
 
-
-    // Increase quantity
-
-    if (
-      action === "increment"
-    ) {
+    if (action === "increment") {
 
       cartItem.quantity += 1;
 
-    }
+    } else if (action === "decrement") {
 
-
-    // Decrease quantity
-
-    else if (
-      action === "decrement"
-    ) {
-
-      if (
-        cartItem.quantity > 1
-      ) {
-
+      if (cartItem.quantity > 1) {
         cartItem.quantity -= 1;
-
       }
 
-    }
-
-
-    // Invalid action
-
-    else {
+    } else {
 
       return res.status(400).json({
-
         success: false,
-
-        message:
-          "Invalid cart action"
-
+        message: "Invalid action"
       });
 
     }
 
-
     await cartItem.save();
 
-
     res.status(200).json({
-
       success: true,
-
-      message:
-        "Cart quantity updated",
-
       cartItem
-
     });
-
 
   } catch (error) {
 
-    console.error(
-      "Update Cart Error:",
-      error
-    );
+    console.error("Update Cart Error:", error);
 
     res.status(500).json({
-
       success: false,
-
-      message:
-        "Failed to update cart",
-
-      error:
-        error.message
-
+      message: "Failed to update cart"
     });
 
   }
@@ -289,10 +164,9 @@ router.put("/:cartId", async (req, res) => {
 });
 
 
-// ========================================
+// ===============================
 // DELETE CART ITEM
-// DELETE /api/cart/:cartId
-// ========================================
+// ===============================
 
 router.delete("/:cartId", async (req, res) => {
 
@@ -303,50 +177,31 @@ router.delete("/:cartId", async (req, res) => {
         req.params.cartId
       );
 
-
     if (!deletedItem) {
 
       return res.status(404).json({
-
         success: false,
-
-        message:
-          "Cart item not found"
-
+        message: "Cart item not found"
       });
 
     }
 
-
     res.status(200).json({
-
       success: true,
-
-      message:
-        "Item removed from cart"
-
+      message: "Item removed from cart"
     });
-
 
   } catch (error) {
 
-    console.error(
-      "Delete Cart Error:",
-      error
-    );
+    console.error("Delete Cart Error:", error);
 
     res.status(500).json({
-
       success: false,
-
-      message:
-        "Failed to remove item"
-
+      message: "Failed to remove item"
     });
 
   }
 
 });
-
 
 export default router;
