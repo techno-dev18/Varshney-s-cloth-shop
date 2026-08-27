@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import {
   insertProduct
@@ -12,7 +12,7 @@ import {
 
 import {
   addToCart
-} from "../API/productApi";
+} from "../API/cartApi";
 
 import "../Styles/ClothCard.css";
 
@@ -21,8 +21,10 @@ const ClothCard = ({ item }) => {
 
   const dispatch = useDispatch();
 
+  const [selectedSize, setSelectedSize] =
+    useState(item.sizes?.[0] || "");
+
   const {
-    _id,
     productName,
     ratings,
     imgURL,
@@ -33,170 +35,67 @@ const ClothCard = ({ item }) => {
   } = item;
 
 
-  const [selectedSize, setSelectedSize] =
-    useState(
-      sizes?.[0] || ""
-    );
-
-
-  const [addingToCart, setAddingToCart] =
-    useState(false);
-
-
-  // =========================
-  // PRICE
-  // =========================
-
-  const originalPrice =
-    Number(price || 0);
-
-  const discount =
-    Number(discountPercentage || 0);
-
   const sellingPrice =
     Math.round(
-      originalPrice -
-      (
-        originalPrice *
-        discount
-      ) / 100
+      price -
+      (price * discountPercentage) / 100
     );
 
 
-  // =========================
-  // ADD TO CART
-  // =========================
+  const handleAddToCart = async () => {
 
-  const handleAddToBasket =
-    async () => {
-
-      try {
-
-        // Check login
-
-        const storedUser =
-          localStorage.getItem("user");
-
-        if (!storedUser) {
-
-          alert(
-            "Please login before adding products to basket."
-          );
-
-          return;
-        }
-
-
-        const user =
-          JSON.parse(storedUser);
-
-
-        if (!user._id) {
-
-          alert(
-            "User information is missing. Please login again."
-          );
-
-          return;
-        }
-
-
-        if (!selectedSize) {
-
-          alert(
-            "Please select a size."
-          );
-
-          return;
-        }
-
-
-        setAddingToCart(true);
-
-
-        // =========================
-        // SEND TO MONGODB
-        // =========================
-
-        const cartData = {
-
-          user: user._id,
-
-          product: _id,
-
-          selectedSize: selectedSize,
-
-          quantity: 1
-
-        };
-
-
-        console.log(
-          "Adding to MongoDB cart:",
-          cartData
-        );
-
-
-        const response =
-          await addToCart(cartData);
-
-
-        console.log(
-          "Cart API response:",
-          response.data
-        );
-
-
-        // =========================
-        // UPDATE REDUX
-        // =========================
-
-        dispatch(
-          insertProduct({
-            ...item,
-            selectedSize
-          })
-        );
-
-
-        alert(
-          "Product added to basket!"
-        );
-
-
-      } catch (error) {
-
-        console.error(
-          "Add to cart error:",
-          error
-        );
-
-
-        alert(
-          error.response?.data?.message ||
-          "Unable to add product to basket."
-        );
-
-
-      } finally {
-
-        setAddingToCart(false);
-
-      }
-
-    };
-
-
-  // =========================
-  // WISHLIST
-  // =========================
-
-  const handleWishlist = () => {
-
-    dispatch(
-      addWishlist(item)
+    const user = JSON.parse(
+      localStorage.getItem("user")
     );
 
+    if (!user) {
+
+      alert("Please login first");
+
+      return;
+    }
+
+
+    try {
+
+      const response = await addToCart(
+        user._id,
+        item._id,
+        selectedSize
+      );
+
+
+      console.log(
+        "Cart API response:",
+        response.data
+      );
+
+
+      // Keep Redux basket updated
+      dispatch(
+        insertProduct({
+          ...item,
+          selectedSize
+        })
+      );
+
+
+      alert("Product added to basket");
+
+
+    } catch (error) {
+
+      console.error(
+        "Add to cart error:",
+        error
+      );
+
+
+      alert(
+        error.response?.data?.message ||
+        "Failed to add product to cart"
+      );
+    }
   };
 
 
@@ -204,11 +103,8 @@ const ClothCard = ({ item }) => {
 
     <div className="clothCard">
 
-
-      {/* IMAGE */}
-
       <Link
-        to={`/collection/item/${_id}`}
+        to={`/collection/item/${productName}`}
       >
 
         <img
@@ -219,14 +115,10 @@ const ClothCard = ({ item }) => {
       </Link>
 
 
-      {/* NAME */}
-
       <h3>
         {productName}
       </h3>
 
-
-      {/* BRAND + RATING */}
 
       <div className="cardTop">
 
@@ -241,12 +133,10 @@ const ClothCard = ({ item }) => {
       </div>
 
 
-      {/* PRICE */}
-
       <div className="priceSection">
 
         <span className="oldPrice">
-          ₹{originalPrice}
+          ₹{price}
         </span>
 
         <span className="newPrice">
@@ -256,64 +146,46 @@ const ClothCard = ({ item }) => {
       </div>
 
 
-      {/* SIZE */}
-
       <select
         value={selectedSize}
         onChange={(e) =>
-          setSelectedSize(
-            e.target.value
-          )
+          setSelectedSize(e.target.value)
         }
       >
 
-        {(sizes || []).map(
-          size => (
+        {sizes?.map(size => (
 
-            <option
-              key={size}
-              value={size}
-            >
-              {size}
-            </option>
+          <option
+            key={size}
+            value={size}
+          >
+            {size}
+          </option>
 
-          )
-        )}
+        ))}
 
       </select>
 
 
-      {/* BASKET */}
-
       <button
-        onClick={
-          handleAddToBasket
-        }
-        disabled={addingToCart}
+        onClick={handleAddToCart}
       >
-
-        {addingToCart
-          ? "Adding..."
-          : "Add To Basket"}
-
+        Add To Basket
       </button>
 
 
-      {/* WISHLIST */}
-
       <button
-        onClick={
-          handleWishlist
+        onClick={() =>
+          dispatch(
+            addWishlist(item)
+          )
         }
       >
         ❤️ Wishlist
       </button>
 
-
     </div>
-
   );
-
 };
 
 
