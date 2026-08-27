@@ -17,7 +17,6 @@ const Basket = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-
   // =========================
   // FETCH CART
   // =========================
@@ -34,10 +33,13 @@ const Basket = () => {
 
     try {
 
+      setLoading(true);
+      setError("");
+
       const user = JSON.parse(storedUser);
 
-      const userId =
-        user.id || user._id;
+      // Your login currently stores id
+      const userId = user.id || user._id;
 
       const response =
         await getCart(userId);
@@ -58,7 +60,7 @@ const Basket = () => {
     } catch (error) {
 
       console.error(
-        "Cart Error:",
+        "Fetch Cart Error:",
         error
       );
 
@@ -74,6 +76,10 @@ const Basket = () => {
     }
   };
 
+
+  // =========================
+  // LOAD CART
+  // =========================
 
   useEffect(() => {
 
@@ -107,17 +113,12 @@ const Basket = () => {
         error
       );
 
-      alert(
-        error.response?.data?.message ||
-        "Unable to update quantity"
-      );
-
     }
   };
 
 
   // =========================
-  // REMOVE ITEM
+  // REMOVE PRODUCT
   // =========================
 
   const removeItem = async (
@@ -126,7 +127,9 @@ const Basket = () => {
 
     try {
 
-      await deleteCartItem(cartId);
+      await deleteCartItem(
+        cartId
+      );
 
       await fetchCart();
 
@@ -137,54 +140,7 @@ const Basket = () => {
         error
       );
 
-      alert(
-        error.response?.data?.message ||
-        "Unable to remove item"
-      );
-
     }
-  };
-
-
-  // =========================
-  // TOTAL
-  // =========================
-
-  const calculateTotal = () => {
-
-    return cartItems.reduce(
-      (total, item) => {
-
-        const product =
-          item.product;
-
-        if (!product) {
-          return total;
-        }
-
-        const price =
-          Number(product.price) || 0;
-
-        const discount =
-          Number(
-            product.discountPercentage
-          ) || 0;
-
-        const finalPrice =
-          Math.round(
-            price -
-            (price * discount) / 100
-          );
-
-        return (
-          total +
-          finalPrice *
-          item.quantity
-        );
-
-      },
-      0
-    );
   };
 
 
@@ -220,6 +176,12 @@ const Basket = () => {
           {error}
         </h2>
 
+        <button
+          onClick={fetchCart}
+        >
+          Try Again
+        </button>
+
       </section>
     );
 
@@ -227,25 +189,29 @@ const Basket = () => {
 
 
   // =========================
-  // EMPTY
+  // EMPTY CART
   // =========================
 
   if (cartItems.length === 0) {
 
     return (
-      <section className="basketPage">
+      <section className="basketPage emptyBasket">
 
-        <div className="emptyBasket">
+        <h1>
+          Your Basket is Empty
+        </h1>
 
-          <h1>
-            Your Basket is Empty
-          </h1>
+        <p>
+          Add some products to your basket.
+        </p>
 
-          <p>
-            Add some products to your basket.
-          </p>
-
-        </div>
+        <button
+          onClick={() =>
+            navigate("/collection")
+          }
+        >
+          Continue Shopping
+        </button>
 
       </section>
     );
@@ -254,7 +220,21 @@ const Basket = () => {
 
 
   // =========================
-  // BASKET
+  // TOTAL
+  // =========================
+
+  const totalPrice =
+    cartItems.reduce(
+      (total, item) =>
+        total +
+        Number(item.product?.price || 0) *
+        Number(item.quantity || 1),
+      0
+    );
+
+
+  // =========================
+  // UI
   // =========================
 
   return (
@@ -265,13 +245,12 @@ const Basket = () => {
         Your Basket
       </h1>
 
-      <div className="basketLayout">
 
-        {/* =====================
-            PRODUCTS
-        ===================== */}
+      <div className="basketContainer">
 
-        <div className="basketItems">
+        {/* PRODUCTS */}
+
+        <div className="basketProducts">
 
           {cartItems.map(item => {
 
@@ -281,20 +260,6 @@ const Basket = () => {
             if (!product) {
               return null;
             }
-
-            const price =
-              Number(product.price) || 0;
-
-            const discount =
-              Number(
-                product.discountPercentage
-              ) || 0;
-
-            const finalPrice =
-              Math.round(
-                price -
-                (price * discount) / 100
-              );
 
             return (
 
@@ -308,7 +273,8 @@ const Basket = () => {
                   alt={product.productName}
                 />
 
-                <div className="basketInfo">
+
+                <div className="basketDetails">
 
                   <h3>
                     {product.productName}
@@ -319,25 +285,12 @@ const Basket = () => {
                   </p>
 
                   <p>
-                    Size:{" "}
-                    <strong>
-                      {item.selectedSize}
-                    </strong>
+                    Size: {item.selectedSize}
                   </p>
 
-                  <div className="basketPrice">
-
-                    <strong>
-                      ₹{finalPrice}
-                    </strong>
-
-                    {discount > 0 && (
-                      <del>
-                        ₹{price}
-                      </del>
-                    )}
-
-                  </div>
+                  <p className="basketPrice">
+                    ₹{product.price}
+                  </p>
 
 
                   {/* QUANTITY */}
@@ -358,9 +311,11 @@ const Basket = () => {
                       −
                     </button>
 
+
                     <span>
                       {item.quantity}
                     </span>
+
 
                     <button
                       onClick={() =>
@@ -381,9 +336,7 @@ const Basket = () => {
                   <button
                     className="removeButton"
                     onClick={() =>
-                      removeItem(
-                        item._id
-                      )
+                      removeItem(item._id)
                     }
                   >
                     Remove
@@ -400,11 +353,9 @@ const Basket = () => {
         </div>
 
 
-        {/* =====================
-            SUMMARY
-        ===================== */}
+        {/* SUMMARY */}
 
-        <div className="basketSummary">
+        <aside className="basketSummary">
 
           <h2>
             Order Summary
@@ -419,42 +370,44 @@ const Basket = () => {
             <span>
               {cartItems.reduce(
                 (total, item) =>
-                  total + item.quantity,
+                  total +
+                  item.quantity,
                 0
               )}
             </span>
 
           </div>
 
-          <div className="summaryRow totalRow">
+
+          <div className="summaryRow">
 
             <span>
               Total
             </span>
 
             <strong>
-              ₹{calculateTotal()}
+              ₹{totalPrice}
             </strong>
 
           </div>
+
 
           <button
             className="checkoutButton"
             onClick={() =>
               alert(
-                "Checkout coming soon"
+                "Checkout will be added next."
               )
             }
           >
             Proceed to Checkout
           </button>
 
-        </div>
+        </aside>
 
       </div>
 
     </section>
-
   );
 };
 
