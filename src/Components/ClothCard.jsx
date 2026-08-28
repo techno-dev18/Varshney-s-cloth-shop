@@ -81,7 +81,9 @@ const ClothCard = ({ item }) => {
 
       alert("Product added to basket");
 
-
+window.dispatchEvent(
+  new Event("cartUpdated")
+);
     } catch (error) {
 
       console.error(

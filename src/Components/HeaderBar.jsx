@@ -1,45 +1,103 @@
 import { NavLink } from "react-router-dom";
-
 import {
   FaShoppingBag,
   FaUserCircle,
   FaStore
 } from "react-icons/fa";
 
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+
+import { getCart } from "../API/cartApi";
 
 import "../Styles/HeaderBar.css";
 
 
 const HeaderBar = () => {
 
-  // =========================
-  // GET BASKET FROM REDUX
-  // =========================
-
-  const basketItems = useSelector(
-    store => store.basket
-  );
+  const [basketCount, setBasketCount] =
+    useState(0);
 
 
-  // =========================
-  // TOTAL BASKET QUANTITY
-  // =========================
+  const fetchBasketCount = async () => {
 
-  const basketCount = basketItems.reduce(
-    (total, item) =>
-      total + (item.quantity || 1),
-    0
-  );
+    const storedUser =
+      localStorage.getItem("user");
+
+    // User not logged in
+    if (!storedUser) {
+
+      setBasketCount(0);
+
+      return;
+    }
+
+
+    try {
+
+      const user =
+        JSON.parse(storedUser);
+
+      const response =
+        await getCart(user.id);
+
+      if (response.data.success) {
+
+        const cartItems =
+          response.data.cartItems || [];
+
+        // Total quantity
+        const totalQuantity =
+          cartItems.reduce(
+            (total, item) =>
+              total + item.quantity,
+            0
+          );
+
+        setBasketCount(
+          totalQuantity
+        );
+
+      }
+
+    } catch (error) {
+
+      console.error(
+        "Basket count error:",
+        error
+      );
+
+      setBasketCount(0);
+
+    }
+
+  };
+
+
+  useEffect(() => {
+
+    fetchBasketCount();
+
+    // Update header when cart changes
+    window.addEventListener(
+      "cartUpdated",
+      fetchBasketCount
+    );
+
+    return () => {
+
+      window.removeEventListener(
+        "cartUpdated",
+        fetchBasketCount
+      );
+
+    };
+
+  }, []);
 
 
   return (
 
     <header className="header">
-
-      {/* =========================
-          LOGO
-      ========================= */}
 
       <NavLink
         className="logo"
@@ -49,59 +107,31 @@ const HeaderBar = () => {
       </NavLink>
 
 
-      {/* =========================
-          NAVIGATION
-      ========================= */}
-
       <nav className="links">
 
-        {/* COLLECTION */}
-
-        <NavLink
-          to="/collection"
-          className="headerLink"
-          title="Collection"
-        >
+        <NavLink to="/collection">
           <FaStore />
         </NavLink>
 
 
-        {/* WISHLIST */}
-
-        <NavLink
-          to="/wishlist"
-          className="headerLink"
-          title="Wishlist"
-        >
+        <NavLink to="/wishlist">
           ❤️
         </NavLink>
 
 
-        {/* BASKET */}
-
-        <NavLink
-          to="/basket"
-          className="basketHeaderLink"
-          title="Basket"
-        >
+        <NavLink to="/basket">
 
           <FaShoppingBag />
 
-          <span>
-             {basketCount}
-          </span>
+          🛒 {basketCount}
 
         </NavLink>
 
 
-        {/* ACCOUNT */}
+        <NavLink to="/account">
 
-        <NavLink
-          to="/account"
-          className="headerLink"
-          title="Account"
-        >
           <FaUserCircle />
+
         </NavLink>
 
       </nav>

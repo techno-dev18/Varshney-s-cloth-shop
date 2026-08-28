@@ -81,7 +81,9 @@ const Basket = () => {
       );
 
       await fetchCart();
-
+window.dispatchEvent(
+  new Event("cartUpdated")
+);
     } catch (error) {
 
       console.error(
@@ -101,7 +103,9 @@ const Basket = () => {
       await deleteCartItem(cartId);
 
       await fetchCart();
-
+window.dispatchEvent(
+  new Event("cartUpdated")
+);
     } catch (error) {
 
       console.error(
@@ -180,7 +184,9 @@ const handleCheckout = async () => {
       // by backend after order creation
 
       setCartItems([]);
-
+window.dispatchEvent(
+  new Event("cartUpdated")
+);
       navigate("/account");
 
     }
