@@ -1,61 +1,16 @@
-/* =========================
-   BASKET PAGE
-========================= */
-
 .basketPage {
-  min-height: 80vh;
-  padding: 50px 6%;
-  background: #f8f5f0;
-  font-family: "Poppins", sans-serif;
+  padding: 40px;
 }
 
-
-/* =========================
-   CONTAINER
-========================= */
+.basketPage h1 {
+  margin-bottom: 30px;
+}
 
 .basketContainer {
-  max-width: 1200px;
-  margin: auto;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.basketHeader {
-  margin-bottom: 35px;
-}
-
-.basketHeader h1 {
-  margin: 0;
-  font-family: "Cinzel", serif;
-  font-size: 38px;
-  color: #0f0f0f;
-}
-
-.basketHeader p {
-  margin-top: 8px;
-  color: #666;
-}
-
-
-/* =========================
-   LAYOUT
-========================= */
-
-.basketLayout {
   display: grid;
   grid-template-columns: 1fr 350px;
   gap: 30px;
-  align-items: start;
 }
-
-
-/* =========================
-   PRODUCTS
-========================= */
 
 .basketProducts {
   display: flex;
@@ -63,479 +18,117 @@
   gap: 20px;
 }
 
-
-/* =========================
-   BASKET ITEM
-========================= */
-
 .basketItem {
-  display: grid;
-  grid-template-columns: 160px 1fr auto;
-  gap: 25px;
-
-  padding: 25px;
-
-  background: white;
-
-  border-radius: 10px;
-
-  box-shadow:
-    0 4px 15px
-    rgba(0, 0, 0, 0.07);
-}
-
-
-/* =========================
-   IMAGE
-========================= */
-
-.basketImage {
-  width: 160px;
-  height: 190px;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #eee;
-}
-
-.basketImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-/* =========================
-   DETAILS
-========================= */
-
-.basketDetails h2 {
-  margin: 0 0 8px;
-
-  font-family: "Cinzel", serif;
-  font-size: 22px;
-  color: #0f0f0f;
-}
-
-.basketBrand {
-  color: #5a2d82;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.basketDetails p {
-  margin: 8px 0;
-  color: #555;
-}
-
-.basketUnitPrice {
-  font-size: 18px;
-  font-weight: 600;
-  color: #0f0f0f !important;
-}
-
-
-/* =========================
-   QUANTITY
-========================= */
-
-.quantityArea {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-top: 18px;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
 }
 
-.quantityArea > span {
-  font-size: 14px;
-  color: #666;
+.basketItem img {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.basketDetails {
+  flex: 1;
+}
+
+.basketDetails h3 {
+  margin-top: 0;
+}
+
+.basketPrice {
+  display: flex;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.basketPrice span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.basketPrice del {
+  color: gray;
 }
 
 .quantityControls {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  overflow: hidden;
+  gap: 15px;
+  margin: 15px 0;
 }
 
 .quantityControls button {
   width: 35px;
   height: 35px;
-
-  border: none;
-
-  background: white;
-
-  font-size: 20px;
-
   cursor: pointer;
-}
-
-.quantityControls button:hover {
-  background: #f0f0f0;
-}
-
-.quantityControls button:disabled {
-  color: #aaa;
-  cursor: not-allowed;
 }
 
 .quantityControls span {
-  width: 40px;
-  text-align: center;
-  font-weight: 600;
+  font-weight: bold;
 }
-
-
-/* =========================
-   REMOVE
-========================= */
 
 .removeButton {
-  margin-top: 18px;
-
+  padding: 8px 15px;
   border: none;
-  background: transparent;
-
-  color: #777;
-
   cursor: pointer;
-
-  padding: 0;
 }
-
-.removeButton:hover {
-  color: #5a2d82;
-}
-
-
-/* =========================
-   ITEM TOTAL
-========================= */
-
-.itemTotal {
-  min-width: 100px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  gap: 8px;
-}
-
-.itemTotal span {
-  color: #777;
-  font-size: 14px;
-}
-
-.itemTotal strong {
-  font-size: 19px;
-  color: #0f0f0f;
-}
-
-
-/* =========================
-   SUMMARY
-========================= */
 
 .basketSummary {
-  background: white;
-
-  padding: 30px;
-
+  padding: 25px;
+  border: 1px solid #ddd;
   border-radius: 10px;
-
-  box-shadow:
-    0 4px 15px
-    rgba(0, 0, 0, 0.07);
-
-  position: sticky;
-  top: 20px;
+  height: fit-content;
 }
 
-.basketSummary h2 {
-  margin-top: 0;
-  margin-bottom: 25px;
-
-  font-family: "Cinzel", serif;
-  color: #0f0f0f;
-}
-
-
-/* =========================
-   SUMMARY ROW
-========================= */
-
-.summaryRow {
-  display: flex;
-  justify-content: space-between;
-
-  margin: 15px 0;
-
-  color: #555;
-}
-
-
-/* =========================
-   DIVIDER
-========================= */
-
-.summaryDivider {
-  height: 1px;
-  background: #ddd;
-  margin: 20px 0;
-}
-
-
-/* =========================
-   TOTAL
-========================= */
-
+.summaryRow,
 .summaryTotal {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin: 15px 0;
+}
 
+.summaryTotal {
   font-size: 20px;
 }
 
-.summaryTotal strong {
-  font-size: 24px;
-  color: #5a2d82;
-}
-
-
-/* =========================
-   DELIVERY MESSAGE
-========================= */
-
-.deliveryMessage {
-  margin: 20px 0;
-
-  padding: 12px;
-
-  background: #f8f5f0;
-
-  border-radius: 6px;
-
-  font-size: 13px;
-
-  color: #555;
-}
-
-.deliveryMessage strong {
-  color: #5a2d82;
-}
-
-
-/* =========================
-   CHECKOUT
-========================= */
-
 .checkoutButton {
   width: 100%;
-
-  margin-top: 20px;
-
   padding: 14px;
-
   border: none;
-
-  border-radius: 6px;
-
-  background: #5a2d82;
-
-  color: white;
-
+  cursor: pointer;
   font-size: 16px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition: 0.3s ease;
 }
 
-.checkoutButton:hover {
-  background: #452265;
-}
-
-
-/* =========================
-   CONTINUE SHOPPING
-========================= */
-
-.continueButton {
-  width: 100%;
-
-  margin-top: 12px;
-
-  padding: 12px;
-
-  border: 1px solid #0f0f0f;
-
-  border-radius: 6px;
-
-  background: white;
-
-  color: #0f0f0f;
-
-  cursor: pointer;
-
-  transition: 0.3s ease;
-}
-
-.continueButton:hover {
-  background: #0f0f0f;
-  color: white;
-}
-
-
-/* =========================
-   EMPTY BASKET
-========================= */
-
-.emptyBasket {
-  min-height: 60vh;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
+.basketEmpty,
+.basketMessage {
   text-align: center;
+  padding: 80px 20px;
 }
 
-.emptyBasketIcon {
-  font-size: 60px;
-  margin-bottom: 15px;
-}
-
-.emptyBasket h1 {
-  font-family: "Cinzel", serif;
-}
-
-.emptyBasket p {
-  color: #666;
-}
-
-.emptyBasket button,
-.basketError button {
-  margin-top: 20px;
-
-  padding: 12px 30px;
-
-  border: none;
-
-  border-radius: 6px;
-
-  background: #5a2d82;
-
-  color: white;
-
+.basketEmpty button {
+  padding: 12px 25px;
   cursor: pointer;
 }
 
-
-/* =========================
-   LOADING
-========================= */
-
-.basketLoading {
-  min-height: 60vh;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-}
-
-
-/* =========================
-   ERROR
-========================= */
-
-.basketError {
-  min-height: 60vh;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-align: center;
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-
-  .basketLayout {
-    grid-template-columns: 1fr;
-  }
-
-  .basketSummary {
-    position: static;
-  }
-
-}
-
-
-@media (max-width: 650px) {
+@media (max-width: 800px) {
 
   .basketPage {
-    padding: 30px 4%;
+    padding: 20px;
   }
 
-  .basketHeader h1 {
-    font-size: 30px;
-  }
-
-  .basketItem {
-    grid-template-columns: 100px 1fr;
-    gap: 15px;
-  }
-
-  .basketImage {
-    width: 100px;
-    height: 130px;
-  }
-
-  .itemTotal {
-    grid-column: 2;
-    align-items: flex-start;
-  }
-
-}
-
-
-@media (max-width: 450px) {
-
-  .basketItem {
+  .basketContainer {
     grid-template-columns: 1fr;
   }
 
-  .basketImage {
-    width: 100%;
-    height: 250px;
-  }
-
-  .itemTotal {
-    grid-column: auto;
-  }
-
-  .quantityArea {
-    flex-wrap: wrap;
+  .basketItem img {
+    width: 110px;
+    height: 150px;
   }
 
 }

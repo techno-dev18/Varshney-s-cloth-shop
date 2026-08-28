@@ -15,11 +15,6 @@ const Basket = () => {
 
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  // =========================
-  // FETCH CART
-  // =========================
 
   const fetchCart = async () => {
 
@@ -32,14 +27,9 @@ const Basket = () => {
 
     try {
 
-      setLoading(true);
-      setError("");
-
       const user = JSON.parse(storedUser);
 
-      const userId = user.id || user._id;
-
-      const response = await getCart(userId);
+      const response = await getCart(user.id);
 
       console.log(
         "Cart from MongoDB:",
@@ -47,22 +37,16 @@ const Basket = () => {
       );
 
       if (response.data.success) {
-
         setCartItems(
           response.data.cartItems || []
         );
-
       }
 
     } catch (error) {
 
       console.error(
-        "Fetch Cart Error:",
+        "Cart Error:",
         error
-      );
-
-      setError(
-        "Unable to load your basket."
       );
 
     } finally {
@@ -73,20 +57,12 @@ const Basket = () => {
   };
 
 
-  // =========================
-  // INITIAL LOAD
-  // =========================
-
   useEffect(() => {
 
     fetchCart();
 
   }, []);
 
-
-  // =========================
-  // UPDATE QUANTITY
-  // =========================
 
   const handleQuantity = async (
     cartId,
@@ -110,22 +86,15 @@ const Basket = () => {
       );
 
     }
+
   };
 
 
-  // =========================
-  // REMOVE PRODUCT
-  // =========================
-
-  const removeItem = async (
-    cartId
-  ) => {
+  const handleRemove = async (cartId) => {
 
     try {
 
-      await deleteCartItem(
-        cartId
-      );
+      await deleteCartItem(cartId);
 
       await fetchCart();
 
@@ -137,439 +106,283 @@ const Basket = () => {
       );
 
     }
+
   };
 
 
-  // =========================
-  // LOADING
-  // =========================
+  const calculateSellingPrice = (product) => {
 
-  if (loading) {
+    const price = Number(product.price) || 0;
 
-    return (
-      <section className="basketPage">
+    const discount =
+      Number(product.discountPercentage) || 0;
 
-        <div className="basketLoading">
-
-          <h2>
-            Loading Your Basket...
-          </h2>
-
-        </div>
-
-      </section>
+    return Math.round(
+      price -
+      (price * discount) / 100
     );
 
-  }
+  };
 
 
-  // =========================
-  // ERROR
-  // =========================
-
-  if (error) {
-
-    return (
-      <section className="basketPage">
-
-        <div className="basketError">
-
-          <h2>
-            {error}
-          </h2>
-
-          <button
-            onClick={fetchCart}
-          >
-            Try Again
-          </button>
-
-        </div>
-
-      </section>
-    );
-
-  }
-
-
-  // =========================
-  // EMPTY BASKET
-  // =========================
-
-  if (cartItems.length === 0) {
-
-    return (
-      <section className="basketPage">
-
-        <div className="emptyBasket">
-
-          <div className="emptyBasketIcon">
-            🛒
-          </div>
-
-          <h1>
-            Your Basket is Empty
-          </h1>
-
-          <p>
-            Looks like you haven't added
-            anything to your basket yet.
-          </p>
-
-          <button
-            onClick={() =>
-              navigate("/collection")
-            }
-          >
-            Continue Shopping
-          </button>
-
-        </div>
-
-      </section>
-    );
-
-  }
-
-
-  // =========================
-  // CALCULATE TOTALS
-  // =========================
-
-  const subtotal = cartItems.reduce(
+  const totalAmount = cartItems.reduce(
     (total, item) => {
 
       const price =
-        Number(item.product?.price || 0);
+        calculateSellingPrice(
+          item.product
+        );
 
-      const quantity =
-        Number(item.quantity || 1);
-
-      return total + price * quantity;
+      return total +
+        price * item.quantity;
 
     },
     0
   );
 
 
-  // Free delivery above ₹999
-  const delivery =
-    subtotal >= 999 ? 0 : 99;
+  if (loading) {
 
-  const grandTotal =
-    subtotal + delivery;
-
-
-  const totalItems =
-    cartItems.reduce(
-      (total, item) =>
-        total + Number(item.quantity || 1),
-      0
+    return (
+      <div className="basketMessage">
+        <h2>Loading Basket...</h2>
+      </div>
     );
 
+  }
 
-  // =========================
-  // UI
-  // =========================
+
+  if (cartItems.length === 0) {
+
+    return (
+      <section className="basketEmpty">
+
+        <h1>Your Basket</h1>
+
+        <h2>
+          Your Basket is Empty
+        </h2>
+
+        <button
+          onClick={() =>
+            navigate("/collection")
+          }
+        >
+          Continue Shopping
+        </button>
+
+      </section>
+    );
+
+  }
+
 
   return (
 
     <section className="basketPage">
 
+      <h1>Your Basket</h1>
+
+
       <div className="basketContainer">
 
-        {/* =====================
-            PAGE HEADER
-        ===================== */}
+        {/* PRODUCTS */}
 
-        <div className="basketHeader">
+        <div className="basketProducts">
 
-          <h1>
-            Your Basket
-          </h1>
+          {cartItems.map(item => {
 
-          <p>
-            {totalItems}{" "}
-            {totalItems === 1
-              ? "item"
-              : "items"}{" "}
-            in your basket
-          </p>
+            const product =
+              item.product;
 
-        </div>
+            const sellingPrice =
+              calculateSellingPrice(
+                product
+              );
 
+            return (
 
-        {/* =====================
-            MAIN CONTENT
-        ===================== */}
+              <div
+                className="basketItem"
+                key={item._id}
+              >
 
-        <div className="basketLayout">
-
-
-          {/* =====================
-              PRODUCTS
-          ===================== */}
-
-          <div className="basketProducts">
-
-            {cartItems.map(item => {
-
-              const product =
-                item.product;
-
-              if (!product) {
-                return null;
-              }
-
-              const price =
-                Number(product.price || 0);
-
-              const itemTotal =
-                price *
-                Number(item.quantity || 1);
+                <img
+                  src={product.imgURL}
+                  alt={
+                    product.productName
+                  }
+                />
 
 
-              return (
+                <div className="basketDetails">
 
-                <div
-                  className="basketItem"
-                  key={item._id}
-                >
+                  <h3>
+                    {product.productName}
+                  </h3>
 
-                  {/* PRODUCT IMAGE */}
+                  <p>
+                    Brand: {product.brand}
+                  </p>
 
-                  <div className="basketImage">
+                  <p>
+                    Size: {
+                      item.selectedSize
+                    }
+                  </p>
 
-                    <img
-                      src={product.imgURL}
-                      alt={
-                        product.productName
-                      }
-                    />
+                  <div className="basketPrice">
+
+                    <span>
+                      ₹{sellingPrice}
+                    </span>
+
+                    {product.discountPercentage >
+                      0 && (
+
+                      <del>
+                        ₹{product.price}
+                      </del>
+
+                    )}
 
                   </div>
 
 
-                  {/* PRODUCT INFORMATION */}
+                  {/* QUANTITY */}
 
-                  <div className="basketDetails">
-
-                    <h2>
-                      {product.productName}
-                    </h2>
-
-                    <p className="basketBrand">
-                      {product.brand}
-                    </p>
-
-                    <p>
-                      Size:{" "}
-                      <strong>
-                        {item.selectedSize}
-                      </strong>
-                    </p>
-
-                    <p className="basketUnitPrice">
-                      ₹{price}
-                    </p>
-
-
-                    {/* QUANTITY */}
-
-                    <div className="quantityArea">
-
-                      <span>
-                        Quantity
-                      </span>
-
-                      <div className="quantityControls">
-
-                        <button
-                          onClick={() =>
-                            handleQuantity(
-                              item._id,
-                              "decrement"
-                            )
-                          }
-                          disabled={
-                            item.quantity <= 1
-                          }
-                        >
-                          −
-                        </button>
-
-                        <span>
-                          {item.quantity}
-                        </span>
-
-                        <button
-                          onClick={() =>
-                            handleQuantity(
-                              item._id,
-                              "increment"
-                            )
-                          }
-                        >
-                          +
-                        </button>
-
-                      </div>
-
-                    </div>
-
-
-                    {/* REMOVE */}
+                  <div className="quantityControls">
 
                     <button
-                      className="removeButton"
                       onClick={() =>
-                        removeItem(item._id)
+                        handleQuantity(
+                          item._id,
+                          "decrement"
+                        )
+                      }
+                      disabled={
+                        item.quantity <= 1
                       }
                     >
-                      Remove
+                      -
+                    </button>
+
+
+                    <span>
+                      {item.quantity}
+                    </span>
+
+
+                    <button
+                      onClick={() =>
+                        handleQuantity(
+                          item._id,
+                          "increment"
+                        )
+                      }
+                    >
+                      +
                     </button>
 
                   </div>
 
 
-                  {/* ITEM TOTAL */}
-
-                  <div className="itemTotal">
-
-                    <span>
-                      Total
-                    </span>
-
-                    <strong>
-                      ₹{itemTotal}
-                    </strong>
-
-                  </div>
+                  <button
+                    className="removeButton"
+                    onClick={() =>
+                      handleRemove(
+                        item._id
+                      )
+                    }
+                  >
+                    Remove
+                  </button>
 
                 </div>
 
-              );
+              </div>
 
-            })}
+            );
+
+          })}
+
+        </div>
+
+
+        {/* SUMMARY */}
+
+        <aside className="basketSummary">
+
+          <h2>
+            Order Summary
+          </h2>
+
+
+          <div className="summaryRow">
+
+            <span>
+              Items
+            </span>
+
+            <span>
+              {cartItems.reduce(
+                (total, item) =>
+                  total + item.quantity,
+                0
+              )}
+            </span>
 
           </div>
 
 
-          {/* =====================
-              ORDER SUMMARY
-          ===================== */}
+          <div className="summaryRow">
 
-          <aside className="basketSummary">
+            <span>
+              Subtotal
+            </span>
 
-            <h2>
-              Order Summary
-            </h2>
+            <span>
+              ₹{totalAmount}
+            </span>
 
-
-            <div className="summaryRow">
-
-              <span>
-                Items
-              </span>
-
-              <span>
-                {totalItems}
-              </span>
-
-            </div>
+          </div>
 
 
-            <div className="summaryRow">
-
-              <span>
-                Subtotal
-              </span>
-
-              <span>
-                ₹{subtotal}
-              </span>
-
-            </div>
+          <hr />
 
 
-            <div className="summaryRow">
+          <div className="summaryTotal">
 
-              <span>
-                Delivery
-              </span>
+            <span>
+              Total
+            </span>
 
-              <span>
+            <strong>
+              ₹{totalAmount}
+            </strong>
 
-                {delivery === 0
-                  ? "FREE"
-                  : `₹${delivery}`}
-
-              </span>
-
-            </div>
+          </div>
 
 
-            <div className="summaryDivider">
-            </div>
+          <button
+            className="checkoutButton"
+            onClick={() =>
+              alert(
+                "Checkout will be added next."
+              )
+            }
+          >
+            Proceed to Checkout
+          </button>
 
-
-            <div className="summaryTotal">
-
-              <span>
-                Total
-              </span>
-
-              <strong>
-                ₹{grandTotal}
-              </strong>
-
-            </div>
-
-
-            {subtotal < 999 && (
-
-              <p className="deliveryMessage">
-
-                Add ₹
-                {999 - subtotal}
-                {" "}more to get
-                <strong>
-                  {" "}FREE delivery
-                </strong>
-
-              </p>
-
-            )}
-
-
-            <button
-              className="checkoutButton"
-              onClick={() =>
-                navigate("/checkout")
-              }
-            >
-              Proceed to Checkout
-            </button>
-
-
-            <button
-              className="continueButton"
-              onClick={() =>
-                navigate("/collection")
-              }
-            >
-              Continue Shopping
-            </button>
-
-          </aside>
-
-        </div>
+        </aside>
 
       </div>
 
     </section>
 
   );
+
 };
 
 export default Basket;
