@@ -7,6 +7,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
+import wishlistRoutes from "./routes/wishlistRoutes.js";
 dotenv.config();
 const app = express();
 // MIDDLEWARE
@@ -45,7 +46,8 @@ app.use("/api/users", userRoutes);
  
 //order route
 app.use("/api/orders", orderRoutes);
-
+//wishlist route
+app.use("/api/wishlist", wishlistRoutes);
 // SERVER
 
 const PORT = process.env.PORT || 5000;
