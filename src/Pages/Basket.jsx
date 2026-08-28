@@ -7,6 +7,10 @@ import {
   deleteCartItem
 } from "../API/cartApi";
 
+import {
+  createOrder
+} from "../API/orderApi";
+
 import "../Styles/Basket.css";
 
 const Basket = () => {
@@ -139,7 +143,63 @@ const Basket = () => {
     },
     0
   );
+const handleCheckout = async () => {
 
+  const storedUser =
+    localStorage.getItem("user");
+
+  if (!storedUser) {
+
+    alert("Please login first");
+
+    navigate("/login");
+
+    return;
+  }
+
+  try {
+
+    const user =
+      JSON.parse(storedUser);
+
+    const response =
+      await createOrder(user.id);
+
+    console.log(
+      "Order created:",
+      response.data
+    );
+
+    if (response.data.success) {
+
+      alert(
+        "Order placed successfully!"
+      );
+
+      // Cart is already deleted
+      // by backend after order creation
+
+      setCartItems([]);
+
+      navigate("/account");
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      "Checkout Error:",
+      error
+    );
+
+    alert(
+      error.response?.data?.message ||
+      "Failed to place order"
+    );
+
+  }
+
+};
 
   if (loading) {
 
@@ -364,16 +424,12 @@ const Basket = () => {
           </div>
 
 
-          <button
-            className="checkoutButton"
-            onClick={() =>
-              alert(
-                "Checkout will be added next."
-              )
-            }
-          >
-            Proceed to Checkout
-          </button>
+         <button
+  className="checkoutButton"
+  onClick={handleCheckout}
+>
+  Proceed to Checkout
+</button>
 
         </aside>
 
