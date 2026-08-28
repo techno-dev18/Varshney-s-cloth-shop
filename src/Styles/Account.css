@@ -130,3 +130,189 @@
   color: #777;
   margin-bottom: 20px;
 }
+.accountPage {
+  min-height: 80vh;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.accountCard {
+  width: 100%;
+  max-width: 700px;
+  padding: 35px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.profileSection {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profileSection h1 {
+  margin: 15px 0 5px;
+}
+
+.profileSection p {
+  color: #666;
+}
+
+.profileImage,
+.profilePlaceholder {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.profileImage {
+  object-fit: cover;
+}
+
+.profilePlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.profileDetails {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detailRow span {
+  color: #555;
+}
+
+.profileDetails h3 {
+  margin-top: 30px;
+}
+
+.profileDetails p {
+  line-height: 1.7;
+  color: #555;
+}
+
+.editButton,
+.logoutButton {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.editButton {
+  background: #111;
+  color: white;
+}
+
+.logoutButton {
+  background: #eee;
+  color: #111;
+}
+
+.editProfileForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.editProfileForm h2 {
+  margin-bottom: 20px;
+}
+
+.editProfileForm h3 {
+  margin-top: 25px;
+}
+
+.editProfileForm label {
+  margin-top: 15px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.editProfileForm input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 15px;
+  outline: none;
+}
+
+.editProfileForm input:focus {
+  border-color: #111;
+}
+
+.formButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.formButtons button {
+  flex: 1;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.formButtons button[type="submit"] {
+  background: #111;
+  color: white;
+}
+
+.formButtons button[type="button"] {
+  background: #eee;
+}
+
+.accountError {
+  padding: 10px;
+  border-radius: 6px;
+  background: #ffe5e5;
+  color: #c00;
+}
+
+.accountMessage {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+@media (max-width: 600px) {
+
+  .accountPage {
+    padding: 25px 12px;
+  }
+
+  .accountCard {
+    padding: 22px;
+  }
+
+  .detailRow {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .formButtons {
+    flex-direction: column;
+  }
+
+}
