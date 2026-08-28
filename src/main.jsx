@@ -23,6 +23,7 @@ import Signup from "./Pages/SignUp";
 import ProductDetails from "./Pages/ProductDetails";
 import ErrorPage from "./Pages/ErrorPage";
 import Wishlist from "./Pages/Wishlist.jsx";
+import Orders from "./Pages/Orders";
 const siteRouter = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +46,10 @@ const siteRouter = createBrowserRouter([
         path: "account",
         element: <Account />,
       },
+      {
+  path: "/orders",
+  element: <Orders />
+},
       {
         path: "collection/:categoryName",
         element: <Collection />,
