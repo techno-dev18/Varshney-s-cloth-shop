@@ -7,9 +7,8 @@ import {
 } from "../Redux/slices/basketSlice";
 
 import {
-  addWishlist
-} from "../Redux/slices/wishlistSlice.js";
-
+  addToWishlist
+} from "../API/wishlistApi";
 import {
   addToCart
 } from "../API/cartApi";
@@ -97,7 +96,57 @@ const ClothCard = ({ item }) => {
       );
     }
   };
+const handleAddToWishlist = async () => {
 
+  const storedUser =
+    localStorage.getItem("user");
+
+  if (!storedUser) {
+
+    alert("Please login first");
+
+    return;
+  }
+
+  try {
+
+    const user =
+      JSON.parse(storedUser);
+
+    console.log("Sending wishlist request:", {
+      userId: user.id,
+      productId: item._id
+    });
+
+    const response =
+      await addToWishlist(
+        user.id,
+        item._id
+      );
+
+    console.log(
+      "Wishlist API response:",
+      response.data
+    );
+
+    alert(
+      response.data.message ||
+      "Product added to wishlist"
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Wishlist Error:",
+      error
+    );
+
+    alert(
+      error.response?.data?.message ||
+      "Failed to add product to wishlist"
+    );
+  }
+};
 
   return (
 
@@ -174,15 +223,11 @@ const ClothCard = ({ item }) => {
       </button>
 
 
-      <button
-        onClick={() =>
-          dispatch(
-            addWishlist(item)
-          )
-        }
-      >
-        ❤️ Wishlist
-      </button>
+  <button
+  onClick={handleAddToWishlist}
+>
+  ❤️ Wishlist
+</button>
 
     </div>
   );
