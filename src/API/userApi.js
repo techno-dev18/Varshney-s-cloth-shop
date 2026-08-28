@@ -16,5 +16,15 @@ export const updateUserProfile = (userId, userData) => {
   return API.put(`/users/${userId}`, userData);
 };
 
+export const updateUserPassword = (
+  userId,
+  passwordData
+) => {
 
+  return API.put(
+    `/users/${userId}/password`,
+    passwordData
+  );
+
+};
 export default API;
