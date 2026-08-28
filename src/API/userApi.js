@@ -1,32 +1,19 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL:
-    "https://varshney-s-cloth-shop.onrender.com/api"
+  baseURL: "https://varshney-s-cloth-shop.onrender.com/api"
 });
 
 
-// ===============================
-// GET USER PROFILE
-// ===============================
-
+// GET PROFILE
 export const getUserProfile = (userId) => {
   return API.get(`/users/${userId}`);
 };
 
 
-// ===============================
-// UPDATE USER PROFILE
-// ===============================
-
-export const updateUserProfile = (
-  userId,
-  userData
-) => {
-  return API.put(
-    `/users/${userId}`,
-    userData
-  );
+// UPDATE PROFILE
+export const updateUserProfile = (userId, userData) => {
+  return API.put(`/users/${userId}`, userData);
 };
 
 
