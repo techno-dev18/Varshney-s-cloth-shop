@@ -429,6 +429,128 @@ router.put("/:userId", async (req, res) => {
   }
 
 });
+// ==========================================
+// CHANGE PASSWORD
+// PUT /api/users/:userId/password
+// ==========================================
 
+router.put("/:userId/password", async (req, res) => {
+
+  try {
+
+    const {
+      currentPassword,
+      newPassword
+    } = req.body;
+
+
+    // Check fields
+
+    if (!currentPassword || !newPassword) {
+
+      return res.status(400).json({
+        success: false,
+        message: "Current password and new password are required"
+      });
+
+    }
+
+
+    // Check new password length
+
+    if (newPassword.length < 6) {
+
+      return res.status(400).json({
+        success: false,
+        message: "New password must be at least 6 characters"
+      });
+
+    }
+
+
+    // Find user
+
+    const user = await User.findById(
+      req.params.userId
+    );
+
+
+    if (!user) {
+
+      return res.status(404).json({
+        success: false,
+        message: "User not found"
+      });
+
+    }
+
+
+    // Verify current password
+
+    const passwordMatch =
+      await bcrypt.compare(
+        currentPassword,
+        user.password
+      );
+
+
+    if (!passwordMatch) {
+
+      return res.status(401).json({
+        success: false,
+        message: "Current password is incorrect"
+      });
+
+    }
+
+
+    // Hash new password
+
+    const hashedPassword =
+      await bcrypt.hash(
+        newPassword,
+        10
+      );
+
+
+    // Save new password
+
+    user.password =
+      hashedPassword;
+
+
+    await user.save();
+
+
+    res.status(200).json({
+
+      success: true,
+
+      message:
+        "Password changed successfully"
+
+    });
+
+
+  } catch (error) {
+
+    console.error(
+      "Change Password Error:",
+      error
+    );
+
+
+    res.status(500).json({
+
+      success: false,
+
+      message:
+        "Failed to change password"
+
+    });
+
+  }
+
+});
 
 export default router;
