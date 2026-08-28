@@ -1,11 +1,45 @@
+/* =========================
+   BASKET PAGE
+========================= */
+
 .basketPage {
   min-height: 80vh;
-  padding: 40px 6%;
+  padding: 50px 6%;
+  background: #f8f5f0;
+  font-family: "Poppins", sans-serif;
 }
 
-.basketPage > h1 {
-  margin-bottom: 30px;
+
+/* =========================
+   CONTAINER
+========================= */
+
+.basketContainer {
+  max-width: 1200px;
+  margin: auto;
 }
+
+
+/* =========================
+   HEADER
+========================= */
+
+.basketHeader {
+  margin-bottom: 35px;
+}
+
+.basketHeader h1 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 38px;
+  color: #0f0f0f;
+}
+
+.basketHeader p {
+  margin-top: 8px;
+  color: #666;
+}
+
 
 /* =========================
    LAYOUT
@@ -13,175 +47,495 @@
 
 .basketLayout {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 350px;
   gap: 30px;
   align-items: start;
 }
 
+
 /* =========================
-   ITEMS
+   PRODUCTS
 ========================= */
 
-.basketItems {
+.basketProducts {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+
+/* =========================
+   BASKET ITEM
+========================= */
+
 .basketItem {
-  display: flex;
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
   gap: 25px;
-  padding: 20px;
-  border: 1px solid #ddd;
+
+  padding: 25px;
+
+  background: white;
+
   border-radius: 10px;
-  background: #fff;
+
+  box-shadow:
+    0 4px 15px
+    rgba(0, 0, 0, 0.07);
 }
 
-.basketItem img {
-  width: 180px;
-  height: 220px;
-  object-fit: cover;
+
+/* =========================
+   IMAGE
+========================= */
+
+.basketImage {
+  width: 160px;
+  height: 190px;
+  overflow: hidden;
   border-radius: 8px;
+  background: #eee;
 }
 
-.basketInfo {
-  flex: 1;
+.basketImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.basketInfo h3 {
-  margin-top: 0;
+
+/* =========================
+   DETAILS
+========================= */
+
+.basketDetails h2 {
+  margin: 0 0 8px;
+
+  font-family: "Cinzel", serif;
   font-size: 22px;
+  color: #0f0f0f;
 }
 
-.basketInfo p {
+.basketBrand {
+  color: #5a2d82;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.basketDetails p {
   margin: 8px 0;
+  color: #555;
 }
 
-.basketPrice {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin: 15px 0;
+.basketUnitPrice {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f0f0f !important;
 }
 
-.basketPrice strong {
-  font-size: 20px;
-}
-
-.basketPrice del {
-  color: #777;
-}
 
 /* =========================
    QUANTITY
 ========================= */
 
-.quantityControls {
+.quantityArea {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin: 15px 0;
+  margin-top: 18px;
+}
+
+.quantityArea > span {
+  font-size: 14px;
+  color: #666;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .quantityControls button {
   width: 35px;
   height: 35px;
-  border: 1px solid #aaa;
+
+  border: none;
+
   background: white;
-  border-radius: 5px;
+
   font-size: 20px;
+
   cursor: pointer;
 }
 
+.quantityControls button:hover {
+  background: #f0f0f0;
+}
+
 .quantityControls button:disabled {
-  opacity: 0.4;
+  color: #aaa;
   cursor: not-allowed;
 }
 
 .quantityControls span {
-  font-size: 18px;
-  font-weight: bold;
+  width: 40px;
+  text-align: center;
+  font-weight: 600;
 }
+
 
 /* =========================
    REMOVE
 ========================= */
 
 .removeButton {
+  margin-top: 18px;
+
   border: none;
-  background: none;
-  color: #c62828;
+  background: transparent;
+
+  color: #777;
+
   cursor: pointer;
+
   padding: 0;
-  font-size: 15px;
 }
+
+.removeButton:hover {
+  color: #5a2d82;
+}
+
+
+/* =========================
+   ITEM TOTAL
+========================= */
+
+.itemTotal {
+  min-width: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 8px;
+}
+
+.itemTotal span {
+  color: #777;
+  font-size: 14px;
+}
+
+.itemTotal strong {
+  font-size: 19px;
+  color: #0f0f0f;
+}
+
 
 /* =========================
    SUMMARY
 ========================= */
 
 .basketSummary {
-  border: 1px solid #ddd;
+  background: white;
+
+  padding: 30px;
+
   border-radius: 10px;
-  padding: 25px;
+
+  box-shadow:
+    0 4px 15px
+    rgba(0, 0, 0, 0.07);
+
   position: sticky;
   top: 20px;
 }
 
 .basketSummary h2 {
   margin-top: 0;
+  margin-bottom: 25px;
+
+  font-family: "Cinzel", serif;
+  color: #0f0f0f;
 }
+
+
+/* =========================
+   SUMMARY ROW
+========================= */
 
 .summaryRow {
   display: flex;
   justify-content: space-between;
+
+  margin: 15px 0;
+
+  color: #555;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.summaryDivider {
+  height: 1px;
+  background: #ddd;
   margin: 20px 0;
 }
 
-.totalRow {
+
+/* =========================
+   TOTAL
+========================= */
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   font-size: 20px;
 }
 
-.checkoutButton {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
+.summaryTotal strong {
+  font-size: 24px;
+  color: #5a2d82;
 }
 
+
 /* =========================
-   EMPTY
+   DELIVERY MESSAGE
+========================= */
+
+.deliveryMessage {
+  margin: 20px 0;
+
+  padding: 12px;
+
+  background: #f8f5f0;
+
+  border-radius: 6px;
+
+  font-size: 13px;
+
+  color: #555;
+}
+
+.deliveryMessage strong {
+  color: #5a2d82;
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkoutButton {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #5a2d82;
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.checkoutButton:hover {
+  background: #452265;
+}
+
+
+/* =========================
+   CONTINUE SHOPPING
+========================= */
+
+.continueButton {
+  width: 100%;
+
+  margin-top: 12px;
+
+  padding: 12px;
+
+  border: 1px solid #0f0f0f;
+
+  border-radius: 6px;
+
+  background: white;
+
+  color: #0f0f0f;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.continueButton:hover {
+  background: #0f0f0f;
+  color: white;
+}
+
+
+/* =========================
+   EMPTY BASKET
 ========================= */
 
 .emptyBasket {
+  min-height: 60vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
   text-align: center;
-  padding: 80px 20px;
 }
 
+.emptyBasketIcon {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.emptyBasket h1 {
+  font-family: "Cinzel", serif;
+}
+
+.emptyBasket p {
+  color: #666;
+}
+
+.emptyBasket button,
+.basketError button {
+  margin-top: 20px;
+
+  padding: 12px 30px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #5a2d82;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
 /* =========================
-   MOBILE
+   LOADING
 ========================= */
 
-@media (max-width: 768px) {
+.basketLoading {
+  min-height: 60vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.basketError {
+  min-height: 60vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
 
   .basketLayout {
     grid-template-columns: 1fr;
   }
 
-  .basketItem {
-    flex-direction: column;
-  }
-
-  .basketItem img {
-    width: 100%;
-    height: 300px;
-  }
-
   .basketSummary {
     position: static;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .basketPage {
+    padding: 30px 4%;
+  }
+
+  .basketHeader h1 {
+    font-size: 30px;
+  }
+
+  .basketItem {
+    grid-template-columns: 100px 1fr;
+    gap: 15px;
+  }
+
+  .basketImage {
+    width: 100px;
+    height: 130px;
+  }
+
+  .itemTotal {
+    grid-column: 2;
+    align-items: flex-start;
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .basketItem {
+    grid-template-columns: 1fr;
+  }
+
+  .basketImage {
+    width: 100%;
+    height: 250px;
+  }
+
+  .itemTotal {
+    grid-column: auto;
+  }
+
+  .quantityArea {
+    flex-wrap: wrap;
   }
 
 }
