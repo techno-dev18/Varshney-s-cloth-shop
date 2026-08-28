@@ -206,8 +206,8 @@ router.post("/login", async (req, res) => {
 
         name: user.name,
 
-        email: user.email
-
+        email: user.email,
+        role: user.role
       }
 
     });
@@ -226,6 +226,203 @@ router.post("/login", async (req, res) => {
       success: false,
 
       message: "Login failed"
+
+    });
+
+  }
+
+});
+
+// ===============================
+// GET USER PROFILE
+// ===============================
+
+router.get("/:userId", async (req, res) => {
+
+  try {
+
+    const user = await User.findById(
+      req.params.userId
+    ).select("-password");
+
+    if (!user) {
+
+      return res.status(404).json({
+        success: false,
+        message: "User not found"
+      });
+
+    }
+
+    res.status(200).json({
+      success: true,
+      user
+    });
+
+  } catch (error) {
+
+    console.error(
+      "Get Profile Error:",
+      error
+    );
+
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch profile"
+    });
+
+  }
+
+});
+
+
+// ===============================
+// UPDATE USER PROFILE
+// ===============================
+
+// ===============================
+// UPDATE USER PROFILE
+// ===============================
+
+router.put("/:userId", async (req, res) => {
+
+  try {
+
+    const {
+      name,
+      phone,
+      profileImage,
+      address
+    } = req.body;
+
+
+    const user =
+      await User.findById(
+        req.params.userId
+      );
+
+
+    if (!user) {
+
+      return res.status(404).json({
+        success: false,
+        message: "User not found"
+      });
+
+    }
+
+
+    // =========================
+    // NAME
+    // =========================
+
+    if (name !== undefined) {
+
+      if (!name.trim()) {
+
+        return res.status(400).json({
+          success: false,
+          message: "Name cannot be empty"
+        });
+
+      }
+
+      user.name = name.trim();
+
+    }
+
+
+    // =========================
+    // PHONE
+    // =========================
+
+    if (phone !== undefined) {
+
+      user.phone =
+        phone.trim();
+
+    }
+
+
+    // =========================
+    // PROFILE IMAGE
+    // =========================
+
+    if (profileImage !== undefined) {
+
+      user.profileImage =
+        profileImage.trim();
+
+    }
+
+
+    // =========================
+    // ADDRESS
+    // =========================
+
+    if (address !== undefined) {
+
+      user.address = {
+        ...user.address?.toObject?.(),
+        ...address
+      };
+
+    }
+
+
+    const updatedUser =
+      await user.save();
+
+
+    // =========================
+    // RESPONSE
+    // =========================
+
+    res.status(200).json({
+
+      success: true,
+
+      message:
+        "Profile updated successfully",
+
+      user: {
+
+        id: updatedUser._id,
+
+        name: updatedUser.name,
+
+        email: updatedUser.email,
+
+        phone: updatedUser.phone,
+
+        profileImage:
+          updatedUser.profileImage,
+
+        address:
+          updatedUser.address,
+
+        role:
+          updatedUser.role
+
+      }
+
+    });
+
+
+  } catch (error) {
+
+    console.error(
+      "Update Profile Error:",
+      error
+    );
+
+
+    res.status(500).json({
+
+      success: false,
+
+      message:
+        "Failed to update profile"
 
     });
 
