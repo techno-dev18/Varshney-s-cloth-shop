@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Styles/Account.css";
+import "../Styles/Account.css";
 const Account = () => {
 
   const navigate = useNavigate();
