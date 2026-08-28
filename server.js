@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import connectDB from "./db/dbconc.js";
+import orderRoutes from "./routes/orderRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
@@ -41,9 +42,9 @@ app.get("/", (req, res) => {
 app.use("/api/cart", cartRoutes);
 //user routes
 app.use("/api/users", userRoutes);
-//signup
-
-//login route
+ 
+//order route
+app.use("/api/orders", orderRoutes);
 
 // SERVER
 
