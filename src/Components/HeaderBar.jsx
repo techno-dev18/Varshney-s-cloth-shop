@@ -1,40 +1,116 @@
 import { NavLink } from "react-router-dom";
-import { FaShoppingBag } from "react-icons/fa";
-import { FaUserCircle } from "react-icons/fa";
-import { FaStore } from "react-icons/fa";
+
+import {
+  FaShoppingBag,
+  FaUserCircle,
+  FaStore
+} from "react-icons/fa";
+
 import { useSelector } from "react-redux";
+
 import "../Styles/HeaderBar.css";
 
+
 const HeaderBar = () => {
-  const basketCount = useSelector(
-    store => store.basket.length
+
+  // =========================
+  // GET BASKET FROM REDUX
+  // =========================
+
+  const basketItems = useSelector(
+    store => store.basket
   );
+
+
+  // =========================
+  // TOTAL BASKET QUANTITY
+  // =========================
+
+  const basketCount = basketItems.reduce(
+    (total, item) =>
+      total + (item.quantity || 1),
+    0
+  );
+
+
   return (
+
     <header className="header">
-      <NavLink className="logo" to="/">
+
+      {/* =========================
+          LOGO
+      ========================= */}
+
+      <NavLink
+        className="logo"
+        to="/"
+      >
         Varshney's Cloth Shop
       </NavLink>
 
+
+      {/* =========================
+          NAVIGATION
+      ========================= */}
+
       <nav className="links">
-        <NavLink to="/collection">
+
+        {/* COLLECTION */}
+
+        <NavLink
+          to="/collection"
+          className="headerLink"
+          title="Collection"
+        >
           <FaStore />
         </NavLink>
-        <NavLink to="/wishlist">
-  ❤️
-</NavLink>
-        <NavLink to="/basket">
-          <FaShoppingBag />
-          🛒 {basketCount}
+
+
+        {/* WISHLIST */}
+
+        <NavLink
+          to="/wishlist"
+          className="headerLink"
+          title="Wishlist"
+        >
+          ❤️
         </NavLink>
-       
-        <NavLink to="/account">
+
+
+        {/* BASKET */}
+
+        <NavLink
+          to="/basket"
+          className="basketHeaderLink"
+          title="Basket"
+        >
+
+          <FaShoppingBag />
+
+          <span>
+             {basketCount}
+          </span>
+
+        </NavLink>
+
+
+        {/* ACCOUNT */}
+
+        <NavLink
+          to="/account"
+          className="headerLink"
+          title="Account"
+        >
           <FaUserCircle />
         </NavLink>
 
       </nav>
+
     </header>
-    
+
   );
+
 };
+
 
 export default HeaderBar;
