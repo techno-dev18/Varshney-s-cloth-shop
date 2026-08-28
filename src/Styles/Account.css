@@ -1,278 +1,75 @@
-/* =========================
-   ACCOUNT PAGE
-========================= */
-
 .accountPage {
   min-height: 80vh;
-  padding: 50px 8%;
-  background-color: #f8f5f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background: #f8f5f0;
 }
-
-
-/* =========================
-   ACCOUNT CONTAINER
-========================= */
-
-.accountContainer {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.accountHeader {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.accountHeader h1 {
-  margin: 0;
-  font-family: "Cinzel", serif;
-  font-size: 36px;
-  color: #0f0f0f;
-}
-
-.accountHeader p {
-  margin-top: 10px;
-  color: #555;
-  font-family: "Poppins", sans-serif;
-}
-
-
-/* =========================
-   ACCOUNT CARD
-========================= */
 
 .accountCard {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
   background: white;
-  padding: 35px;
   border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  margin-bottom: 30px;
-}
-
-
-/* =========================
-   PROFILE
-========================= */
-
-.profileSection {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #ddd;
-}
-
-.profileIcon {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  background-color: #5a2d82;
-  color: white;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.profileInfo h2 {
-  margin: 0 0 8px;
-  font-family: "Cinzel", serif;
-  color: #0f0f0f;
-}
-
-.profileInfo p {
-  margin: 4px 0;
-  font-family: "Poppins", sans-serif;
-  color: #555;
-}
-
-
-/* =========================
-   ACCOUNT OPTIONS
-========================= */
-
-.accountOptions {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.accountOption {
-  padding: 25px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  transition: 0.3s ease;
-  background: #fff;
-}
-
-.accountOption:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-.accountOption h3 {
-  margin: 0 0 8px;
-  font-family: "Cinzel", serif;
-  color: #5a2d82;
-}
-
-.accountOption p {
-  margin: 0 0 15px;
-  color: #666;
-  font-family: "Poppins", sans-serif;
-}
-
-
-/* =========================
-   BUTTON
-========================= */
-
-.accountButton {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-
-  background-color: #5a2d82;
-  color: white;
-
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-
-  transition: 0.3s ease;
-}
-
-.accountButton:hover {
-  background-color: #452265;
-}
-
-
-/* =========================
-   LOGOUT BUTTON
-========================= */
-
-.logoutButton {
-  display: block;
-  margin: 35px auto 0;
-
-  padding: 12px 35px;
-
-  border: none;
-  border-radius: 6px;
-
-  background-color: #0f0f0f;
-  color: white;
-
-  cursor: pointer;
-
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-
-  transition: 0.3s ease;
-}
-
-.logoutButton:hover {
-  background-color: #2b2b2b;
-}
-
-
-/* =========================
-   NOT LOGGED IN
-========================= */
-
-.loginRequired {
-  min-height: 70vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
   text-align: center;
-  background-color: #f8f5f0;
 }
 
-.loginRequired h2 {
-  font-family: "Cinzel", serif;
-  color: #0f0f0f;
+.accountCard h1 {
+  margin-bottom: 30px;
+  font-size: 32px;
 }
 
-.loginRequired p {
-  font-family: "Poppins", sans-serif;
-  color: #555;
+.accountInfo {
+  text-align: left;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
 }
 
-.loginRequired button {
-  margin-top: 15px;
+.accountInfo h2 {
+  margin: 0 0 15px;
+  font-size: 22px;
+}
 
-  padding: 12px 30px;
+.accountInfo p {
+  margin: 10px 0;
+  font-size: 16px;
+}
 
+.logoutBtn {
+  width: 100%;
+  padding: 13px;
   border: none;
   border-radius: 6px;
-
-  background-color: #5a2d82;
+  background: #0f0f0f;
   color: white;
-
+  font-size: 16px;
   cursor: pointer;
 }
 
+.logoutBtn:hover {
+  background: #5a2d82;
+}
 
-/* =========================
-   RESPONSIVE
-========================= */
+.accountLoading {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-@media (max-width: 768px) {
-
-  .accountPage {
-    padding: 35px 5%;
-  }
-
-  .accountHeader h1 {
-    font-size: 30px;
-  }
+@media (max-width: 600px) {
 
   .accountCard {
     padding: 25px;
   }
 
-  .accountOptions {
-    grid-template-columns: 1fr;
-  }
-
-  .profileSection {
-    flex-direction: column;
-    text-align: center;
-  }
-
-}
-
-
-@media (max-width: 480px) {
-
-  .accountPage {
-    padding: 25px 4%;
-  }
-
-  .accountHeader h1 {
-    font-size: 26px;
-  }
-
-  .accountCard {
-    padding: 20px;
-  }
-
-  .profileIcon {
-    width: 70px;
-    height: 70px;
+  .accountCard h1 {
     font-size: 26px;
   }
 

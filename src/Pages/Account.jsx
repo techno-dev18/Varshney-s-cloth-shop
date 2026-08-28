@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/Account.css";
+
 const Account = () => {
 
   const navigate = useNavigate();
@@ -28,30 +29,51 @@ const Account = () => {
     localStorage.removeItem("user");
 
     navigate("/login");
+
   };
 
   if (!user) {
-    return <h2>Loading...</h2>;
+    return (
+      <div className="accountLoading">
+        <h2>Loading...</h2>
+      </div>
+    );
   }
 
   return (
-    <section>
 
-      <h1>User Account</h1>
+    <section className="accountPage">
 
-      <h2>
-        Welcome, {user.name}
-      </h2>
+      <div className="accountCard">
 
-      <p>
-        Email: {user.email}
-      </p>
+        <h1>
+          My Account
+        </h1>
 
-      <button onClick={handleLogout}>
-        Logout
-      </button>
+        <div className="accountInfo">
+
+          <h2>
+            Welcome, {user.name}
+          </h2>
+
+          <p>
+            <strong>Email:</strong>{" "}
+            {user.email}
+          </p>
+
+        </div>
+
+        <button
+          className="logoutBtn"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+
+      </div>
 
     </section>
+
   );
 };
 
