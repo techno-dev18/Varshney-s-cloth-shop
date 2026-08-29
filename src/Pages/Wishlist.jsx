@@ -8,49 +8,61 @@ import {
 
 import "../Styles/Wishlist.css";
 
+
 const Wishlist = () => {
 
   const navigate = useNavigate();
 
-  const [wishlist, setWishlist] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [wishlistItems, setWishlistItems] =
+    useState([]);
 
-  // ===============================
+  const [loading, setLoading] =
+    useState(true);
+
+
+  // ==========================================
   // FETCH WISHLIST
-  // ===============================
+  // ==========================================
 
   const fetchWishlist = async () => {
 
     const storedUser =
       localStorage.getItem("user");
 
+
     if (!storedUser) {
 
       navigate("/login");
 
       return;
+
     }
+
 
     try {
 
       const user =
         JSON.parse(storedUser);
 
+
       const response =
         await getWishlist(user.id);
+
 
       console.log(
         "Wishlist from MongoDB:",
         response.data
       );
 
+
       if (response.data.success) {
 
-        setWishlist(
-          response.data.wishlist || []
+        setWishlistItems(
+          response.data.wishlistItems || []
         );
 
       }
+
 
     } catch (error) {
 
@@ -64,12 +76,13 @@ const Wishlist = () => {
       setLoading(false);
 
     }
+
   };
 
 
-  // ===============================
+  // ==========================================
   // LOAD WISHLIST
-  // ===============================
+  // ==========================================
 
   useEffect(() => {
 
@@ -78,9 +91,9 @@ const Wishlist = () => {
   }, []);
 
 
-  // ===============================
-  // REMOVE PRODUCT
-  // ===============================
+  // ==========================================
+  // REMOVE FROM WISHLIST
+  // ==========================================
 
   const handleRemove = async (
     wishlistId
@@ -92,12 +105,14 @@ const Wishlist = () => {
         wishlistId
       );
 
+
       await fetchWishlist();
+
 
     } catch (error) {
 
       console.error(
-        "Remove wishlist error:",
+        "Remove Wishlist Error:",
         error
       );
 
@@ -106,9 +121,9 @@ const Wishlist = () => {
   };
 
 
-  // ===============================
+  // ==========================================
   // LOADING
-  // ===============================
+  // ==========================================
 
   if (loading) {
 
@@ -125,26 +140,24 @@ const Wishlist = () => {
   }
 
 
-  // ===============================
-  // EMPTY
-  // ===============================
+  // ==========================================
+  // EMPTY WISHLIST
+  // ==========================================
 
-  if (wishlist.length === 0) {
+  if (wishlistItems.length === 0) {
 
     return (
+
       <section className="wishlistEmpty">
 
-        <h1>
-          My Wishlist
-        </h1>
-
+       
         <h2>
           Your Wishlist is Empty
         </h2>
 
         <p>
-          Add products you love to
-          your wishlist.
+          Save your favorite products
+          here and view them later.
         </p>
 
         <button
@@ -156,47 +169,64 @@ const Wishlist = () => {
         </button>
 
       </section>
+
     );
 
   }
 
 
-  // ===============================
-  // UI
-  // ===============================
+  // ==========================================
+  // DISPLAY WISHLIST
+  // ==========================================
 
   return (
 
     <section className="wishlistPage">
 
       <h1>
-        My Wishlist
+      Wishlist ❤️
       </h1>
+
+
+      <p className="wishlistCount">
+
+        {wishlistItems.length}{" "}
+        {wishlistItems.length === 1
+          ? "Product"
+          : "Products"}
+
+      </p>
+
 
       <div className="wishlistGrid">
 
-        {wishlist.map(item => {
+        {wishlistItems.map(item => {
 
           const product =
             item.product;
+
 
           if (!product) {
             return null;
           }
 
+
           const price =
             Number(product.price) || 0;
+
 
           const discount =
             Number(
               product.discountPercentage
             ) || 0;
 
+
           const sellingPrice =
             Math.round(
               price -
               (price * discount) / 100
             );
+
 
           return (
 
@@ -205,32 +235,48 @@ const Wishlist = () => {
               key={item._id}
             >
 
+              {/* PRODUCT IMAGE */}
+
               <img
                 src={product.imgURL}
                 alt={
                   product.productName
                 }
+                onClick={() =>
+                  navigate(
+                    `/collection/item/${product.productName}`
+                  )
+                }
               />
+
+
+              {/* PRODUCT INFORMATION */}
 
               <div className="wishlistDetails">
 
-                <h3>
+                <h2>
                   {product.productName}
-                </h3>
+                </h2>
 
-                <p>
+
+                <p className="wishlistBrand">
                   {product.brand}
                 </p>
 
-                <p>
+
+                <p className="wishlistRating">
                   ⭐ {product.ratings}
                 </p>
+
+
+                {/* PRICE */}
 
                 <div className="wishlistPrice">
 
                   <strong>
                     ₹{sellingPrice}
                   </strong>
+
 
                   {discount > 0 && (
 
@@ -243,6 +289,8 @@ const Wishlist = () => {
                 </div>
 
 
+                {/* ACTIONS */}
+
                 <div className="wishlistActions">
 
                   <button
@@ -254,6 +302,7 @@ const Wishlist = () => {
                   >
                     View Product
                   </button>
+
 
                   <button
                     className="removeWishlist"
@@ -283,5 +332,6 @@ const Wishlist = () => {
   );
 
 };
+
 
 export default Wishlist;

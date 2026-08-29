@@ -129,6 +129,35 @@
 
   white-space: nowrap;
 }
+/* ==========================================
+   WISHLIST COUNT
+========================================== */
+
+.wishlistCount {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 18px;
+
+  height: 18px;
+
+  padding: 0 5px;
+
+  margin-left: 3px;
+
+  border-radius: 50%;
+
+  background: #111;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
 
 
 /* ================================

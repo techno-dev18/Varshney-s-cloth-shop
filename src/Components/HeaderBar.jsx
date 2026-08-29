@@ -113,9 +113,16 @@ const HeaderBar = () => {
           <FaStore />
         </NavLink>
 
+<NavLink to="/wishlist">
 
-        <NavLink to="/wishlist">
           ❤️
+
+          <span className="wishlistCount">
+
+            {wishlistCount}
+
+          </span>
+
         </NavLink>
 
 
