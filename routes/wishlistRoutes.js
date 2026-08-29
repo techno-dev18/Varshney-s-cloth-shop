@@ -4,9 +4,10 @@ import Wishlist from "../models/Wishlist.js";
 const router = express.Router();
 
 
-// ===============================
-// ADD TO WISHLIST
-// ===============================
+// ==========================================
+// ADD PRODUCT TO WISHLIST
+// POST /api/wishlist
+// ==========================================
 
 router.post("/", async (req, res) => {
 
@@ -17,6 +18,9 @@ router.post("/", async (req, res) => {
       productId
     } = req.body;
 
+
+    // Check required fields
+
     if (!userId || !productId) {
 
       return res.status(400).json({
@@ -26,33 +30,49 @@ router.post("/", async (req, res) => {
 
     }
 
+
+    // Check if already in wishlist
+
     const existingItem =
       await Wishlist.findOne({
         user: userId,
         product: productId
       });
 
+
     if (existingItem) {
 
-      return res.status(200).json({
-        success: true,
+      return res.status(409).json({
+        success: false,
         message: "Product already in wishlist",
         wishlistItem: existingItem
       });
 
     }
 
+
+    // Create wishlist item
+
     const wishlistItem =
       await Wishlist.create({
+
         user: userId,
+
         product: productId
+
       });
 
+
     res.status(201).json({
+
       success: true,
+
       message: "Product added to wishlist",
+
       wishlistItem
+
     });
+
 
   } catch (error) {
 
@@ -61,9 +81,15 @@ router.post("/", async (req, res) => {
       error
     );
 
+
     res.status(500).json({
+
       success: false,
-      message: "Failed to add product to wishlist"
+
+      message: "Failed to add product to wishlist",
+
+      error: error.message
+
     });
 
   }
@@ -71,23 +97,29 @@ router.post("/", async (req, res) => {
 });
 
 
-// ===============================
+// ==========================================
 // GET USER WISHLIST
-// ===============================
+// GET /api/wishlist/:userId
+// ==========================================
 
 router.get("/:userId", async (req, res) => {
 
   try {
 
-    const wishlist =
+    const wishlistItems =
       await Wishlist.find({
         user: req.params.userId
       }).populate("product");
 
+
     res.status(200).json({
+
       success: true,
-      wishlist
+
+      wishlistItems
+
     });
+
 
   } catch (error) {
 
@@ -96,9 +128,13 @@ router.get("/:userId", async (req, res) => {
       error
     );
 
+
     res.status(500).json({
+
       success: false,
+
       message: "Failed to fetch wishlist"
+
     });
 
   }
@@ -106,9 +142,10 @@ router.get("/:userId", async (req, res) => {
 });
 
 
-// ===============================
-// REMOVE FROM WISHLIST
-// ===============================
+// ==========================================
+// DELETE WISHLIST ITEM
+// DELETE /api/wishlist/:wishlistId
+// ==========================================
 
 router.delete("/:wishlistId", async (req, res) => {
 
@@ -119,19 +156,28 @@ router.delete("/:wishlistId", async (req, res) => {
         req.params.wishlistId
       );
 
+
     if (!deletedItem) {
 
       return res.status(404).json({
+
         success: false,
+
         message: "Wishlist item not found"
+
       });
 
     }
 
+
     res.status(200).json({
+
       success: true,
+
       message: "Product removed from wishlist"
+
     });
+
 
   } catch (error) {
 
@@ -140,9 +186,13 @@ router.delete("/:wishlistId", async (req, res) => {
       error
     );
 
+
     res.status(500).json({
+
       success: false,
+
       message: "Failed to remove wishlist item"
+
     });
 
   }

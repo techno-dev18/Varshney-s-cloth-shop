@@ -1,0 +1,229 @@
+/* =========================================
+   EDIT PROFILE PAGE
+========================================= */
+
+.editProfilePage {
+  min-height: calc(100vh - 80px);
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f8f5f0;
+}
+
+
+/* =========================================
+   PROFILE CARD
+========================================= */
+
+.editProfileCard {
+  width: 100%;
+  max-width: 650px;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.editProfileCard h1 {
+  margin: 0 0 8px;
+  color: #0f0f0f;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+.editProfileCard > p {
+  margin-bottom: 30px;
+  color: #666;
+  font-size: 15px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.editProfileCard form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.editProfileCard label {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.editProfileCard input,
+.editProfileCard textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #0f0f0f;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+
+.editProfileCard input:focus,
+.editProfileCard textarea:focus {
+  border-color: #5a2d82;
+  box-shadow: 0 0 0 3px rgba(90, 45, 130, 0.1);
+}
+
+
+/* =========================================
+   DISABLED EMAIL
+========================================= */
+
+.editProfileCard input:disabled {
+  background: #f1f1f1;
+  color: #777;
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   TEXTAREA
+========================================= */
+
+.editProfileCard textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+
+/* =========================================
+   SUCCESS / ERROR
+========================================= */
+
+.editSuccess {
+  padding: 12px 15px;
+  border-radius: 8px;
+  background: #eaf7ed;
+  color: #207238;
+  font-size: 14px;
+}
+
+
+.editError {
+  padding: 12px 15px;
+  border-radius: 8px;
+  background: #fdecec;
+  color: #c62828;
+  font-size: 14px;
+}
+
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.editProfileActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+
+/* =========================================
+   SAVE BUTTON
+========================================= */
+
+.editProfileActions button[type="submit"] {
+  flex: 1;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #5a2d82;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+
+.editProfileActions button[type="submit"]:hover {
+  background: #472366;
+  transform: translateY(-1px);
+}
+
+
+.editProfileActions button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================================
+   CANCEL BUTTON
+========================================= */
+
+.editProfileActions button[type="button"] {
+  flex: 1;
+  padding: 13px 20px;
+  border: 1px solid #5a2d82;
+  border-radius: 8px;
+  background: white;
+  color: #5a2d82;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+
+.editProfileActions button[type="button"]:hover {
+  background: #5a2d82;
+  color: white;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .editProfilePage {
+    padding: 30px 15px;
+  }
+
+  .editProfileCard {
+    padding: 25px 20px;
+    border-radius: 12px;
+  }
+
+  .editProfileCard h1 {
+    font-size: 26px;
+  }
+
+  .editProfileActions {
+    flex-direction: column;
+  }
+
+}

@@ -19,9 +19,25 @@ const wishlistSchema = new mongoose.Schema(
   }
 );
 
-const Wishlist = mongoose.model(
-  "Wishlist",
-  wishlistSchema
+
+// Prevent the same product from being
+// added multiple times for the same user
+
+wishlistSchema.index(
+  {
+    user: 1,
+    product: 1
+  },
+  {
+    unique: true
+  }
 );
+
+
+const Wishlist =
+  mongoose.model(
+    "Wishlist",
+    wishlistSchema
+  );
 
 export default Wishlist;
