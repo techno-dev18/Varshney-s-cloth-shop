@@ -5,6 +5,11 @@ const API = axios.create({
     "https://varshney-s-cloth-shop.onrender.com/api"
 });
 
+
+// ==========================================
+// ADD TO WISHLIST
+// ==========================================
+
 export const addToWishlist = (
   userId,
   productId
@@ -17,6 +22,11 @@ export const addToWishlist = (
 
 };
 
+
+// ==========================================
+// GET USER WISHLIST
+// ==========================================
+
 export const getWishlist = (
   userId
 ) => {
@@ -27,6 +37,11 @@ export const getWishlist = (
 
 };
 
+
+// ==========================================
+// REMOVE FROM WISHLIST
+// ==========================================
+
 export const removeFromWishlist = (
   wishlistId
 ) => {
@@ -36,5 +51,6 @@ export const removeFromWishlist = (
   );
 
 };
+
 
 export default API;
