@@ -21,14 +21,13 @@ const Wishlist = () => {
 
 
   // ==========================================
-  // FETCH WISHLIST
+  // GET WISHLIST
   // ==========================================
 
   const fetchWishlist = async () => {
 
     const storedUser =
       localStorage.getItem("user");
-
 
     if (!storedUser) {
 
@@ -38,22 +37,18 @@ const Wishlist = () => {
 
     }
 
-
     try {
 
       const user =
         JSON.parse(storedUser);
 
-
       const response =
         await getWishlist(user.id);
 
-
       console.log(
-        "Wishlist from MongoDB:",
+        "Wishlist:",
         response.data
       );
-
 
       if (response.data.success) {
 
@@ -62,7 +57,6 @@ const Wishlist = () => {
         );
 
       }
-
 
     } catch (error) {
 
@@ -92,7 +86,7 @@ const Wishlist = () => {
 
 
   // ==========================================
-  // REMOVE FROM WISHLIST
+  // REMOVE ITEM
   // ==========================================
 
   const handleRemove = async (
@@ -105,9 +99,7 @@ const Wishlist = () => {
         wishlistId
       );
 
-
       await fetchWishlist();
-
 
     } catch (error) {
 
@@ -117,6 +109,30 @@ const Wishlist = () => {
       );
 
     }
+
+  };
+
+
+  // ==========================================
+  // PRICE
+  // ==========================================
+
+  const calculateSellingPrice = (
+    product
+  ) => {
+
+    const price =
+      Number(product.price) || 0;
+
+    const discount =
+      Number(
+        product.discountPercentage
+      ) || 0;
+
+    return Math.round(
+      price -
+      (price * discount) / 100
+    );
 
   };
 
@@ -141,7 +157,7 @@ const Wishlist = () => {
 
 
   // ==========================================
-  // EMPTY WISHLIST
+  // EMPTY
   // ==========================================
 
   if (wishlistItems.length === 0) {
@@ -150,7 +166,10 @@ const Wishlist = () => {
 
       <section className="wishlistEmpty">
 
-       
+        <h1>
+          My Wishlist ❤️
+        </h1>
+
         <h2>
           Your Wishlist is Empty
         </h2>
@@ -176,7 +195,7 @@ const Wishlist = () => {
 
 
   // ==========================================
-  // DISPLAY WISHLIST
+  // WISHLIST
   // ==========================================
 
   return (
@@ -184,13 +203,13 @@ const Wishlist = () => {
     <section className="wishlistPage">
 
       <h1>
-      Wishlist ❤️
+        My Wishlist ❤️
       </h1>
-
 
       <p className="wishlistCount">
 
         {wishlistItems.length}{" "}
+
         {wishlistItems.length === 1
           ? "Product"
           : "Products"}
@@ -206,25 +225,16 @@ const Wishlist = () => {
             item.product;
 
 
+          // Product may have been deleted
+
           if (!product) {
             return null;
           }
 
 
-          const price =
-            Number(product.price) || 0;
-
-
-          const discount =
-            Number(
-              product.discountPercentage
-            ) || 0;
-
-
           const sellingPrice =
-            Math.round(
-              price -
-              (price * discount) / 100
+            calculateSellingPrice(
+              product
             );
 
 
@@ -235,7 +245,7 @@ const Wishlist = () => {
               key={item._id}
             >
 
-              {/* PRODUCT IMAGE */}
+              {/* IMAGE */}
 
               <img
                 src={product.imgURL}
@@ -250,7 +260,7 @@ const Wishlist = () => {
               />
 
 
-              {/* PRODUCT INFORMATION */}
+              {/* DETAILS */}
 
               <div className="wishlistDetails">
 
@@ -278,10 +288,12 @@ const Wishlist = () => {
                   </strong>
 
 
-                  {discount > 0 && (
+                  {Number(
+                    product.discountPercentage
+                  ) > 0 && (
 
                     <del>
-                      ₹{price}
+                      ₹{product.price}
                     </del>
 
                   )}
@@ -289,7 +301,7 @@ const Wishlist = () => {
                 </div>
 
 
-                {/* ACTIONS */}
+                {/* BUTTONS */}
 
                 <div className="wishlistActions">
 

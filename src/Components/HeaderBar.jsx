@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 
 import { getCart } from "../API/cartApi";
+import { getWishlist } from "../API/wishlistApi";
 
 import "../Styles/HeaderBar.css";
 
@@ -17,16 +18,23 @@ const HeaderBar = () => {
   const [basketCount, setBasketCount] =
     useState(0);
 
+  const [wishlistCount, setWishlistCount] =
+    useState(0);
 
-  const fetchBasketCount = async () => {
+
+  // ==========================================
+  // FETCH COUNTS
+  // ==========================================
+
+  const fetchCounts = async () => {
 
     const storedUser =
       localStorage.getItem("user");
 
-    // User not logged in
     if (!storedUser) {
 
       setBasketCount(0);
+      setWishlistCount(0);
 
       return;
     }
@@ -37,21 +45,29 @@ const HeaderBar = () => {
       const user =
         JSON.parse(storedUser);
 
-      const response =
+
+      // -------------------------------
+      // CART
+      // -------------------------------
+
+      const cartResponse =
         await getCart(user.id);
 
-      if (response.data.success) {
+
+      if (cartResponse.data.success) {
 
         const cartItems =
-          response.data.cartItems || [];
+          cartResponse.data.cartItems || [];
 
-        // Total quantity
+
         const totalQuantity =
           cartItems.reduce(
             (total, item) =>
-              total + item.quantity,
+              total +
+              Number(item.quantity || 0),
             0
           );
+
 
         setBasketCount(
           totalQuantity
@@ -59,35 +75,91 @@ const HeaderBar = () => {
 
       }
 
+
+      // -------------------------------
+      // WISHLIST
+      // -------------------------------
+
+      const wishlistResponse =
+        await getWishlist(user.id);
+
+
+      if (wishlistResponse.data.success) {
+
+        setWishlistCount(
+          wishlistResponse.data
+            .wishlistItems?.length || 0
+        );
+
+      }
+
+
     } catch (error) {
 
       console.error(
-        "Basket count error:",
+        "Header Count Error:",
         error
       );
-
-      setBasketCount(0);
 
     }
 
   };
 
 
+  // ==========================================
+  // INITIAL LOAD
+  // ==========================================
+
   useEffect(() => {
 
-    fetchBasketCount();
+    fetchCounts();
 
-    // Update header when cart changes
+  }, []);
+
+
+  // ==========================================
+  // LISTEN FOR CART/WISHLIST CHANGES
+  // ==========================================
+
+  useEffect(() => {
+
+    const handleCartChange = () => {
+
+      fetchCounts();
+
+    };
+
+
+    const handleWishlistChange = () => {
+
+      fetchCounts();
+
+    };
+
+
     window.addEventListener(
       "cartUpdated",
-      fetchBasketCount
+      handleCartChange
     );
+
+
+    window.addEventListener(
+      "wishlistUpdated",
+      handleWishlistChange
+    );
+
 
     return () => {
 
       window.removeEventListener(
         "cartUpdated",
-        fetchBasketCount
+        handleCartChange
+      );
+
+
+      window.removeEventListener(
+        "wishlistUpdated",
+        handleWishlistChange
       );
 
     };
@@ -99,6 +171,9 @@ const HeaderBar = () => {
 
     <header className="header">
 
+
+      {/* LOGO */}
+
       <NavLink
         className="logo"
         to="/"
@@ -109,11 +184,19 @@ const HeaderBar = () => {
 
       <nav className="links">
 
+
+        {/* COLLECTION */}
+
         <NavLink to="/collection">
+
           <FaStore />
+
         </NavLink>
 
-<NavLink to="/wishlist">
+
+        {/* WISHLIST */}
+
+        <NavLink to="/wishlist">
 
           ❤️
 
@@ -126,20 +209,29 @@ const HeaderBar = () => {
         </NavLink>
 
 
+        {/* BASKET */}
+
         <NavLink to="/basket">
 
           <FaShoppingBag />
 
-          🛒 {basketCount}
+          <span className="basketCount">
+
+            {basketCount}
+
+          </span>
 
         </NavLink>
 
+
+        {/* ACCOUNT */}
 
         <NavLink to="/account">
 
           <FaUserCircle />
 
         </NavLink>
+
 
       </nav>
 

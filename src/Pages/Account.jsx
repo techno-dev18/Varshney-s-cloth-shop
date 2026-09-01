@@ -200,7 +200,13 @@ const Account = () => {
             Edit Profile
           </button>
 
-
+<button
+  onClick={() =>
+    navigate("/orders")
+  }
+>
+  My Orders
+</button>
           <button
             onClick={() =>
               navigate("/basket")

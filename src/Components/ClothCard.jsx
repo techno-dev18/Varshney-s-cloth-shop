@@ -69,6 +69,9 @@ const ClothCard = ({ item }) => {
         response.data
       );
 
+window.dispatchEvent(
+  new Event("cartUpdated")
+);
 
       // Keep Redux basket updated
       dispatch(
@@ -125,7 +128,9 @@ const handleAddToWishlist = async () => {
         user.id,
         item._id
       );
-
+window.dispatchEvent(
+  new Event("wishlistUpdated")
+);
     console.log(
       "Wishlist API response:",
       response.data
