@@ -57,7 +57,7 @@ export const getUserProfile = (userId) => {
 };
 
 
-export const updateUser = (
+export const updateUserProfile = (
   userId,
   userData
 ) => {

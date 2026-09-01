@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-
+import cookieParser from "cookie-parser";
 import connectDB from "./db/dbconc.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
@@ -11,13 +11,12 @@ import wishlistRoutes from "./routes/wishlistRoutes.js";
 dotenv.config();
 const app = express();
 // MIDDLEWARE
-app.use(cors(
-  {origin:"*",
-    credentials:true,
-    optionsSuccessStatus:200      
-  }
-));
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
 app.use(express.json());
+app.use(cookieParser());
 // DATABASE
 connectDB();
 // HOME ROUTE

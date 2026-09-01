@@ -29,9 +29,9 @@ const Basket = () => {
 
     try {
 
-      const user = JSON.parse(storedUser);
+      
 
-      const response = await getCart(user.id);
+      const response = await getCart();
 
       console.log(
         "Cart from MongoDB:",

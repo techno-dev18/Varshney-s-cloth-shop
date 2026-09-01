@@ -1,6 +1,6 @@
 import express from "express";
 import Cart from "../models/Cart.js";
-
+import protect from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 
@@ -8,27 +8,41 @@ const router = express.Router();
 // ADD PRODUCT TO CART
 // ===============================
 
-router.post("/", async (req, res) => {
+router.post("/", protect, async (req, res) => {
+
   try {
 
     const {
-      userId,
       productId,
       selectedSize
     } = req.body;
 
-    if (!userId || !productId || !selectedSize) {
+
+    if (!productId || !selectedSize) {
+
       return res.status(400).json({
+
         success: false,
-        message: "User, product and size are required"
+
+        message:
+          "Product and size are required"
+
       });
+
     }
 
-    const existingItem = await Cart.findOne({
-      user: userId,
-      product: productId,
-      selectedSize: selectedSize
-    });
+
+    const existingItem =
+      await Cart.findOne({
+
+        user: req.user._id,
+
+        product: productId,
+
+        selectedSize
+
+      });
+
 
     if (existingItem) {
 
@@ -36,37 +50,51 @@ router.post("/", async (req, res) => {
 
       await existingItem.save();
 
-      return res.status(200).json({
-        success: true,
-        message: "Cart quantity updated",
-        cartItem: existingItem
+    } else {
+
+      await Cart.create({
+
+        user: req.user._id,
+
+        product: productId,
+
+        selectedSize,
+
+        quantity: 1
+
       });
+
     }
 
-    const cartItem = await Cart.create({
-      user: userId,
-      product: productId,
-      selectedSize: selectedSize,
-      quantity: 1
+
+    res.status(200).json({
+
+      success: true,
+
+      message:
+        "Product added to cart"
+
     });
 
-    res.status(201).json({
-      success: true,
-      message: "Product added to cart",
-      cartItem
-    });
 
   } catch (error) {
 
-    console.error("Add Cart Error:", error);
+    console.error(
+      "Add Cart Error:",
+      error
+    );
 
     res.status(500).json({
+
       success: false,
-      message: "Failed to add product to cart",
-      error: error.message
+
+      message:
+        "Failed to add product"
+
     });
 
   }
+
 });
 
 
@@ -74,26 +102,40 @@ router.post("/", async (req, res) => {
 // GET USER CART
 // ===============================
 
-router.get("/:userId", async (req, res) => {
+router.get("/", protect, async (req, res) => {
 
   try {
 
-    const cartItems = await Cart.find({
-      user: req.params.userId
-    }).populate("product");
+    const cartItems =
+      await Cart.find({
+        user: req.user._id
+      })
+      .populate("product");
+
 
     res.status(200).json({
+
       success: true,
+
       cartItems
+
     });
+
 
   } catch (error) {
 
-    console.error("Get Cart Error:", error);
+    console.error(
+      "Get Cart Error:",
+      error
+    );
 
     res.status(500).json({
+
       success: false,
-      message: "Failed to fetch cart"
+
+      message:
+        "Failed to fetch cart"
+
     });
 
   }
@@ -105,103 +147,159 @@ router.get("/:userId", async (req, res) => {
 // UPDATE CART QUANTITY
 // ===============================
 
-router.put("/:cartId", async (req, res) => {
+router.put(
+  "/:cartId",
+  protect,
+  async (req, res) => {
 
-  try {
+    try {
 
-    const { action } = req.body;
+      const {
+        action
+      } = req.body;
 
-    const cartItem = await Cart.findById(
-      req.params.cartId
-    );
 
-    if (!cartItem) {
+      const cartItem =
+        await Cart.findOne({
 
-      return res.status(404).json({
-        success: false,
-        message: "Cart item not found"
-      });
+          _id: req.params.cartId,
 
-    }
+          user: req.user._id
 
-    if (action === "increment") {
+        });
 
-      cartItem.quantity += 1;
 
-    } else if (action === "decrement") {
+      if (!cartItem) {
 
-      if (cartItem.quantity > 1) {
-        cartItem.quantity -= 1;
+        return res.status(404).json({
+
+          success: false,
+
+          message:
+            "Cart item not found"
+
+        });
+
       }
 
-    } else {
 
-      return res.status(400).json({
+      if (action === "increment") {
+
+        cartItem.quantity += 1;
+
+      }
+
+
+      if (action === "decrement") {
+
+        if (cartItem.quantity > 1) {
+
+          cartItem.quantity -= 1;
+
+        }
+
+      }
+
+
+      await cartItem.save();
+
+
+      res.status(200).json({
+
+        success: true,
+
+        message:
+          "Cart updated successfully"
+
+      });
+
+
+    } catch (error) {
+
+      console.error(
+        "Update Cart Error:",
+        error
+      );
+
+      res.status(500).json({
+
         success: false,
-        message: "Invalid action"
+
+        message:
+          "Failed to update cart"
+
       });
 
     }
 
-    await cartItem.save();
-
-    res.status(200).json({
-      success: true,
-      cartItem
-    });
-
-  } catch (error) {
-
-    console.error("Update Cart Error:", error);
-
-    res.status(500).json({
-      success: false,
-      message: "Failed to update cart"
-    });
-
   }
-
-});
+);
 
 
 // ===============================
 // DELETE CART ITEM
 // ===============================
 
-router.delete("/:cartId", async (req, res) => {
+router.delete(
+  "/:cartId",
+  protect,
+  async (req, res) => {
 
-  try {
+    try {
 
-    const deletedItem =
-      await Cart.findByIdAndDelete(
-        req.params.cartId
+      const deletedItem =
+        await Cart.findOneAndDelete({
+
+          _id: req.params.cartId,
+
+          user: req.user._id
+
+        });
+
+
+      if (!deletedItem) {
+
+        return res.status(404).json({
+
+          success: false,
+
+          message:
+            "Cart item not found"
+
+        });
+
+      }
+
+
+      res.status(200).json({
+
+        success: true,
+
+        message:
+          "Item removed from cart"
+
+      });
+
+
+    } catch (error) {
+
+      console.error(
+        "Delete Cart Error:",
+        error
       );
 
-    if (!deletedItem) {
+      res.status(500).json({
 
-      return res.status(404).json({
         success: false,
-        message: "Cart item not found"
+
+        message:
+          "Failed to remove cart item"
+
       });
 
     }
 
-    res.status(200).json({
-      success: true,
-      message: "Item removed from cart"
-    });
-
-  } catch (error) {
-
-    console.error("Delete Cart Error:", error);
-
-    res.status(500).json({
-      success: false,
-      message: "Failed to remove item"
-    });
-
   }
-
-});
+);
 
 export default router;
