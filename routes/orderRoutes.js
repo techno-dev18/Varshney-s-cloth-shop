@@ -1,19 +1,30 @@
 import express from "express";
-import Order from "../models/Order.js";
 import Cart from "../models/Cart.js";
+import Order from "../models/Order.js";
 
 const router = express.Router();
 
 
-// =====================================
-// CREATE ORDER FROM USER CART
-// =====================================
+// ==========================================
+// CREATE ORDER
+// POST /api/orders
+// ==========================================
 
 router.post("/", async (req, res) => {
 
   try {
 
-    const { userId } = req.body;
+    const {
+      userId,
+      shippingAddress,
+      paymentMethod,
+      totalAmount
+    } = req.body;
+
+
+    // -------------------------------
+    // VALIDATION
+    // -------------------------------
 
     if (!userId) {
 
@@ -25,14 +36,57 @@ router.post("/", async (req, res) => {
     }
 
 
-    // Get user's cart
+    if (!shippingAddress) {
 
-    const cartItems = await Cart.find({
-      user: userId
-    }).populate("product");
+      return res.status(400).json({
+        success: false,
+        message: "Shipping address is required"
+      });
+
+    }
 
 
-    if (!cartItems || cartItems.length === 0) {
+    const requiredAddressFields = [
+      "name",
+      "phone",
+      "address",
+      "city",
+      "state",
+      "pincode"
+    ];
+
+
+    for (const field of requiredAddressFields) {
+
+      if (
+        !shippingAddress[field] ||
+        !String(
+          shippingAddress[field]
+        ).trim()
+      ) {
+
+        return res.status(400).json({
+          success: false,
+          message:
+            `${field} is required`
+        });
+
+      }
+
+    }
+
+
+    // -------------------------------
+    // GET CART
+    // -------------------------------
+
+    const cartItems =
+      await Cart.find({
+        user: userId
+      }).populate("product");
+
+
+    if (!cartItems.length) {
 
       return res.status(400).json({
         success: false,
@@ -42,88 +96,126 @@ router.post("/", async (req, res) => {
     }
 
 
-    // Convert cart items into order items
+    // -------------------------------
+    // CREATE ORDER ITEMS
+    // -------------------------------
 
-    const orderItems = cartItems.map(item => {
+    const orderItems =
+      cartItems.map(item => {
 
-      const product = item.product;
-
-      const price =
-        Math.round(
-          Number(product.price) -
-          (
-            Number(product.price) *
-            Number(product.discountPercentage || 0)
-          ) / 100
-        );
+        if (!item.product) {
+          throw new Error(
+            "A product in your cart no longer exists"
+          );
+        }
 
 
-      return {
-
-        product: product._id,
-
-        productName:
-          product.productName,
-
-        imgURL:
-          product.imgURL,
-
-        price: price,
-
-        selectedSize:
-          item.selectedSize,
-
-        quantity:
-          item.quantity
-
-      };
-
-    });
+        const product =
+          item.product;
 
 
-    // Calculate total
+        const price =
+          Number(product.price) || 0;
 
-    const totalAmount =
+        const discount =
+          Number(
+            product.discountPercentage
+          ) || 0;
+
+
+        const sellingPrice =
+          Math.round(
+            price -
+            (price * discount) / 100
+          );
+
+
+        return {
+
+          product: product._id,
+
+          productName:
+            product.productName,
+
+          imgURL:
+            product.imgURL,
+
+          price:
+            sellingPrice,
+
+          quantity:
+            item.quantity,
+
+          selectedSize:
+            item.selectedSize
+
+        };
+
+      });
+
+
+    // -------------------------------
+    // CALCULATE TOTAL ON SERVER
+    // -------------------------------
+
+    const calculatedTotal =
       orderItems.reduce(
-        (total, item) => {
-
-          return total +
-            item.price *
-            item.quantity;
-
-        },
+        (total, item) =>
+          total +
+          item.price *
+          item.quantity,
         0
       );
 
 
-    // Create order
+    // -------------------------------
+    // CREATE ORDER
+    // -------------------------------
 
-    const order = await Order.create({
+    const order =
+      await Order.create({
 
-      user: userId,
+        user: userId,
 
-      items: orderItems,
+        items: orderItems,
 
-      totalAmount,
+        shippingAddress,
 
-      status: "Pending"
+        paymentMethod:
+          paymentMethod ||
+          "Cash on Delivery",
 
-    });
+        paymentStatus:
+          "Pending",
+
+        orderStatus:
+          "Placed",
+
+        totalAmount:
+          calculatedTotal
+
+      });
 
 
-    // Empty user's cart
+    // -------------------------------
+    // CLEAR CART
+    // -------------------------------
 
     await Cart.deleteMany({
       user: userId
     });
 
 
+    // -------------------------------
+    // RESPONSE
+    // -------------------------------
+
     res.status(201).json({
 
       success: true,
 
       message:
-        "Order created successfully",
+        "Order placed successfully",
 
       order
 
@@ -155,9 +247,10 @@ router.post("/", async (req, res) => {
 });
 
 
-// =====================================
+// ==========================================
 // GET USER ORDERS
-// =====================================
+// GET /api/orders/:userId
+// ==========================================
 
 router.get("/:userId", async (req, res) => {
 
@@ -167,7 +260,6 @@ router.get("/:userId", async (req, res) => {
       await Order.find({
         user: req.params.userId
       })
-      .populate("items.product")
       .sort({
         createdAt: -1
       });
@@ -204,9 +296,10 @@ router.get("/:userId", async (req, res) => {
 });
 
 
-// =====================================
+// ==========================================
 // GET SINGLE ORDER
-// =====================================
+// GET /api/orders/order/:orderId
+// ==========================================
 
 router.get(
   "/order/:orderId",
@@ -217,8 +310,7 @@ router.get(
       const order =
         await Order.findById(
           req.params.orderId
-        )
-        .populate("items.product");
+        );
 
 
       if (!order) {
@@ -247,7 +339,7 @@ router.get(
     } catch (error) {
 
       console.error(
-        "Get Order Error:",
+        "Get Single Order Error:",
         error
       );
 

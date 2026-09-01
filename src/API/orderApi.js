@@ -5,6 +5,7 @@ const API = axios.create({
     "https://varshney-s-cloth-shop.onrender.com/api"
 });
 
+
 export const createOrder = (
   userId,
   orderData
@@ -21,9 +22,7 @@ export const createOrder = (
 };
 
 
-export const getOrders = (
-  userId
-) => {
+export const getOrders = (userId) => {
 
   return API.get(
     `/orders/${userId}`
@@ -32,9 +31,7 @@ export const getOrders = (
 };
 
 
-export const getSingleOrder = (
-  orderId
-) => {
+export const getSingleOrder = (orderId) => {
 
   return API.get(
     `/orders/order/${orderId}`

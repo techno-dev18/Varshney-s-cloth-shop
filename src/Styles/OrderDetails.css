@@ -1,0 +1,351 @@
+/* ==========================================
+   ORDER DETAILS PAGE
+========================================== */
+
+.orderDetailsPage {
+  min-height: 100vh;
+  padding: 40px 7%;
+  background: #f7f7f7;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.orderDetailsHeader {
+  margin-bottom: 25px;
+}
+
+.orderDetailsHeader h1 {
+  margin: 18px 0 5px;
+  font-size: 36px;
+  color: #222;
+}
+
+.orderDetailsHeader p {
+  margin: 0;
+  color: #777;
+}
+
+.backOrdersButton {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+}
+
+.backOrdersButton:hover {
+  text-decoration: underline;
+}
+
+
+/* ==========================================
+   TRACKING
+========================================== */
+
+.trackingCard {
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  margin-bottom: 25px;
+}
+
+.trackingCard h2 {
+  margin: 0 0 30px;
+  font-size: 22px;
+}
+
+.tracking {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.trackingStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  color: #aaa;
+}
+
+.trackingCircle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.trackingStep span {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.trackingStep.completed {
+  color: #111;
+}
+
+.trackingStep.completed .trackingCircle {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+.trackingLine {
+  position: absolute;
+  height: 3px;
+  background: #ddd;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  z-index: 1;
+}
+
+.trackingLine.completed {
+  background: #111;
+}
+
+.currentStatus {
+  margin: 25px 0 0;
+  color: #777;
+  text-align: center;
+}
+
+.currentStatus strong {
+  color: #111;
+}
+
+
+/* ==========================================
+   DETAILS GRID
+========================================== */
+
+.orderDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.detailsCard {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+.detailsCard h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+
+
+/* ==========================================
+   PRODUCTS
+========================================== */
+
+.detailsProduct {
+  display: grid;
+  grid-template-columns: 75px 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.detailsProduct:last-child {
+  border-bottom: none;
+}
+
+.detailsProduct img {
+  width: 75px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.detailsProduct h3 {
+  margin: 0 0 7px;
+  font-size: 15px;
+}
+
+.detailsProduct p {
+  margin: 3px 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.detailsProduct > strong {
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   ADDRESS
+========================================== */
+
+.addressBox {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.addressBox h3 {
+  margin: 0 0 12px;
+}
+
+.addressBox p {
+  margin: 6px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   PAYMENT
+========================================== */
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoRow span {
+  color: #777;
+}
+
+.infoRow strong {
+  color: #222;
+  text-align: right;
+}
+
+
+/* ==========================================
+   TOTAL
+========================================== */
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  color: #555;
+}
+
+.totalCard hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 12px 0;
+}
+
+.grandTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.grandTotal span {
+  font-size: 17px;
+}
+
+.grandTotal strong {
+  font-size: 26px;
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.orderDetailsMessage {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.orderDetailsMessage button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 750px) {
+
+  .orderDetailsPage {
+    padding: 25px 15px;
+  }
+
+  .orderDetailsHeader h1 {
+    font-size: 30px;
+  }
+
+  .trackingCard {
+    padding: 20px 10px;
+  }
+
+  .trackingStep span {
+    font-size: 11px;
+  }
+
+  .trackingCircle {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .trackingLine {
+    top: 17px;
+  }
+
+  .orderDetailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailsCard {
+    padding: 20px;
+  }
+
+  .detailsProduct {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .detailsProduct img {
+    width: 60px;
+    height: 75px;
+  }
+
+  .detailsProduct > strong {
+    grid-column: 2;
+  }
+
+}

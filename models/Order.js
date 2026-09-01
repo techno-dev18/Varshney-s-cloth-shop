@@ -1,5 +1,89 @@
 import mongoose from "mongoose";
 
+const orderItemSchema = new mongoose.Schema(
+  {
+    product: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+      required: true
+    },
+
+    productName: {
+      type: String,
+      required: true
+    },
+
+    imgURL: {
+      type: String,
+      required: true
+    },
+
+    price: {
+      type: Number,
+      required: true
+    },
+
+    quantity: {
+      type: Number,
+      required: true,
+      min: 1
+    },
+
+    selectedSize: {
+      type: String,
+      required: true
+    }
+  },
+  {
+    _id: false
+  }
+);
+
+
+const shippingAddressSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true
+    },
+
+    phone: {
+      type: String,
+      required: true,
+      trim: true
+    },
+
+    address: {
+      type: String,
+      required: true,
+      trim: true
+    },
+
+    city: {
+      type: String,
+      required: true,
+      trim: true
+    },
+
+    state: {
+      type: String,
+      required: true,
+      trim: true
+    },
+
+    pincode: {
+      type: String,
+      required: true,
+      trim: true
+    }
+  },
+  {
+    _id: false
+  }
+);
+
+
 const orderSchema = new mongoose.Schema(
   {
     user: {
@@ -8,56 +92,55 @@ const orderSchema = new mongoose.Schema(
       required: true
     },
 
-    items: [
-      {
-        product: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Product",
-          required: true
-        },
-
-        productName: {
-          type: String,
-          required: true
-        },
-
-        imgURL: {
-          type: String
-        },
-
-        price: {
-          type: Number,
-          required: true
-        },
-
-        selectedSize: {
-          type: String,
-          required: true
-        },
-
-        quantity: {
-          type: Number,
-          required: true,
-          min: 1
-        }
+    items: {
+      type: [orderItemSchema],
+      required: true,
+      validate: {
+        validator: value =>
+          value.length > 0,
+        message: "Order must contain at least one item"
       }
-    ],
+    },
 
-    totalAmount: {
-      type: Number,
+    shippingAddress: {
+      type: shippingAddressSchema,
       required: true
     },
 
-    status: {
+    paymentMethod: {
+      type: String,
+      enum: [
+        "Cash on Delivery"
+      ],
+      default: "Cash on Delivery"
+    },
+
+    paymentStatus: {
       type: String,
       enum: [
         "Pending",
-        "Confirmed",
+        "Paid",
+        "Failed"
+      ],
+      default: "Pending"
+    },
+
+    orderStatus: {
+      type: String,
+      enum: [
+        "Placed",
+        "Processing",
         "Shipped",
         "Delivered",
         "Cancelled"
       ],
-      default: "Pending"
+      default: "Placed"
+    },
+
+    totalAmount: {
+      type: Number,
+      required: true,
+      min: 0
     }
   },
   {
@@ -65,9 +148,8 @@ const orderSchema = new mongoose.Schema(
   }
 );
 
-const Order = mongoose.model(
-  "Order",
-  orderSchema
-);
+
+const Order =
+  mongoose.model("Order", orderSchema);
 
 export default Order;

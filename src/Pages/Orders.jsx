@@ -13,99 +13,122 @@ const Orders = () => {
   const [loading, setLoading] = useState(true);
 
 
-  // ==========================================
-  // FETCH ORDERS
-  // ==========================================
+  // =====================================
+  // LOAD ORDERS
+  // =====================================
 
-  const fetchOrders = async () => {
+  useEffect(() => {
 
-    const storedUser =
-      localStorage.getItem("user");
+    const loadOrders = async () => {
 
-    if (!storedUser) {
-      navigate("/login");
-      return;
-    }
+      const storedUser =
+        localStorage.getItem("user");
 
-    try {
+      if (!storedUser) {
+        navigate("/login");
+        return;
+      }
 
-      const user =
-        JSON.parse(storedUser);
+      try {
 
-      const response =
-        await getOrders(user.id);
+        const user =
+          JSON.parse(storedUser);
 
-      console.log(
-        "Orders:",
-        response.data
-      );
+        const response =
+          await getOrders(user.id);
 
-      if (response.data.success) {
-
-        setOrders(
-          response.data.orders || []
+        console.log(
+          "Orders:",
+          response.data
         );
+
+        if (response.data.success) {
+
+          setOrders(
+            response.data.orders || []
+          );
+
+        }
+
+      } catch (error) {
+
+        console.error(
+          "Orders Error:",
+          error
+        );
+
+      } finally {
+
+        setLoading(false);
 
       }
 
-    } catch (error) {
+    };
 
-      console.error(
-        "Orders Error:",
-        error
-      );
+    loadOrders();
 
-    } finally {
+  }, [navigate]);
 
-      setLoading(false);
 
-    }
+  // =====================================
+  // FORMAT DATE
+  // =====================================
+
+  const formatDate = (date) => {
+
+    return new Date(date).toLocaleDateString(
+      "en-IN",
+      {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      }
+    );
 
   };
 
 
-  useEffect(() => {
-
-    fetchOrders();
-
-  }, []);
-
-
-  // ==========================================
+  // =====================================
   // LOADING
-  // ==========================================
+  // =====================================
 
   if (loading) {
 
     return (
-      <section className="ordersMessage">
+      <div className="ordersMessage">
         <h2>Loading Orders...</h2>
-      </section>
+      </div>
     );
 
   }
 
 
-  // ==========================================
+  // =====================================
   // EMPTY ORDERS
-  // ==========================================
+  // =====================================
 
   if (orders.length === 0) {
 
     return (
 
-      <section className="ordersEmpty">
+      <section className="ordersPage">
 
-        <h1>My Orders</h1>
+        <div className="ordersEmpty">
 
-        <div className="emptyOrdersCard">
+          <h1>
+            My Orders
+          </h1>
+
+          <div className="emptyIcon">
+            🛍️
+          </div>
 
           <h2>
-            You haven't placed any orders yet.
+            No Orders Yet
           </h2>
 
           <p>
-            Your completed orders will appear here.
+            You haven't placed any orders yet.
           </p>
 
           <button
@@ -125,10 +148,6 @@ const Orders = () => {
   }
 
 
-  // ==========================================
-  // ORDERS
-  // ==========================================
-
   return (
 
     <section className="ordersPage">
@@ -142,8 +161,7 @@ const Orders = () => {
           </h1>
 
           <p>
-            {orders.length} order
-            {orders.length !== 1 ? "s" : ""}
+            View and track your orders
           </p>
 
         </div>
@@ -163,7 +181,7 @@ const Orders = () => {
 
         {orders.map(order => (
 
-          <article
+          <div
             className="orderCard"
             key={order._id}
           >
@@ -176,23 +194,28 @@ const Orders = () => {
 
               <div>
 
-                <h3>
-                  Order #{order._id.slice(-8)}
-                </h3>
+                <span className="orderLabel">
+                  Order ID
+                </span>
 
-                <p>
-                  Placed on{" "}
-                  {new Date(
+                <strong>
+                  #{order._id.slice(-8).toUpperCase()}
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span className="orderLabel">
+                  Ordered On
+                </span>
+
+                <strong>
+                  {formatDate(
                     order.createdAt
-                  ).toLocaleDateString(
-                    "en-IN",
-                    {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric"
-                    }
                   )}
-                </p>
+                </strong>
 
               </div>
 
@@ -200,10 +223,7 @@ const Orders = () => {
               <span
                 className={`orderStatus ${order.orderStatus
                   ?.toLowerCase()
-                  .replace(
-                    /\s+/g,
-                    "-"
-                  )}`}
+                  .replace(" ", "-")}`}
               >
                 {order.orderStatus}
               </span>
@@ -215,17 +235,14 @@ const Orders = () => {
                 PRODUCTS
             ========================= */}
 
-            <div className="orderItems">
+            <div className="orderProducts">
 
               {order.items.map(
                 (item, index) => (
 
                   <div
-                    className="orderItem"
-                    key={
-                      item._id ||
-                      `${order._id}-${index}`
-                    }
+                    className="orderProduct"
+                    key={index}
                   >
 
                     <img
@@ -236,7 +253,7 @@ const Orders = () => {
                     />
 
 
-                    <div className="orderItemDetails">
+                    <div className="orderProductInfo">
 
                       <h3>
                         {item.productName}
@@ -270,29 +287,53 @@ const Orders = () => {
 
 
             {/* =========================
-                ORDER FOOTER
+                DELIVERY
             ========================= */}
 
             <div className="orderBottom">
 
-              <div>
+              <div className="deliveryInfo">
 
-                <span>
+                <h3>
+                  Delivery Address
+                </h3>
+
+                <p>
+                  {order.shippingAddress.name}
+                </p>
+
+                <p>
+                  {order.shippingAddress.address}
+                </p>
+
+                <p>
+                  {order.shippingAddress.city},{" "}
+                  {order.shippingAddress.state}{" "}
+                  -{" "}
+                  {order.shippingAddress.pincode}
+                </p>
+
+                <p>
+                  Phone:{" "}
+                  {order.shippingAddress.phone}
+                </p>
+
+              </div>
+
+
+              <div className="orderPayment">
+
+                <p>
                   Payment
-                </span>
+                </p>
 
                 <strong>
                   {order.paymentMethod}
                 </strong>
 
-              </div>
-
-
-              <div>
-
-                <span>
+                <p>
                   Payment Status
-                </span>
+                </p>
 
                 <strong>
                   {order.paymentStatus}
@@ -317,37 +358,21 @@ const Orders = () => {
 
 
             {/* =========================
-                DELIVERY ADDRESS
+                VIEW DETAILS
             ========================= */}
 
-            {order.shippingAddress && (
+            <button
+              className="viewOrderButton"
+              onClick={() =>
+                navigate(
+                  `/orders/${order._id}`
+                )
+              }
+            >
+              View Order Details
+            </button>
 
-              <div className="orderAddress">
-
-                <h3>
-                  Delivery Address
-                </h3>
-
-                <p>
-                  {order.shippingAddress.name}
-                </p>
-
-                <p>
-                  {order.shippingAddress.phone}
-                </p>
-
-                <p>
-                  {order.shippingAddress.address},{" "}
-                  {order.shippingAddress.city},{" "}
-                  {order.shippingAddress.state} -{" "}
-                  {order.shippingAddress.pincode}
-                </p>
-
-              </div>
-
-            )}
-
-          </article>
+          </div>
 
         ))}
 

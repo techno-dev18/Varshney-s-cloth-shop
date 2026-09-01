@@ -25,6 +25,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import Wishlist from "./Pages/Wishlist.jsx";
 import Orders from "./Pages/Orders";
 import EditProfile from "./Pages/EditProfile";
+import OrderDetails from "./Pages/OrderDetails";
 const siteRouter = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,9 @@ const siteRouter = createBrowserRouter([
       {
   path: "/orders",
   element: <Orders />
+},{
+  path: "orders/:orderId",
+  element: <OrderDetails />
 },
       {
         path: "collection/:categoryName",

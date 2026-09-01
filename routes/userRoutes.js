@@ -1,12 +1,33 @@
 import express from "express";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import User from "../models/user.js";
+import protect from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
 
 // ==========================================
-// REGISTER USER
+// CREATE JWT
+// ==========================================
+
+const createToken = (userId) => {
+
+  return jwt.sign(
+    {
+      userId
+    },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "7d"
+    }
+  );
+
+};
+
+
+// ==========================================
+// REGISTER
 // POST /api/users/register
 // ==========================================
 
@@ -21,8 +42,6 @@ router.post("/register", async (req, res) => {
     } = req.body;
 
 
-    // Check required fields
-
     if (!name || !email || !password) {
 
       return res.status(400).json({
@@ -33,11 +52,24 @@ router.post("/register", async (req, res) => {
     }
 
 
-    // Check if user already exists
+    if (password.length < 6) {
+
+      return res.status(400).json({
+        success: false,
+        message:
+          "Password must contain at least 6 characters"
+      });
+
+    }
+
+
+    const normalizedEmail =
+      email.toLowerCase().trim();
+
 
     const existingUser =
       await User.findOne({
-        email: email.toLowerCase()
+        email: normalizedEmail
       });
 
 
@@ -51,42 +83,65 @@ router.post("/register", async (req, res) => {
     }
 
 
-    // Hash password
-
     const hashedPassword =
-      await bcrypt.hash(password, 10);
+      await bcrypt.hash(
+        password,
+        10
+      );
 
-
-    // Create user
 
     const user =
       await User.create({
 
         name: name.trim(),
 
-        email: email.toLowerCase().trim(),
+        email: normalizedEmail,
 
-        password: hashedPassword
+        password: hashedPassword,
+
+        role: "customer"
 
       });
 
 
-    // Send response
+    const token =
+      createToken(user._id);
+
+
+    res.cookie(
+      "token",
+      token,
+      {
+        httpOnly: true,
+
+        secure:
+          process.env.NODE_ENV ===
+          "production",
+
+        sameSite:
+          process.env.NODE_ENV ===
+          "production"
+            ? "none"
+            : "lax",
+
+        maxAge:
+          7 * 24 * 60 * 60 * 1000
+      }
+    );
+
 
     res.status(201).json({
 
       success: true,
 
-      message: "Account created successfully",
+      message:
+        "Account created successfully",
 
       user: {
-
         id: user._id,
-
         name: user.name,
-
-        email: user.email
-
+        email: user.email,
+        role: user.role
       }
 
     });
@@ -104,7 +159,8 @@ router.post("/register", async (req, res) => {
 
       success: false,
 
-      message: "Registration failed"
+      message:
+        "Registration failed"
 
     });
 
@@ -114,7 +170,7 @@ router.post("/register", async (req, res) => {
 
 
 // ==========================================
-// LOGIN USER
+// LOGIN
 // POST /api/users/login
 // ==========================================
 
@@ -127,8 +183,6 @@ router.post("/login", async (req, res) => {
       password
     } = req.body;
 
-
-    // Check required fields
 
     if (!email || !password) {
 
@@ -143,8 +197,6 @@ router.post("/login", async (req, res) => {
 
     }
 
-
-    // Find user
 
     const user =
       await User.findOne({
@@ -169,8 +221,6 @@ router.post("/login", async (req, res) => {
     }
 
 
-    // Compare password
-
     const passwordMatch =
       await bcrypt.compare(
         password,
@@ -192,13 +242,38 @@ router.post("/login", async (req, res) => {
     }
 
 
-    // Successful login
+    const token =
+      createToken(user._id);
+
+
+    res.cookie(
+      "token",
+      token,
+      {
+        httpOnly: true,
+
+        secure:
+          process.env.NODE_ENV ===
+          "production",
+
+        sameSite:
+          process.env.NODE_ENV ===
+          "production"
+            ? "none"
+            : "lax",
+
+        maxAge:
+          7 * 24 * 60 * 60 * 1000
+      }
+    );
+
 
     res.status(200).json({
 
       success: true,
 
-      message: "Login successful",
+      message:
+        "Login successful",
 
       user: {
 
@@ -207,7 +282,9 @@ router.post("/login", async (req, res) => {
         name: user.name,
 
         email: user.email,
+
         role: user.role
+
       }
 
     });
@@ -225,7 +302,8 @@ router.post("/login", async (req, res) => {
 
       success: false,
 
-      message: "Login failed"
+      message:
+        "Login failed"
 
     });
 
@@ -233,324 +311,318 @@ router.post("/login", async (req, res) => {
 
 });
 
-// ===============================
-// GET USER PROFILE
-// ===============================
 
-router.get("/:userId", async (req, res) => {
+// ==========================================
+// CURRENT USER
+// GET /api/users/me
+// ==========================================
 
-  try {
-
-    const user = await User.findById(
-      req.params.userId
-    ).select("-password");
-
-    if (!user) {
-
-      return res.status(404).json({
-        success: false,
-        message: "User not found"
-      });
-
-    }
+router.get(
+  "/me",
+  protect,
+  async (req, res) => {
 
     res.status(200).json({
+
       success: true,
-      user
-    });
 
-  } catch (error) {
+      user: req.user
 
-    console.error(
-      "Get Profile Error:",
-      error
-    );
-
-    res.status(500).json({
-      success: false,
-      message: "Failed to fetch profile"
     });
 
   }
-
-});
-
-
-// ===============================
-// UPDATE USER PROFILE
-// ===============================
-
-// ===============================
-// UPDATE USER PROFILE
-// ===============================
-
-router.put("/:userId", async (req, res) => {
-
-  try {
-
-    const {
-      name,
-      phone,
-      profileImage,
-      address
-    } = req.body;
+);
 
 
-    const user =
-      await User.findById(
+// ==========================================
+// LOGOUT
+// POST /api/users/logout
+// ==========================================
+
+router.post(
+  "/logout",
+  (req, res) => {
+
+    res.clearCookie(
+      "token",
+      {
+        httpOnly: true,
+
+        secure:
+          process.env.NODE_ENV ===
+          "production",
+
+        sameSite:
+          process.env.NODE_ENV ===
+          "production"
+            ? "none"
+            : "lax"
+      }
+    );
+
+
+    res.status(200).json({
+
+      success: true,
+
+      message:
+        "Logged out successfully"
+
+    });
+
+  }
+);
+
+
+// ==========================================
+// GET PROFILE
+// GET /api/users/:userId
+// ==========================================
+
+router.get(
+  "/:userId",
+  protect,
+  async (req, res) => {
+
+    try {
+
+      // User can only access own profile
+
+      if (
+        req.user._id.toString() !==
         req.params.userId
-      );
+      ) {
 
+        return res.status(403).json({
 
-    if (!user) {
-
-      return res.status(404).json({
-        success: false,
-        message: "User not found"
-      });
-
-    }
-
-
-    // =========================
-    // NAME
-    // =========================
-
-    if (name !== undefined) {
-
-      if (!name.trim()) {
-
-        return res.status(400).json({
           success: false,
-          message: "Name cannot be empty"
+
+          message:
+            "You are not allowed to access this profile"
+
         });
 
       }
 
-      user.name = name.trim();
 
-    }
-
-
-    // =========================
-    // PHONE
-    // =========================
-
-    if (phone !== undefined) {
-
-      user.phone =
-        phone.trim();
-
-    }
+      const user =
+        await User.findById(
+          req.params.userId
+        ).select("-password");
 
 
-    // =========================
-    // PROFILE IMAGE
-    // =========================
+      if (!user) {
 
-    if (profileImage !== undefined) {
+        return res.status(404).json({
 
-      user.profileImage =
-        profileImage.trim();
+          success: false,
 
-    }
+          message:
+            "User not found"
 
-
-    // =========================
-    // ADDRESS
-    // =========================
-
-    if (address !== undefined) {
-
-      user.address = {
-        ...user.address?.toObject?.(),
-        ...address
-      };
-
-    }
-
-
-    const updatedUser =
-      await user.save();
-
-
-    // =========================
-    // RESPONSE
-    // =========================
-
-    res.status(200).json({
-
-      success: true,
-
-      message:
-        "Profile updated successfully",
-
-      user: {
-
-        id: updatedUser._id,
-
-        name: updatedUser.name,
-
-        email: updatedUser.email,
-
-        phone: updatedUser.phone,
-
-        profileImage:
-          updatedUser.profileImage,
-
-        address:
-          updatedUser.address,
-
-        role:
-          updatedUser.role
+        });
 
       }
 
-    });
 
+      res.status(200).json({
 
-  } catch (error) {
+        success: true,
 
-    console.error(
-      "Update Profile Error:",
-      error
-    );
+        user
 
-
-    res.status(500).json({
-
-      success: false,
-
-      message:
-        "Failed to update profile"
-
-    });
-
-  }
-
-});
-// ==========================================
-// CHANGE PASSWORD
-// PUT /api/users/:userId/password
-// ==========================================
-
-router.put("/:userId/password", async (req, res) => {
-
-  try {
-
-    const {
-      currentPassword,
-      newPassword
-    } = req.body;
-
-
-    // Check fields
-
-    if (!currentPassword || !newPassword) {
-
-      return res.status(400).json({
-        success: false,
-        message: "Current password and new password are required"
       });
 
-    }
 
+    } catch (error) {
 
-    // Check new password length
-
-    if (newPassword.length < 6) {
-
-      return res.status(400).json({
-        success: false,
-        message: "New password must be at least 6 characters"
-      });
-
-    }
-
-
-    // Find user
-
-    const user = await User.findById(
-      req.params.userId
-    );
-
-
-    if (!user) {
-
-      return res.status(404).json({
-        success: false,
-        message: "User not found"
-      });
-
-    }
-
-
-    // Verify current password
-
-    const passwordMatch =
-      await bcrypt.compare(
-        currentPassword,
-        user.password
+      console.error(
+        "Get Profile Error:",
+        error
       );
 
 
-    if (!passwordMatch) {
+      res.status(500).json({
 
-      return res.status(401).json({
         success: false,
-        message: "Current password is incorrect"
+
+        message:
+          "Failed to fetch profile"
+
       });
 
     }
 
+  }
+);
 
-    // Hash new password
 
-    const hashedPassword =
-      await bcrypt.hash(
-        newPassword,
-        10
+// ==========================================
+// UPDATE PROFILE
+// PUT /api/users/:userId
+// ==========================================
+
+router.put(
+  "/:userId",
+  protect,
+  async (req, res) => {
+
+    try {
+
+      if (
+        req.user._id.toString() !==
+        req.params.userId
+      ) {
+
+        return res.status(403).json({
+
+          success: false,
+
+          message:
+            "You cannot update another user's profile"
+
+        });
+
+      }
+
+
+      const {
+        name,
+        phone,
+        profileImage,
+        address
+      } = req.body;
+
+
+      const user =
+        await User.findById(
+          req.params.userId
+        );
+
+
+      if (!user) {
+
+        return res.status(404).json({
+
+          success: false,
+
+          message:
+            "User not found"
+
+        });
+
+      }
+
+
+      if (name !== undefined) {
+
+        if (
+          name.trim().length < 2
+        ) {
+
+          return res.status(400).json({
+
+            success: false,
+
+            message:
+              "Name must contain at least 2 characters"
+
+          });
+
+        }
+
+        user.name =
+          name.trim();
+
+      }
+
+
+      if (phone !== undefined) {
+
+        user.phone =
+          phone.trim();
+
+      }
+
+
+      if (
+        profileImage !==
+        undefined
+      ) {
+
+        user.profileImage =
+          profileImage;
+
+      }
+
+
+      if (
+        address !== undefined
+      ) {
+
+        user.address =
+          address;
+
+      }
+
+
+      const updatedUser =
+        await user.save();
+
+
+      res.status(200).json({
+
+        success: true,
+
+        message:
+          "Profile updated successfully",
+
+        user: {
+
+          id: updatedUser._id,
+
+          name: updatedUser.name,
+
+          email: updatedUser.email,
+
+          phone:
+            updatedUser.phone,
+
+          profileImage:
+            updatedUser.profileImage,
+
+          address:
+            updatedUser.address,
+
+          role:
+            updatedUser.role
+
+        }
+
+      });
+
+
+    } catch (error) {
+
+      console.error(
+        "Update Profile Error:",
+        error
       );
 
 
-    // Save new password
+      res.status(500).json({
 
-    user.password =
-      hashedPassword;
+        success: false,
 
+        message:
+          "Failed to update profile"
 
-    await user.save();
+      });
 
-
-    res.status(200).json({
-
-      success: true,
-
-      message:
-        "Password changed successfully"
-
-    });
-
-
-  } catch (error) {
-
-    console.error(
-      "Change Password Error:",
-      error
-    );
-
-
-    res.status(500).json({
-
-      success: false,
-
-      message:
-        "Failed to change password"
-
-    });
+    }
 
   }
+);
 
-});
 
 export default router;

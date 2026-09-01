@@ -1,10 +1,39 @@
 import mongoose from "mongoose";
 
+const addressSchema = new mongoose.Schema(
+  {
+    address: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+
+    city: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+
+    state: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+
+    pincode: {
+      type: String,
+      trim: true,
+      default: ""
+    }
+  },
+  {
+    _id: false
+  }
+);
+
+
 const userSchema = new mongoose.Schema(
   {
-    // =========================
-    // BASIC INFORMATION
-    // =========================
 
     name: {
       type: String,
@@ -14,23 +43,19 @@ const userSchema = new mongoose.Schema(
       maxlength: [50, "Name cannot exceed 50 characters"]
     },
 
+
     email: {
       type: String,
       required: [true, "Email is required"],
       unique: true,
       lowercase: true,
-      trim: true
-    },
-
-    phone: {
-      type: String,
       trim: true,
-      default: ""
+      match: [
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        "Please enter a valid email"
+      ]
     },
 
-    // =========================
-    // SECURITY
-    // =========================
 
     password: {
       type: String,
@@ -38,65 +63,32 @@ const userSchema = new mongoose.Schema(
       minlength: [6, "Password must contain at least 6 characters"]
     },
 
-    // =========================
-    // PROFILE
-    // =========================
+
+    phone: {
+      type: String,
+      trim: true,
+      default: ""
+    },
+
 
     profileImage: {
       type: String,
       default: ""
     },
 
-    // =========================
-    // ADDRESS
-    // =========================
 
     address: {
-      houseNo: {
-        type: String,
-        default: ""
-      },
-
-      street: {
-        type: String,
-        default: ""
-      },
-
-      city: {
-        type: String,
-        default: ""
-      },
-
-      state: {
-        type: String,
-        default: ""
-      },
-
-      pincode: {
-        type: String,
-        default: ""
-      },
-
-      country: {
-        type: String,
-        default: "India"
-      }
+      type: addressSchema,
+      default: () => ({})
     },
 
-    // =========================
-    // ACCOUNT
-    // =========================
 
     role: {
       type: String,
-      enum: ["user", "admin"],
-      default: "user"
-    },
-
-    isActive: {
-      type: Boolean,
-      default: true
+      enum: ["customer", "admin"],
+      default: "customer"
     }
+
   },
 
   {
@@ -104,4 +96,8 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model("User", userSchema);
+
+const User =
+  mongoose.model("User", userSchema);
+
+export default User;
