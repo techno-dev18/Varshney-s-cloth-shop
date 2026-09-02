@@ -1,46 +1,35 @@
 import axios from "axios";
 
 const API = axios.create({
+
   baseURL:
-    "https://varshney-s-cloth-shop.onrender.com/api"
+    "https://varshney-s-cloth-shop.onrender.com/api",
+
+  withCredentials: true
+
 });
 
 
-// ==========================================
-// ADD TO WISHLIST
-// ==========================================
+export const getWishlist = () => {
 
-export const addToWishlist = (
-  userId,
-  productId
-) => {
-
-  return API.post("/wishlist", {
-    userId,
-    productId
-  });
+  return API.get("/wishlist");
 
 };
 
 
-// ==========================================
-// GET USER WISHLIST
-// ==========================================
-
-export const getWishlist = (
-  userId
+export const addToWishlist = (
+  productId
 ) => {
 
-  return API.get(
-    `/wishlist/${userId}`
+  return API.post(
+    "/wishlist",
+    {
+      productId
+    }
   );
 
 };
 
-
-// ==========================================
-// REMOVE FROM WISHLIST
-// ==========================================
 
 export const removeFromWishlist = (
   wishlistId

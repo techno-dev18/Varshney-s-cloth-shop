@@ -1,14 +1,16 @@
 import axios from "axios";
 
 const API = axios.create({
-
   baseURL:
     "https://varshney-s-cloth-shop.onrender.com/api",
 
   withCredentials: true
-
 });
 
+
+// ==========================================
+// REGISTER
+// ==========================================
 
 export const registerUser = (userData) => {
 
@@ -20,6 +22,10 @@ export const registerUser = (userData) => {
 };
 
 
+// ==========================================
+// LOGIN
+// ==========================================
+
 export const loginUser = (userData) => {
 
   return API.post(
@@ -30,23 +36,9 @@ export const loginUser = (userData) => {
 };
 
 
-export const logoutUser = () => {
-
-  return API.post(
-    "/users/logout"
-  );
-
-};
-
-
-export const getCurrentUser = () => {
-
-  return API.get(
-    "/users/me"
-  );
-
-};
-
+// ==========================================
+// GET USER PROFILE
+// ==========================================
 
 export const getUserProfile = (userId) => {
 
@@ -56,6 +48,10 @@ export const getUserProfile = (userId) => {
 
 };
 
+
+// ==========================================
+// UPDATE USER PROFILE
+// ==========================================
 
 export const updateUserProfile = (
   userId,
@@ -70,6 +66,10 @@ export const updateUserProfile = (
 };
 
 
+// ==========================================
+// CHANGE PASSWORD
+// ==========================================
+
 export const updateUserPassword = (
   userId,
   passwordData
@@ -78,6 +78,32 @@ export const updateUserPassword = (
   return API.put(
     `/users/${userId}/password`,
     passwordData
+  );
+
+};
+
+
+// ==========================================
+// LOGOUT
+// ==========================================
+
+export const logoutUser = () => {
+
+  return API.post(
+    "/users/logout"
+  );
+
+};
+
+
+// ==========================================
+// CURRENT USER
+// ==========================================
+
+export const getCurrentUser = () => {
+
+  return API.get(
+    "/users/me"
   );
 
 };

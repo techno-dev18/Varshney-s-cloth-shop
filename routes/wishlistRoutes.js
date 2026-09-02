@@ -1,41 +1,36 @@
 import express from "express";
 import Wishlist from "../models/Wishlist.js";
-
+import protect from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 
 // ==========================================
-// ADD PRODUCT TO WISHLIST
+// ADD TO WISHLIST
 // POST /api/wishlist
 // ==========================================
 
-router.post("/", async (req, res) => {
+router.post("/", protect, async (req, res) => {
 
   try {
 
     const {
-      userId,
       productId
     } = req.body;
 
 
-    // Check required fields
-
-    if (!userId || !productId) {
+    if (!productId) {
 
       return res.status(400).json({
         success: false,
-        message: "User and product are required"
+        message: "Product ID is required"
       });
 
     }
 
 
-    // Check if already in wishlist
-
     const existingItem =
       await Wishlist.findOne({
-        user: userId,
+        user: req.user._id,
         product: productId
       });
 
@@ -44,32 +39,27 @@ router.post("/", async (req, res) => {
 
       return res.status(409).json({
         success: false,
-        message: "Product already in wishlist",
-        wishlistItem: existingItem
+        message: "Product already in wishlist"
       });
 
     }
 
 
-    // Create wishlist item
+    await Wishlist.create({
 
-    const wishlistItem =
-      await Wishlist.create({
+      user: req.user._id,
 
-        user: userId,
+      product: productId
 
-        product: productId
-
-      });
+    });
 
 
     res.status(201).json({
 
       success: true,
 
-      message: "Product added to wishlist",
-
-      wishlistItem
+      message:
+        "Product added to wishlist"
 
     });
 
@@ -81,14 +71,12 @@ router.post("/", async (req, res) => {
       error
     );
 
-
     res.status(500).json({
 
       success: false,
 
-      message: "Failed to add product to wishlist",
-
-      error: error.message
+      message:
+        "Failed to add product to wishlist"
 
     });
 
@@ -99,16 +87,18 @@ router.post("/", async (req, res) => {
 
 // ==========================================
 // GET USER WISHLIST
-// GET /api/wishlist/:userId
+// GET /api/wishlist
 // ==========================================
 
-router.get("/:userId", async (req, res) => {
+router.get("/", protect, async (req, res) => {
 
   try {
 
     const wishlistItems =
       await Wishlist.find({
-        user: req.params.userId
+
+        user: req.user._id
+
       }).populate("product");
 
 
@@ -128,12 +118,12 @@ router.get("/:userId", async (req, res) => {
       error
     );
 
-
     res.status(500).json({
 
       success: false,
 
-      message: "Failed to fetch wishlist"
+      message:
+        "Failed to fetch wishlist"
 
     });
 
@@ -143,61 +133,74 @@ router.get("/:userId", async (req, res) => {
 
 
 // ==========================================
-// DELETE WISHLIST ITEM
+// REMOVE FROM WISHLIST
 // DELETE /api/wishlist/:wishlistId
 // ==========================================
 
-router.delete("/:wishlistId", async (req, res) => {
+router.delete(
+  "/:wishlistId",
+  protect,
+  async (req, res) => {
 
-  try {
+    try {
 
-    const deletedItem =
-      await Wishlist.findByIdAndDelete(
-        req.params.wishlistId
+      const deletedItem =
+        await Wishlist.findOneAndDelete({
+
+          _id:
+            req.params.wishlistId,
+
+          user:
+            req.user._id
+
+        });
+
+
+      if (!deletedItem) {
+
+        return res.status(404).json({
+
+          success: false,
+
+          message:
+            "Wishlist item not found"
+
+        });
+
+      }
+
+
+      res.status(200).json({
+
+        success: true,
+
+        message:
+          "Removed from wishlist"
+
+      });
+
+
+    } catch (error) {
+
+      console.error(
+        "Delete Wishlist Error:",
+        error
       );
 
-
-    if (!deletedItem) {
-
-      return res.status(404).json({
+      res.status(500).json({
 
         success: false,
 
-        message: "Wishlist item not found"
+        message:
+          "Failed to remove wishlist item"
 
       });
 
     }
 
-
-    res.status(200).json({
-
-      success: true,
-
-      message: "Product removed from wishlist"
-
-    });
-
-
-  } catch (error) {
-
-    console.error(
-      "Delete Wishlist Error:",
-      error
-    );
-
-
-    res.status(500).json({
-
-      success: false,
-
-      message: "Failed to remove wishlist item"
-
-    });
-
   }
-
-});
+);
 
 
 export default router;
+

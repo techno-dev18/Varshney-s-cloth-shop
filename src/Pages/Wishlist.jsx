@@ -43,7 +43,7 @@ const Wishlist = () => {
         JSON.parse(storedUser);
 
       const response =
-        await getWishlist(user.id);
+        await getWishlist();
 
       console.log(
         "Wishlist:",
