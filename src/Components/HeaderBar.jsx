@@ -9,8 +9,7 @@ import { useEffect, useState } from "react";
 
 import { getCart } from "../API/cartApi";
 import { getWishlist } from "../API/wishlistApi";
-import AboutUs from "../Pages/AboutUs";
-import ContactUs from "../Pages/ContactUs";
+
 import "../Styles/HeaderBar.css";
 
 
@@ -232,8 +231,13 @@ const HeaderBar = () => {
           <FaUserCircle />
 
         </NavLink>
-<NavLink to="/about"></NavLink>
-<NavLink to="/contact"></NavLink>
+<NavLink to="/about">
+  About Us
+</NavLink>
+
+<NavLink to="/contact">
+  Contact Us
+</NavLink>
       </nav>
 
     </header>
