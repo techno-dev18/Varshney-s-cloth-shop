@@ -158,7 +158,21 @@
 
   font-weight: 700;
 }
+.text-link {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111111;
+  white-space: nowrap;
+}
 
+.text-link:hover {
+  color: #b11226;
+}
+
+.text-link.active {
+  color: #b11226;
+}
 
 /* ================================
    RESPONSIVE

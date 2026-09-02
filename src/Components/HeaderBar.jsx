@@ -2,7 +2,9 @@ import { NavLink } from "react-router-dom";
 import {
   FaShoppingBag,
   FaUserCircle,
-  FaStore
+  FaStore,
+   FaInfoCircle,
+  FaEnvelope
 } from "react-icons/fa";
 
 import { useEffect, useState } from "react";
@@ -184,61 +186,44 @@ const HeaderBar = () => {
 
       <nav className="links">
 
+  {/* COLLECTION */}
+  <NavLink to="/collection" title="Collection">
+    <FaStore />
+  </NavLink>
 
-        {/* COLLECTION */}
-
-        <NavLink to="/collection">
-
-          <FaStore />
-
-        </NavLink>
-
-
-        {/* WISHLIST */}
-
-        <NavLink to="/wishlist">
-
-          ❤️
-
-          <span className="wishlistCount">
-
-            {wishlistCount}
-
-          </span>
-
-        </NavLink>
-
-
-        {/* BASKET */}
-
-        <NavLink to="/basket">
-
-          <FaShoppingBag />
-
-          <span className="basketCount">
-
-            {basketCount}
-
-          </span>
-
-        </NavLink>
-
-
-        {/* ACCOUNT */}
-
-        <NavLink to="/account">
-
-          <FaUserCircle />
-
-        </NavLink>
-<NavLink to="/about">
-  About Us
+ {/* ABOUT */}
+<NavLink to="/about" title="About Us">
+  <FaInfoCircle />
 </NavLink>
 
-<NavLink to="/contact">
-  Contact Us
+{/* CONTACT */}
+<NavLink to="/contact" title="Contact Us">
+  <FaEnvelope />
 </NavLink>
-      </nav>
+
+  {/* WISHLIST */}
+  <NavLink to="/wishlist" title="Wishlist">
+    ❤️
+    <span className="wishlistCount">
+      {wishlistCount}
+    </span>
+  </NavLink>
+
+  {/* BASKET */}
+  <NavLink to="/basket" title="Basket">
+    <FaShoppingBag />
+
+    <span className="basketCount">
+      {basketCount}
+    </span>
+  </NavLink>
+
+  {/* ACCOUNT */}
+  <NavLink to="/account" title="Account">
+    <FaUserCircle />
+  </NavLink>
+
+</nav>
 
     </header>
 
