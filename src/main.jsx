@@ -53,7 +53,7 @@ const siteRouter = createBrowserRouter([
   element: <EditProfile />
 },
       {
-  path: "/orders",
+  path: "orders",
   element: <Orders />
 },{
   path: "orders/:orderId",
