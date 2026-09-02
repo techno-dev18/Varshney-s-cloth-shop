@@ -1,0 +1,274 @@
+.about-page {
+  width: 100%;
+  background: #ffffff;
+  color: #111111;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.about-hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.65)
+    ),
+    linear-gradient(135deg, #222222, #555555);
+}
+
+.about-hero-content {
+  max-width: 800px;
+  color: white;
+}
+
+.about-tag,
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #b11226;
+  margin-bottom: 18px;
+}
+
+.about-hero .about-tag {
+  color: #ffffff;
+}
+
+.about-hero h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.05;
+  margin: 0 0 25px;
+  font-weight: 700;
+}
+
+.about-hero h1 span,
+.about-intro-content h2 span,
+.about-cta h2 span {
+  color: #b11226;
+}
+
+.about-hero p {
+  max-width: 650px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #eeeeee;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.about-intro {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-intro-image {
+  width: 100%;
+}
+
+.about-image-placeholder {
+  width: 100%;
+  min-height: 480px;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.about-image-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 25px;
+  border: 1px solid #d5d5d5;
+}
+
+.about-image-placeholder span {
+  font-size: 130px;
+  font-weight: 700;
+  color: #b11226;
+  z-index: 1;
+}
+
+.about-intro-content h2 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin: 0 0 25px;
+}
+
+.about-intro-content p {
+  color: #555555;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+/* =========================
+   VALUES
+========================= */
+
+.about-values {
+  background: #f7f7f7;
+  padding: 100px 30px;
+}
+
+.about-section-heading {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.about-section-heading h2 {
+  font-size: 48px;
+  margin: 0 0 15px;
+}
+
+.about-section-heading p {
+  color: #666666;
+  font-size: 16px;
+}
+
+.values-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.value-card {
+  background: white;
+  padding: 35px 28px;
+  min-height: 240px;
+  border: 1px solid #e5e5e5;
+  transition: 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  border-color: #b11226;
+}
+
+.value-number {
+  font-size: 14px;
+  font-weight: 700;
+  color: #b11226;
+  margin-bottom: 35px;
+}
+
+.value-card h3 {
+  font-size: 23px;
+  margin: 0 0 15px;
+}
+
+.value-card p {
+  color: #666666;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.about-cta {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-cta h2 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin: 0 0 20px;
+}
+
+.about-cta p {
+  color: #666666;
+  line-height: 1.7;
+}
+
+.about-cta-button {
+  display: inline-block;
+  background: #b11226;
+  color: white;
+  padding: 16px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+.about-cta-button:hover {
+  background: #8f1020;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-hero {
+    min-height: 420px;
+  }
+
+  .about-intro,
+  .about-values,
+  .about-cta {
+    padding: 70px 20px;
+  }
+
+  .about-intro-content h2,
+  .about-section-heading h2,
+  .about-cta h2 {
+    font-size: 36px;
+  }
+
+  .about-image-placeholder {
+    min-height: 330px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-cta-button {
+    width: 100%;
+    text-align: center;
+  }
+}

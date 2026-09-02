@@ -26,6 +26,8 @@ import Wishlist from "./Pages/Wishlist.jsx";
 import Orders from "./Pages/Orders";
 import EditProfile from "./Pages/EditProfile";
 import OrderDetails from "./Pages/OrderDetails";
+import AboutUs from "./Pages/AboutUs";
+import ContactUs from "./Pages/ContactUs";
 const siteRouter = createBrowserRouter([
   {
     path: "/",
@@ -87,6 +89,14 @@ const siteRouter = createBrowserRouter([
         path: "signup",
         element: <Signup />
       },
+      {
+  path: "about",
+  element: <AboutUs />
+},
+{
+  path: "contact",
+  element: <ContactUs />
+},
     ],
   },
 ]);
