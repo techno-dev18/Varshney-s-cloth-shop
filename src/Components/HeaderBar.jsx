@@ -3,7 +3,7 @@ import {
   FaShoppingBag,
   FaUserCircle,
   FaStore,
-   FaInfoCircle,
+  FaInfoCircle,
   FaEnvelope
 } from "react-icons/fa";
 
@@ -190,14 +190,21 @@ const HeaderBar = () => {
   <NavLink to="/collection" title="Collection">
     <FaStore />
   </NavLink>
-
- {/* ABOUT */}
-<NavLink to="/about" title="About Us">
+{/* ABOUT */}
+<NavLink
+  to="/about"
+  className="header-icon"
+  title="About Us"
+>
   <FaInfoCircle />
 </NavLink>
 
 {/* CONTACT */}
-<NavLink to="/contact" title="Contact Us">
+<NavLink
+  to="/contact"
+  className="header-icon"
+  title="Contact Us"
+>
   <FaEnvelope />
 </NavLink>
 
