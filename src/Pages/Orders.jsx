@@ -31,11 +31,10 @@ const Orders = () => {
 
       try {
 
-        const user =
-          JSON.parse(storedUser);
+       
 
         const response =
-          await getOrders(user.id);
+          await getOrders();
 
         console.log(
           "Orders:",

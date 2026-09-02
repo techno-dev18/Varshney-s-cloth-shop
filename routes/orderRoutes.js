@@ -1,6 +1,7 @@
 import express from "express";
 import Cart from "../models/Cart.js";
 import Order from "../models/Order.js";
+import protect from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
@@ -10,41 +11,23 @@ const router = express.Router();
 // POST /api/orders
 // ==========================================
 
-router.post("/", async (req, res) => {
-
+router.post("/", protect, async (req, res) => {
   try {
-
     const {
-      userId,
       shippingAddress,
-      paymentMethod,
-      totalAmount
+      paymentMethod
     } = req.body;
 
-
-    // -------------------------------
-    // VALIDATION
-    // -------------------------------
-
-    if (!userId) {
-
-      return res.status(400).json({
-        success: false,
-        message: "User ID is required"
-      });
-
-    }
-
+    // --------------------------------------
+    // VALIDATE SHIPPING ADDRESS
+    // --------------------------------------
 
     if (!shippingAddress) {
-
       return res.status(400).json({
         success: false,
         message: "Shipping address is required"
       });
-
     }
-
 
     const requiredAddressFields = [
       "name",
@@ -55,244 +38,184 @@ router.post("/", async (req, res) => {
       "pincode"
     ];
 
-
     for (const field of requiredAddressFields) {
-
       if (
         !shippingAddress[field] ||
-        !String(
-          shippingAddress[field]
-        ).trim()
+        !String(shippingAddress[field]).trim()
       ) {
-
         return res.status(400).json({
           success: false,
-          message:
-            `${field} is required`
+          message: `${field} is required`
         });
-
       }
-
     }
 
 
-    // -------------------------------
-    // GET CART
-    // -------------------------------
+    // --------------------------------------
+    // GET AUTHENTICATED USER'S CART
+    // --------------------------------------
 
-    const cartItems =
-      await Cart.find({
-        user: userId
-      }).populate("product");
-
+    const cartItems = await Cart.find({
+      user: req.user._id
+    }).populate("product");
 
     if (!cartItems.length) {
-
       return res.status(400).json({
         success: false,
         message: "Your cart is empty"
       });
-
     }
 
 
-    // -------------------------------
+    // --------------------------------------
     // CREATE ORDER ITEMS
-    // -------------------------------
+    // --------------------------------------
 
-    const orderItems =
-      cartItems.map(item => {
+    const orderItems = cartItems.map(item => {
+      if (!item.product) {
+        throw new Error(
+          "A product in your cart no longer exists"
+        );
+      }
 
-        if (!item.product) {
-          throw new Error(
-            "A product in your cart no longer exists"
-          );
-        }
+      const product = item.product;
 
+      const price = Number(product.price) || 0;
 
-        const product =
-          item.product;
+      const discount =
+        Number(product.discountPercentage) || 0;
 
+      const sellingPrice = Math.round(
+        price - (price * discount) / 100
+      );
 
-        const price =
-          Number(product.price) || 0;
+      return {
+        product: product._id,
 
-        const discount =
-          Number(
-            product.discountPercentage
-          ) || 0;
+        productName:
+          product.productName,
 
+        imgURL:
+          product.imgURL,
 
-        const sellingPrice =
-          Math.round(
-            price -
-            (price * discount) / 100
-          );
+        price:
+          sellingPrice,
 
+        quantity:
+          item.quantity,
 
-        return {
-
-          product: product._id,
-
-          productName:
-            product.productName,
-
-          imgURL:
-            product.imgURL,
-
-          price:
-            sellingPrice,
-
-          quantity:
-            item.quantity,
-
-          selectedSize:
-            item.selectedSize
-
-        };
-
-      });
+        selectedSize:
+          item.selectedSize
+      };
+    });
 
 
-    // -------------------------------
+    // --------------------------------------
     // CALCULATE TOTAL ON SERVER
-    // -------------------------------
+    // --------------------------------------
 
     const calculatedTotal =
       orderItems.reduce(
         (total, item) =>
           total +
-          item.price *
-          item.quantity,
+          item.price * item.quantity,
         0
       );
 
 
-    // -------------------------------
+    // --------------------------------------
     // CREATE ORDER
-    // -------------------------------
+    // --------------------------------------
 
-    const order =
-      await Order.create({
+    const order = await Order.create({
+      user: req.user._id,
 
-        user: userId,
+      items: orderItems,
 
-        items: orderItems,
+      shippingAddress,
 
-        shippingAddress,
+      paymentMethod:
+        paymentMethod ||
+        "Cash on Delivery",
 
-        paymentMethod:
-          paymentMethod ||
-          "Cash on Delivery",
+      paymentStatus:
+        "Pending",
 
-        paymentStatus:
-          "Pending",
+      orderStatus:
+        "Placed",
 
-        orderStatus:
-          "Placed",
-
-        totalAmount:
-          calculatedTotal
-
-      });
-
-
-    // -------------------------------
-    // CLEAR CART
-    // -------------------------------
-
-    await Cart.deleteMany({
-      user: userId
+      totalAmount:
+        calculatedTotal
     });
 
 
-    // -------------------------------
+    // --------------------------------------
+    // CLEAR USER'S CART
+    // --------------------------------------
+
+    await Cart.deleteMany({
+      user: req.user._id
+    });
+
+
+    // --------------------------------------
     // RESPONSE
-    // -------------------------------
+    // --------------------------------------
 
     res.status(201).json({
-
       success: true,
 
       message:
         "Order placed successfully",
 
       order
-
     });
 
-
   } catch (error) {
-
     console.error(
       "Create Order Error:",
       error
     );
 
-
     res.status(500).json({
-
       success: false,
 
       message:
-        "Failed to create order",
-
-      error:
-        error.message
-
+        "Failed to create order"
     });
-
   }
-
 });
 
 
 // ==========================================
 // GET USER ORDERS
-// GET /api/orders/:userId
+// GET /api/orders
 // ==========================================
 
-router.get("/:userId", async (req, res) => {
-
+router.get("/", protect, async (req, res) => {
   try {
-
-    const orders =
-      await Order.find({
-        user: req.params.userId
-      })
-      .sort({
-        createdAt: -1
-      });
-
-
-    res.status(200).json({
-
-      success: true,
-
-      orders
-
+    const orders = await Order.find({
+      user: req.user._id
+    }).sort({
+      createdAt: -1
     });
 
+    res.status(200).json({
+      success: true,
+      orders
+    });
 
   } catch (error) {
-
     console.error(
       "Get Orders Error:",
       error
     );
 
-
     res.status(500).json({
-
       success: false,
-
-      message:
-        "Failed to fetch orders"
-
+      message: "Failed to fetch orders"
     });
-
   }
-
 });
 
 
@@ -303,58 +226,38 @@ router.get("/:userId", async (req, res) => {
 
 router.get(
   "/order/:orderId",
+  protect,
   async (req, res) => {
-
     try {
-
       const order =
-        await Order.findById(
-          req.params.orderId
-        );
-
-
-      if (!order) {
-
-        return res.status(404).json({
-
-          success: false,
-
-          message:
-            "Order not found"
-
+        await Order.findOne({
+          _id: req.params.orderId,
+          user: req.user._id
         });
 
+      if (!order) {
+        return res.status(404).json({
+          success: false,
+          message: "Order not found"
+        });
       }
 
-
       res.status(200).json({
-
         success: true,
-
         order
-
       });
 
-
     } catch (error) {
-
       console.error(
         "Get Single Order Error:",
         error
       );
 
-
       res.status(500).json({
-
         success: false,
-
-        message:
-          "Failed to fetch order"
-
+        message: "Failed to fetch order"
       });
-
     }
-
   }
 );
 

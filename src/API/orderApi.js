@@ -2,41 +2,41 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL:
-    "https://varshney-s-cloth-shop.onrender.com/api"
+    "https://varshney-s-cloth-shop.onrender.com/api",
+
+  withCredentials: true
 });
 
 
-export const createOrder = (
-  userId,
-  orderData
-) => {
+// ==========================================
+// CREATE ORDER
+// ==========================================
 
+export const createOrder = (orderData) => {
   return API.post(
     "/orders",
-    {
-      userId,
-      ...orderData
-    }
+    orderData
   );
-
 };
 
 
-export const getOrders = (userId) => {
+// ==========================================
+// GET USER ORDERS
+// ==========================================
 
-  return API.get(
-    `/orders/${userId}`
-  );
-
+export const getOrders = () => {
+  return API.get("/orders");
 };
 
+
+// ==========================================
+// GET SINGLE ORDER
+// ==========================================
 
 export const getSingleOrder = (orderId) => {
-
   return API.get(
     `/orders/order/${orderId}`
   );
-
 };
 
 
