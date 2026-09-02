@@ -6,8 +6,7 @@ import { createOrder } from "../API/orderApi";
 
 import "../Styles/Checkout.css";
 
-const API_URL =
-  "https://varshney-s-cloth-shop.onrender.com/api";
+
 
 const Checkout = () => {
 
@@ -47,11 +46,8 @@ const Checkout = () => {
 
       try {
 
-        const user =
-          JSON.parse(storedUser);
-
         const response =
-          await getCart(user.id);
+  await getCart();
 
         if (
           response.data.success &&
@@ -149,116 +145,89 @@ const Checkout = () => {
   // PLACE ORDER
   // =====================================
 
-  const handlePlaceOrder = async (e) => {
+const handlePlaceOrder = async (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
+  if (
+    !address.name.trim() ||
+    !address.phone.trim() ||
+    !address.address.trim() ||
+    !address.city.trim() ||
+    !address.state.trim() ||
+    !address.pincode.trim()
+  ) {
+    alert(
+      "Please fill all delivery address fields"
+    );
 
-    // Validate address
+    return;
+  }
 
-    if (
-      !address.name.trim() ||
-      !address.phone.trim() ||
-      !address.address.trim() ||
-      !address.city.trim() ||
-      !address.state.trim() ||
-      !address.pincode.trim()
-    ) {
+  if (!/^\d{10}$/.test(address.phone)) {
+    alert(
+      "Please enter a valid 10-digit phone number"
+    );
 
+    return;
+  }
+
+  if (!/^\d{6}$/.test(address.pincode)) {
+    alert(
+      "Please enter a valid 6-digit pincode"
+    );
+
+    return;
+  }
+
+  try {
+    setPlacingOrder(true);
+
+    const orderData = {
+      shippingAddress: address,
+      paymentMethod
+    };
+
+    console.log(
+      "Creating order:",
+      orderData
+    );
+
+    const response =
+      await createOrder(orderData);
+
+    console.log(
+      "Order response:",
+      response.data
+    );
+
+    if (response.data.success) {
       alert(
-        "Please fill all delivery address fields"
+        "Order placed successfully!"
       );
 
-      return;
-
+      navigate("/orders");
     }
 
+  } catch (error) {
+    console.error(
+      "Place Order Error:",
+      error
+    );
 
-    if (address.phone.length !== 10) {
+    console.error(
+      "Server response:",
+      error.response?.data
+    );
 
-      alert(
-        "Please enter a valid 10-digit phone number"
-      );
+    alert(
+      error.response?.data?.message ||
+      "Failed to place order"
+    );
 
-      return;
-
-    }
-
-
-    if (address.pincode.length !== 6) {
-
-      alert(
-        "Please enter a valid 6-digit pincode"
-      );
-
-      return;
-
-    }
-
-
-    try {
-
-      setPlacingOrder(true);
-
-      const storedUser =
-        localStorage.getItem("user");
-
-      const user =
-        JSON.parse(storedUser);
-
-
-      const orderData = {
-
-        shippingAddress: address,
-
-        paymentMethod,
-
-        totalAmount
-
-      };
-
-
-      const response =
-        await createOrder(
-          user.id,
-          orderData
-        );
-
-
-      console.log(
-        "Order response:",
-        response.data
-      );
-
-
-      if (response.data.success) {
-
-        alert(
-          "Order placed successfully!"
-        );
-
-        navigate("/orders");
-
-      }
-
-    } catch (error) {
-
-      console.error(
-        "Place Order Error:",
-        error
-      );
-
-      alert(
-        error.response?.data?.message ||
-        "Failed to place order"
-      );
-
-    } finally {
-
-      setPlacingOrder(false);
-
-    }
-
-  };
+  } finally {
+    setPlacingOrder(false);
+  }
+};
 
 
   // =====================================
