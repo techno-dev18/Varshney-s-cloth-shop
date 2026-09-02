@@ -33,21 +33,23 @@ const Login = () => {
 
       setLoading(true);
 
-      const response = await fetch(
-        `${API_URL}/users/login`,
-        {
-          method: "POST",
+    const response = await fetch(
+  `${API_URL}/users/login`,
+  {
+    method: "POST",
 
-          headers: {
-            "Content-Type": "application/json"
-          },
+    headers: {
+      "Content-Type": "application/json"
+    },
 
-          body: JSON.stringify({
-            email,
-            password
-          })
-        }
-      );
+    credentials: "include",
+
+    body: JSON.stringify({
+      email,
+      password
+    })
+  }
+);
 
       const data = await response.json();
 
