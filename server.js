@@ -11,8 +11,23 @@ import wishlistRoutes from "./routes/wishlistRoutes.js";
 dotenv.config();
 const app = express();
 // MIDDLEWARE
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: function (origin, callback) {
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Not allowed by CORS"));
+  },
   credentials: true
 }));
 app.use(express.json());
@@ -21,9 +36,7 @@ app.use(cookieParser());
 connectDB();
 // HOME ROUTE
 
-app.get("/", (req, res) => {
-  res.send("Varshney's Cloth Shop API Running");
-});
+
 app.use("/api/products", productRoutes);
 
 
