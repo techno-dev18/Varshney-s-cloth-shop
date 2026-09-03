@@ -299,21 +299,15 @@ const ProductDetails = () => {
       {/* ==========================
           BACK TO DASHBOARD
       ========================== */}
-
-      <button
-        type="button"
-        className="backToDashboard"
-        onClick={() =>
-          navigate("/")
-        }
-        title="Back to Dashboard"
-        aria-label="Back to Dashboard"
-      >
-
-        <FaArrowLeft />
-
-      </button>
-
+<button
+  type="button"
+  className="backToDashboard"
+  onClick={() => navigate("/")}
+  title="Back to Dashboard"
+  aria-label="Back to Dashboard"
+>
+  <FaArrowLeft />
+</button>
 
       {/* ==========================
           PRODUCT CONTAINER

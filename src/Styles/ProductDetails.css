@@ -704,3 +704,84 @@
   }
 
 }
+/* =========================================
+   BACK TO DASHBOARD ARROW
+========================================= */
+
+.backToDashboard {
+  position: fixed !important;
+
+  top: 90px !important;
+  right: 30px !important;
+
+  width: 50px !important;
+  height: 50px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: #b11226 !important;
+  color: #ffffff !important;
+
+  border: none !important;
+  border-radius: 50% !important;
+
+  font-size: 20px !important;
+
+  cursor: pointer !important;
+
+  z-index: 99999 !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.3) !important;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease !important;
+}
+
+.backToDashboard svg {
+  width: 20px !important;
+  height: 20px !important;
+
+  display: block !important;
+
+  fill: currentColor !important;
+}
+
+.backToDashboard:hover {
+  background: #8f1020 !important;
+
+  transform:
+    translateX(-4px) !important;
+}
+
+.backToDashboard:active {
+  transform: scale(0.92) !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .backToDashboard {
+    top: 75px !important;
+    right: 15px !important;
+
+    width: 44px !important;
+    height: 44px !important;
+
+    font-size: 17px !important;
+  }
+
+  .backToDashboard svg {
+    width: 17px !important;
+    height: 17px !important;
+  }
+
+}
