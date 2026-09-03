@@ -4,8 +4,13 @@ import {
 } from "react";
 
 import {
+  useNavigate,
   useParams
 } from "react-router-dom";
+
+import {
+  FaArrowLeft
+} from "react-icons/fa";
 
 import "../Styles/ProductDetails.css";
 
@@ -14,7 +19,11 @@ const API_URL =
 
 const ProductDetails = () => {
 
-  const { itemName } = useParams();
+  const {
+    itemName
+  } = useParams();
+
+  const navigate = useNavigate();
 
   const [products, setProducts] =
     useState([]);
@@ -28,7 +37,11 @@ const ProductDetails = () => {
   const [error, setError] =
     useState("");
 
-  // Fetch products from MongoDB
+
+  // ==============================
+  // FETCH PRODUCTS
+  // ==============================
+
   useEffect(() => {
 
     const fetchProducts = async () => {
@@ -43,23 +56,12 @@ const ProductDetails = () => {
           await response.json();
 
         if (!response.ok) {
+
           throw new Error(
             "Unable to load products"
           );
+
         }
-
-        /*
-          Your API may return:
-
-          {
-            success: true,
-            products: [...]
-          }
-
-          OR directly:
-
-          [...]
-        */
 
         setProducts(
           data.products || data
@@ -81,31 +83,62 @@ const ProductDetails = () => {
         setLoading(false);
 
       }
+
     };
 
     fetchProducts();
 
   }, []);
 
-  // Loading
+
+  // ==============================
+  // LOADING
+  // ==============================
+
   if (loading) {
+
     return (
-      <h2>
-        Loading Product...
-      </h2>
+      <section className="detailsMessage">
+
+        <h2>
+          Loading Product...
+        </h2>
+
+      </section>
     );
+
   }
 
-  // Error
+
+  // ==============================
+  // ERROR
+  // ==============================
+
   if (error) {
+
     return (
-      <h2>
-        {error}
-      </h2>
+      <section className="detailsMessage">
+
+        <h2>
+          {error}
+        </h2>
+
+        <button
+          onClick={() => navigate("/")}
+        >
+          Back to Dashboard
+        </button>
+
+      </section>
     );
+
   }
 
-  // Find selected product
+
+  // ==============================
+  // FIND PRODUCT
+  // ==============================
+
   const selectedProduct =
     products.find(
       product =>
@@ -113,22 +146,46 @@ const ProductDetails = () => {
         itemName
     );
 
-  // Product doesn't exist
+
+  // ==============================
+  // PRODUCT NOT FOUND
+  // ==============================
+
   if (!selectedProduct) {
+
     return (
-      <h1>
-        Product Not Found
-      </h1>
+      <section className="detailsMessage">
+
+        <h1>
+          Product Not Found
+        </h1>
+
+        <button
+          onClick={() => navigate("/")}
+        >
+          Back to Dashboard
+        </button>
+
+      </section>
     );
+
   }
 
-  // Set first size if no size selected
+
+  // ==============================
+  // CURRENT SIZE
+  // ==============================
+
   const currentSize =
     selectedSize ||
     selectedProduct.sizes?.[0] ||
     "";
 
-  // Calculate discounted price
+
+  // ==============================
+  // DISCOUNTED PRICE
+  // ==============================
+
   const finalPrice =
     Math.round(
       selectedProduct.price -
@@ -138,71 +195,136 @@ const ProductDetails = () => {
       ) / 100
     );
 
-  // Add product to MongoDB cart
-const addToCart = async () => {
-  console.log("ADD TO CART CLICKED");
 
-  const storedUser = localStorage.getItem("user");
+  // ==============================
+  // ADD TO CART
+  // ==============================
 
-  console.log("USER:", storedUser);
+  const addToCart = async () => {
 
-  if (!storedUser) {
-    alert("Please login before adding products to basket");
-    return;
-  }
+    const storedUser =
+      localStorage.getItem("user");
 
-  const user = JSON.parse(storedUser);
+    if (!storedUser) {
 
-  console.log("USER ID:", user.id);
-  console.log("PRODUCT ID:", selectedProduct._id);
-  console.log("SIZE:", currentSize);
+      alert(
+        "Please login before adding products to basket"
+      );
 
-  try {
-    const response = await fetch(
-      "https://varshney-s-cloth-shop.onrender.com/api/cart",
-      {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-          userId: user.id,
-          productId: selectedProduct._id,
-          selectedSize: currentSize
-        })
-      }
-    );
-
-    console.log("HTTP STATUS:", response.status);
-
-    const data = await response.json();
-
-    console.log("CART RESPONSE:", data);
-
-    if (!response.ok) {
-      alert(data.message || "Failed to add product");
       return;
+
     }
 
-    alert("Product added to basket!");
 
-  } catch (error) {
+    try {
 
-    console.error("CART ERROR:", error);
+      const response =
+        await fetch(
+          `${API_URL}/cart`,
+          {
+            method: "POST",
 
-    alert("Unable to connect to server");
-  }
-};
+            credentials: "include",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+
+              productId:
+                selectedProduct._id,
+
+              selectedSize:
+                currentSize
+
+            })
+
+          }
+        );
+
+
+      const data =
+        await response.json();
+
+
+      if (!response.ok) {
+
+        alert(
+          data.message ||
+          "Failed to add product"
+        );
+
+        return;
+
+      }
+
+
+      window.dispatchEvent(
+        new Event("cartUpdated")
+      );
+
+
+      alert(
+        "Product added to basket!"
+      );
+
+
+    } catch (error) {
+
+      console.error(
+        "CART ERROR:",
+        error
+      );
+
+      alert(
+        "Unable to connect to server"
+      );
+
+    }
+
+  };
+
+
+  // ==============================
+  // PAGE
+  // ==============================
 
   return (
 
     <section className="detailsPage">
 
+
+      {/* ==========================
+          BACK TO DASHBOARD
+      ========================== */}
+
+      <button
+        type="button"
+        className="backToDashboard"
+        onClick={() =>
+          navigate("/")
+        }
+        title="Back to Dashboard"
+        aria-label="Back to Dashboard"
+      >
+
+        <FaArrowLeft />
+
+      </button>
+
+
+      {/* ==========================
+          PRODUCT CONTAINER
+      ========================== */}
+
       <div className="detailsContainer">
 
-        {/* PRODUCT IMAGE */}
+
+        {/* ==========================
+            PRODUCT IMAGE
+        ========================== */}
 
         <div className="imageSide">
 
@@ -216,9 +338,12 @@ const addToCart = async () => {
         </div>
 
 
-        {/* PRODUCT INFORMATION */}
+        {/* ==========================
+            PRODUCT INFORMATION
+        ========================== */}
 
         <div className="infoSide">
+
 
           <span className="category">
 
@@ -234,18 +359,24 @@ const addToCart = async () => {
           </h1>
 
 
-          <p>
+          <p className="tagline">
 
             {selectedProduct.tagline}
 
           </p>
 
 
-          <h3>
+          {/* RATING */}
+
+          <div className="rating">
 
             ⭐ {selectedProduct.ratings}
 
-          </h3>
+            <span>
+              / 5
+            </span>
+
+          </div>
 
 
           {/* PRICE */}
@@ -264,12 +395,19 @@ const addToCart = async () => {
 
             </span>
 
+            <span className="discount">
+
+              {selectedProduct.discountPercentage}%
+              OFF
+
+            </span>
+
           </div>
 
 
           {/* DESCRIPTION */}
 
-          <p>
+          <p className="description">
 
             {selectedProduct.description}
 
@@ -278,90 +416,104 @@ const addToCart = async () => {
 
           {/* SIZE */}
 
-          <label>
+          <div className="sizeSection">
 
-            Select Size
+            <label>
+              Select Size
+            </label>
 
-          </label>
+            <select
+              value={currentSize}
+              onChange={(e) =>
+                setSelectedSize(
+                  e.target.value
+                )
+              }
+            >
 
-          <select
-            value={currentSize}
-            onChange={(e) =>
-              setSelectedSize(
-                e.target.value
-              )
-            }
-          >
+              {selectedProduct.sizes?.map(
+                size => (
 
-            {selectedProduct.sizes?.map(
-              size => (
+                  <option
+                    key={size}
+                    value={size}
+                  >
+                    {size}
+                  </option>
 
-                <option
-                  key={size}
-                  value={size}
-                >
-                  {size}
-                </option>
+                )
+              )}
 
-              )
-            )}
+            </select>
 
-          </select>
+          </div>
 
 
           {/* FEATURES */}
 
-          <h3>
-            Features
-          </h3>
+          <div className="productSection">
 
-          <ul>
+            <h3>
+              Features
+            </h3>
 
-            {selectedProduct.features?.map(
-              feature => (
+            <ul>
 
-                <li key={feature}>
+              {selectedProduct.features?.map(
+                feature => (
 
-                  {feature}
+                  <li key={feature}>
 
-                </li>
+                    {feature}
 
-              )
-            )}
+                  </li>
 
-          </ul>
+                )
+              )}
+
+            </ul>
+
+          </div>
 
 
           {/* DETAILS */}
 
-          <h3>
-            Details
-          </h3>
+          <div className="productSection">
 
-          <ul>
+            <h3>
+              Details
+            </h3>
 
-            {selectedProduct.details?.map(
-              detail => (
+            <ul>
 
-                <li key={detail}>
+              {selectedProduct.details?.map(
+                detail => (
 
-                  {detail}
+                  <li key={detail}>
 
-                </li>
+                    {detail}
 
-              )
-            )}
+                  </li>
 
-          </ul>
+                )
+              )}
+
+            </ul>
+
+          </div>
 
 
-          {/* ADD TO CART */}
-<button
-  type="button"
-  onClick={addToCart}
->
-  Add To Basket
-</button>
+          {/* ADD TO BASKET */}
+
+          <button
+            type="button"
+            className="addBasketButton"
+            onClick={addToCart}
+          >
+
+            Add To Basket
+
+          </button>
 
         </div>
 
@@ -370,6 +522,7 @@ const addToCart = async () => {
     </section>
 
   );
+
 };
 
 export default ProductDetails;
