@@ -402,7 +402,7 @@ const products = [
     price: 1499,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+      "https://images.unsplash.com/photo-1617953644310-e690da9be982?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Easy comfort for relaxed days",
     description:
