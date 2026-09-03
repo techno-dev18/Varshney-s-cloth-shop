@@ -47,7 +47,7 @@ export const categories = [
   {
     categoryName: "Kurta",
     imageURL:
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/black-white-and-orange-floral-button-up-shirt-pbzNZOWaS50"
   },
   {
     categoryName: "Sherwani",
