@@ -13,9 +13,9 @@
     justify-content:center;
 }
 .hero img{
-    width:80%;
+    width:70%;
     margin:40px 10%;
-    height:450px;
+    height:500px;
     object-fit:cover;
 }
 
