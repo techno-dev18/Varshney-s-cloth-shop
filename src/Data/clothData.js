@@ -1,130 +1,130 @@
 export const categories = [
-   {
-  categoryName: "T-Shirts",
-  imageURL:
-    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"
-},
-{
-  categoryName: "Hoodies",
-  imageURL:
-    "https://images.unsplash.com/photo-1556821840-3a63f95609a7"
-},
-{
-  categoryName: "Sweatshirts",
-  imageURL:
-    "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"
-},
-{
-  categoryName: "Trousers",
-  imageURL:
-    "https://images.unsplash.com/photo-1473966968600-fa801b869a1a"
-},
-{
-  categoryName: "Shorts",
-  imageURL:
-    "https://images.unsplash.com/photo-1517841905240-472988babdf9"
-},
-{
-  categoryName: "Cargo Pants",
-  imageURL:
-    "https://images.unsplash.com/photo-1506629905607-c5b4d77d0a40"
-},
-{
-  categoryName: "Track Pants",
-  imageURL:
-    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
-},
-{
-  categoryName: "Blazers",
-  imageURL:
-    "https://images.unsplash.com/photo-1593032465171-8f8d7d5e0a4e"
-},
-{
-  categoryName: "Suits",
-  imageURL:
-    "https://images.unsplash.com/photo-1594938298603-c8148c4dae35"
-},
-{
-  categoryName: "Kurta",
-  imageURL:
-    "https://images.unsplash.com/photo-1617137968427-85924c800a22"
-},
-{
-  categoryName: "Sherwani",
-  imageURL:
-    "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7"
-},
-{
-  categoryName: "Sweaters",
-  imageURL:
-    "https://images.unsplash.com/photo-1523398002811-999ca8dec234"
-},
-{
-  categoryName: "Ethnic Wear",
-  imageURL:
-    "https://images.unsplash.com/photo-1610030469983-98e550d6193c"
-},
-{
-  categoryName: "Kurtis",
-  imageURL:
-    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
-},
-{
-  categoryName: "Sarees",
-  imageURL:
-    "https://images.unsplash.com/photo-1610030469983-98e550d6193c"
-},
-{
-  categoryName: "Lehengas",
-  imageURL:
-    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518"
-},
-{
-  categoryName: "Gowns",
-  imageURL:
-    "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
-},
-{
-  categoryName: "Leggings",
-  imageURL:
-    "https://images.unsplash.com/photo-1483985988355-763728e1935b"
-},
-{
-  categoryName: "Palazzos",
-  imageURL:
-    "https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
-},
-{
-  categoryName: "Skirts",
-  imageURL:
-    "https://images.unsplash.com/photo-1524504388940-b1c1722653e1"
-},
-{
-  categoryName: "Dresses",
-  imageURL:
-    "https://images.unsplash.com/photo-1496747611176-843222e1e57c"
-},
-{
-  categoryName: "Coats",
-  imageURL:
-    "https://images.unsplash.com/photo-1544441893-675973e31985"
-},
-{
-  categoryName: "Winter Wear",
-  imageURL:
-    "https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
-},
-{
-  categoryName: "Sports Wear",
-  imageURL:
-    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f"
-},
-{
-  categoryName: "Accessories",
-  imageURL:
-    "https://images.unsplash.com/photo-1523170335258-f5ed11844a49"
-}
-  ];
+  {
+    categoryName: "T-Shirts",
+    imageURL:
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Hoodies",
+    imageURL:
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Sweatshirts",
+    imageURL:
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Trousers",
+    imageURL:
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Shorts",
+    imageURL:
+      "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Cargo Pants",
+    imageURL:
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Track Pants",
+    imageURL:
+      "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Blazers",
+    imageURL:
+      "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Suits",
+    imageURL:
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Kurta",
+    imageURL:
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Sherwani",
+    imageURL:
+      "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Sweaters",
+    imageURL:
+      "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Ethnic Wear",
+    imageURL:
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Kurtis",
+    imageURL:
+      "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Sarees",
+    imageURL:
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Lehengas",
+    imageURL:
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Gowns",
+    imageURL:
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Leggings",
+    imageURL:
+      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Palazzos",
+    imageURL:
+      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Skirts",
+    imageURL:
+      "https://images.unsplash.com/photo-1583496661160-fb5886a13d27?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Dresses",
+    imageURL:
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Coats",
+    imageURL:
+      "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Winter Wear",
+    imageURL:
+      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Sports Wear",
+    imageURL:
+      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    categoryName: "Accessories",
+    imageURL:
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80"
+  }
+];
   
   export const products = [
     {

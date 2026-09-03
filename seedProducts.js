@@ -14,7 +14,7 @@ const products = [
   // =========================================================
 
   {
-    productName: "Classic White T-Shirt",
+    productName: "Classic Grey T-Shirt",
     category: "T-Shirts",
     gender: "unisex",
     ratings: 4.5,

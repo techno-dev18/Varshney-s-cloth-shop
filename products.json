@@ -7,7 +7,7 @@
     "brand": "Varshney",
     "price": 2200,
     "discountPercentage": 20,
-    "imgURL": "https://images.unsplash.com/photo-1603252109303-2751441dd157",
+    "imgURL": "https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=800&q=80",
     "sizes": [
       "S",
       "M",
@@ -36,7 +36,7 @@
     "brand": "Arrow",
     "price": 2800,
     "discountPercentage": 15,
-    "imgURL": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+    "imgURL": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
     "sizes": [
       "S",
       "M",
@@ -65,7 +65,7 @@
     "brand": "Levi's",
     "price": 3500,
     "discountPercentage": 15,
-    "imgURL": "https://images.unsplash.com/photo-1542272604-787c3835535d",
+    "imgURL": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
     "sizes": [
       "30",
       "32",
@@ -229,7 +229,7 @@
     ]
   },
   {
-    "productName": "Oversized Graphic T-Shirt",
+    "productName": "Ghost Black T-Shirt",
     "category": "T-Shirts",
     "gender": "unisex",
     "ratings": 4.6,
