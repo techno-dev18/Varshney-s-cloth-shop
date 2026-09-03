@@ -1,2 +1,2 @@
 export const heroImage =
-  "../Data/cs.png";
+  "/images/cs.png";
