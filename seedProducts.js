@@ -842,7 +842,7 @@ const products = [
     price: 2499,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22",
+      "https://unsplash.com/photos/black-white-and-orange-floral-button-up-shirt-pbzNZOWaS50",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "Timeless Indian elegance",
     description:
