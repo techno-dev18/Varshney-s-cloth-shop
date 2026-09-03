@@ -8,84 +8,520 @@ dotenv.config();
 const readStream=fs.readFileSync("seedProducts.js", "utf-8");
 const jsonData = JSON.parse(readStream);
 const products = [
-
-  {
-    productName: "Classic Black Shirt",
-    category: "Shirts",
-    gender: "male",
-    ratings: 4.5,
-    brand: "Varshney",
-    price: 2200,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1603252109303-2751441dd157",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Luxury Black Shirt",
-    description: "Premium cotton black shirt.",
-    features: [
+{
+    "productName": "Classic Black Shirt",
+    "category": "Shirts",
+    "gender": "male",
+    "ratings": 4.5,
+    "brand": "Varshney",
+    "price": 2200,
+    "discountPercentage": 20,
+    "imgURL": "https://images.unsplash.com/photo-1603252109303-2751441dd157",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tagline": "Luxury Black Shirt",
+    "description": "Premium cotton black shirt for a smart and elegant look.",
+    "features": [
       "100% Cotton",
       "Regular Fit",
       "Premium Fabric"
     ],
-    details: [
+    "details": [
       "Wash Cold",
       "Machine Wash",
       "Made in India"
     ]
   },
-
   {
-    productName: "Classic Blue Jeans",
-    category: "Jeans",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Levi's",
-    price: 3500,
-    discountPercentage: 15,
-    imgURL:
-      "https://images.unsplash.com/photo-1542272604-787c3835535d",
-    sizes: ["30", "32", "34", "36"],
-    tagline: "Classic Denim Jeans",
-    description:
-      "Comfortable premium denim jeans.",
-    features: [
+  
+    "productName": "White Formal Shirt",
+    "category": "Shirts",
+    "gender": "male",
+    "ratings": 4.6,
+    "brand": "Arrow",
+    "price": 2800,
+    "discountPercentage": 15,
+    "imgURL": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tagline": "Classic Formal Style",
+    "description": "Clean and comfortable white shirt suitable for office and formal occasions.",
+    "features": [
+      "Premium Cotton",
+      "Slim Fit",
+      "Breathable Fabric"
+    ],
+    "details": [
+      "Machine Wash",
+      "Iron on Medium Heat",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Blue Denim Jeans",
+    "category": "Jeans",
+    "gender": "male",
+    "ratings": 4.7,
+    "brand": "Levi's",
+    "price": 3500,
+    "discountPercentage": 15,
+    "imgURL": "https://images.unsplash.com/photo-1542272604-787c3835535d",
+    "sizes": [
+      "30",
+      "32",
+      "34",
+      "36",
+      "38"
+    ],
+    "tagline": "Classic Blue Denim",
+    "description": "Comfortable premium denim jeans designed for everyday wear.",
+    "features": [
       "Premium Denim",
       "Slim Fit",
       "Durable Fabric"
     ],
-    details: [
+    "details": [
       "Machine Wash",
       "Cold Water",
       "Made in India"
     ]
   },
-
   {
-    productName: "Premium Leather Jacket",
-    category: "Jackets",
-    gender: "male",
-    ratings: 4.8,
-    brand: "Roadster",
-    price: 5999,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
-    sizes: ["M", "L", "XL", "XXL"],
-    tagline: "Premium Winter Jacket",
-    description:
-      "Stylish jacket for a premium look.",
-    features: [
+    "productName": "Black Slim Fit Jeans",
+    "category": "Jeans",
+    "gender": "male",
+    "ratings": 4.5,
+    "brand": "Jack & Jones",
+    "price": 3200,
+    "discountPercentage": 20,
+    "imgURL": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+    "sizes": [
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "tagline": "Modern Black Denim",
+    "description": "Versatile black jeans with a comfortable slim fit.",
+    "features": [
+      "Stretch Denim",
+      "Slim Fit",
+      "Fade Resistant"
+    ],
+    "details": [
+      "Machine Wash",
+      "Do Not Bleach",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Premium Leather Jacket",
+    "category": "Jackets",
+    "gender": "male",
+    "ratings": 4.8,
+    "brand": "Roadster",
+    "price": 5999,
+    "discountPercentage": 25,
+    "imgURL": "https://images.unsplash.com/photo-1551028719-00167b16eac5",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tagline": "Premium Winter Jacket",
+    "description": "Stylish jacket designed for a bold and premium winter look.",
+    "features": [
       "Premium Material",
       "Regular Fit",
       "Warm Fabric"
     ],
-    details: [
+    "details": [
       "Dry Clean",
       "Do Not Bleach",
       "Made in India"
     ]
-  }
-
+  },
+  {
+    "productName": "Women's Floral Dress",
+    "category": "Dresses",
+    "gender": "female",
+    "ratings": 4.7,
+    "brand": "ONLY",
+    "price": 4200,
+    "discountPercentage": 30,
+    "imgURL": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tagline": "Elegant Floral Dress",
+    "description": "Beautiful floral dress designed for casual and special occasions.",
+    "features": [
+      "Soft Fabric",
+      "Comfort Fit",
+      "Floral Print"
+    ],
+    "details": [
+      "Gentle Wash",
+      "Do Not Bleach",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Women's Black Dress",
+    "category": "Dresses",
+    "gender": "female",
+    "ratings": 4.8,
+    "brand": "Zara",
+    "price": 5200,
+    "discountPercentage": 20,
+    "imgURL": "https://images.unsplash.com/photo-1539008835657-9e8e9680c956",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "tagline": "Elegant Black Dress",
+    "description": "Minimal and sophisticated black dress for evening occasions.",
+    "features": [
+      "Premium Fabric",
+      "Elegant Design",
+      "Comfort Fit"
+    ],
+    "details": [
+      "Dry Clean",
+      "Iron Carefully",
+      "Imported"
+    ]
+  },
+  {
+    "productName": "Women's Casual Top",
+    "category": "Tops",
+    "gender": "female",
+    "ratings": 4.4,
+    "brand": "H&M",
+    "price": 1800,
+    "discountPercentage": 25,
+    "imgURL": "https://images.unsplash.com/photo-1564257577054-0d7c7f6e2b75",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tagline": "Comfortable Casual Top",
+    "description": "Lightweight casual top perfect for everyday outfits.",
+    "features": [
+      "Soft Cotton",
+      "Relaxed Fit",
+      "Lightweight"
+    ],
+    "details": [
+      "Machine Wash",
+      "Wash with Similar Colors",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Oversized Graphic T-Shirt",
+    "category": "T-Shirts",
+    "gender": "unisex",
+    "ratings": 4.6,
+    "brand": "Urban Monkey",
+    "price": 1600,
+    "discountPercentage": 20,
+    "imgURL": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tagline": "Streetwear Graphic Tee",
+    "description": "Relaxed oversized T-shirt inspired by modern streetwear fashion.",
+    "features": [
+      "100% Cotton",
+      "Oversized Fit",
+      "Graphic Print"
+    ],
+    "details": [
+      "Machine Wash",
+      "Do Not Iron Print",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Classic White T-Shirt",
+    "category": "T-Shirts",
+    "gender": "unisex",
+    "ratings": 4.5,
+    "brand": "Uniqlo",
+    "price": 1400,
+    "discountPercentage": 10,
+    "imgURL": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tagline": "Essential White Tee",
+    "description": "Simple and versatile white T-shirt for everyday styling.",
+    "features": [
+      "Soft Cotton",
+      "Regular Fit",
+      "Breathable"
+    ],
+    "details": [
+      "Machine Wash",
+      "Wash Cold",
+      "Imported"
+    ]
+  },
+  {
+    "productName": "Women's Blue Denim Jacket",
+    "category": "Jackets",
+    "gender": "female",
+    "ratings": 4.6,
+    "brand": "ONLY",
+    "price": 3800,
+    "discountPercentage": 20,
+    "imgURL": "https://images.unsplash.com/photo-1543076447-215ad9ba6923",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tagline": "Classic Denim Layer",
+    "description": "Classic denim jacket that pairs easily with casual outfits.",
+    "features": [
+      "Denim Fabric",
+      "Button Closure",
+      "Regular Fit"
+    ],
+    "details": [
+      "Machine Wash",
+      "Cold Water",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Beige Chinos",
+    "category": "Trousers",
+    "gender": "male",
+    "ratings": 4.4,
+    "brand": "Peter England",
+    "price": 2600,
+    "discountPercentage": 15,
+    "imgURL": "https://images.unsplash.com/photo-1473966968600-fa801b869a1a",
+    "sizes": [
+      "30",
+      "32",
+      "34",
+      "36",
+      "38"
+    ],
+    "tagline": "Smart Casual Chinos",
+    "description": "Comfortable beige chinos suitable for smart casual outfits.",
+    "features": [
+      "Cotton Blend",
+      "Straight Fit",
+      "Comfort Waist"
+    ],
+    "details": [
+      "Machine Wash",
+      "Iron Medium",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Women's Wide Leg Trousers",
+    "category": "Trousers",
+    "gender": "female",
+    "ratings": 4.5,
+    "brand": "Mango",
+    "price": 3300,
+    "discountPercentage": 20,
+    "imgURL": "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "tagline": "Modern Wide Leg Trousers",
+    "description": "Elegant wide-leg trousers designed for a polished modern look.",
+    "features": [
+      "Premium Blend",
+      "Wide Leg",
+      "High Waist"
+    ],
+    "details": [
+      "Gentle Wash",
+      "Iron Low",
+      "Imported"
+    ]
+  },
+  {
+    "productName": "Women's Knit Sweater",
+    "category": "Sweaters",
+    "gender": "female",
+    "ratings": 4.7,
+    "brand": "Forever 21",
+    "price": 2900,
+    "discountPercentage": 25,
+    "imgURL": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tagline": "Cozy Knit Sweater",
+    "description": "Warm and comfortable knit sweater for cool weather.",
+    "features": [
+      "Soft Knit",
+      "Warm Fabric",
+      "Relaxed Fit"
+    ],
+    "details": [
+      "Hand Wash",
+      "Do Not Bleach",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Men's Grey Hoodie",
+    "category": "Hoodies",
+    "gender": "male",
+    "ratings": 4.6,
+    "brand": "Puma",
+    "price": 3200,
+    "discountPercentage": 20,
+    "imgURL": "https://images.unsplash.com/photo-1556821840-3a63f95609a7",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "tagline": "Everyday Comfort Hoodie",
+    "description": "Soft fleece hoodie for comfortable everyday wear.",
+    "features": [
+      "Fleece Fabric",
+      "Adjustable Hood",
+      "Kangaroo Pocket"
+    ],
+    "details": [
+      "Machine Wash",
+      "Wash Inside Out",
+      "Made in India"
+    ]
+  },
+  {
+    "productName": "Women's Sports Leggings",
+    "category": "Activewear",
+    "gender": "female",
+    "ratings": 4.8,
+    "brand": "Nike",
+    "price": 2800,
+    "discountPercentage": 15,
+    "imgURL": "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tagline": "Performance Activewear",
+    "description": "Stretchable leggings designed for workouts and active lifestyles.",
+    "features": [
+      "Stretch Fabric",
+      "High Waist",
+      "Moisture Wicking"
+    ],
+    "details": [
+      "Machine Wash",
+      "Do Not Iron",
+      "Imported"
+    ]
+  },
+  {
+    "productName": "Men's Polo T-Shirt",
+    "category": "T-Shirts",
+    "gender": "male",
+    "ratings": 4.5,
+    "brand": "Lacoste",
+    "price": 4200,
+    "discountPercentage": 18,
+    "imgURL": "https://images.unsplash.com/photo-1625910513413-5fc45c6e4b7a",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "tagline": "Premium Polo Shirt",
+    "description": "Classic polo T-shirt with a clean and refined design.",
+    "features": [
+      "Pique Cotton",
+      "Regular Fit",
+      "Collar Neck"
+    ],
+    "details": [
+      "Machine Wash",
+      "Wash Cold",
+      "Imported"
+    ]
+  },
+  {
+    "productName": "Women's Summer Skirt",
+    "category": "Skirts",
+    "gender": "female",
+    "ratings": 4.4,
+    "brand": "Mango",
+    "price": 2500,
+    "discountPercentage": 20,
+    "imgURL": "https://images.unsplash.com/photo-1583496661160-fb5886a13d27",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "tagline": "Light Summer Skirt",
+    "description": "Comfortable and stylish skirt for warm-weather outfits.",
+    "features": [
+      "Lightweight Fabric",
+      "Comfort Waist",
+      "Modern Print"
+    ],
+    "details": [
+      "Gentle Wash",
+      "Do Not Bleach",
+      "Imported"
+    ]
+  }  
 ];
 
 const seedDatabase = async () => {
