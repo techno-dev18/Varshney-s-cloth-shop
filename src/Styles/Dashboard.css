@@ -12,11 +12,12 @@
     gap:20px;
     justify-content:center;
 }
-.hero img{
-    width:80%;
-    margin:40px 10%;
-    height:800px;
-    object-fit:cover;
+.hero img {
+    width: 80%;
+    margin: 40px 10%;
+    height: auto;
+    display: block;
+    
 }
 
 .shopBtn{
