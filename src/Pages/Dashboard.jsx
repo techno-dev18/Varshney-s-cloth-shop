@@ -4,7 +4,7 @@ import {
   categories
 }
 from "../Data/clothData";
-
+import { heroImage } from "../Data/constants";
 import CategoryTile
 from "../Components/CategoryTile";
 import "../Styles/Dashboard.css";
@@ -14,10 +14,7 @@ const Dashboard = () => {
     <>
    
       <section className="hero">
-        <img
-          src="https://images.pexels.com/photos/33517294/pexels-photo-33517294.jpeg"
-          alt=""
-        />
+        <img src={heroImage} alt="Varshney's Cloth Shop" />
 
         <Link
           className="shopBtn"
