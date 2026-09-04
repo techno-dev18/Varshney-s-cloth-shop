@@ -100,17 +100,17 @@ export const categories = [
   {
     categoryName: "Dresses",
     imageURL:
-      "https://unsplash.com/photos/a-rack-of-clothes-and-hats-in-a-room-_a_FlMKo4Lk"
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80"
   },
   {
     categoryName: "Coats",
     imageURL:
-      "https://unsplash.com/photos/a-coat-hanging-on-a-clothes-line-M5F4vmEnxsA"
+      "https://images.unsplash.com/photo-1542542856-d29decffd6ba?auto=format&fit=crop&w=800&q=80"
   },
   {
     categoryName: "Winter Wear",
     imageURL:
-      "https://unsplash.com/photos/a-woman-standing-next-to-a-tree-in-the-snow-vm_prJH65Sk"
+      "https://www.pexels.com/photo/model-in-winter-jacket-18403649/"
   },
   {
     categoryName: "Sports Wear",
