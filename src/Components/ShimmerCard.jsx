@@ -4,7 +4,6 @@ const ShimmerCard = () => {
   return (
     <div className="shimmerCard">
 
-      {/* Product Image */}
       <div className="shimmerImage"></div>
 
       {/* Product Content */}
