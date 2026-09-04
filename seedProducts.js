@@ -565,94 +565,7 @@ const products = [
     ]
   },
 
-  // =========================================================
-  // 7. TRACK PANTS
-  // =========================================================
-
-  {
-    productName: "Sports Track Pants",
-    category: "Track Pants",
-    gender: "male",
-    ratings: 4.5,
-    brand: "Adidas",
-    price: 2499,
-    discountPercentage: 15,
-    imgURL:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
-    sizes: ["M", "L", "XL", "XXL"],
-    tagline: "Training comfort without limits",
-    description:
-      "Comfortable athletic track pants designed for workouts and everyday activity.",
-    features: [
-      "Quick Dry",
-      "Stretchable",
-      "Side Pockets",
-      "Breathable"
-    ],
-    details: [
-      "Elastic Waist",
-      "Tapered Fit",
-      "Machine Wash",
-      "Sports Wear"
-    ]
-  },
-
-  {
-    productName: "Women's Performance Track Pants",
-    category: "Track Pants",
-    gender: "female",
-    ratings: 4.6,
-    brand: "Nike",
-    price: 2799,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Performance meets comfort",
-    description:
-      "Flexible track pants designed for training, running and active lifestyles.",
-    features: [
-      "Stretch Fabric",
-      "Quick Dry",
-      "Lightweight",
-      "Breathable"
-    ],
-    details: [
-      "Elastic Waist",
-      "Tapered Leg",
-      "Machine Wash",
-      "Sports Wear"
-    ]
-  },
-
-  {
-    productName: "Everyday Jogger Track Pants",
-    category: "Track Pants",
-    gender: "unisex",
-    ratings: 4.5,
-    brand: "Puma",
-    price: 2299,
-    discountPercentage: 18,
-    imgURL:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Relaxed movement every day",
-    description:
-      "Comfortable jogger-style track pants for travel and casual wear.",
-    features: [
-      "Soft Fabric",
-      "Stretchable",
-      "Elastic Waist",
-      "Comfort Fit"
-    ],
-    details: [
-      "Jogger Fit",
-      "Side Pockets",
-      "Machine Wash",
-      "Unisex"
-    ]
-  },
-
+  
   // =========================================================
   // 8. BLAZERS
   // =========================================================
@@ -666,7 +579,7 @@ const products = [
     price: 6999,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1593032465171-8f8d7d5e0a4e",
+      "https://www.pexels.com/photo/fashion-portrait-of-woman-in-black-suit-30453635/",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Sharp tailoring for important moments",
     description:
@@ -694,7 +607,7 @@ const products = [
     price: 6499,
     discountPercentage: 25,
     imgURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
+      "https://www.pexels.com/photo/elegant-woman-in-a-beige-blazer-holding-a-coffee-and-laptop-7578401/",
     sizes: ["XS", "S", "M", "L"],
     tagline: "Modern tailoring with elegance",
     description:
@@ -782,7 +695,7 @@ const products = [
     price: 11999,
     discountPercentage: 25,
     imgURL:
-      "https://images.unsplash.com/photo-1593032465171-8f8d7d5e0a4e",
+      "https://www.pexels.com/photo/man-in-suit-sitting-on-stairs-16377794/",
     sizes: ["38", "40", "42", "44", "46"],
     tagline: "Professional elegance redefined",
     description:
@@ -810,7 +723,7 @@ const products = [
     price: 8499,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
+      "https://www.pexels.com/photo/businesswoman-wearing-a-suit-24724191/",
     sizes: ["XS", "S", "M", "L"],
     tagline: "Power dressing made elegant",
     description:
@@ -829,270 +742,7 @@ const products = [
     ]
   },
 
-  // =========================================================
-  // 10. KURTA
-  // =========================================================
-
-  {
-    productName: "Classic White Kurta",
-    category: "Kurta",
-    gender: "male",
-    ratings: 4.7,
-    brand: "Manyavar",
-    price: 2499,
-    discountPercentage: 20,
-    imgURL:
-      "https://unsplash.com/photos/black-white-and-orange-floral-button-up-shirt-pbzNZOWaS50",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Timeless Indian elegance",
-    description:
-      "A classic white kurta designed for festivals, celebrations and traditional occasions.",
-    features: [
-      "Cotton Fabric",
-      "Comfort Fit",
-      "Traditional Design",
-      "Breathable"
-    ],
-    details: [
-      "Full Sleeves",
-      "Straight Fit",
-      "Hand Wash",
-      "Made in India"
-    ]
-  },
-
-  {
-    productName: "Printed Festive Kurta",
-    category: "Kurta",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Fabindia",
-    price: 2899,
-    discountPercentage: 18,
-    imgURL:
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Festive style with a modern touch",
-    description:
-      "A printed festive kurta combining traditional craftsmanship with contemporary styling.",
-    features: [
-      "Printed Design",
-      "Cotton Blend",
-      "Comfort Fit",
-      "Festive Style"
-    ],
-    details: [
-      "Full Sleeves",
-      "Mandarin Collar",
-      "Hand Wash",
-      "Ethnic Wear"
-    ]
-  },
-
-  {
-    productName: "Premium Black Kurta",
-    category: "Kurta",
-    gender: "male",
-    ratings: 4.8,
-    brand: "Varshney",
-    price: 3299,
-    discountPercentage: 22,
-    imgURL:
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22",
-    sizes: ["M", "L", "XL", "XXL"],
-    tagline: "Minimal luxury in traditional wear",
-    description:
-      "A premium black kurta designed for elegant festive and evening occasions.",
-    features: [
-      "Premium Fabric",
-      "Minimal Design",
-      "Comfort Fit",
-      "Elegant Finish"
-    ],
-    details: [
-      "Mandarin Collar",
-      "Full Sleeves",
-      "Dry Clean",
-      "Festive Wear"
-    ]
-  },
-
-  // =========================================================
-  // 11. SHERWANI
-  // =========================================================
-
-  {
-    productName: "Premium Wedding Sherwani",
-    category: "Sherwani",
-    gender: "male",
-    ratings: 4.9,
-    brand: "Manyavar",
-    price: 15999,
-    discountPercentage: 18,
-    imgURL:
-      "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7",
-    sizes: ["M", "L", "XL", "XXL"],
-    tagline: "Royal style for your special day",
-    description:
-      "A luxury embroidered sherwani designed for weddings and grand celebrations.",
-    features: [
-      "Silk Fabric",
-      "Hand Embroidery",
-      "Premium Finish",
-      "Royal Design"
-    ],
-    details: [
-      "Full Sleeves",
-      "Embroidered Front",
-      "Dry Clean",
-      "Wedding Wear"
-    ]
-  },
-
-  {
-    productName: "Ivory Royal Sherwani",
-    category: "Sherwani",
-    gender: "male",
-    ratings: 4.8,
-    brand: "Manyavar",
-    price: 18999,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7",
-    sizes: ["M", "L", "XL"],
-    tagline: "Royal elegance for celebrations",
-    description:
-      "An ivory sherwani featuring refined embroidery and a premium traditional silhouette.",
-    features: [
-      "Premium Silk",
-      "Detailed Embroidery",
-      "Luxury Finish",
-      "Traditional Design"
-    ],
-    details: [
-      "Full Sleeves",
-      "Mandarin Collar",
-      "Dry Clean",
-      "Wedding Wear"
-    ]
-  },
-
-  {
-    productName: "Modern Designer Sherwani",
-    category: "Sherwani",
-    gender: "male",
-    ratings: 4.7,
-    brand: "Kisah",
-    price: 13999,
-    discountPercentage: 15,
-    imgURL:
-      "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7",
-    sizes: ["M", "L", "XL", "XXL"],
-    tagline: "Tradition meets modern design",
-    description:
-      "A contemporary sherwani created for modern wedding celebrations.",
-    features: [
-      "Designer Pattern",
-      "Premium Fabric",
-      "Modern Fit",
-      "Elegant Embroidery"
-    ],
-    details: [
-      "Full Sleeves",
-      "Mandarin Collar",
-      "Dry Clean",
-      "Wedding Wear"
-    ]
-  },
-
-  // =========================================================
-  // 12. SWEATERS
-  // =========================================================
-
-  {
-    productName: "Women's Knit Sweater",
-    category: "Sweaters",
-    gender: "female",
-    ratings: 4.6,
-    brand: "Forever 21",
-    price: 2900,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1523398002811-999ca8dec234",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Cozy warmth with effortless style",
-    description:
-      "A soft knit sweater designed for warmth and comfortable winter styling.",
-    features: [
-      "Soft Knit",
-      "Warm Fabric",
-      "Comfort Fit",
-      "Easy Layering"
-    ],
-    details: [
-      "Full Sleeves",
-      "Crew Neck",
-      "Gentle Wash",
-      "Winter Wear"
-    ]
-  },
-
-  {
-    productName: "Men's Wool Blend Sweater",
-    category: "Sweaters",
-    gender: "male",
-    ratings: 4.7,
-    brand: "Allen Solly",
-    price: 3199,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Classic warmth for cold days",
-    description:
-      "A premium wool-blend sweater offering warmth and timeless style.",
-    features: [
-      "Wool Blend",
-      "Warm Material",
-      "Classic Design",
-      "Comfort Fit"
-    ],
-    details: [
-      "Full Sleeves",
-      "Crew Neck",
-      "Gentle Wash",
-      "Winter Wear"
-    ]
-  },
-
-  {
-    productName: "Cable Knit Sweater",
-    category: "Sweaters",
-    gender: "unisex",
-    ratings: 4.5,
-    brand: "H&M",
-    price: 2799,
-    discountPercentage: 18,
-    imgURL:
-      "https://images.unsplash.com/photo-1523398002811-999ca8dec234",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Texture, warmth and comfort",
-    description:
-      "A cable-knit sweater with a timeless pattern and cozy feel.",
-    features: [
-      "Cable Knit",
-      "Warm Fabric",
-      "Soft Texture",
-      "Relaxed Fit"
-    ],
-    details: [
-      "Crew Neck",
-      "Full Sleeves",
-      "Gentle Wash",
-      "Unisex"
-    ]
-  },
-
+  
   // =========================================================
   // 13. ETHNIC WEAR
   // =========================================================
@@ -1106,7 +756,7 @@ const products = [
     price: 4999,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+      "https://www.pexels.com/photo/smiling-man-in-traditional-indian-attire-at-festive-event-30891957/",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Celebrate tradition in style",
     description:
@@ -1134,7 +784,7 @@ const products = [
     price: 4299,
     discountPercentage: 25,
     imgURL:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+      "https://www.pexels.com/photo/two-women-in-traditional-clothing-holding-puja-thali-7685999/",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Graceful traditional elegance",
     description:
@@ -1162,7 +812,7 @@ const products = [
     price: 5499,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+      "https://www.istockphoto.com/photo/indian-punjabi-pre-wedding-jago-ceremony-ritual-items-and-decorations-close-up-gm2242705156-656998843?utm_source=pexels&utm_medium=affiliate&utm_campaign=sponsored_photo&utm_content=srp_inline_portrait_media&utm_term=indian%20royal%20ethnic%20celebration%20set",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Traditional beauty for special moments",
     description:
@@ -1182,94 +832,6 @@ const products = [
   },
 
   // =========================================================
-  // 14. KURTIS
-  // =========================================================
-
-  {
-    productName: "Women's Floral Kurti",
-    category: "Kurtis",
-    gender: "female",
-    ratings: 4.8,
-    brand: "Biba",
-    price: 1999,
-    discountPercentage: 30,
-    imgURL:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Elegant traditional wear",
-    description:
-      "A printed floral kurti designed for festive and everyday ethnic styling.",
-    features: [
-      "Rayon Fabric",
-      "Soft Material",
-      "Elegant Print",
-      "Comfort Fit"
-    ],
-    details: [
-      "Three Quarter Sleeves",
-      "Straight Fit",
-      "Hand Wash",
-      "Made in India"
-    ]
-  },
-
-  {
-    productName: "Printed Cotton Kurti",
-    category: "Kurtis",
-    gender: "female",
-    ratings: 4.5,
-    brand: "Aurelia",
-    price: 1799,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Everyday ethnic comfort",
-    description:
-      "A lightweight cotton kurti designed for comfortable everyday wear.",
-    features: [
-      "Cotton Fabric",
-      "Breathable",
-      "Printed Design",
-      "Easy Fit"
-    ],
-    details: [
-      "Three Quarter Sleeves",
-      "Straight Cut",
-      "Machine Wash",
-      "Daily Wear"
-    ]
-  },
-
-  {
-    productName: "Embroidered Party Kurti",
-    category: "Kurtis",
-    gender: "female",
-    ratings: 4.7,
-    brand: "W",
-    price: 2699,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Elegant details for festive evenings",
-    description:
-      "A beautifully embroidered kurti suitable for parties and festive occasions.",
-    features: [
-      "Embroidered Design",
-      "Premium Fabric",
-      "Comfort Fit",
-      "Festive Style"
-    ],
-    details: [
-      "Three Quarter Sleeves",
-      "Straight Fit",
-      "Dry Clean",
-      "Party Wear"
-    ]
-  },
-
-  // =========================================================
   // 15. SAREES
   // =========================================================
 
@@ -1282,7 +844,7 @@ const products = [
     price: 6999,
     discountPercentage: 25,
     imgURL:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+      "https://www.pexels.com/photo/elegant-woman-in-traditional-pink-silk-saree-35108809/",
     sizes: ["Free Size"],
     tagline: "Festive elegance redefined",
     description:
@@ -1310,7 +872,7 @@ const products = [
     price: 7999,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
+      "https://www.pexels.com/photo/elegant-woman-in-traditional-red-saree-poses-gracefully-28943542/",
     sizes: ["Free Size"],
     tagline: "Traditional craftsmanship",
     description:
@@ -1357,270 +919,7 @@ const products = [
     ]
   },
 
-  // =========================================================
-  // 16. LEHENGAS
-  // =========================================================
-
-  {
-    productName: "Women's Designer Lehenga",
-    category: "Lehengas",
-    gender: "female",
-    ratings: 5.0,
-    brand: "Kalki Fashion",
-    price: 24999,
-    discountPercentage: 10,
-    imgURL:
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Luxury bridal collection",
-    description:
-      "A luxurious embroidered lehenga designed for weddings and grand celebrations.",
-    features: [
-      "Heavy Embroidery",
-      "Premium Fabric",
-      "Bridal Design",
-      "Luxury Finish"
-    ],
-    details: [
-      "Lehenga and Blouse",
-      "Dupatta Included",
-      "Dry Clean",
-      "Bridal Wear"
-    ]
-  },
-
-  {
-    productName: "Pastel Wedding Lehenga",
-    category: "Lehengas",
-    gender: "female",
-    ratings: 4.8,
-    brand: "Aza",
-    price: 21999,
-    discountPercentage: 15,
-    imgURL:
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518",
-    sizes: ["S", "M", "L"],
-    tagline: "Soft colors, timeless elegance",
-    description:
-      "A pastel lehenga designed for weddings, receptions and festive occasions.",
-    features: [
-      "Pastel Colors",
-      "Detailed Embroidery",
-      "Premium Fabric",
-      "Elegant Design"
-    ],
-    details: [
-      "Three Piece Set",
-      "Dupatta Included",
-      "Dry Clean",
-      "Wedding Wear"
-    ]
-  },
-
-  {
-    productName: "Festive Embroidered Lehenga",
-    category: "Lehengas",
-    gender: "female",
-    ratings: 4.7,
-    brand: "Biba",
-    price: 12999,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Celebrate in beautiful tradition",
-    description:
-      "A festive embroidered lehenga designed for celebrations and family functions.",
-    features: [
-      "Embroidered Fabric",
-      "Festive Design",
-      "Comfortable",
-      "Premium Finish"
-    ],
-    details: [
-      "Three Piece Set",
-      "Dupatta Included",
-      "Dry Clean",
-      "Festive Wear"
-    ]
-  },
-
-  // =========================================================
-  // 17. GOWNS
-  // =========================================================
-
-  {
-    productName: "Women's Party Gown",
-    category: "Gowns",
-    gender: "female",
-    ratings: 4.8,
-    brand: "Forever New",
-    price: 8499,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Evening elegance",
-    description:
-      "An elegant gown designed for parties, receptions and evening events.",
-    features: [
-      "Premium Satin",
-      "Elegant Design",
-      "Comfort Fit",
-      "Flowing Silhouette"
-    ],
-    details: [
-      "Full Length",
-      "Sleeveless",
-      "Dry Clean",
-      "Party Wear"
-    ]
-  },
-
-  {
-    productName: "Elegant Evening Gown",
-    category: "Gowns",
-    gender: "female",
-    ratings: 4.7,
-    brand: "Zara",
-    price: 9499,
-    discountPercentage: 18,
-    imgURL:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Make every entrance memorable",
-    description:
-      "A sophisticated evening gown featuring a graceful silhouette and premium finish.",
-    features: [
-      "Premium Fabric",
-      "Elegant Silhouette",
-      "Soft Finish",
-      "Evening Design"
-    ],
-    details: [
-      "Full Length",
-      "Sleeveless",
-      "Dry Clean",
-      "Party Wear"
-    ]
-  },
-
-  {
-    productName: "Floral Summer Gown",
-    category: "Gowns",
-    gender: "female",
-    ratings: 4.5,
-    brand: "ONLY",
-    price: 5999,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Light and graceful summer style",
-    description:
-      "A beautiful floral gown designed for summer parties and special occasions.",
-    features: [
-      "Floral Print",
-      "Lightweight Fabric",
-      "Comfort Fit",
-      "Flowing Design"
-    ],
-    details: [
-      "Midi Length",
-      "Short Sleeves",
-      "Machine Wash",
-      "Party Wear"
-    ]
-  },
-
-  // =========================================================
-  // 18. LEGGINGS
-  // =========================================================
-
-  {
-    productName: "Women's Black Leggings",
-    category: "Leggings",
-    gender: "female",
-    ratings: 4.4,
-    brand: "Zivame",
-    price: 999,
-    discountPercentage: 35,
-    imgURL:
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Daily comfort made simple",
-    description:
-      "Stretchable leggings designed for daily wear with a comfortable waistband.",
-    features: [
-      "Cotton Blend",
-      "Elastic Waist",
-      "Soft Fabric",
-      "Stretchable"
-    ],
-    details: [
-      "High Rise",
-      "Full Length",
-      "Machine Wash",
-      "Daily Wear"
-    ]
-  },
-
-  {
-    productName: "High Waist Active Leggings",
-    category: "Leggings",
-    gender: "female",
-    ratings: 4.7,
-    brand: "Nike",
-    price: 2499,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Move with confidence",
-    description:
-      "High-waisted performance leggings designed for workouts and active lifestyles.",
-    features: [
-      "Stretch Fabric",
-      "Moisture Wicking",
-      "High Waist",
-      "Supportive Fit"
-    ],
-    details: [
-      "Full Length",
-      "Elastic Waist",
-      "Machine Wash",
-      "Activewear"
-    ]
-  },
-
-  {
-    productName: "Everyday Cotton Leggings",
-    category: "Leggings",
-    gender: "female",
-    ratings: 4.5,
-    brand: "Aurelia",
-    price: 1199,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Comfort for every day",
-    description:
-      "Soft cotton leggings suitable for casual outfits and everyday use.",
-    features: [
-      "Cotton Blend",
-      "Soft Fabric",
-      "Stretchable",
-      "Comfort Fit"
-    ],
-    details: [
-      "Full Length",
-      "Elastic Waist",
-      "Machine Wash",
-      "Daily Wear"
-    ]
-  },
-
+ 
   // =========================================================
   // 19. PALAZZOS
   // =========================================================
@@ -1634,7 +933,7 @@ const products = [
     price: 2299,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
+      "https://www.pexels.com/photo/fashionable-woman-posing-in-urban-setting-37448533/",
     sizes: ["XS", "S", "M", "L", "XL"],
     tagline: "Flowing comfort with elegant style",
     description:
@@ -1662,7 +961,7 @@ const products = [
     price: 1999,
     discountPercentage: 25,
     imgURL:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
+      "https://www.pexels.com/photo/fashionable-woman-in-orange-summer-outfit-indoors-38201039/",
     sizes: ["XS", "S", "M", "L"],
     tagline: "Relaxed summer elegance",
     description:
@@ -1690,7 +989,7 @@ const products = [
     price: 2699,
     discountPercentage: 18,
     imgURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
+     "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800",
     sizes: ["XS", "S", "M", "L", "XL"],
     tagline: "Professional comfort with modern style",
     description:
@@ -1709,182 +1008,7 @@ const products = [
     ]
   },
 
-  // =========================================================
-  // 20. SKIRTS
-  // =========================================================
-
-  {
-    productName: "Women's Summer Skirt",
-    category: "Skirts",
-    gender: "female",
-    ratings: 4.4,
-    brand: "Mango",
-    price: 2500,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Light and stylish summer fashion",
-    description:
-      "A lightweight summer skirt designed for comfortable warm-weather styling.",
-    features: [
-      "Lightweight Fabric",
-      "Comfort Fit",
-      "Summer Design",
-      "Versatile Style"
-    ],
-    details: [
-      "Midi Length",
-      "Regular Waist",
-      "Machine Wash",
-      "Summer Wear"
-    ]
-  },
-
-  {
-    productName: "Pleated Midi Skirt",
-    category: "Skirts",
-    gender: "female",
-    ratings: 4.6,
-    brand: "Zara",
-    price: 2999,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Elegant movement in every step",
-    description:
-      "A sophisticated pleated midi skirt suitable for casual and semi-formal occasions.",
-    features: [
-      "Pleated Design",
-      "Flowing Fabric",
-      "Elegant Silhouette",
-      "Comfort Fit"
-    ],
-    details: [
-      "Midi Length",
-      "High Rise",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  {
-    productName: "Denim Mini Skirt",
-    category: "Skirts",
-    gender: "female",
-    ratings: 4.5,
-    brand: "ONLY",
-    price: 2199,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Casual denim with modern attitude",
-    description:
-      "A stylish denim mini skirt designed for youthful casual outfits.",
-    features: [
-      "Denim Fabric",
-      "Modern Design",
-      "Comfort Fit",
-      "Durable"
-    ],
-    details: [
-      "Mini Length",
-      "Button Closure",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  // =========================================================
-  // 21. DRESSES
-  // =========================================================
-
-  {
-    productName: "Women's Floral Dress",
-    category: "Dresses",
-    gender: "female",
-    ratings: 4.6,
-    brand: "ONLY",
-    price: 4200,
-    discountPercentage: 30,
-    imgURL:
-      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Beautiful floral style",
-    description:
-      "A feminine floral dress with a comfortable silhouette perfect for outings.",
-    features: [
-      "Floral Print",
-      "Lightweight Fabric",
-      "Comfort Fit",
-      "Elegant Design"
-    ],
-    details: [
-      "Midi Length",
-      "Short Sleeves",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  {
-    productName: "Women's Black Dress",
-    category: "Dresses",
-    gender: "female",
-    ratings: 4.7,
-    brand: "Zara",
-    price: 5200,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1539008835657-9e8e9680c956",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "The timeless little black dress",
-    description:
-      "A sophisticated black dress suitable for dinners, parties and evening events.",
-    features: [
-      "Elegant Black Design",
-      "Comfortable Fabric",
-      "Modern Silhouette",
-      "Versatile"
-    ],
-    details: [
-      "Midi Length",
-      "Sleeveless",
-      "Dry Clean",
-      "Party Wear"
-    ]
-  },
-
-  {
-    productName: "Casual Summer Dress",
-    category: "Dresses",
-    gender: "female",
-    ratings: 4.5,
-    brand: "H&M",
-    price: 3199,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Easy summer elegance",
-    description:
-      "A lightweight casual dress designed for comfortable summer days.",
-    features: [
-      "Lightweight",
-      "Breathable",
-      "Comfort Fit",
-      "Summer Design"
-    ],
-    details: [
-      "Midi Length",
-      "Short Sleeves",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
+  
   // =========================================================
   // 22. COATS
   // =========================================================
@@ -1898,7 +1022,7 @@ const products = [
     price: 6999,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1544441893-675973e31985",
+     "https://www.pexels.com/photo/elegant-man-in-black-overcoat-on-neutral-background-34609625/",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "Classic protection with refined style",
     description:
@@ -1926,7 +1050,7 @@ const products = [
     price: 7499,
     discountPercentage: 25,
     imgURL:
-      "https://images.unsplash.com/photo-1544441893-675973e31985",
+      "https://www.pexels.com/photo/selective-focus-of-a-woman-in-brown-coat-and-trousers-walking-on-the-sidewalk-3152742/",
     sizes: ["XS", "S", "M", "L"],
     tagline: "Timeless winter elegance",
     description:
@@ -1954,7 +1078,7 @@ const products = [
     price: 8999,
     discountPercentage: 18,
     imgURL:
-      "https://images.unsplash.com/photo-1544441893-675973e31985",
+      "https://www.pexels.com/photo/man-looking-down-1643025/",
     sizes: ["M", "L", "XL", "XXL"],
     tagline: "Premium warmth for winter",
     description:
@@ -1973,94 +1097,7 @@ const products = [
     ]
   },
 
-  // =========================================================
-  // 23. WINTER WEAR
-  // =========================================================
-
-  {
-    productName: "Classic Winter Jacket",
-    category: "Winter Wear",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Puma",
-    price: 4999,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Stay warm in style",
-    description:
-      "A warm winter jacket designed for cold weather and everyday outdoor use.",
-    features: [
-      "Warm Lining",
-      "Water Resistant",
-      "Full Sleeves",
-      "Comfort Fit"
-    ],
-    details: [
-      "Zip Closure",
-      "Side Pockets",
-      "Machine Wash",
-      "Winter Wear"
-    ]
-  },
-
-  {
-    productName: "Women's Puffer Jacket",
-    category: "Winter Wear",
-    gender: "female",
-    ratings: 4.7,
-    brand: "ONLY",
-    price: 5299,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Warmth without the bulk",
-    description:
-      "A lightweight puffer jacket designed to keep you warm during winter.",
-    features: [
-      "Lightweight",
-      "Insulated",
-      "Warm Lining",
-      "Modern Fit"
-    ],
-    details: [
-      "Full Sleeves",
-      "Zip Closure",
-      "Machine Wash",
-      "Winter Wear"
-    ]
-  },
-
-  {
-    productName: "Fleece Winter Pullover",
-    category: "Winter Wear",
-    gender: "unisex",
-    ratings: 4.5,
-    brand: "Decathlon",
-    price: 2799,
-    discountPercentage: 15,
-    imgURL:
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Everyday warmth made comfortable",
-    description:
-      "A soft fleece pullover designed for outdoor activities and cold days.",
-    features: [
-      "Fleece Fabric",
-      "Warm",
-      "Lightweight",
-      "Comfort Fit"
-    ],
-    details: [
-      "Full Sleeves",
-      "High Neck",
-      "Machine Wash",
-      "Unisex"
-    ]
-  },
-
+  
   // =========================================================
   // 24. SPORTS WEAR
   // =========================================================
@@ -2074,7 +1111,7 @@ const products = [
     price: 1999,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+      "https://www.pexels.com/photo/man-exercising-with-dumbbell-25315915/",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "Train harder, move better",
     description:
@@ -2102,7 +1139,7 @@ const products = [
     price: 3999,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
+      " https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
     sizes: ["XS", "S", "M", "L", "XL"],
     tagline: "Performance designed for movement",
     description:
@@ -2121,33 +1158,7 @@ const products = [
     ]
   },
 
-  {
-    productName: "Training Jogger Set",
-    category: "Sports Wear",
-    gender: "unisex",
-    ratings: 4.6,
-    brand: "Adidas",
-    price: 4299,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Comfort that keeps you moving",
-    description:
-      "A versatile sports jogger set suitable for training, travel and everyday activity.",
-    features: [
-      "Stretch Fabric",
-      "Breathable",
-      "Comfort Fit",
-      "Quick Dry"
-    ],
-    details: [
-      "Top and Joggers",
-      "Elastic Waist",
-      "Machine Wash",
-      "Unisex"
-    ]
-  },
+ 
 
   // =========================================================
   // 25. ACCESSORIES
