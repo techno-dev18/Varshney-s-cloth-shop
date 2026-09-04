@@ -29,11 +29,7 @@ export const categories = [
     imageURL:
       "https://images.unsplash.com/photo-1644955734676-9f24f7d4f929?auto=format&fit=crop&w=800&q=80"
   },
-  {
-    categoryName: "Track Pants",
-    imageURL:
-      "https://www.pexels.com/photo/stylish-portrait-of-man-in-track-suit-on-red-backdrop-35641385/"
-  },
+  
   {
     categoryName: "Blazers",
     imageURL:
@@ -44,73 +40,36 @@ export const categories = [
     imageURL:
       "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80"
   },
-  {
-    categoryName: "Kurta",
-    imageURL:
-      "https://www.pexels.com/photo/man-in-traditional-kurta-clothing-sitting-outdoors-13624147/"
-  },
-  {
-    categoryName: "Sherwani",
-    imageURL:
-      "https://www.pexels.com/photo/man-wearing-traditional-clothing-12779726/"
-  },
-  {
-    categoryName: "Sweaters",
-    imageURL:
-     "https://www.pexels.com/photo/close-up-of-colorful-sweaters-14641596/"
-  },
+ 
+ 
+  
   {
     categoryName: "Ethnic Wear",
     imageURL:
       "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80"
   },
-  {
-    categoryName: "Kurtis",
-    imageURL:
-"https://www.pexels.com/photo/woman-in-blue-dress-walking-13178920/"},
+ 
   {
     categoryName: "Sarees",
     imageURL:
       "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80"
   },
-  {
-    categoryName: "Lehengas",
-    imageURL:
-      "https://www.pexels.com/photo/woman-in-a-traditional-dress-sitting-on-a-swing-7578483/"
-  },
-  {
-    categoryName: "Gowns",
-    imageURL:
- "https://www.pexels.com/photo/elegant-woman-in-pink-gown-on-staircase-31604288/" },
-  {
-    categoryName: "Leggings",
-    imageURL:
-      "https://unsplash.com/photos/a-woman-in-a-blue-jacket-drinking-from-a-cup-nmbeveSl0sU"},
+ 
+  
+ 
   {
     categoryName: "Palazzos",
     imageURL:
       "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
-  {
-    categoryName: "Skirts",
-    imageURL:
-      "https://www.pexels.com/photo/woman-in-tank-tops-and-skirts-standing-with-smartphones-25466385/"
-  },
-  {
-    categoryName: "Dresses",
-    imageURL:
-     "https://www.pexels.com/photo/close-up-photo-of-folded-clothes-4049148/"
-  },
+  
+ 
   {
     categoryName: "Coats",
     imageURL:
       "https://images.unsplash.com/photo-1542542856-d29decffd6ba?auto=format&fit=crop&w=800&q=80"
   },
-  {
-    categoryName: "Winter Wear",
-    imageURL:
-      "https://www.pexels.com/photo/woman-in-brown-coat-wearing-a-beanie-9388798/"
-  },
+  
   {
     categoryName: "Sports Wear",
     imageURL:
