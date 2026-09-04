@@ -81,37 +81,36 @@ export const categories = [
   {
     categoryName: "Gowns",
     imageURL:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/a-woman-in-a-dress-on-the-floor-X-1iPcPgin8"
   },
   {
     categoryName: "Leggings",
     imageURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6?auto=format&fit=crop&w=800&q=80"
-  },
+      "https://unsplash.com/photos/a-woman-in-a-blue-jacket-drinking-from-a-cup-nmbeveSl0sU"},
   {
     categoryName: "Palazzos",
     imageURL:
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/woman-in-floral-print-pajamas-standing-against-white-wall-uKjOOSNew9g"
   },
   {
     categoryName: "Skirts",
     imageURL:
-      "https://images.unsplash.com/photo-1583496661160-fb5886a13d27?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/a-woman-posing-for-a-picture-gvuyfooMVOw"
   },
   {
     categoryName: "Dresses",
     imageURL:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/a-rack-of-clothes-and-hats-in-a-room-_a_FlMKo4Lk"
   },
   {
     categoryName: "Coats",
     imageURL:
-      "https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/a-coat-hanging-on-a-clothes-line-M5F4vmEnxsA"
   },
   {
     categoryName: "Winter Wear",
     imageURL:
-      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/a-woman-standing-next-to-a-tree-in-the-snow-vm_prJH65Sk"
   },
   {
     categoryName: "Sports Wear",
