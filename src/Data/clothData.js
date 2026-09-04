@@ -90,17 +90,17 @@ export const categories = [
   {
     categoryName: "Palazzos",
     imageURL:
-      "https://unsplash.com/photos/woman-in-floral-print-pajamas-standing-against-white-wall-uKjOOSNew9g"
+      "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
     categoryName: "Skirts",
     imageURL:
-      "https://unsplash.com/photos/a-woman-posing-for-a-picture-gvuyfooMVOw"
+      "https://www.pexels.com/photo/woman-in-tank-tops-and-skirts-standing-with-smartphones-25466385/"
   },
   {
     categoryName: "Dresses",
     imageURL:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80"
+     "https://www.pexels.com/photo/close-up-photo-of-folded-clothes-4049148/"
   },
   {
     categoryName: "Coats",
@@ -110,7 +110,7 @@ export const categories = [
   {
     categoryName: "Winter Wear",
     imageURL:
-      "https://www.pexels.com/photo/model-in-winter-jacket-18403649/"
+      "https://www.pexels.com/photo/woman-in-brown-coat-wearing-a-beanie-9388798/"
   },
   {
     categoryName: "Sports Wear",
