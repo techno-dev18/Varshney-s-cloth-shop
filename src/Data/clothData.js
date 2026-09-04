@@ -22,17 +22,17 @@ export const categories = [
   {
     categoryName: "Shorts",
     imageURL:
-      "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1583176407414-cefc059dc06d?auto=format&fit=crop&w=800&q=80"
   },
   {
     categoryName: "Cargo Pants",
     imageURL:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1644955734676-9f24f7d4f929?auto=format&fit=crop&w=800&q=80"
   },
   {
     categoryName: "Track Pants",
     imageURL:
-      "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=800&q=80"
+      ""
   },
   {
     categoryName: "Blazers",
@@ -47,17 +47,17 @@ export const categories = [
   {
     categoryName: "Kurta",
     imageURL:
-      "https://unsplash.com/photos/black-white-and-orange-floral-button-up-shirt-pbzNZOWaS50"
+      "https://unsplash.com/photos/a-man-standing-next-to-a-tree-wearing-a-green-shirt-hEuVOYuq1l4"
   },
   {
     categoryName: "Sherwani",
     imageURL:
-      "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/white-embroidered-sherwani-with-red-turban-and-scarf-dF3nzZ8ZZK4"
   },
   {
     categoryName: "Sweaters",
     imageURL:
-      "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/cozy-knitted-sweater-background-pile-of-white-yellow-and-beige-knit-sweaters-close-up-hello-autumn-stylish-wardrobe-for-cold-season-C3-EYm6royA"
   },
   {
     categoryName: "Ethnic Wear",
@@ -67,8 +67,7 @@ export const categories = [
   {
     categoryName: "Kurtis",
     imageURL:
-      "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=800&q=80"
-  },
+      "https://unsplash.com/photos/woman-models-a-white-floral-kurta-pajama-Yci8aYzkjpk"},
   {
     categoryName: "Sarees",
     imageURL:
@@ -77,7 +76,7 @@ export const categories = [
   {
     categoryName: "Lehengas",
     imageURL:
-      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80"
+      "https://unsplash.com/photos/portrait-of-beautiful-indian-girl-young-hindu-woman-in-traditional-indian-costume-lehenga-choli-or-sari-or-saree-DZgpFJdUMt0"
   },
   {
     categoryName: "Gowns",
