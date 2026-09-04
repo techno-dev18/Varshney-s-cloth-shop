@@ -22,7 +22,7 @@ const products = [
     price: 1499,
     discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab   ",
+      "https://www.pexels.com/photo/stylish-tattooed-man-in-sunglasses-poses-29138677/ ",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "A timeless everyday essential",
     description:
@@ -50,7 +50,7 @@ const products = [
     price: 1799,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+      "https://www.pexels.com/photo/strong-and-confident-man-outdoors-portrait-30752888/",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Clean style for every day",
     description:
@@ -78,7 +78,7 @@ const products = [
     price: 1899,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b  ",
+      "https://www.pexels.com/photo/a-man-wearing-a-polo-shirt-9301162/",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Smart casual comfort",
     description:
@@ -106,7 +106,7 @@ const products = [
     price: 1699,
     discountPercentage: 18,
     imgURL:
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27 ",
+      "https://www.pexels.com/photo/woman-modeling-oversized-graphic-t-shirt-in-studio-37011552/ ",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "Bold streetwear energy",
     description:
@@ -166,7 +166,7 @@ const products = [
     price: 3799,
     discountPercentage: 25,
     imgURL:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+      "https://www.pexels.com/photo/young-man-in-black-hoodie-against-gray-background-28701960/",
     sizes: ["M", "L", "XL", "XXL"],
     tagline: "Minimal style, maximum comfort",
     description:
@@ -194,7 +194,7 @@ const products = [
     price: 2999,
     discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+     "https://www.pexels.com/photo/young-woman-with-hands-on-hood-in-studio-7479813/",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Relaxed comfort for modern wardrobes",
     description:

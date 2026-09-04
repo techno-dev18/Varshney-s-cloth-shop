@@ -32,7 +32,7 @@ export const categories = [
   {
     categoryName: "Track Pants",
     imageURL:
-      ""
+      "https://www.pexels.com/photo/stylish-portrait-of-man-in-track-suit-on-red-backdrop-35641385/"
   },
   {
     categoryName: "Blazers",
@@ -47,17 +47,17 @@ export const categories = [
   {
     categoryName: "Kurta",
     imageURL:
-      "https://unsplash.com/photos/a-man-standing-next-to-a-tree-wearing-a-green-shirt-hEuVOYuq1l4"
+      "https://www.pexels.com/photo/man-in-traditional-kurta-clothing-sitting-outdoors-13624147/"
   },
   {
     categoryName: "Sherwani",
     imageURL:
-      "https://unsplash.com/photos/white-embroidered-sherwani-with-red-turban-and-scarf-dF3nzZ8ZZK4"
+      "https://www.pexels.com/photo/man-wearing-traditional-clothing-12779726/"
   },
   {
     categoryName: "Sweaters",
     imageURL:
-      "https://unsplash.com/photos/cozy-knitted-sweater-background-pile-of-white-yellow-and-beige-knit-sweaters-close-up-hello-autumn-stylish-wardrobe-for-cold-season-C3-EYm6royA"
+     "https://www.pexels.com/photo/close-up-of-colorful-sweaters-14641596/"
   },
   {
     categoryName: "Ethnic Wear",
@@ -67,7 +67,7 @@ export const categories = [
   {
     categoryName: "Kurtis",
     imageURL:
-      "https://unsplash.com/photos/woman-models-a-white-floral-kurta-pajama-Yci8aYzkjpk"},
+"https://www.pexels.com/photo/woman-in-blue-dress-walking-13178920/"},
   {
     categoryName: "Sarees",
     imageURL:
@@ -76,13 +76,12 @@ export const categories = [
   {
     categoryName: "Lehengas",
     imageURL:
-      "https://unsplash.com/photos/portrait-of-beautiful-indian-girl-young-hindu-woman-in-traditional-indian-costume-lehenga-choli-or-sari-or-saree-DZgpFJdUMt0"
+      "https://www.pexels.com/photo/woman-in-a-traditional-dress-sitting-on-a-swing-7578483/"
   },
   {
     categoryName: "Gowns",
     imageURL:
-      "https://unsplash.com/photos/a-woman-in-a-dress-on-the-floor-X-1iPcPgin8"
-  },
+ "https://www.pexels.com/photo/elegant-woman-in-pink-gown-on-staircase-31604288/" },
   {
     categoryName: "Leggings",
     imageURL:
