@@ -8,6 +8,7 @@ import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cartRoutes from "./routes/cartRoutes.js";
 import wishlistRoutes from "./routes/wishlistRoutes.js";
+
 dotenv.config();
 const app = express();
 // MIDDLEWARE
@@ -38,7 +39,6 @@ connectDB();
 
 
 app.use("/api/products", productRoutes);
-
 
 
 app.get("/", (req, res) => {
