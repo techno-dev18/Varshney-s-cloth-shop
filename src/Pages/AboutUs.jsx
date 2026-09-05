@@ -27,7 +27,7 @@ const AboutUs = () => {
       <section className="about-intro">
         <div className="about-intro-image">
           <div className="about-image-placeholder">
-            <span>V</span>
+            <span>Varshney's Cloth Shop</span>
           </div>
         </div>
 
