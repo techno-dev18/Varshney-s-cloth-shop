@@ -22,7 +22,7 @@ const products = [
     price: 799,
     discountPercentage: 15,
     imgURL:
-      "https://unsplash.com/photos/a-young-man-standing-on-a-skateboard-on-a-city-street-pYDQyzThtLE",
+      "https://images.unsplash.com/photo-1550378492-a6946634368f?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "A clean everyday essential.",
     description:
@@ -76,7 +76,7 @@ const products = [
     price: 899,
     discountPercentage: 20,
     imgURL:
-      "https://www.pexels.com/photo/man-in-casual-clothes-on-balcony-4724770/",
+      "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "Minimal look. Maximum versatility.",
     description:
@@ -108,7 +108,7 @@ const products = [
     price: 1499,
     discountPercentage: 15,
     imgURL:
-      "https://www.pexels.com/photo/emotionless-black-men-in-sportswear-standing-in-light-studio-6311478/",
+      "https://images.unsplash.com/photo-1499972777470-6a932ea55420?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "Comfort built for everyday layers.",
     description:
@@ -162,7 +162,7 @@ const products = [
     price: 1599,
     discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1629316099883-3796cd375937?auto=format&fit=crop&w=800&q=80",
     sizes: ["M", "L", "XL", "XXL"],
     tagline: "Your everyday comfort layer.",
     description:
