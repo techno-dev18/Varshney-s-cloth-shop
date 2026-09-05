@@ -307,7 +307,7 @@ const products = [
     price: 1799,
     discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1493357335960-4583bfa6f8d9?auto=format&fit=crop&w=800&q=80",
     sizes: ["30", "32", "34", "36"],
     tagline: "A clean straight-leg silhouette.",
     description:
@@ -420,7 +420,7 @@ const products = [
     price: 1099,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1583176407414-cefc059dc06d?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1561826198-ab3012ac99b8?auto=format&fit=crop&w=800&q=80",
     sizes: ["M", "L", "XL"],
     tagline: "Light, casual and summer-ready.",
     description:
@@ -479,7 +479,7 @@ const products = [
     price: 1799,
     discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1644955734676-9f24f7d4f929?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1780566759823-6ab515d86760?auto=format&fit=crop&w=800&q=80",
     sizes: ["30", "32", "34", "36"],
     tagline: "Relaxed fit with utility character.",
     description:
@@ -506,7 +506,7 @@ const products = [
     price: 1899,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1644955734676-9f24f7d4f929?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1758267928031-a87e5a5c6c5b?auto=format&fit=crop&w=800&q=80",
     sizes: ["28", "30", "32", "34", "36"],
     tagline: "Utility meets modern streetwear.",
     description:
