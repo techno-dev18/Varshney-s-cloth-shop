@@ -194,7 +194,7 @@ const products = [
     price: 1299,
     discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
+     "https://images.unsplash.com/photo-1492683881201-ae9b824995ac?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Clean and comfortable layering.",
     description:
@@ -221,7 +221,7 @@ const products = [
     price: 1399,
     discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1506890227512-f2a56d1d4f9b?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "Easy comfort for cooler days.",
     description:
@@ -823,7 +823,7 @@ const products = [
     price: 2999,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1776504768745-551029df100d?auto=format&fit=crop&w=800&q=80",
     sizes: ["Free Size"],
     tagline: "A graceful choice for celebrations.",
     description:
@@ -850,7 +850,7 @@ const products = [
     price: 3499,
     discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1769275060568-dce331bc222c?auto=format&fit=crop&w=800&q=80",
     sizes: ["Free Size"],
     tagline: "Elegant traditional wear for special occasions.",
     description:
@@ -995,7 +995,7 @@ const products = [
     price: 3299,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1542542856-d29decffd6ba?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1523297467724-f6758d7124c5?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L"],
     tagline: "A polished layer for colder days.",
     description:
