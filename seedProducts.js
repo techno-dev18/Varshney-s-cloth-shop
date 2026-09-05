@@ -592,7 +592,7 @@ const products = [
     price: 2899,
     discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1560439514-e960a3ef5019?auto=format&fit=crop&w=800&q=80",
     sizes: ["38", "40", "42", "44"],
     tagline: "A reliable formal wardrobe essential.",
     description:
@@ -651,7 +651,7 @@ const products = [
     price: 5499,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1707198385151-cd16d472bf7d?auto=format&fit=crop&w=800&q=80",
     sizes: ["38", "40", "42", "44"],
     tagline: "Modern tailoring for formal occasions.",
     description:
@@ -704,7 +704,7 @@ const products = [
   {
     productName: "Classic Ethnic Kurta",
     category: "Ethnic Wear",
-    gender: "male",
+    gender: "female",
     ratings: 4.6,
     brand: "Heritage Loom",
     price: 1599,
@@ -737,7 +737,7 @@ const products = [
     price: 1799,
     discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1767775498862-d4740ce574ce?auto=format&fit=crop&w=800&q=80",
     sizes: ["M", "L", "XL", "XXL"],
     tagline: "Made for celebrations.",
     description:
@@ -764,7 +764,7 @@ const products = [
     price: 1999,
     discountPercentage: 20,
     imgURL:
-      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1768807478287-9e7953cfdca3?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Traditional elegance for special moments.",
     description:
@@ -909,7 +909,7 @@ const products = [
     price: 1399,
     discountPercentage: 10,
     imgURL:
-      "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1754391851702-e5275cf80e34?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L"],
     tagline: "Comfortable flow for everyday outfits.",
     description:
@@ -936,7 +936,7 @@ const products = [
     price: 1499,
     discountPercentage: 20,
     imgURL:
-      "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.unsplash.com/photo-1769063382663-ec2414702d3a?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL"],
     tagline: "Modern comfort with a graceful fall.",
     description:
