@@ -22,7 +22,7 @@ const products = [
     price: 799,
     discountPercentage: 15,
     imgURL:
-      "https://www.pexels.com/photo/man-in-black-crew-neck-t-shirt-holding-white-metal-bar-9558581/?auto=format&fit=crop&w=800&q=80",
+      "https://unsplash.com/photos/a-young-man-standing-on-a-skateboard-on-a-city-street-pYDQyzThtLE?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "A clean everyday essential.",
     description:
