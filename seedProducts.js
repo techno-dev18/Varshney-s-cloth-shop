@@ -22,7 +22,7 @@ const products = [
     price: 799,
     discountPercentage: 15,
     imgURL:
-      "https://www.pexels.com/photo/man-in-black-crew-neck-t-shirt-holding-white-metal-bar-9558581/",
+      "https://www.pexels.com/photo/man-in-black-crew-neck-t-shirt-holding-white-metal-bar-9558581/?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "A clean everyday essential.",
     description:
@@ -108,7 +108,7 @@ const products = [
     price: 1499,
     discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+      "https://www.pexels.com/photo/emotionless-black-men-in-sportswear-standing-in-light-studio-6311478/",
     sizes: ["S", "M", "L", "XL", "XXL"],
     tagline: "Comfort built for everyday layers.",
     description:
