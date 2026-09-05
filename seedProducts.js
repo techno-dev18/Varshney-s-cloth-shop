@@ -1140,7 +1140,7 @@ const products = [
     price: 1999,
     discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1781942213933-a5951c15dc50?auto=format&fit=crop&w=800&q=80",
     sizes: ["Free Size"],
     tagline: "A timeless finishing touch.",
     description:
@@ -1166,8 +1166,7 @@ const products = [
     brand: "Timecraft",
     price: 2299,
     discountPercentage: 10,
-    imgURL:
-      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80",
+    imgURL:"https://images.unsplash.com/photo-1651735060117-db464f215a6c?auto=format&fit=crop&w=800&q=80",
     sizes: ["Free Size"],
     tagline: "Minimal design for everyday style.",
     description:
