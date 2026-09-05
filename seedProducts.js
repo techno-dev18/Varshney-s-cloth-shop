@@ -14,380 +14,344 @@ const products = [
   // =========================================================
 
   {
-    productName: "Classic Grey T-Shirt",
+    productName: "Classic Essential T-Shirt",
     category: "T-Shirts",
     gender: "unisex",
     ratings: 4.5,
-    brand: "Varshney",
-    price: 1499,
+    brand: "Urban Core",
+    price: 799,
     discountPercentage: 15,
     imgURL:
-      "https://www.pexels.com/photo/stylish-tattooed-man-in-sunglasses-poses-29138677/ ",
+      "https://www.pexels.com/photo/man-in-black-crew-neck-t-shirt-holding-white-metal-bar-9558581/",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "A timeless everyday essential",
+    tagline: "A clean everyday essential.",
     description:
-      "A soft cotton T-shirt designed for everyday comfort and effortless styling.",
+      "A versatile everyday T-shirt designed for casual outfits and comfortable daily wear.",
     features: [
-      "100% Cotton",
-      "Breathable Fabric",
-      "Regular Fit",
-      "Soft Finish"
+      "Soft cotton fabric",
+      "Regular fit",
+      "Crew neckline",
+      "Breathable construction"
     ],
     details: [
-      "Round Neck",
-      "Half Sleeves",
-      "Machine Wash",
-      "Made in India"
+      "Suitable for everyday wear",
+      "Easy to pair with trousers, jeans and shorts",
+      "Machine washable"
     ]
   },
 
   {
-    productName: "Slim Fit Black T-Shirt",
-    category: "T-Shirts",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Nike",
-    price: 1799,
-    discountPercentage: 20,
-    imgURL:
-      "https://www.pexels.com/photo/strong-and-confident-man-outdoors-portrait-30752888/",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Clean style for every day",
-    description:
-      "A modern slim-fit black T-shirt made from lightweight breathable cotton.",
-    features: [
-      "Slim Fit",
-      "Cotton Fabric",
-      "Lightweight",
-      "Fade Resistant"
-    ],
-    details: [
-      "Round Neck",
-      "Half Sleeves",
-      "Machine Wash",
-      "Regular Length"
-    ]
-  },
-
-  {
-    productName: "Classic Polo T-Shirt",
-    category: "T-Shirts",
-    gender: "male",
-    ratings: 4.5,
-    brand: "U.S. Polo Assn.",
-    price: 1899,
-    discountPercentage: 20,
-    imgURL:
-      "https://www.pexels.com/photo/a-man-wearing-a-polo-shirt-9301162/",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Smart casual comfort",
-    description:
-      "A premium polo T-shirt combining classic styling with comfortable cotton fabric.",
-    features: [
-      "Premium Cotton",
-      "Classic Collar",
-      "Breathable",
-      "Regular Fit"
-    ],
-    details: [
-      "Polo Collar",
-      "Half Sleeves",
-      "Machine Wash",
-      "Everyday Wear"
-    ]
-  },
-
-  {
-    productName: "Oversized Graphic T-Shirt",
+    productName: "Everyday Cotton Tee",
     category: "T-Shirts",
     gender: "unisex",
-    ratings: 4.7,
-    brand: "Urban Monkey",
-    price: 1699,
-    discountPercentage: 18,
+    ratings: 4.4,
+    brand: "Threadline",
+    price: 699,
+    discountPercentage: 10,
     imgURL:
-      "https://www.pexels.com/photo/woman-modeling-oversized-graphic-t-shirt-in-studio-37011552/ ",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Bold streetwear energy",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Simple comfort for every day.",
     description:
-      "An oversized graphic T-shirt created for relaxed streetwear looks.",
+      "A minimal cotton T-shirt with a timeless silhouette for everyday casual styling.",
     features: [
-      "Oversized Fit",
-      "Graphic Print",
-      "Soft Cotton",
-      "Streetwear Design"
+      "Cotton fabric",
+      "Classic silhouette",
+      "Comfortable neckline",
+      "Lightweight feel"
     ],
     details: [
-      "Round Neck",
-      "Half Sleeves",
-      "Machine Wash",
-      "Unisex Design"
+      "Designed for casual styling",
+      "Suitable for regular use",
+      "Easy-care fabric"
     ]
   },
+
+  {
+    productName: "Minimal Casual T-Shirt",
+    category: "T-Shirts",
+    gender: "unisex",
+    ratings: 4.6,
+    brand: "North Avenue",
+    price: 899,
+    discountPercentage: 20,
+    imgURL:
+      "https://www.pexels.com/photo/man-in-casual-clothes-on-balcony-4724770/",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    tagline: "Minimal look. Maximum versatility.",
+    description:
+      "A clean-cut casual T-shirt made for simple and versatile everyday outfits.",
+    features: [
+      "Comfort-fit design",
+      "Soft-touch fabric",
+      "Crew neck",
+      "Everyday construction"
+    ],
+    details: [
+      "Works with casual and smart-casual outfits",
+      "Suitable for all-day wear",
+      "Regular fit"
+    ]
+  },
+
 
   // =========================================================
   // 2. HOODIES
   // =========================================================
 
   {
-    productName: "Classic Grey Hoodie",
+    productName: "Classic Pullover Hoodie",
     category: "Hoodies",
     gender: "unisex",
     ratings: 4.7,
-    brand: "Puma",
-    price: 3299,
-    discountPercentage: 20,
+    brand: "Street Core",
+    price: 1499,
+    discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Your everyday winter essential",
+    tagline: "Comfort built for everyday layers.",
     description:
-      "A warm fleece hoodie designed for casual everyday wear.",
+      "A classic pullover hoodie designed for relaxed streetwear and comfortable layering.",
     features: [
-      "Fleece Lining",
-      "Adjustable Hood",
-      "Soft Fabric",
-      "Front Pocket"
+      "Pullover construction",
+      "Adjustable hood",
+      "Relaxed fit",
+      "Soft interior"
     ],
     details: [
-      "Full Sleeves",
-      "Regular Fit",
-      "Machine Wash",
-      "Winter Wear"
+      "Ideal for casual outfits",
+      "Suitable for cooler weather",
+      "Easy to layer"
     ]
   },
 
   {
-    productName: "Black Premium Hoodie",
-    category: "Hoodies",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Adidas",
-    price: 3799,
-    discountPercentage: 25,
-    imgURL:
-      "https://www.pexels.com/photo/young-man-in-black-hoodie-against-gray-background-28701960/",
-    sizes: ["M", "L", "XL", "XXL"],
-    tagline: "Minimal style, maximum comfort",
-    description:
-      "A premium black hoodie with a soft interior and modern silhouette.",
-    features: [
-      "Premium Cotton",
-      "Soft Interior",
-      "Kangaroo Pocket",
-      "Adjustable Hood"
-    ],
-    details: [
-      "Full Sleeves",
-      "Regular Fit",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  {
-    productName: "Oversized Beige Hoodie",
+    productName: "Relaxed Street Hoodie",
     category: "Hoodies",
     gender: "unisex",
     ratings: 4.5,
-    brand: "Roadster",
-    price: 2999,
-    discountPercentage: 15,
+    brand: "Urban District",
+    price: 1699,
+    discountPercentage: 20,
     imgURL:
-     "https://www.pexels.com/photo/young-woman-with-hands-on-hood-in-studio-7479813/",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL"],
-    tagline: "Relaxed comfort for modern wardrobes",
+    tagline: "Relaxed style for the streets.",
     description:
-      "A relaxed oversized hoodie suitable for casual outfits and travel.",
+      "A relaxed hoodie inspired by contemporary streetwear silhouettes.",
     features: [
-      "Oversized Fit",
-      "Soft Fleece",
-      "Warm Fabric",
-      "Modern Design"
+      "Relaxed fit",
+      "Hooded design",
+      "Long sleeves",
+      "Soft fabric"
     ],
     details: [
-      "Full Sleeves",
-      "Hooded",
-      "Machine Wash",
-      "Unisex"
+      "Designed for casual styling",
+      "Suitable for layering",
+      "Comfort-focused construction"
     ]
   },
+
+  {
+    productName: "Everyday Comfort Hoodie",
+    category: "Hoodies",
+    gender: "unisex",
+    ratings: 4.6,
+    brand: "Daily Wear Co.",
+    price: 1599,
+    discountPercentage: 10,
+    imgURL:
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+    sizes: ["M", "L", "XL", "XXL"],
+    tagline: "Your everyday comfort layer.",
+    description:
+      "A practical hoodie made for relaxed everyday dressing and cool-weather comfort.",
+    features: [
+      "Comfortable fit",
+      "Hooded neckline",
+      "Long sleeves",
+      "Layer-friendly design"
+    ],
+    details: [
+      "Good for travel and casual use",
+      "Pairs easily with trousers and shorts",
+      "Designed for repeated wear"
+    ]
+  },
+
 
   // =========================================================
   // 3. SWEATSHIRTS
   // =========================================================
 
   {
-    productName: "Classic Navy Sweatshirt",
+    productName: "Classic Crew Sweatshirt",
     category: "Sweatshirts",
-    gender: "male",
+    gender: "unisex",
     ratings: 4.5,
-    brand: "Roadster",
-    price: 2499,
-    discountPercentage: 20,
+    brand: "Urban Core",
+    price: 1299,
+    discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL"],
-    tagline: "Classic warmth for everyday wear",
+    tagline: "Clean and comfortable layering.",
     description:
-      "A comfortable navy sweatshirt with a clean minimal design.",
+      "A classic crew-neck sweatshirt designed for comfortable everyday layering.",
     features: [
-      "Soft Cotton",
-      "Warm Fabric",
-      "Regular Fit",
-      "Minimal Design"
+      "Crew neckline",
+      "Long sleeves",
+      "Comfortable construction",
+      "Casual silhouette"
     ],
     details: [
-      "Crew Neck",
-      "Full Sleeves",
-      "Machine Wash",
-      "Casual Wear"
+      "Suitable for casual outfits",
+      "Easy to layer",
+      "Designed for everyday wear"
     ]
   },
 
   {
-    productName: "Women's Cream Sweatshirt",
-    category: "Sweatshirts",
-    gender: "female",
-    ratings: 4.6,
-    brand: "H&M",
-    price: 2299,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1523398002811-999ca8dec234",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Soft comfort with feminine style",
-    description:
-      "A cozy cream sweatshirt designed for relaxed everyday outfits.",
-    features: [
-      "Soft Fabric",
-      "Comfort Fit",
-      "Warm Material",
-      "Minimal Style"
-    ],
-    details: [
-      "Crew Neck",
-      "Full Sleeves",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  {
-    productName: "Urban Graphic Sweatshirt",
+    productName: "Relaxed Everyday Sweatshirt",
     category: "Sweatshirts",
     gender: "unisex",
     ratings: 4.4,
-    brand: "Urban Monkey",
-    price: 2699,
-    discountPercentage: 18,
+    brand: "Threadline",
+    price: 1399,
+    discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Street-inspired everyday style",
+    tagline: "Easy comfort for cooler days.",
     description:
-      "A graphic sweatshirt designed for contemporary streetwear looks.",
+      "A relaxed sweatshirt created for simple casual outfits and comfortable layering.",
     features: [
-      "Graphic Print",
-      "Soft Cotton",
-      "Relaxed Fit",
-      "Durable Fabric"
+      "Relaxed fit",
+      "Crew neck",
+      "Long sleeves",
+      "Soft feel"
     ],
     details: [
-      "Crew Neck",
-      "Full Sleeves",
-      "Machine Wash",
-      "Unisex"
+      "Suitable for everyday casual wear",
+      "Pairs well with trousers and cargo pants",
+      "Layer-friendly"
     ]
   },
+
+  {
+    productName: "Modern Casual Sweatshirt",
+    category: "Sweatshirts",
+    gender: "unisex",
+    ratings: 4.6,
+    brand: "North Avenue",
+    price: 1499,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80",
+    sizes: ["M", "L", "XL"],
+    tagline: "A modern take on casual layering.",
+    description:
+      "A versatile sweatshirt with a simple modern silhouette for everyday styling.",
+    features: [
+      "Modern fit",
+      "Crew neckline",
+      "Long sleeves",
+      "Everyday fabric"
+    ],
+    details: [
+      "Suitable for casual outfits",
+      "Comfortable for extended wear",
+      "Easy to style"
+    ]
+  },
+
 
   // =========================================================
   // 4. TROUSERS
   // =========================================================
 
   {
-    productName: "Formal Grey Trouser",
+    productName: "Classic Tailored Trousers",
     category: "Trousers",
     gender: "male",
-    ratings: 4.6,
-    brand: "Louis Philippe",
-    price: 2999,
-    discountPercentage: 22,
-    imgURL:
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a",
-    sizes: ["30", "32", "34", "36", "38"],
-    tagline: "Professional style refined",
-    description:
-      "Comfortable formal trousers designed for office and professional occasions.",
-    features: [
-      "Premium Fabric",
-      "Slim Fit",
-      "Wrinkle Resistant",
-      "Comfort Stretch"
-    ],
-    details: [
-      "Mid Rise",
-      "Front Pockets",
-      "Dry Clean",
-      "Formal Wear"
-    ]
-  },
-
-  {
-    productName: "Women's Black Trousers",
-    category: "Trousers",
-    gender: "female",
     ratings: 4.5,
-    brand: "Mango",
-    price: 3199,
-    discountPercentage: 20,
+    brand: "Executive Line",
+    price: 1899,
+    discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Elegant everyday tailoring",
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
+    sizes: ["30", "32", "34", "36", "38"],
+    tagline: "Sharp tailoring for everyday style.",
     description:
-      "Modern black trousers designed for office and smart casual styling.",
+      "Classic trousers designed with a clean silhouette for smart and semi-formal outfits.",
     features: [
-      "Tailored Fit",
-      "Stretch Fabric",
-      "Elegant Design",
-      "Comfort Waist"
+      "Tailored silhouette",
+      "Clean finish",
+      "Comfortable waistband",
+      "Versatile styling"
     ],
     details: [
-      "High Rise",
-      "Side Pockets",
-      "Machine Wash",
-      "Formal Wear"
+      "Suitable for office and smart-casual outfits",
+      "Pairs well with shirts and blazers",
+      "Designed for polished styling"
     ]
   },
 
   {
-    productName: "Beige Chino Trousers",
+    productName: "Modern Straight Trousers",
     category: "Trousers",
     gender: "male",
     ratings: 4.4,
-    brand: "Peter England",
-    price: 2699,
-    discountPercentage: 15,
+    brand: "Form & Fit",
+    price: 1799,
+    discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a",
-    sizes: ["30", "32", "34", "36", "38"],
-    tagline: "Smart casual made easy",
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
+    sizes: ["30", "32", "34", "36"],
+    tagline: "A clean straight-leg silhouette.",
     description:
-      "Versatile beige trousers perfect for casual and semi-formal outfits.",
+      "Modern straight trousers designed for smart-casual and everyday professional dressing.",
     features: [
-      "Cotton Blend",
-      "Comfort Fit",
-      "Classic Color",
-      "Durable Fabric"
+      "Straight fit",
+      "Clean construction",
+      "Comfortable waistband",
+      "Versatile design"
     ],
     details: [
-      "Mid Rise",
-      "Belt Loops",
-      "Machine Wash",
-      "Everyday Wear"
+      "Suitable for workwear",
+      "Easy to pair with formal and casual tops",
+      "Designed for regular use"
     ]
   },
+
+  {
+    productName: "Everyday Formal Trousers",
+    category: "Trousers",
+    gender: "male",
+    ratings: 4.6,
+    brand: "Urban Formal",
+    price: 1999,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
+    sizes: ["30", "32", "34", "36", "38"],
+    tagline: "Professional style without the effort.",
+    description:
+      "A refined pair of trousers designed for office, formal and smart-casual occasions.",
+    features: [
+      "Smart silhouette",
+      "Comfortable fit",
+      "Clean finish",
+      "Professional styling"
+    ],
+    details: [
+      "Suitable for office wear",
+      "Pairs well with blazers and shirts",
+      "Designed for polished outfits"
+    ]
+  },
+
 
   // =========================================================
   // 5. SHORTS
@@ -397,857 +361,863 @@ const products = [
     productName: "Classic Casual Shorts",
     category: "Shorts",
     gender: "male",
-    ratings: 4.4,
-    brand: "Roadster",
-    price: 1499,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1617953644310-e690da9be982?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Easy comfort for relaxed days",
-    description:
-      "Lightweight casual shorts designed for holidays and everyday summer wear.",
-    features: [
-      "Lightweight Fabric",
-      "Comfort Waist",
-      "Side Pockets",
-      "Casual Fit"
-    ],
-    details: [
-      "Above Knee",
-      "Drawstring",
-      "Machine Wash",
-      "Summer Wear"
-    ]
-  },
-
-  {
-    productName: "Denim Summer Shorts",
-    category: "Shorts",
-    gender: "female",
     ratings: 4.5,
-    brand: "ONLY",
-    price: 1799,
-    discountPercentage: 25,
-    imgURL:
-      "https://images.unsplash.com/photo-1506629905607-c5b4d77d0a40",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Summer style with denim attitude",
-    description:
-      "Comfortable denim shorts created for casual summer outfits.",
-    features: [
-      "Denim Fabric",
-      "Classic Design",
-      "Comfort Fit",
-      "Durable"
-    ],
-    details: [
-      "Mid Rise",
-      "Front Pockets",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  {
-    productName: "Sports Training Shorts",
-    category: "Shorts",
-    gender: "unisex",
-    ratings: 4.6,
-    brand: "Adidas",
-    price: 1699,
+    brand: "Weekend Co.",
+    price: 899,
     discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+      "https://images.unsplash.com/photo-1583176407414-cefc059dc06d?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL"],
-    tagline: "Move freely, train harder",
+    tagline: "Easy summer comfort.",
     description:
-      "Lightweight sports shorts designed for training and active lifestyles.",
+      "Casual shorts designed for relaxed warm-weather outfits and everyday comfort.",
     features: [
-      "Quick Dry",
-      "Stretch Fabric",
-      "Lightweight",
-      "Breathable"
+      "Casual silhouette",
+      "Comfortable fit",
+      "Easy movement",
+      "Everyday styling"
     ],
     details: [
-      "Elastic Waist",
-      "Side Pockets",
-      "Machine Wash",
-      "Sports Wear"
+      "Suitable for summer wear",
+      "Great for casual outings",
+      "Easy to pair with T-shirts"
     ]
   },
+
+  {
+    productName: "Relaxed Weekend Shorts",
+    category: "Shorts",
+    gender: "male",
+    ratings: 4.4,
+    brand: "Daily Motion",
+    price: 999,
+    discountPercentage: 10,
+    imgURL:
+      "https://images.unsplash.com/photo-1583176407414-cefc059dc06d?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    tagline: "Made for relaxed days.",
+    description:
+      "Relaxed everyday shorts designed for weekends, travel and casual activities.",
+    features: [
+      "Relaxed fit",
+      "Comfort-focused design",
+      "Casual silhouette",
+      "Lightweight feel"
+    ],
+    details: [
+      "Suitable for travel",
+      "Ideal for casual outings",
+      "Easy everyday styling"
+    ]
+  },
+
+  {
+    productName: "Everyday Summer Shorts",
+    category: "Shorts",
+    gender: "male",
+    ratings: 4.6,
+    brand: "Coastal Wear",
+    price: 1099,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1583176407414-cefc059dc06d?auto=format&fit=crop&w=800&q=80",
+    sizes: ["M", "L", "XL"],
+    tagline: "Light, casual and summer-ready.",
+    description:
+      "Comfortable summer shorts designed for relaxed warm-weather dressing.",
+    features: [
+      "Summer-friendly design",
+      "Comfortable fit",
+      "Casual styling",
+      "Easy movement"
+    ],
+    details: [
+      "Suitable for warm weather",
+      "Pairs well with casual T-shirts",
+      "Good for vacations and weekends"
+    ]
+  },
+
 
   // =========================================================
   // 6. CARGO PANTS
   // =========================================================
 
   {
-    productName: "Classic Cargo Pants",
-    category: "Cargo Pants",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Roadster",
-    price: 2899,
-    discountPercentage: 22,
-    imgURL:
-      "https://images.unsplash.com/photo-1506629905607-c5b4d77d0a40",
-    sizes: ["30", "32", "34", "36", "38"],
-    tagline: "Utility meets everyday style",
-    description:
-      "Durable cargo pants with multiple pockets and a comfortable fit.",
-    features: [
-      "Multiple Pockets",
-      "Cotton Blend",
-      "Comfort Fit",
-      "Durable Fabric"
-    ],
-    details: [
-      "Mid Rise",
-      "Button Closure",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  {
-    productName: "Women's Utility Cargo",
-    category: "Cargo Pants",
-    gender: "female",
-    ratings: 4.5,
-    brand: "H&M",
-    price: 2799,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1506629905607-d9c297d8d5e6",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Modern utility for everyday life",
-    description:
-      "Stylish women's cargo pants combining functionality with contemporary design.",
-    features: [
-      "Utility Pockets",
-      "Relaxed Fit",
-      "Comfort Fabric",
-      "Modern Style"
-    ],
-    details: [
-      "High Rise",
-      "Button Closure",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  {
-    productName: "Relaxed Olive Cargo",
+    productName: "Classic Utility Cargo Pants",
     category: "Cargo Pants",
     gender: "unisex",
-    ratings: 4.4,
-    brand: "Urban Monkey",
+    ratings: 4.7,
+    brand: "Utility Lab",
+    price: 1699,
+    discountPercentage: 15,
+    imgURL:
+      "https://images.unsplash.com/photo-1644955734676-9f24f7d4f929?auto=format&fit=crop&w=800&q=80",
+    sizes: ["28", "30", "32", "34", "36"],
+    tagline: "Utility-inspired everyday style.",
+    description:
+      "Cargo pants designed around a practical utility-inspired silhouette for casual outfits.",
+    features: [
+      "Cargo pocket styling",
+      "Relaxed silhouette",
+      "Utility-inspired design",
+      "Everyday construction"
+    ],
+    details: [
+      "Suitable for streetwear",
+      "Pairs well with T-shirts and hoodies",
+      "Designed for casual use"
+    ]
+  },
+
+  {
+    productName: "Relaxed Utility Cargo",
+    category: "Cargo Pants",
+    gender: "unisex",
+    ratings: 4.5,
+    brand: "Street Utility",
+    price: 1799,
+    discountPercentage: 10,
+    imgURL:
+      "https://images.unsplash.com/photo-1644955734676-9f24f7d4f929?auto=format&fit=crop&w=800&q=80",
+    sizes: ["30", "32", "34", "36"],
+    tagline: "Relaxed fit with utility character.",
+    description:
+      "Relaxed cargo pants inspired by contemporary streetwear and utility fashion.",
+    features: [
+      "Relaxed fit",
+      "Cargo pocket design",
+      "Casual silhouette",
+      "Streetwear styling"
+    ],
+    details: [
+      "Suitable for everyday casual outfits",
+      "Works with oversized T-shirts",
+      "Easy to style with sneakers"
+    ]
+  },
+
+  {
+    productName: "Urban Cargo Trousers",
+    category: "Cargo Pants",
+    gender: "unisex",
+    ratings: 4.6,
+    brand: "Urban Field",
+    price: 1899,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1644955734676-9f24f7d4f929?auto=format&fit=crop&w=800&q=80",
+    sizes: ["28", "30", "32", "34", "36"],
+    tagline: "Utility meets modern streetwear.",
+    description:
+      "Modern cargo trousers designed for practical styling and contemporary casual outfits.",
+    features: [
+      "Cargo pocket details",
+      "Modern relaxed shape",
+      "Utility-inspired styling",
+      "Comfort-focused design"
+    ],
+    details: [
+      "Suitable for streetwear",
+      "Easy to pair with hoodies",
+      "Designed for everyday outfits"
+    ]
+  },
+
+
+  // =========================================================
+  // 7. BLAZERS
+  // =========================================================
+
+  {
+    productName: "Classic Structured Blazer",
+    category: "Blazers",
+    gender: "male",
+    ratings: 4.7,
+    brand: "Executive Line",
     price: 2999,
-    discountPercentage: 18,
+    discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Built for everyday adventures",
-    description:
-      "Relaxed olive cargo pants with a practical multi-pocket design.",
-    features: [
-      "Relaxed Fit",
-      "Utility Pockets",
-      "Durable Fabric",
-      "Streetwear Style"
-    ],
-    details: [
-      "Mid Rise",
-      "Zip Fly",
-      "Machine Wash",
-      "Unisex"
-    ]
-  },
-
-  
-  // =========================================================
-  // 8. BLAZERS
-  // =========================================================
-
-  {
-    productName: "Classic Black Blazer",
-    category: "Blazers",
-    gender: "male",
-    ratings: 4.8,
-    brand: "Louis Philippe",
-    price: 6999,
-    discountPercentage: 20,
-    imgURL:
-      "https://www.pexels.com/photo/fashion-portrait-of-woman-in-black-suit-30453635/",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Sharp tailoring for important moments",
-    description:
-      "A classic black blazer designed for formal events and sophisticated occasions.",
-    features: [
-      "Premium Fabric",
-      "Tailored Fit",
-      "Structured Shoulders",
-      "Elegant Finish"
-    ],
-    details: [
-      "Notch Lapel",
-      "Button Closure",
-      "Dry Clean",
-      "Formal Wear"
-    ]
-  },
-
-  {
-    productName: "Women's Beige Blazer",
-    category: "Blazers",
-    gender: "female",
-    ratings: 4.7,
-    brand: "Mango",
-    price: 6499,
-    discountPercentage: 25,
-    imgURL:
-      "https://www.pexels.com/photo/elegant-woman-in-a-beige-blazer-holding-a-coffee-and-laptop-7578401/",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Modern tailoring with elegance",
-    description:
-      "A sophisticated beige blazer suitable for office and smart casual outfits.",
-    features: [
-      "Tailored Silhouette",
-      "Premium Fabric",
-      "Elegant Color",
-      "Modern Cut"
-    ],
-    details: [
-      "Single Breasted",
-      "Button Closure",
-      "Dry Clean",
-      "Formal Wear"
-    ]
-  },
-
-  {
-    productName: "Navy Casual Blazer",
-    category: "Blazers",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Van Heusen",
-    price: 5999,
-    discountPercentage: 18,
-    imgURL:
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Smart style beyond the office",
-    description:
-      "A versatile navy blazer designed for business meetings and evening events.",
-    features: [
-      "Comfort Stretch",
-      "Premium Finish",
-      "Tailored Fit",
-      "Versatile Style"
-    ],
-    details: [
-      "Notch Lapel",
-      "Two Button",
-      "Dry Clean",
-      "Smart Casual"
-    ]
-  },
-
-  // =========================================================
-  // 9. SUITS
-  // =========================================================
-
-  {
-    productName: "Classic Navy Suit",
-    category: "Suits",
-    gender: "male",
-    ratings: 4.8,
-    brand: "Van Heusen",
-    price: 9999,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35",
+      "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=800&q=80",
     sizes: ["38", "40", "42", "44"],
-    tagline: "Confidence tailored perfectly",
+    tagline: "Polished structure for modern dressing.",
     description:
-      "A classic navy two-piece suit designed for formal and professional occasions.",
+      "A structured blazer designed for professional, formal and smart-casual styling.",
     features: [
-      "Premium Fabric",
-      "Tailored Fit",
-      "Wrinkle Resistant",
-      "Elegant Finish"
+      "Structured silhouette",
+      "Classic lapel",
+      "Smart finish",
+      "Versatile styling"
     ],
     details: [
-      "Two Piece",
-      "Notch Lapel",
-      "Dry Clean",
-      "Formal Wear"
+      "Suitable for office wear",
+      "Works for formal occasions",
+      "Pairs well with trousers"
     ]
   },
 
   {
-    productName: "Charcoal Business Suit",
-    category: "Suits",
+    productName: "Modern Smart Blazer",
+    category: "Blazers",
     gender: "male",
-    ratings: 4.7,
-    brand: "Raymond",
-    price: 11999,
-    discountPercentage: 25,
+    ratings: 4.5,
+    brand: "Form & Fit",
+    price: 3299,
+    discountPercentage: 20,
     imgURL:
-      "https://www.pexels.com/photo/man-in-suit-sitting-on-stairs-16377794/",
+      "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=800&q=80",
     sizes: ["38", "40", "42", "44", "46"],
-    tagline: "Professional elegance redefined",
+    tagline: "Smart tailoring with modern character.",
     description:
-      "A premium charcoal suit designed for business meetings and formal occasions.",
+      "A contemporary blazer designed to transition between professional and smart-casual outfits.",
     features: [
-      "Premium Wool Blend",
-      "Tailored Fit",
-      "Breathable",
-      "Luxury Finish"
+      "Modern cut",
+      "Classic lapel",
+      "Tailored appearance",
+      "Versatile construction"
     ],
     details: [
-      "Two Piece",
-      "Flat Front",
-      "Dry Clean",
-      "Formal Wear"
+      "Suitable for business occasions",
+      "Can be styled casually",
+      "Pairs with trousers and shirts"
     ]
   },
 
   {
-    productName: "Women's Formal Suit",
-    category: "Suits",
-    gender: "female",
+    productName: "Everyday Formal Blazer",
+    category: "Blazers",
+    gender: "male",
     ratings: 4.6,
-    brand: "Mango",
-    price: 8499,
-    discountPercentage: 20,
+    brand: "Urban Formal",
+    price: 2899,
+    discountPercentage: 10,
     imgURL:
-      "https://www.pexels.com/photo/businesswoman-wearing-a-suit-24724191/",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Power dressing made elegant",
+      "https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&w=800&q=80",
+    sizes: ["38", "40", "42", "44"],
+    tagline: "A reliable formal wardrobe essential.",
     description:
-      "A contemporary women's suit designed for office and formal occasions.",
+      "A versatile blazer created for office meetings, events and polished everyday dressing.",
     features: [
-      "Tailored Fit",
-      "Premium Fabric",
-      "Modern Silhouette",
-      "Comfort Stretch"
+      "Formal silhouette",
+      "Clean tailoring",
+      "Classic design",
+      "Easy layering"
     ],
     details: [
-      "Blazer and Trousers",
-      "Button Closure",
-      "Dry Clean",
-      "Formal Wear"
+      "Suitable for office outfits",
+      "Works with formal trousers",
+      "Suitable for events"
     ]
   },
 
-  
+
   // =========================================================
-  // 13. ETHNIC WEAR
+  // 8. SUITS
   // =========================================================
 
   {
-    productName: "Men's Ethnic Kurta Set",
-    category: "Ethnic Wear",
+    productName: "Classic Business Suit",
+    category: "Suits",
     gender: "male",
     ratings: 4.8,
-    brand: "Manyavar",
+    brand: "Executive Line",
     price: 4999,
-    discountPercentage: 20,
+    discountPercentage: 15,
     imgURL:
-      "https://www.pexels.com/photo/smiling-man-in-traditional-indian-attire-at-festive-event-30891957/",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Celebrate tradition in style",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80",
+    sizes: ["38", "40", "42", "44", "46"],
+    tagline: "Timeless tailoring for important occasions.",
     description:
-      "A traditional kurta set designed for festivals and family celebrations.",
+      "A classic suit designed for business meetings, formal events and sophisticated dressing.",
     features: [
-      "Premium Cotton",
-      "Traditional Design",
-      "Comfort Fit",
-      "Elegant Finish"
+      "Tailored silhouette",
+      "Formal construction",
+      "Classic styling",
+      "Professional appearance"
     ],
     details: [
-      "Kurta and Bottom",
-      "Full Sleeves",
-      "Dry Clean",
-      "Festive Wear"
+      "Suitable for business occasions",
+      "Ideal for formal events",
+      "Designed for polished styling"
     ]
   },
 
   {
-    productName: "Women's Festive Ethnic Set",
-    category: "Ethnic Wear",
-    gender: "female",
+    productName: "Modern Formal Suit",
+    category: "Suits",
+    gender: "male",
     ratings: 4.7,
-    brand: "Biba",
-    price: 4299,
-    discountPercentage: 25,
-    imgURL:
-      "https://www.pexels.com/photo/two-women-in-traditional-clothing-holding-puja-thali-7685999/",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Graceful traditional elegance",
-    description:
-      "A stylish ethnic outfit designed for festivals and traditional occasions.",
-    features: [
-      "Elegant Print",
-      "Soft Fabric",
-      "Comfort Fit",
-      "Festive Design"
-    ],
-    details: [
-      "Two Piece Set",
-      "Three Quarter Sleeves",
-      "Hand Wash",
-      "Made in India"
-    ]
-  },
-
-  {
-    productName: "Royal Ethnic Celebration Set",
-    category: "Ethnic Wear",
-    gender: "female",
-    ratings: 4.8,
-    brand: "Aurelia",
+    brand: "Form & Fit",
     price: 5499,
     discountPercentage: 20,
     imgURL:
-      "https://www.istockphoto.com/photo/indian-punjabi-pre-wedding-jago-ceremony-ritual-items-and-decorations-close-up-gm2242705156-656998843?utm_source=pexels&utm_medium=affiliate&utm_campaign=sponsored_photo&utm_content=srp_inline_portrait_media&utm_term=indian%20royal%20ethnic%20celebration%20set",
-    sizes: ["S", "M", "L", "XL"],
-    tagline: "Traditional beauty for special moments",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80",
+    sizes: ["38", "40", "42", "44"],
+    tagline: "Modern tailoring for formal occasions.",
     description:
-      "A premium ethnic set combining traditional inspiration with contemporary styling.",
+      "A refined formal suit with a contemporary silhouette for professional and special occasions.",
     features: [
-      "Premium Fabric",
-      "Detailed Design",
-      "Comfort Fit",
-      "Festive Style"
+      "Modern tailoring",
+      "Formal silhouette",
+      "Clean finish",
+      "Professional styling"
     ],
     details: [
-      "Three Piece Set",
-      "Embroidered Details",
-      "Dry Clean",
-      "Festive Wear"
+      "Suitable for weddings and formal events",
+      "Ideal for professional occasions",
+      "Pairs with formal shirts"
     ]
   },
 
+  {
+    productName: "Premium Occasion Suit",
+    category: "Suits",
+    gender: "male",
+    ratings: 4.8,
+    brand: "Royal Form",
+    price: 5999,
+    discountPercentage: 15,
+    imgURL:
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80",
+    sizes: ["40", "42", "44", "46"],
+    tagline: "Refined tailoring for standout occasions.",
+    description:
+      "A premium-looking formal suit designed for weddings, celebrations and important events.",
+    features: [
+      "Refined silhouette",
+      "Formal design",
+      "Clean tailoring",
+      "Occasion-ready styling"
+    ],
+    details: [
+      "Suitable for weddings",
+      "Ideal for formal celebrations",
+      "Designed for sophisticated outfits"
+    ]
+  },
+
+
   // =========================================================
-  // 15. SAREES
+  // 9. ETHNIC WEAR
   // =========================================================
 
   {
-    productName: "Women's Pink Saree",
+    productName: "Classic Ethnic Kurta",
+    category: "Ethnic Wear",
+    gender: "male",
+    ratings: 4.6,
+    brand: "Heritage Loom",
+    price: 1599,
+    discountPercentage: 15,
+    imgURL:
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    tagline: "Traditional style with a modern finish.",
+    description:
+      "A classic ethnic kurta designed for festive celebrations, cultural occasions and traditional styling.",
+    features: [
+      "Traditional silhouette",
+      "Comfortable fit",
+      "Ethnic detailing",
+      "Versatile styling"
+    ],
+    details: [
+      "Suitable for festive occasions",
+      "Works with traditional bottoms",
+      "Suitable for cultural events"
+    ]
+  },
+
+  {
+    productName: "Festive Ethnic Kurta",
+    category: "Ethnic Wear",
+    gender: "male",
+    ratings: 4.5,
+    brand: "Heritage Loom",
+    price: 1799,
+    discountPercentage: 10,
+    imgURL:
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80",
+    sizes: ["M", "L", "XL", "XXL"],
+    tagline: "Made for celebrations.",
+    description:
+      "A festive ethnic kurta designed for traditional celebrations and special family occasions.",
+    features: [
+      "Festive styling",
+      "Comfortable construction",
+      "Traditional design",
+      "Easy movement"
+    ],
+    details: [
+      "Suitable for festivals",
+      "Ideal for family celebrations",
+      "Pairs well with traditional trousers"
+    ]
+  },
+
+  {
+    productName: "Traditional Celebration Kurta",
+    category: "Ethnic Wear",
+    gender: "male",
+    ratings: 4.7,
+    brand: "Royal Heritage",
+    price: 1999,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Traditional elegance for special moments.",
+    description:
+      "A traditional kurta designed to bring a refined ethnic look to celebrations and cultural occasions.",
+    features: [
+      "Traditional silhouette",
+      "Festive styling",
+      "Comfortable fit",
+      "Elegant appearance"
+    ],
+    details: [
+      "Suitable for festive events",
+      "Ideal for celebrations",
+      "Easy to style traditionally"
+    ]
+  },
+
+
+  // =========================================================
+  // 10. SAREES
+  // =========================================================
+
+  {
+    productName: "Classic Traditional Saree",
+    category: "Sarees",
+    gender: "female",
+    ratings: 4.8,
+    brand: "Heritage Weaves",
+    price: 2499,
+    discountPercentage: 15,
+    imgURL:
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+    sizes: ["Free Size"],
+    tagline: "Timeless Indian elegance.",
+    description:
+      "A traditional saree designed for festive occasions, celebrations and elegant ethnic styling.",
+    features: [
+      "Traditional drape",
+      "Elegant appearance",
+      "Festive styling",
+      "Classic silhouette"
+    ],
+    details: [
+      "Suitable for celebrations",
+      "Ideal for festive occasions",
+      "Designed for traditional styling"
+    ]
+  },
+
+  {
+    productName: "Festive Heritage Saree",
+    category: "Sarees",
+    gender: "female",
+    ratings: 4.7,
+    brand: "Heritage Weaves",
+    price: 2999,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+    sizes: ["Free Size"],
+    tagline: "A graceful choice for celebrations.",
+    description:
+      "A heritage-inspired saree designed for festive dressing and traditional celebrations.",
+    features: [
+      "Traditional styling",
+      "Elegant drape",
+      "Festive appearance",
+      "Classic design"
+    ],
+    details: [
+      "Suitable for festivals",
+      "Ideal for family occasions",
+      "Pairs well with traditional accessories"
+    ]
+  },
+
+  {
+    productName: "Elegant Occasion Saree",
     category: "Sarees",
     gender: "female",
     ratings: 4.9,
-    brand: "Manyavar Mohey",
-    price: 6999,
-    discountPercentage: 25,
-    imgURL:
-      "https://www.pexels.com/photo/elegant-woman-in-traditional-pink-silk-saree-35108809/",
-    sizes: ["Free Size"],
-    tagline: "Festive elegance redefined",
-    description:
-      "A designer saree suitable for weddings, festivals and special occasions.",
-    features: [
-      "Silk Blend",
-      "Designer Border",
-      "Premium Finish",
-      "Elegant Draping"
-    ],
-    details: [
-      "Free Size",
-      "Matching Blouse",
-      "Dry Clean",
-      "Made in India"
-    ]
-  },
-
-  {
-    productName: "Classic Banarasi Saree",
-    category: "Sarees",
-    gender: "female",
-    ratings: 4.8,
-    brand: "Mimosa",
-    price: 7999,
-    discountPercentage: 20,
-    imgURL:
-      "https://www.pexels.com/photo/elegant-woman-in-traditional-red-saree-poses-gracefully-28943542/",
-    sizes: ["Free Size"],
-    tagline: "Traditional craftsmanship",
-    description:
-      "A rich traditional-inspired saree designed for weddings and celebrations.",
-    features: [
-      "Rich Fabric",
-      "Traditional Pattern",
-      "Decorative Border",
-      "Premium Finish"
-    ],
-    details: [
-      "Free Size",
-      "Matching Blouse",
-      "Dry Clean",
-      "Wedding Wear"
-    ]
-  },
-
-  {
-    productName: "Elegant Party Wear Saree",
-    category: "Sarees",
-    gender: "female",
-    ratings: 4.7,
-    brand: "Libas",
-    price: 5999,
-    discountPercentage: 22,
-    imgURL:
-      "https://images.unsplash.com/photo-1610030469983-98e550d6193c",
-    sizes: ["Free Size"],
-    tagline: "Effortless elegance for every celebration",
-    description:
-      "A lightweight party-wear saree featuring an elegant contemporary design.",
-    features: [
-      "Lightweight Fabric",
-      "Elegant Border",
-      "Comfortable",
-      "Party Design"
-    ],
-    details: [
-      "Free Size",
-      "Blouse Included",
-      "Dry Clean",
-      "Party Wear"
-    ]
-  },
-
- 
-  // =========================================================
-  // 19. PALAZZOS
-  // =========================================================
-
-  {
-    productName: "Classic Black Palazzos",
-    category: "Palazzos",
-    gender: "female",
-    ratings: 4.5,
-    brand: "Mango",
-    price: 2299,
-    discountPercentage: 20,
-    imgURL:
-      "https://www.pexels.com/photo/fashionable-woman-posing-in-urban-setting-37448533/",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Flowing comfort with elegant style",
-    description:
-      "Wide-leg black palazzos designed for comfortable everyday and office wear.",
-    features: [
-      "Wide Leg",
-      "Flowing Fabric",
-      "Comfort Waist",
-      "Elegant Design"
-    ],
-    details: [
-      "High Rise",
-      "Full Length",
-      "Machine Wash",
-      "Casual Wear"
-    ]
-  },
-
-  {
-    productName: "Printed Summer Palazzos",
-    category: "Palazzos",
-    gender: "female",
-    ratings: 4.4,
-    brand: "H&M",
-    price: 1999,
-    discountPercentage: 25,
-    imgURL:
-      "https://www.pexels.com/photo/fashionable-woman-in-orange-summer-outfit-indoors-38201039/",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Relaxed summer elegance",
-    description:
-      "Lightweight printed palazzos created for relaxed summer outfits.",
-    features: [
-      "Printed Design",
-      "Lightweight",
-      "Wide Leg",
-      "Comfort Fit"
-    ],
-    details: [
-      "High Rise",
-      "Full Length",
-      "Machine Wash",
-      "Summer Wear"
-    ]
-  },
-
-  {
-    productName: "Formal Wide Leg Palazzos",
-    category: "Palazzos",
-    gender: "female",
-    ratings: 4.6,
-    brand: "ONLY",
-    price: 2699,
-    discountPercentage: 18,
-    imgURL:
-     "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Professional comfort with modern style",
-    description:
-      "Wide-leg trousers designed to create a sophisticated formal silhouette.",
-    features: [
-      "Wide Leg",
-      "Premium Fabric",
-      "Tailored Waist",
-      "Modern Silhouette"
-    ],
-    details: [
-      "High Rise",
-      "Full Length",
-      "Machine Wash",
-      "Office Wear"
-    ]
-  },
-
-  
-  // =========================================================
-  // 22. COATS
-  // =========================================================
-
-  {
-    productName: "Classic Black Coat",
-    category: "Coats",
-    gender: "male",
-    ratings: 4.7,
-    brand: "Van Heusen",
-    price: 6999,
-    discountPercentage: 20,
-    imgURL:
-     "https://www.pexels.com/photo/elegant-man-in-black-overcoat-on-neutral-background-34609625/",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Classic protection with refined style",
-    description:
-      "A sophisticated black coat designed for winter and formal occasions.",
-    features: [
-      "Warm Fabric",
-      "Premium Finish",
-      "Classic Design",
-      "Comfort Fit"
-    ],
-    details: [
-      "Full Length",
-      "Button Closure",
-      "Dry Clean",
-      "Winter Wear"
-    ]
-  },
-
-  {
-    productName: "Women's Camel Coat",
-    category: "Coats",
-    gender: "female",
-    ratings: 4.8,
-    brand: "Mango",
-    price: 7499,
-    discountPercentage: 25,
-    imgURL:
-      "https://www.pexels.com/photo/selective-focus-of-a-woman-in-brown-coat-and-trousers-walking-on-the-sidewalk-3152742/",
-    sizes: ["XS", "S", "M", "L"],
-    tagline: "Timeless winter elegance",
-    description:
-      "A sophisticated camel coat designed for cold-weather layering.",
-    features: [
-      "Warm Material",
-      "Elegant Color",
-      "Premium Finish",
-      "Tailored Fit"
-    ],
-    details: [
-      "Long Length",
-      "Button Closure",
-      "Dry Clean",
-      "Winter Wear"
-    ]
-  },
-
-  {
-    productName: "Wool Blend Overcoat",
-    category: "Coats",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Raymond",
-    price: 8999,
-    discountPercentage: 18,
-    imgURL:
-      "https://www.pexels.com/photo/man-looking-down-1643025/",
-    sizes: ["M", "L", "XL", "XXL"],
-    tagline: "Premium warmth for winter",
-    description:
-      "A premium wool-blend overcoat designed for sophisticated winter dressing.",
-    features: [
-      "Wool Blend",
-      "Warm Construction",
-      "Premium Finish",
-      "Long Silhouette"
-    ],
-    details: [
-      "Full Length",
-      "Button Closure",
-      "Dry Clean",
-      "Winter Wear"
-    ]
-  },
-
-  
-  // =========================================================
-  // 24. SPORTS WEAR
-  // =========================================================
-
-  {
-    productName: "Performance Training T-Shirt",
-    category: "Sports Wear",
-    gender: "male",
-    ratings: 4.7,
-    brand: "Nike",
-    price: 1999,
-    discountPercentage: 20,
-    imgURL:
-      "https://www.pexels.com/photo/man-exercising-with-dumbbell-25315915/",
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    tagline: "Train harder, move better",
-    description:
-      "A lightweight performance T-shirt designed for workouts and training.",
-    features: [
-      "Moisture Wicking",
-      "Quick Dry",
-      "Lightweight",
-      "Breathable"
-    ],
-    details: [
-      "Round Neck",
-      "Half Sleeves",
-      "Machine Wash",
-      "Sports Wear"
-    ]
-  },
-
-  {
-    productName: "Women's Active Training Set",
-    category: "Sports Wear",
-    gender: "female",
-    ratings: 4.8,
-    brand: "Nike",
-    price: 3999,
-    discountPercentage: 20,
-    imgURL:
-      " https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
-    sizes: ["XS", "S", "M", "L", "XL"],
-    tagline: "Performance designed for movement",
-    description:
-      "A comfortable activewear set designed for workouts, running and fitness activities.",
-    features: [
-      "Stretch Fabric",
-      "Moisture Wicking",
-      "Breathable",
-      "Flexible Fit"
-    ],
-    details: [
-      "Top and Bottom",
-      "Machine Wash",
-      "Quick Dry",
-      "Sports Wear"
-    ]
-  },
-
- 
-
-  // =========================================================
-  // 25. ACCESSORIES
-  // =========================================================
-
-  {
-    productName: "Classic Leather Watch",
-    category: "Accessories",
-    gender: "male",
-    ratings: 4.6,
-    brand: "Fossil",
-    price: 5999,
-    discountPercentage: 20,
-    imgURL:
-      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49",
-    sizes: ["Free Size"],
-    tagline: "Timeless detail for every outfit",
-    description:
-      "A classic leather-strap watch designed to complement formal and casual outfits.",
-    features: [
-      "Leather Strap",
-      "Classic Dial",
-      "Premium Finish",
-      "Quartz Movement"
-    ],
-    details: [
-      "Analog Display",
-      "Adjustable Strap",
-      "Water Resistant",
-      "Gift Ready"
-    ]
-  },
-
-  {
-    productName: "Minimalist Women's Watch",
-    category: "Accessories",
-    gender: "female",
-    ratings: 4.7,
-    brand: "Titan",
-    price: 4499,
+    brand: "Royal Heritage",
+    price: 3499,
     discountPercentage: 15,
     imgURL:
-      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49",
+      "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
     sizes: ["Free Size"],
-    tagline: "Elegant simplicity for every day",
+    tagline: "Elegant traditional wear for special occasions.",
     description:
-      "A minimalist watch with a clean dial and sophisticated finish.",
+      "A refined saree designed for weddings, celebrations and other special occasions.",
     features: [
-      "Minimal Dial",
-      "Premium Strap",
-      "Elegant Design",
-      "Quartz Movement"
+      "Occasion-ready styling",
+      "Traditional drape",
+      "Elegant appearance",
+      "Classic ethnic design"
     ],
     details: [
-      "Analog Display",
-      "Adjustable Strap",
-      "Water Resistant",
-      "Everyday Wear"
+      "Suitable for weddings",
+      "Ideal for celebrations",
+      "Pairs with traditional jewellery"
+    ]
+  },
+
+
+  // =========================================================
+  // 11. PALAZZOS
+  // =========================================================
+
+  {
+    productName: "Classic Wide-Leg Palazzo",
+    category: "Palazzos",
+    gender: "female",
+    ratings: 4.6,
+    brand: "Modern Muse",
+    price: 1299,
+    discountPercentage: 15,
+    imgURL:
+      "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800",
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Relaxed elegance with a flowing silhouette.",
+    description:
+      "Wide-leg palazzo pants designed for comfortable and contemporary women's styling.",
+    features: [
+      "Wide-leg silhouette",
+      "Flowing design",
+      "Comfortable fit",
+      "Versatile styling"
+    ],
+    details: [
+      "Suitable for casual outfits",
+      "Works well with fitted tops",
+      "Ideal for relaxed styling"
     ]
   },
 
   {
-    productName: "Premium Fashion Sunglasses",
-    category: "Accessories",
-    gender: "unisex",
+    productName: "Flowing Everyday Palazzo",
+    category: "Palazzos",
+    gender: "female",
     ratings: 4.5,
-    brand: "Ray-Ban",
-    price: 6999,
-    discountPercentage: 20,
+    brand: "Urban Muse",
+    price: 1399,
+    discountPercentage: 10,
     imgURL:
-      "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
-    sizes: ["Free Size"],
-    tagline: "Complete your look",
+      "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800",
+    sizes: ["S", "M", "L"],
+    tagline: "Comfortable flow for everyday outfits.",
     description:
-      "Stylish sunglasses designed to add a sophisticated finishing touch to everyday outfits.",
+      "Flowing palazzo pants designed for comfortable everyday fashion and relaxed silhouettes.",
     features: [
-      "UV Protection",
-      "Premium Frame",
-      "Lightweight",
-      "Modern Design"
+      "Wide-leg fit",
+      "Flowing construction",
+      "Comfortable design",
+      "Easy styling"
     ],
     details: [
-      "One Size",
-      "Protective Case",
-      "UV Protection",
-      "Unisex"
+      "Suitable for daily wear",
+      "Pairs with tops and kurtis",
+      "Ideal for relaxed outfits"
+    ]
+  },
+
+  {
+    productName: "Contemporary Palazzo Pants",
+    category: "Palazzos",
+    gender: "female",
+    ratings: 4.7,
+    brand: "Modern Muse",
+    price: 1499,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.pexels.com/photos/2659787/pexels-photo-2659787.jpeg?auto=compress&cs=tinysrgb&w=800",
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Modern comfort with a graceful fall.",
+    description:
+      "Contemporary wide-leg palazzo pants designed for stylish casual and semi-formal outfits.",
+    features: [
+      "Wide-leg silhouette",
+      "Comfortable construction",
+      "Modern styling",
+      "Flowing appearance"
+    ],
+    details: [
+      "Suitable for casual occasions",
+      "Pairs with kurtis and tops",
+      "Easy to dress up or down"
+    ]
+  },
+
+
+  // =========================================================
+  // 12. COATS
+  // =========================================================
+
+  {
+    productName: "Classic Winter Coat",
+    category: "Coats",
+    gender: "female",
+    ratings: 4.7,
+    brand: "Winter Edit",
+    price: 2999,
+    discountPercentage: 15,
+    imgURL:
+      "https://images.unsplash.com/photo-1542542856-d29decffd6ba?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Warm layering with a refined finish.",
+    description:
+      "A stylish winter coat designed for cold-weather layering and polished seasonal outfits.",
+    features: [
+      "Winter-ready design",
+      "Long silhouette",
+      "Layer-friendly construction",
+      "Refined appearance"
+    ],
+    details: [
+      "Suitable for cold weather",
+      "Works with casual and formal outfits",
+      "Designed for seasonal layering"
+    ]
+  },
+
+  {
+    productName: "Elegant Winter Overcoat",
+    category: "Coats",
+    gender: "female",
+    ratings: 4.6,
+    brand: "Winter Edit",
+    price: 3299,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1542542856-d29decffd6ba?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L"],
+    tagline: "A polished layer for colder days.",
+    description:
+      "A refined winter overcoat designed to complement seasonal outfits while providing a layered outer look.",
+    features: [
+      "Long outer layer",
+      "Winter styling",
+      "Elegant silhouette",
+      "Layer-friendly design"
+    ],
+    details: [
+      "Suitable for winter outfits",
+      "Works over sweaters and dresses",
+      "Designed for polished seasonal looks"
+    ]
+  },
+
+  {
+    productName: "Modern Cold-Weather Coat",
+    category: "Coats",
+    gender: "female",
+    ratings: 4.5,
+    brand: "Urban Winter",
+    price: 3499,
+    discountPercentage: 10,
+    imgURL:
+      "https://images.unsplash.com/photo-1542542856-d29decffd6ba?auto=format&fit=crop&w=800&q=80",
+    sizes: ["M", "L", "XL"],
+    tagline: "Modern outerwear for winter styling.",
+    description:
+      "A contemporary winter coat designed for comfortable layering and seasonal fashion.",
+    features: [
+      "Cold-weather outerwear",
+      "Modern silhouette",
+      "Comfortable layering",
+      "Seasonal design"
+    ],
+    details: [
+      "Suitable for winter",
+      "Ideal for outdoor use",
+      "Easy to layer"
+    ]
+  },
+
+
+  // =========================================================
+  // 13. SPORTS WEAR
+  // =========================================================
+
+  {
+    productName: "Performance Training Wear",
+    category: "Sports Wear",
+    gender: "unisex",
+    ratings: 4.7,
+    brand: "Active Motion",
+    price: 1399,
+    discountPercentage: 15,
+    imgURL:
+      "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Designed for active movement.",
+    description:
+      "Sportswear designed for workouts, training sessions and active everyday routines.",
+    features: [
+      "Movement-friendly design",
+      "Athletic silhouette",
+      "Comfort-focused construction",
+      "Training-ready style"
+    ],
+    details: [
+      "Suitable for workouts",
+      "Good for training sessions",
+      "Designed for active use"
+    ]
+  },
+
+  {
+    productName: "Everyday Active Sportswear",
+    category: "Sports Wear",
+    gender: "unisex",
+    ratings: 4.6,
+    brand: "Active Motion",
+    price: 1499,
+    discountPercentage: 10,
+    imgURL:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    tagline: "Comfort for training and movement.",
+    description:
+      "Active sportswear designed for exercise, gym sessions and everyday active lifestyles.",
+    features: [
+      "Athletic construction",
+      "Movement-friendly fit",
+      "Comfortable design",
+      "Sport-inspired styling"
+    ],
+    details: [
+      "Suitable for gym workouts",
+      "Good for training",
+      "Suitable for active routines"
+    ]
+  },
+
+  {
+    productName: "Training Essentials Set",
+    category: "Sports Wear",
+    gender: "unisex",
+    ratings: 4.5,
+    brand: "Motion Lab",
+    price: 1599,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80",
+    sizes: ["S", "M", "L", "XL"],
+    tagline: "Built around an active lifestyle.",
+    description:
+      "A sportswear essential designed for training, exercise and comfortable active movement.",
+    features: [
+      "Training-focused design",
+      "Comfortable fit",
+      "Athletic styling",
+      "Movement-friendly construction"
+    ],
+    details: [
+      "Suitable for exercise",
+      "Good for training sessions",
+      "Designed for active lifestyles"
+    ]
+  },
+
+
+  // =========================================================
+  // 14. ACCESSORIES
+  // =========================================================
+
+  {
+    productName: "Classic Everyday Watch",
+    category: "Accessories",
+    gender: "unisex",
+    ratings: 4.7,
+    brand: "Timecraft",
+    price: 1999,
+    discountPercentage: 15,
+    imgURL:
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80",
+    sizes: ["Free Size"],
+    tagline: "A timeless finishing touch.",
+    description:
+      "A classic wristwatch designed to complement everyday outfits with a refined accessory look.",
+    features: [
+      "Classic watch design",
+      "Everyday styling",
+      "Versatile accessory",
+      "Timeless appearance"
+    ],
+    details: [
+      "Suitable for everyday wear",
+      "Works with casual and formal outfits",
+      "Designed as a wardrobe accessory"
+    ]
+  },
+
+  {
+    productName: "Minimal Style Watch",
+    category: "Accessories",
+    gender: "unisex",
+    ratings: 4.6,
+    brand: "Timecraft",
+    price: 2299,
+    discountPercentage: 10,
+    imgURL:
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80",
+    sizes: ["Free Size"],
+    tagline: "Minimal design for everyday style.",
+    description:
+      "A minimal wristwatch designed as a versatile accessory for everyday fashion.",
+    features: [
+      "Minimal appearance",
+      "Classic wristwatch format",
+      "Everyday styling",
+      "Versatile accessory"
+    ],
+    details: [
+      "Suitable for casual outfits",
+      "Works with smart-casual looks",
+      "Easy everyday accessory"
+    ]
+  },
+
+  {
+    productName: "Premium Fashion Watch",
+    category: "Accessories",
+    gender: "unisex",
+    ratings: 4.8,
+    brand: "Timecraft",
+    price: 2499,
+    discountPercentage: 20,
+    imgURL:
+      "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80",
+    sizes: ["Free Size"],
+    tagline: "A refined accessory for polished looks.",
+    description:
+      "A fashion-focused wristwatch designed to add a refined finishing touch to everyday and formal outfits.",
+    features: [
+      "Fashion accessory",
+      "Classic watch styling",
+      "Versatile design",
+      "Refined appearance"
+    ],
+    details: [
+      "Suitable for formal and casual outfits",
+      "Designed for everyday styling",
+      "Makes a versatile wardrobe accessory"
     ]
   }
+
 ];
+
+
+// =========================================================
+// DATABASE CONNECTION + SEED
+// =========================================================
 
 const seedDatabase = async () => {
   try {
