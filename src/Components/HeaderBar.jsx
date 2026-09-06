@@ -83,7 +83,7 @@ const HeaderBar = () => {
       // -------------------------------
 
       const wishlistResponse =
-        await getWishlist(user.id);
+        await getWishlist();
 
 
       if (wishlistResponse.data.success) {
