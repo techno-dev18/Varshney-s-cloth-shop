@@ -1,895 +1,617 @@
-/* =========================================================
-   SV VARSHNEY'S CLOTH SHOP
-   BASKET PAGE
-   Premium Black • Gold • Ivory • Charcoal
-========================================================= */
 
-
-/* =========================================================
-   PAGE
-========================================================= */
+/* =========================================
+   BASKET / CART
+   Varshney's Cloth Shop
+   ========================================= */
 
 .basketPage {
-  width: 90%;
-  max-width: 1200px;
+  min-height: calc(100vh - 80px);
 
-  min-height: 100vh;
+  padding: 55px 5% 80px;
+
+  background: #f8f5f0;
+}
+
+/* =========================================
+   PAGE TITLE
+   ========================================= */
+
+.basketPage > h1 {
+  margin: 0 0 38px;
+
+  color: #0d0d0d;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: 34px;
+  font-weight: 600;
+
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.basketPage > h1::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+  height: 2px;
+
+  margin: 15px auto 0;
+
+  background: #d4af37;
+}
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
+
+.basketContainer {
+  width: 100%;
+  max-width: 1400px;
 
   margin: 0 auto;
 
-  padding: 55px 0 80px;
+  display: grid;
 
-  font-family: Arial, sans-serif;
+  grid-template-columns:
+    minmax(0, 1fr) 360px;
 
-  color: #0d0d0d;
+  gap: 32px;
 
-  box-sizing: border-box;
+  align-items: start;
 }
 
+/* =========================================
+   PRODUCTS
+   ========================================= */
 
-/* =========================================================
-   PAGE HEADING
-========================================================= */
+.basketProducts {
+  display: flex;
+  flex-direction: column;
 
-.basketPage h1 {
-  margin: 0 0 35px;
-
-  padding-bottom: 18px;
-
-  color: #0d0d0d;
-
-  font-family: "Cinzel", serif;
-
-  font-size: 32px;
-
-  font-weight: 500;
-
-  letter-spacing: 1px;
-
-  text-align: center;
-
-  border-bottom: 1px solid #d4af37;
+  gap: 18px;
 }
 
-
-/* =========================================================
-   BASKET ITEM
-========================================================= */
+/* =========================================
+   PRODUCT ITEM
+   ========================================= */
 
 .basketItem {
-  display: flex;
+  display: grid;
 
-  align-items: center;
+  grid-template-columns: 190px minmax(0, 1fr);
 
-  gap: 25px;
+  gap: 24px;
 
-  width: 100%;
-
-  margin-bottom: 20px;
-
-  padding: 20px;
+  padding: 18px;
 
   background: #ffffff;
 
-  border: 1px solid #dedbd5;
-
-  border-radius: 0;
-
-  box-shadow:
-    0 5px 20px rgba(13, 13, 13, 0.06);
-
-  box-sizing: border-box;
+  border: 1px solid #ded8cf;
 
   transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
-
 
 .basketItem:hover {
   border-color: #d4af37;
 
   box-shadow:
-    0 10px 28px rgba(13, 13, 13, 0.10);
-
-  transform: translateY(-2px);
+    0 10px 28px rgba(0, 0, 0, 0.08);
 }
 
-
-/* =========================================================
+/* =========================================
    PRODUCT IMAGE
-========================================================= */
+   ========================================= */
 
-.basketItem img {
-  width: 150px;
-
-  height: 180px;
-
-  flex-shrink: 0;
+.basketItem > img {
+  width: 190px;
+  height: 235px;
 
   object-fit: cover;
 
-  display: block;
-
-  border-radius: 0;
-
-  background: #f8f5f0;
+  background: #eeeeee;
 }
 
+/* =========================================
+   DETAILS
+   ========================================= */
 
-/* =========================================================
-   PRODUCT INFORMATION
-========================================================= */
-
-.basketItem > div {
-  flex: 1;
-
+.basketDetails {
   min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
 }
 
-
-.basketItem h3 {
-  margin: 0 0 12px;
+.basketDetails h3 {
+  margin: 2px 0 9px;
 
   color: #0d0d0d;
 
-  font-family: "Cinzel", serif;
+  font-family: "Cinzel", Georgia, serif;
 
-  font-size: 21px;
-
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
 
   line-height: 1.4;
 }
 
+.basketDetails p {
+  margin: 0 0 6px;
 
-.basketItem p {
-  margin: 7px 0;
+  color: #777;
 
-  color: #666666;
-
-  font-size: 14px;
-
-  line-height: 1.6;
+  font-size: 13px;
 }
 
-
-/* =========================================================
-   PRODUCT PRICE
-========================================================= */
-
-.basketItem p:nth-of-type(2) {
-  margin-top: 12px;
-
-  color: #a27d14;
-
-  font-family: "Cinzel", serif;
-
-  font-size: 19px;
-
-  font-weight: 600;
+.basketDetails p:nth-of-type(2) {
+  margin-bottom: 16px;
 }
 
+/* =========================================
+   PRICE
+   ========================================= */
 
-/* =========================================================
-   QUANTITY CONTROLS
-========================================================= */
+.basketPrice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-.basketItem button {
+  margin-bottom: 18px;
+}
+
+.basketPrice span {
+  color: #0d0d0d;
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.basketPrice del {
+  color: #999;
+
+  font-size: 13px;
+}
+
+/* =========================================
+   QUANTITY
+   ========================================= */
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  border: 1px solid #d5cec5;
+}
+
+.quantityControls button {
+  width: 38px;
+  height: 38px;
+
   border: none;
 
-  cursor: pointer;
-
-  font-family: Arial, sans-serif;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.2s ease;
-}
-
-
-/* =========================================================
-   PLUS / MINUS BUTTONS
-========================================================= */
-
-.basketItem button:not(:last-child) {
-  width: 35px;
-
-  height: 35px;
-
-  margin-right: 8px;
-
-  padding: 0;
-
   background: #0d0d0d;
-
   color: #d4af37;
 
-  border: 1px solid #0d0d0d;
+  font-size: 19px;
+  font-weight: 500;
 
-  border-radius: 0;
+  cursor: pointer;
 
-  font-size: 18px;
-
-  line-height: 35px;
+  transition: 0.2s ease;
 }
 
-
-.basketItem button:not(:last-child):hover {
+.quantityControls button:hover:not(:disabled) {
   background: #d4af37;
-
   color: #0d0d0d;
-
-  border-color: #d4af37;
-
-  transform: translateY(-1px);
 }
 
+.quantityControls button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
 
-/* =========================================================
-   QUANTITY NUMBER
-========================================================= */
-
-.basketItem span {
-  display: inline-block;
-
-  min-width: 35px;
+.quantityControls span {
+  min-width: 44px;
 
   text-align: center;
 
   color: #0d0d0d;
 
-  font-size: 15px;
-
+  font-size: 14px;
   font-weight: 600;
 }
 
+/* =========================================
+   REMOVE
+   ========================================= */
 
-/* =========================================================
-   REMOVE BUTTON
-========================================================= */
+.removeButton {
+  min-height: 39px;
 
-.basketItem button:last-child {
-  margin-left: 20px;
+  padding: 0 18px;
 
-  padding: 8px 12px;
+  border: 1px solid #d0c9c0;
 
   background: transparent;
-
-  color: #555555;
-
-  border: 1px solid #b9b5ae;
-
-  border-radius: 0;
+  color: #555;
 
   font-size: 11px;
-
-  font-weight: 600;
-
-  letter-spacing: 0.5px;
-
-  text-transform: uppercase;
-}
-
-
-.basketItem button:last-child:hover {
-  background: #0d0d0d;
-
-  color: #d4af37;
-
-  border-color: #0d0d0d;
-}
-
-
-/* =========================================================
-   CHECKOUT SECTION
-========================================================= */
-
-.checkoutSection {
-  width: 100%;
-
-  margin-top: 35px;
-
-  display: flex;
-
-  justify-content: flex-end;
-
-  box-sizing: border-box;
-}
-
-
-/* =========================================================
-   CHECKOUT BUTTON
-========================================================= */
-
-.checkoutButton {
-  min-width: 210px;
-
-  padding: 14px 30px;
-
-  background: #d4af37;
-
-  color: #0d0d0d;
-
-  border: 1px solid #d4af37;
-
-  border-radius: 0;
-
-  font-size: 12px;
-
   font-weight: 700;
 
-  letter-spacing: 1px;
-
+  letter-spacing: 0.8px;
   text-transform: uppercase;
 
   cursor: pointer;
 
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
+  transition: 0.25s ease;
 }
 
-
-.checkoutButton:hover {
+.removeButton:hover {
   background: #0d0d0d;
-
-  color: #d4af37;
+  color: #ffffff;
 
   border-color: #0d0d0d;
-
-  transform: translateY(-2px);
 }
 
+/* =========================================
+   SUMMARY
+   ========================================= */
 
-/* =========================================================
-   EMPTY BASKET
-========================================================= */
+.basketSummary {
+  position: sticky;
+  top: 105px;
 
-.emptyBasket {
-  width: 100%;
-
-  min-height: 55vh;
-
-  margin-top: 30px;
-
-  padding: 60px 30px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-align: center;
-
-  background: #ffffff;
-
-  border: 1px solid #dedbd5;
-
-  border-radius: 0;
-
-  box-shadow:
-    0 8px 28px rgba(13, 13, 13, 0.06);
-
-  box-sizing: border-box;
-}
-
-
-/* =========================================================
-   EMPTY BASKET ICON
-========================================================= */
-
-.emptyBasketIcon {
-  width: 90px;
-
-  height: 90px;
-
-  margin-bottom: 25px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
+  padding: 28px;
 
   background: #0d0d0d;
-
-  color: #d4af37;
 
   border: 1px solid #d4af37;
 
-  border-radius: 50%;
+  color: #ffffff;
 
-  font-size: 42px;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.16);
 }
 
+.basketSummary h2 {
+  margin: 0 0 25px;
 
-/* =========================================================
-   EMPTY BASKET HEADING
-========================================================= */
+  color: #d4af37;
 
-.emptyBasket h2 {
-  margin: 0 0 12px;
+  font-family: "Cinzel", Georgia, serif;
 
-  color: #0d0d0d;
-
-  font-family: "Cinzel", serif;
-
-  font-size: 28px;
-
+  font-size: 22px;
   font-weight: 500;
 
   letter-spacing: 0.5px;
 }
 
+/* =========================================
+   SUMMARY ROW
+   ========================================= */
 
-/* =========================================================
-   EMPTY BASKET DESCRIPTION
-========================================================= */
+.summaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-.emptyBasket p {
-  max-width: 450px;
+  padding: 13px 0;
 
-  margin: 0 0 28px;
+  color: #ddd;
 
-  color: #777777;
-
-  font-size: 14px;
-
-  line-height: 1.7;
+  font-size: 13px;
 }
 
+.summaryRow span:last-child {
+  color: #ffffff;
 
-/* =========================================================
-   CONTINUE SHOPPING
-========================================================= */
+  font-weight: 600;
+}
 
-.continueShopping {
-  display: inline-flex;
+/* =========================================
+   DIVIDER
+   ========================================= */
 
+.basketSummary hr {
+  margin: 10px 0;
+
+  border: none;
+
+  border-top: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+/* =========================================
+   TOTAL
+   ========================================= */
+
+.summaryTotal {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  justify-content: center;
+  padding: 17px 0 22px;
 
-  min-width: 200px;
+  color: #ffffff;
 
-  padding: 13px 28px;
+  font-size: 16px;
+}
 
-  background: #d4af37;
+.summaryTotal strong {
+  color: #d4af37;
 
-  color: #0d0d0d;
+  font-size: 24px;
+}
+
+/* =========================================
+   CHECKOUT
+   ========================================= */
+
+.checkoutButton {
+  width: 100%;
+  min-height: 52px;
 
   border: 1px solid #d4af37;
 
-  border-radius: 0;
+  background: #d4af37;
+  color: #0d0d0d;
 
-  text-decoration: none;
-
-  font-size: 11px;
-
-  font-weight: 700;
-
-  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 800;
 
   text-transform: uppercase;
+  letter-spacing: 1px;
+
+  cursor: pointer;
 
   transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
-
-.continueShopping:hover {
-  background: #0d0d0d;
-
-  color: #d4af37;
-
-  border-color: #0d0d0d;
+.checkoutButton:hover {
+  background: #ffffff;
+  color: #0d0d0d;
 
   transform: translateY(-2px);
 }
 
+/* =========================================
+   EMPTY BASKET
+   ========================================= */
 
-/* =========================================================
+.basketEmpty {
+  min-height: calc(100vh - 80px);
+
+  padding: 70px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: #f8f5f0;
+}
+
+.basketEmpty h1 {
+  margin: 0 0 40px;
+
+  color: #0d0d0d;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: 34px;
+}
+
+.basketEmpty h2 {
+  margin: 0 0 12px;
+
+  color: #0d0d0d;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: 25px;
+}
+
+.basketEmpty button {
+  min-width: 210px;
+  min-height: 48px;
+
+  margin-top: 12px;
+
+  border: 1px solid #d4af37;
+
+  background: #d4af37;
+  color: #0d0d0d;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.basketEmpty button:hover {
+  background: #0d0d0d;
+  color: #d4af37;
+
+  border-color: #0d0d0d;
+}
+
+/* =========================================
+   LOADING
+   ========================================= */
+
+.basketMessage {
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f8f5f0;
+}
+
+.basketMessage h2 {
+  color: #0d0d0d;
+
+  font-family: "Cinzel", Georgia, serif;
+
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.basketMessage h2::after {
+  content: "";
+
+  display: block;
+
+  width: 40px;
+  height: 2px;
+
+  margin: 14px auto 0;
+
+  background: #d4af37;
+}
+
+/* =========================================
    TABLET
-========================================================= */
+   ========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
+
+  .basketContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .basketSummary {
+    position: static;
+  }
+
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 650px) {
 
   .basketPage {
-    width: 92%;
-
-    padding: 45px 0 65px;
+    padding: 40px 16px 60px;
   }
 
+  .basketPage > h1 {
+    font-size: 29px;
+  }
 
   .basketItem {
-    gap: 18px;
+    grid-template-columns: 135px minmax(0, 1fr);
 
-    padding: 16px;
+    gap: 16px;
+
+    padding: 13px;
   }
 
-
-  .basketItem img {
-    width: 125px;
-
-    height: 160px;
+  .basketItem > img {
+    width: 135px;
+    height: 180px;
   }
 
+  .basketDetails h3 {
+    font-size: 17px;
+  }
 
-  .basketItem h3 {
+  .basketDetails p {
+    font-size: 12px;
+  }
+
+  .basketPrice span {
     font-size: 18px;
   }
 
-
-  .basketItem p {
-    font-size: 13px;
-  }
-
-
-  .basketItem p:nth-of-type(2) {
-    font-size: 17px;
-  }
-
-
-  .basketItem button:last-child {
-    margin-left: 12px;
-  }
-
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 768px) {
-
-  .basketPage {
-    width: 94%;
-
-    padding: 35px 0 55px;
-  }
-
-
-  .basketPage h1 {
-    margin-bottom: 25px;
-
-    font-size: 27px;
-  }
-
-
-  .basketItem {
-    align-items: flex-start;
-
-    gap: 15px;
-
-    padding: 15px;
-  }
-
-
-  .basketItem img {
-    width: 110px;
-
-    height: 140px;
-  }
-
-
-  .basketItem h3 {
-    font-size: 17px;
-  }
-
-
-  .basketItem p {
-    font-size: 13px;
-  }
-
-
-  .basketItem p:nth-of-type(2) {
-    font-size: 16px;
-  }
-
-
-  .basketItem button:not(:last-child) {
-    width: 32px;
-
-    height: 32px;
-
-    line-height: 32px;
-
-    font-size: 16px;
-  }
-
-
-  .basketItem span {
-    min-width: 30px;
-
-    font-size: 14px;
-  }
-
-
-  .basketItem button:last-child {
-    padding: 7px 10px;
-
-    font-size: 9px;
-  }
-
-
-  .checkoutSection {
-    margin-top: 25px;
-
-    justify-content: center;
-  }
-
-
-  .checkoutButton {
-    width: 100%;
-
-    max-width: 350px;
-  }
-
-
-  .emptyBasket {
-    min-height: 50vh;
-
-    padding: 45px 20px;
-
-    margin-top: 20px;
-  }
-
-
-  .emptyBasketIcon {
-    width: 75px;
-
-    height: 75px;
-
-    font-size: 34px;
-  }
-
-
-  .emptyBasket h2 {
-    font-size: 24px;
-  }
-
-}
-
-
-/* =========================================================
+/* =========================================
    SMALL MOBILE
-========================================================= */
+   ========================================= */
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
 
   .basketPage {
-    width: 94%;
-
-    padding: 28px 0 45px;
+    padding: 32px 12px 50px;
   }
 
-
-  .basketPage h1 {
-    font-size: 23px;
-
-    padding-bottom: 14px;
+  .basketPage > h1 {
+    font-size: 26px;
   }
-
-
-  /* -----------------------------------------
-     BASKET ITEM
-  ----------------------------------------- */
 
   .basketItem {
+    display: flex;
     flex-direction: column;
 
-    align-items: stretch;
-
-    gap: 14px;
-
     padding: 12px;
-
-    margin-bottom: 15px;
   }
 
-
-  .basketItem:hover {
-    transform: none;
-  }
-
-
-  /* -----------------------------------------
-     IMAGE
-  ----------------------------------------- */
-
-  .basketItem img {
+  .basketItem > img {
     width: 100%;
-
-    height: 260px;
-
-    object-fit: cover;
+    height: 320px;
   }
 
-
-  /* -----------------------------------------
-     INFORMATION
-  ----------------------------------------- */
-
-  .basketItem > div {
+  .basketDetails {
     width: 100%;
   }
 
-
-  .basketItem h3 {
-    font-size: 16px;
-
-    margin-bottom: 9px;
+  .basketDetails h3 {
+    font-size: 18px;
   }
 
-
-  .basketItem p {
-    font-size: 12px;
-
-    margin: 5px 0;
+  .quantityControls {
+    margin-top: 2px;
   }
 
-
-  .basketItem p:nth-of-type(2) {
-    margin-top: 10px;
-
-    font-size: 16px;
-  }
-
-
-  /* -----------------------------------------
-     QUANTITY
-  ----------------------------------------- */
-
-  .basketItem button:not(:last-child) {
-    width: 32px;
-
-    height: 32px;
-
-    line-height: 32px;
-
-    font-size: 15px;
-  }
-
-
-  .basketItem span {
-    min-width: 30px;
-
-    font-size: 13px;
-  }
-
-
-  /* -----------------------------------------
-     REMOVE
-  ----------------------------------------- */
-
-  .basketItem button:last-child {
-    margin-left: 8px;
-
-    padding: 7px 10px;
-  }
-
-
-  /* -----------------------------------------
-     CHECKOUT
-  ----------------------------------------- */
-
-  .checkoutSection {
-    margin-top: 20px;
-  }
-
-
-  .checkoutButton {
+  .removeButton {
     width: 100%;
-
-    min-width: 0;
-
-    padding: 13px 20px;
-
-    font-size: 10px;
   }
 
-
-  /* -----------------------------------------
-     EMPTY BASKET
-  ----------------------------------------- */
-
-  .emptyBasket {
-    min-height: 45vh;
-
-    margin-top: 20px;
-
-    padding: 35px 18px;
-  }
-
-
-  .emptyBasketIcon {
-    width: 65px;
-
-    height: 65px;
-
-    margin-bottom: 20px;
-
-    font-size: 30px;
-  }
-
-
-  .emptyBasket h2 {
-    font-size: 21px;
-  }
-
-
-  .emptyBasket p {
-    font-size: 12px;
-
-    margin-bottom: 22px;
-  }
-
-
-  .continueShopping {
-    width: 100%;
-
-    max-width: 240px;
-
-    padding: 12px 20px;
+  .basketSummary {
+    padding: 23px 18px;
   }
 
 }
 
-
-/* =========================================================
+/* =========================================
    VERY SMALL PHONES
-========================================================= */
+   ========================================= */
 
 @media (max-width: 360px) {
 
-  .basketPage {
-    width: 95%;
+  .basketItem > img {
+    height: 270px;
   }
 
-
-  .basketPage h1 {
-    font-size: 21px;
-  }
-
-
-  .basketItem img {
-    height: 220px;
-  }
-
-
-  .basketItem h3 {
-    font-size: 14px;
-  }
-
-
-  .basketItem p {
-    font-size: 11px;
-  }
-
-
-  .basketItem p:nth-of-type(2) {
-    font-size: 14px;
-  }
-
-
-  .emptyBasket h2 {
+  .basketSummary h2 {
     font-size: 19px;
   }
 
-
-  .emptyBasket p {
-    font-size: 11px;
+  .summaryTotal strong {
+    font-size: 21px;
   }
 
 }
+

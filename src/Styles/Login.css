@@ -1,495 +1,336 @@
-/* =========================================================
-   SV VARSHNEY'S CLOTH SHOP
-   LOGIN PAGE
-   Premium Black • Gold • Ivory
-========================================================= */
+/* =========================================
+   LOGIN / AUTH PAGE
+   Varshney's Cloth Shop
+   ========================================= */
 
-
-/* =========================================================
-   LOGIN SECTION
-========================================================= */
-
-.login-section {
+.authPage {
+  min-height: calc(100vh - 80px);
   width: 100%;
-  min-height: 100vh;
-
-  padding: 70px 20px;
-
-  background: #f8f5f0;
-
+  padding: 60px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  box-sizing: border-box;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(212, 175, 55, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #0d0d0d,
+      #181818
+    );
 }
 
+/* =========================================
+   AUTH CARD
+   ========================================= */
 
-/* =========================================================
-   LOGIN CONTAINER
-========================================================= */
-
-.login-container {
+.authCard {
   width: 100%;
-  max-width: 460px;
+  max-width: 470px;
+  padding: 48px 42px;
 
-  padding: 45px 42px;
-
-  background: #ffffff;
-
-  border: 1px solid #dedbd5;
+  background: #f8f5f0;
+  border: 1px solid rgba(212, 175, 55, 0.55);
 
   box-shadow:
-    0 12px 40px rgba(13, 13, 13, 0.08);
+    0 25px 70px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(212, 175, 55, 0.08);
 
-  box-sizing: border-box;
+  position: relative;
 }
 
+/* Gold top line */
 
-/* =========================================================
-   HEADING
-========================================================= */
-
-.login-container h1 {
-  margin: 0 0 12px;
-
-  color: #0d0d0d;
-
-  font-family: "Cinzel", serif;
-
-  font-size: 32px;
-
-  font-weight: 500;
-
-  text-align: center;
-
-  letter-spacing: 0.5px;
-}
-
-
-.login-container h1::after {
+.authCard::before {
   content: "";
+  position: absolute;
 
-  display: block;
+  top: 0;
+  left: 12%;
+  right: 12%;
 
-  width: 50px;
-  height: 2px;
-
-  margin: 17px auto 0;
+  height: 3px;
 
   background: #d4af37;
 }
 
+/* =========================================
+   HEADING
+   ========================================= */
 
-/* =========================================================
-   SUBTITLE
-========================================================= */
-
-.login-subtitle {
-  margin: 20px auto 30px;
-
-  max-width: 350px;
-
-  color: #777777;
-
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 13px;
-
-  line-height: 1.7;
+.authCard h1 {
+  margin: 0 0 12px;
 
   text-align: center;
-}
-
-
-/* =========================================================
-   LOGIN FORM
-========================================================= */
-
-.login-form {
-  width: 100%;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 18px;
-}
-
-
-/* =========================================================
-   FORM GROUP
-========================================================= */
-
-.login-form > div {
-  width: 100%;
-}
-
-
-/* =========================================================
-   LABEL
-========================================================= */
-
-.login-form label {
-  display: block;
-
-  margin-bottom: 8px;
-
-  color: #333333;
-
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 700;
-
-  letter-spacing: 1px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   INPUT
-========================================================= */
-
-.login-form input {
-  width: 100%;
-
-  padding: 14px 15px;
-
-  background: #f8f5f0;
 
   color: #0d0d0d;
 
-  border: 1px solid #d6d2ca;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
 
-  border-radius: 0;
+/* =========================================
+   SUBTITLE
+   ========================================= */
+
+.authCard > p:first-of-type {
+  margin: 0 0 34px;
+
+  text-align: center;
+
+  color: #777;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   FORM
+   ========================================= */
+
+.authCard form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================================
+   INPUTS
+   ========================================= */
+
+.authCard input {
+  width: 100%;
+  height: 52px;
+
+  padding: 0 16px;
+
+  border: 1px solid #d6d0c7;
+  background: #ffffff;
+
+  color: #0d0d0d;
+
+  font-size: 14px;
 
   outline: none;
 
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 13px;
-
-  box-sizing: border-box;
-
   transition:
-    background 0.25s ease,
     border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
+.authCard input::placeholder {
+  color: #999;
+}
 
-.login-form input:focus {
-  background: #ffffff;
+.authCard input:hover {
+  border-color: #b8941f;
+}
 
+.authCard input:focus {
   border-color: #d4af37;
 
+  background: #fff;
+
   box-shadow:
-    0 0 0 2px rgba(212, 175, 55, 0.12);
+    0 0 0 3px rgba(212, 175, 55, 0.13);
 }
 
+/* =========================================
+   ERROR
+   ========================================= */
 
-.login-form input::placeholder {
-  color: #999999;
+.authError {
+  margin: -3px 0 0 !important;
+  padding: 11px 13px;
+
+  text-align: left !important;
+
+  color: #a32626 !important;
+
+  background: #fceeee;
+
+  border-left: 3px solid #a32626;
+
+  font-size: 13px !important;
+  line-height: 1.4 !important;
 }
 
-
-/* =========================================================
+/* =========================================
    LOGIN BUTTON
-========================================================= */
+   ========================================= */
 
-.login-form button {
+.authCard form button {
   width: 100%;
+  height: 52px;
 
-  margin-top: 5px;
-
-  padding: 15px 20px;
-
-  background: #d4af37;
-
-  color: #0d0d0d;
+  margin-top: 4px;
 
   border: 1px solid #d4af37;
 
-  border-radius: 0;
+  background: #d4af37;
+  color: #0d0d0d;
 
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 11px;
-
+  font-size: 13px;
   font-weight: 700;
 
-  letter-spacing: 1.5px;
-
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-
-  cursor: pointer;
 
   transition:
     background 0.25s ease,
     color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-
-.login-form button:hover {
+.authCard form button:hover:not(:disabled) {
   background: #0d0d0d;
-
   color: #d4af37;
 
-  border-color: #0d0d0d;
-
   transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.25);
 }
 
+.authCard form button:active:not(:disabled) {
+  transform: translateY(0);
+}
 
-.login-form button:disabled {
-  background: #b8b5ae;
-
-  color: #ffffff;
-
-  border-color: #b8b5ae;
-
+.authCard form button:disabled {
+  opacity: 0.6;
   cursor: not-allowed;
-
-  transform: none;
 }
 
+/* =========================================
+   SWITCH LOGIN / SIGNUP
+   ========================================= */
 
-/* =========================================================
-   ERROR MESSAGE
-========================================================= */
+.authSwitch {
+  margin: 28px 0 0 !important;
 
-.login-error {
-  padding: 11px 14px;
+  text-align: center;
 
-  background: #faf0ee;
+  color: #666;
 
-  color: #a83232;
-
-  border-left: 3px solid #a83232;
-
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 12px;
-
-  line-height: 1.5;
+  font-size: 13px !important;
 }
 
+.authSwitch a {
+  margin-left: 6px;
 
-/* =========================================================
-   SUCCESS MESSAGE
-========================================================= */
+  color: #9a7817;
 
-.login-success {
-  padding: 11px 14px;
-
-  background: #edf7ef;
-
-  color: #276b39;
-
-  border-left: 3px solid #4c8c5a;
-
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 12px;
-
-  line-height: 1.5;
-}
-
-
-/* =========================================================
-   SIGNUP / EXTRA LINKS
-========================================================= */
-
-.login-container p a {
-  color: #b8941f;
-
-  font-weight: 600;
+  font-weight: 700;
 
   text-decoration: none;
 
-  transition: color 0.25s ease;
+  transition: color 0.2s ease;
 }
 
-
-.login-container p a:hover {
-  color: #0d0d0d;
-
+.authSwitch a:hover {
+  color: #d4af37;
   text-decoration: underline;
 }
 
+/* =========================================
+   DECORATIVE DETAIL
+   ========================================= */
 
-/* =========================================================
-   SIGNUP TEXT
-========================================================= */
+.authCard h1::after {
+  content: "";
 
-.login-signup {
-  margin: 25px 0 0;
+  display: block;
 
-  color: #777777;
+  width: 45px;
+  height: 2px;
 
-  font-family: "Montserrat", sans-serif;
+  margin: 15px auto 0;
 
-  font-size: 12px;
-
-  text-align: center;
+  background: #d4af37;
 }
 
-
-/* =========================================================
-   FORGOT PASSWORD
-========================================================= */
-
-.forgot-password {
-  margin-top: -5px;
-
-  text-align: right;
-}
-
-
-.forgot-password a {
-  color: #777777;
-
-  font-family: "Montserrat", sans-serif;
-
-  font-size: 11px;
-
-  text-decoration: none;
-
-  transition: color 0.25s ease;
-}
-
-
-.forgot-password a:hover {
-  color: #b8941f;
-}
-
-
-/* =========================================================
+/* =========================================
    TABLET
-========================================================= */
+   ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
 
-  .login-section {
-    padding: 55px 20px;
+  .authPage {
+    min-height: calc(100vh - 70px);
+    padding: 40px 16px;
   }
 
-
-  .login-container {
+  .authCard {
     max-width: 440px;
-
-    padding: 38px 35px;
+    padding: 40px 28px;
   }
 
-
-  .login-container h1 {
+  .authCard h1 {
     font-size: 29px;
   }
 
 }
 
-
-/* =========================================================
+/* =========================================
    MOBILE
-========================================================= */
+   ========================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 420px) {
 
-  .login-section {
-    min-height: calc(100vh - 70px);
-
-    padding: 40px 16px;
+  .authPage {
+    padding: 28px 12px;
   }
 
-
-  .login-container {
-    padding: 32px 22px;
+  .authCard {
+    padding: 36px 20px;
   }
 
-
-  .login-container h1 {
-    font-size: 26px;
+  .authCard h1 {
+    font-size: 25px;
+    letter-spacing: 0.5px;
   }
 
-
-  .login-subtitle {
-    margin-top: 17px;
-
-    margin-bottom: 25px;
-
-    font-size: 12px;
+  .authCard > p:first-of-type {
+    font-size: 13px;
+    margin-bottom: 27px;
   }
 
-
-  .login-form {
-    gap: 15px;
-  }
-
-
-  .login-form label {
-    font-size: 9px;
-  }
-
-
-  .login-form input {
-    padding: 13px;
-
-    font-size: 12px;
-  }
-
-
-  .login-form button {
-    padding: 13px;
-
-    font-size: 10px;
-  }
-
-
-  .login-signup {
-    font-size: 11px;
+  .authCard input,
+  .authCard form button {
+    height: 49px;
   }
 
 }
 
-
-/* =========================================================
+/* =========================================
    VERY SMALL PHONES
-========================================================= */
+   ========================================= */
 
 @media (max-width: 360px) {
 
-  .login-section {
-    padding: 30px 10px;
+  .authPage {
+    padding: 22px 10px;
   }
 
-
-  .login-container {
-    padding: 27px 17px;
+  .authCard {
+    padding: 30px 16px;
   }
 
-
-  .login-container h1 {
+  .authCard h1 {
     font-size: 23px;
   }
 
-
-  .login-subtitle {
-    font-size: 11px;
-  }
-
-
-  .login-form input {
-    padding: 12px;
-  }
-
-
-  .login-form button {
-    padding: 12px;
+  .authSwitch {
+    font-size: 12px !important;
   }
 
 }
+
