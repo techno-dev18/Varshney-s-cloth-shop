@@ -1,333 +1,521 @@
-/* =========================================
+/* =========================================================
+   SV VARSHNEY'S CLOTH SHOP
    PRODUCT CARD
-========================================= */
+   Premium Black • Gold • Ivory • Charcoal
+========================================================= */
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
 
 .clothCard {
-    width: 260px;
-    border: 1px solid #e0e0e0;
-    padding: 15px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-sizing: border-box;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #dedbd5;
+
+  padding: 12px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
 
 .clothCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+  transform: translateY(-5px);
+
+  border-color: #d4af37;
+
+  box-shadow:
+    0 14px 30px rgba(13, 13, 13, 0.12);
 }
 
 
-/* =========================================
+/* =========================================================
    PRODUCT IMAGE
-========================================= */
+========================================================= */
 
 .clothCard img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-    border-radius: 7px;
+  width: 100%;
+  height: 320px;
+
+  display: block;
+
+  object-fit: cover;
+
+  background: #f8f5f0;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.4s ease;
 }
 
 
-/* =========================================
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+.clothCard:hover img {
+  transform: scale(1.035);
+
+  filter: brightness(0.94);
+}
+
+
+/* =========================================================
    PRODUCT NAME
-========================================= */
+========================================================= */
 
 .clothCard h3 {
-    margin: 12px 0 8px;
+  margin: 14px 0 8px;
 
-    color: #111111;
+  color: #0d0d0d;
 
-    font-size: 17px;
-    line-height: 1.3;
+  font-family: "Cinzel", serif;
 
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  font-size: 16px;
 
-    overflow: hidden;
+  font-weight: 500;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.2px;
+
+  /* Keep all cards the same height */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+
+  overflow: hidden;
 }
 
 
-/* =========================================
+/* =========================================================
    BRAND + RATING
-========================================= */
+========================================================= */
 
 .cardTop {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
 
-    gap: 8px;
+  display: flex;
 
-    margin-bottom: 10px;
+  align-items: center;
+  justify-content: space-between;
 
-    font-size: 13px;
-    color: #666666;
+  gap: 10px;
+
+  margin-bottom: 12px;
 }
 
 .cardTop span {
-    white-space: nowrap;
+  color: #666666;
+
+  font-family: "Lato", sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.cardTop span:first-child {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.cardTop span:last-child {
+  color: #a27d14;
+
+  white-space: nowrap;
 }
 
 
-/* =========================================
-   PRICE
-========================================= */
+/* =========================================================
+   PRICE SECTION
+========================================================= */
 
 .priceSection {
-    display: flex;
-    align-items: center;
+  display: flex;
 
-    gap: 10px;
+  align-items: center;
 
-    margin-bottom: 12px;
+  gap: 12px;
+
+  margin-bottom: 13px;
 }
 
 .oldPrice {
-    text-decoration: line-through;
-    color: #999999;
-    font-size: 14px;
+  color: #888888;
+
+  font-family: "Lato", sans-serif;
+
+  font-size: 13px;
+
+  text-decoration: line-through;
 }
 
 .newPrice {
-    color: #b11226;
-    font-size: 17px;
-    font-weight: 700;
+  color: #0d0d0d;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
 }
 
 
-/* =========================================
-   SIZE
-========================================= */
+/* =========================================================
+   SIZE SELECT
+========================================================= */
 
 .clothCard select {
-    width: 100%;
+  width: 100%;
 
-    padding: 9px 10px;
+  height: 40px;
 
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+  padding: 0 11px;
 
-    background: #ffffff;
+  background: #f8f5f0;
 
-    color: #222222;
+  color: #0d0d0d;
 
-    font-size: 13px;
+  border: 1px solid #d5d1ca;
 
-    outline: none;
+  border-radius: 0;
 
-    cursor: pointer;
+  outline: none;
 
-    margin-bottom: 8px;
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition: border-color 0.3s ease;
 }
 
+.clothCard select:hover,
 .clothCard select:focus {
-    border-color: #b11226;
+  border-color: #d4af37;
 }
 
 
-/* =========================================
+/* =========================================================
    BUTTONS
-========================================= */
+========================================================= */
 
 .clothCard button {
-    width: 100%;
+  width: 100%;
 
-    margin-top: 6px;
+  min-height: 40px;
 
-    padding: 10px 8px;
+  margin-top: 9px;
 
-    border: none;
-    border-radius: 6px;
+  padding: 10px 8px;
 
-    background: #d4af37;
-    color: #111111;
+  background: #d4af37;
 
-    font-size: 13px;
-    font-weight: 700;
+  color: #0d0d0d;
 
-    cursor: pointer;
+  border: 1px solid #d4af37;
 
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+  border-radius: 0;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.9px;
+
+  text-transform: uppercase;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
 
 .clothCard button:hover {
-    background: #c09c2f;
-    transform: translateY(-1px);
+  background: #0d0d0d;
+
+  color: #d4af37;
+
+  border-color: #0d0d0d;
 }
+
+
+/* =========================================================
+   DISABLED BUTTON
+========================================================= */
 
 .clothCard button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+.clothCard button:disabled:hover {
+  background: #d4af37;
+
+  color: #0d0d0d;
+
+  border-color: #d4af37;
 }
 
 
-/* =========================================
+/* =========================================================
+   WISHLIST BUTTON
+========================================================= */
+
+.clothCard button:nth-of-type(2) {
+  background: #0d0d0d;
+
+  color: #f8f5f0;
+
+  border-color: #0d0d0d;
+}
+
+.clothCard button:nth-of-type(2):hover {
+  background: #d4af37;
+
+  color: #0d0d0d;
+
+  border-color: #d4af37;
+}
+
+
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .clothCard {
+    padding: 10px;
+  }
+
+  .clothCard img {
+    height: 280px;
+  }
+
+  .clothCard h3 {
+    font-size: 14px;
+  }
+
+  .newPrice {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
 
 @media (max-width: 768px) {
 
-    .clothCard {
-        width: 210px;
-        padding: 10px;
-        border-radius: 8px;
-    }
+  .clothCard {
+    padding: 8px;
+  }
 
-    .clothCard img {
-        height: 220px;
-        border-radius: 6px;
-    }
 
-    .clothCard h3 {
-        font-size: 14px;
-        margin: 9px 0 6px;
-    }
+  /* IMAGE */
 
-    .cardTop {
-        font-size: 11px;
-        margin-bottom: 7px;
-    }
+  .clothCard img {
+    height: 230px;
+  }
 
-    .priceSection {
-        gap: 7px;
-        margin-bottom: 8px;
-    }
 
-    .oldPrice {
-        font-size: 12px;
-    }
+  /* NAME */
 
-    .newPrice {
-        font-size: 14px;
-    }
+  .clothCard h3 {
+    margin: 10px 0 6px;
 
-    .clothCard select {
-        padding: 7px 8px;
-        font-size: 11px;
-        margin-bottom: 5px;
-    }
+    font-size: 13px;
 
-    .clothCard button {
-        padding: 8px 6px;
-        font-size: 11px;
-        margin-top: 4px;
-    }
+    line-height: 1.35;
+  }
+
+
+  /* BRAND + RATING */
+
+  .cardTop {
+    gap: 5px;
+
+    margin-bottom: 8px;
+  }
+
+  .cardTop span {
+    font-size: 10px;
+  }
+
+
+  /* PRICE */
+
+  .priceSection {
+    gap: 7px;
+
+    margin-bottom: 9px;
+  }
+
+  .oldPrice {
+    font-size: 10px;
+  }
+
+  .newPrice {
+    font-size: 14px;
+  }
+
+
+  /* SELECT */
+
+  .clothCard select {
+    height: 35px;
+
+    padding: 0 6px;
+
+    font-size: 10px;
+  }
+
+
+  /* BUTTONS */
+
+  .clothCard button {
+    min-height: 35px;
+
+    margin-top: 7px;
+
+    padding: 8px 4px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.5px;
+  }
 }
 
 
-/* =========================================
-   MOBILE
-========================================= */
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
 
-    .clothCard {
-        width: 100%;
-        max-width: none;
+  .clothCard {
+    padding: 6px;
+  }
 
-        padding: 8px;
 
-        border-radius: 8px;
-    }
+  .clothCard img {
+    height: 185px;
+  }
 
-    .clothCard img {
-        height: 180px;
-        border-radius: 6px;
-    }
 
-    .clothCard h3 {
-        font-size: 13px;
-        line-height: 1.25;
+  .clothCard h3 {
+    margin: 8px 0 5px;
 
-        margin: 8px 0 5px;
-    }
+    font-size: 11px;
+  }
 
-    .cardTop {
-        font-size: 10px;
-        gap: 4px;
 
-        margin-bottom: 6px;
-    }
+  .cardTop span {
+    font-size: 9px;
+  }
 
-    .priceSection {
-        gap: 6px;
-        margin-bottom: 7px;
-    }
 
-    .oldPrice {
-        font-size: 11px;
-    }
+  .priceSection {
+    gap: 5px;
+  }
 
-    .newPrice {
-        font-size: 13px;
-    }
+  .oldPrice {
+    font-size: 9px;
+  }
 
-    .clothCard select {
-        padding: 7px;
+  .newPrice {
+    font-size: 12px;
+  }
 
-        font-size: 11px;
 
-        margin-bottom: 4px;
-    }
+  .clothCard select {
+    height: 32px;
 
-    .clothCard button {
-        padding: 8px 5px;
+    font-size: 9px;
+  }
 
-        font-size: 10px;
 
-        margin-top: 4px;
+  .clothCard button {
+    min-height: 32px;
 
-        border-radius: 5px;
-    }
+    margin-top: 6px;
+
+    padding: 7px 3px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.3px;
+  }
 }
 
 
-/* =========================================
+/* =========================================================
    VERY SMALL PHONES
-========================================= */
+========================================================= */
 
-@media (max-width: 400px) {
+@media (max-width: 360px) {
 
-    .clothCard {
-        padding: 7px;
-    }
+  .clothCard img {
+    height: 220px;
+  }
 
-    .clothCard img {
-        height: 155px;
-    }
+  .clothCard h3 {
+    font-size: 13px;
+  }
 
-    .clothCard h3 {
-        font-size: 12px;
-    }
+  .cardTop span {
+    font-size: 10px;
+  }
 
-    .cardTop {
-        font-size: 9px;
-    }
+  .newPrice {
+    font-size: 14px;
+  }
 
-    .oldPrice {
-        font-size: 10px;
-    }
+  .clothCard select {
+    height: 36px;
 
-    .newPrice {
-        font-size: 12px;
-    }
+    font-size: 10px;
+  }
 
-    .clothCard select {
-        padding: 6px;
+  .clothCard button {
+    min-height: 36px;
 
-        font-size: 10px;
-    }
-
-    .clothCard button {
-        padding: 7px 4px;
-
-        font-size: 9px;
-    }
+    font-size: 8px;
+  }
 }

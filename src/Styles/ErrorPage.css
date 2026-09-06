@@ -1,14 +1,145 @@
-.errorBox{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+/* ==========================================
+   ERROR PAGE
+========================================== */
+
+.errorBox {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px 20px;
+
+  background: #f8f5f0;
+
+  text-align: center;
 }
 
-.errorBox a{
-    background:var(--gold);
-    padding:10px 20px;
-    color:black;
-    text-decoration:none;
+
+/* ==========================================
+   ERROR HEADING
+========================================== */
+
+.errorBox h1 {
+  margin: 0 0 12px;
+
+  font-family: "Cinzel", serif;
+  font-size: 48px;
+  font-weight: 600;
+
+  color: #0d0d0d;
+
+  letter-spacing: 1px;
+}
+
+.errorBox h2 {
+  margin: 0 0 12px;
+
+  font-family: "Cinzel", serif;
+  font-size: 24px;
+  font-weight: 500;
+
+  color: #d4af37;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.errorBox p {
+  max-width: 550px;
+
+  margin: 0 0 28px;
+
+  color: #777;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   HOME BUTTON
+========================================== */
+
+.errorBox a {
+  display: inline-block;
+
+  padding: 12px 25px;
+
+  border: 1px solid #d4af37;
+
+  background: #0d0d0d;
+  color: #f8f5f0;
+
+  text-decoration: none;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.errorBox a:hover {
+  background: #d4af37;
+  color: #0d0d0d;
+
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .errorBox {
+    padding: 25px 15px;
+  }
+
+  .errorBox h1 {
+    font-size: 40px;
+  }
+
+  .errorBox h2 {
+    font-size: 20px;
+  }
+
+  .errorBox p {
+    font-size: 13px;
+  }
+
+  .errorBox a {
+    padding: 11px 21px;
+  }
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .errorBox h1 {
+    font-size: 34px;
+  }
+
+  .errorBox h2 {
+    font-size: 18px;
+  }
+
+  .errorBox p {
+    font-size: 12px;
+  }
 }

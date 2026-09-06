@@ -4,10 +4,13 @@
 
 .editProfilePage {
   min-height: calc(100vh - 80px);
+
   padding: 50px 20px;
+
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
   background: #f8f5f0;
 }
 
@@ -19,10 +22,17 @@
 .editProfileCard {
   width: 100%;
   max-width: 650px;
+
   padding: 40px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+  background: #ffffff;
+
+  border: 1px solid #e5e0d8;
+  border-top: 3px solid #d4af37;
+
+  border-radius: 0;
+
+  box-shadow: 0 8px 30px rgba(13, 13, 13, 0.07);
 }
 
 
@@ -32,16 +42,24 @@
 
 .editProfileCard h1 {
   margin: 0 0 8px;
-  color: #0f0f0f;
-  font-size: 32px;
-  font-weight: 700;
+
+  color: #0d0d0d;
+
+  font-family: "Cinzel", serif;
+  font-size: 31px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
 }
 
-
 .editProfileCard > p {
-  margin-bottom: 30px;
-  color: #666;
-  font-size: 15px;
+  margin: 0 0 30px;
+
+  color: #777;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 
@@ -52,6 +70,7 @@
 .editProfileCard form {
   display: flex;
   flex-direction: column;
+
   gap: 10px;
 }
 
@@ -62,9 +81,14 @@
 
 .editProfileCard label {
   margin-top: 10px;
-  font-size: 14px;
-  font-weight: 600;
+
   color: #2b2b2b;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.2px;
 }
 
 
@@ -75,22 +99,30 @@
 .editProfileCard input,
 .editProfileCard textarea {
   width: 100%;
-  padding: 13px 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  color: #0f0f0f;
-  font-family: Poppins, sans-serif;
-  font-size: 14px;
-  outline: none;
-  transition: 0.2s ease;
-}
 
+  padding: 13px 15px;
+
+  border: 1px solid #d9d5ce;
+  border-radius: 0;
+
+  background: #ffffff;
+  color: #0d0d0d;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
 
 .editProfileCard input:focus,
 .editProfileCard textarea:focus {
-  border-color: #5a2d82;
-  box-shadow: 0 0 0 3px rgba(90, 45, 130, 0.1);
+  border-color: #d4af37;
+
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.12);
 }
 
 
@@ -99,8 +131,12 @@
 ========================================= */
 
 .editProfileCard input:disabled {
-  background: #f1f1f1;
-  color: #777;
+  background: #f1eee9;
+
+  color: #888;
+
+  border-color: #ddd8d0;
+
   cursor: not-allowed;
 }
 
@@ -111,6 +147,7 @@
 
 .editProfileCard textarea {
   min-height: 110px;
+
   resize: vertical;
 }
 
@@ -121,19 +158,26 @@
 
 .editSuccess {
   padding: 12px 15px;
-  border-radius: 8px;
-  background: #eaf7ed;
-  color: #207238;
-  font-size: 14px;
-}
 
+  border-left: 3px solid #2e7d32;
+
+  background: #edf7ee;
+  color: #28652d;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+}
 
 .editError {
   padding: 12px 15px;
-  border-radius: 8px;
-  background: #fdecec;
-  color: #c62828;
-  font-size: 14px;
+
+  border-left: 3px solid #b83232;
+
+  background: #fceeee;
+  color: #a32626;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
 }
 
 
@@ -143,7 +187,9 @@
 
 .editProfileActions {
   display: flex;
+
   gap: 12px;
+
   margin-top: 20px;
 }
 
@@ -154,27 +200,41 @@
 
 .editProfileActions button[type="submit"] {
   flex: 1;
-  padding: 13px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #5a2d82;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
 
+  padding: 13px 20px;
+
+  border: 1px solid #d4af37;
+  border-radius: 0;
+
+  background: #0d0d0d;
+  color: #f8f5f0;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
 
 .editProfileActions button[type="submit"]:hover {
-  background: #472366;
-  transform: translateY(-1px);
-}
+  background: #d4af37;
+  color: #0d0d0d;
 
+  transform: translateY(-2px);
+}
 
 .editProfileActions button[type="submit"]:disabled {
   opacity: 0.6;
+
   cursor: not-allowed;
+
   transform: none;
 }
 
@@ -185,21 +245,49 @@
 
 .editProfileActions button[type="button"] {
   flex: 1;
+
   padding: 13px 20px;
-  border: 1px solid #5a2d82;
-  border-radius: 8px;
-  background: white;
-  color: #5a2d82;
-  font-size: 15px;
+
+  border: 1px solid #0d0d0d;
+  border-radius: 0;
+
+  background: #ffffff;
+  color: #0d0d0d;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
   font-weight: 600;
+
+  letter-spacing: 0.4px;
+
   cursor: pointer;
-  transition: 0.25s ease;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.editProfileActions button[type="button"]:hover {
+  background: #0d0d0d;
+  color: #d4af37;
+
+  border-color: #0d0d0d;
 }
 
 
-.editProfileActions button[type="button"]:hover {
-  background: #5a2d82;
-  color: white;
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 700px) {
+  .editProfilePage {
+    padding: 35px 15px;
+  }
+
+  .editProfileCard {
+    padding: 32px 25px;
+  }
 }
 
 
@@ -208,22 +296,65 @@
 ========================================= */
 
 @media (max-width: 600px) {
-
   .editProfilePage {
+    min-height: calc(100vh - 70px);
+
     padding: 30px 15px;
   }
 
   .editProfileCard {
-    padding: 25px 20px;
-    border-radius: 12px;
+    padding: 27px 20px;
   }
 
   .editProfileCard h1 {
-    font-size: 26px;
+    font-size: 25px;
+  }
+
+  .editProfileCard > p {
+    font-size: 13px;
+    margin-bottom: 24px;
   }
 
   .editProfileActions {
     flex-direction: column;
   }
 
+  .editProfileActions button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .editProfilePage {
+    padding: 25px 12px;
+  }
+
+  .editProfileCard {
+    padding: 23px 16px;
+  }
+
+  .editProfileCard h1 {
+    font-size: 22px;
+  }
+
+  .editProfileCard > p {
+    font-size: 12px;
+  }
+
+  .editProfileCard input,
+  .editProfileCard textarea {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .editProfileActions button[type="submit"],
+  .editProfileActions button[type="button"] {
+    padding: 12px;
+    font-size: 12px;
+  }
 }

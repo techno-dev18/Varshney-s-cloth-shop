@@ -1,159 +1,238 @@
-/* =========================================
+/* =========================================================
+   SV VARSHNEY'S CLOTH SHOP
    ACCOUNT PAGE
-========================================= */
+   Premium Black • Gold • Ivory • Charcoal
+========================================================= */
+
+
+/* =========================================================
+   ACCOUNT PAGE
+========================================================= */
 
 .accountPage {
+  width: 100%;
   min-height: 100vh;
-  padding: 60px 8%;
-  background: #f7f7f7;
+
+  padding: 60px 8% 80px;
+
+  background: #f8f5f0;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 25px;
 
   box-sizing: border-box;
 }
 
 
-/* =========================================
+/* =========================================================
    PROFILE CARD
-========================================= */
+========================================================= */
 
 .accountCard {
   width: 100%;
   max-width: 850px;
 
-  background: white;
-
   padding: 35px 40px;
 
-  border-radius: 18px;
+  background: #ffffff;
+
+  border: 1px solid #dedbd5;
+
+  border-radius: 0;
 
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.08);
-
-  border: 1px solid #eeeeee;
+    0 8px 28px rgba(13, 13, 13, 0.06);
 
   box-sizing: border-box;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
+
+.accountCard:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+
+  box-shadow:
+    0 10px 32px rgba(13, 13, 13, 0.08);
+}
+
+
+/* =========================================================
+   PROFILE HEADING
+========================================================= */
 
 .accountCard h1 {
   margin: 0 0 25px;
 
+  padding-bottom: 18px;
+
+  color: #0d0d0d;
+
+  font-family: "Cinzel", serif;
+
   font-size: 32px;
 
-  font-weight: 700;
+  font-weight: 500;
 
-  color: #111;
+  letter-spacing: 0.8px;
 
-  border-bottom: 1px solid #eeeeee;
-
-  padding-bottom: 18px;
+  border-bottom: 1px solid #d4af37;
 }
 
+
+/* =========================================================
+   PROFILE NAME
+========================================================= */
 
 .accountCard h2 {
   margin: 10px 0;
 
+  color: #0d0d0d;
+
+  font-family: "Cinzel", serif;
+
   font-size: 23px;
 
-  color: #222;
+  font-weight: 500;
 }
 
+
+/* =========================================================
+   PROFILE INFORMATION
+========================================================= */
 
 .accountCard p {
   margin: 8px 0;
 
-  color: #666;
+  color: #666666;
 
-  font-size: 16px;
+  font-size: 15px;
+
+  line-height: 1.7;
 }
 
 
-/* =========================================
+/* =========================================================
    ACCOUNT ACTIONS
-========================================= */
+========================================================= */
 
 .accountActions {
   display: flex;
 
+  flex-wrap: wrap;
+
   gap: 15px;
 
   margin-top: 28px;
-
-  flex-wrap: wrap;
 }
 
 
-.accountActions button {
-  border: none;
+/* =========================================================
+   ACCOUNT ACTION BUTTONS
+========================================================= */
 
+.accountActions button {
   padding: 12px 22px;
 
-  border-radius: 8px;
+  background: #0d0d0d;
 
-  background: #111;
+  color: #d4af37;
 
-  color: white;
+  border: 1px solid #0d0d0d;
 
-  font-size: 15px;
+  border-radius: 0;
 
-  font-weight: 600;
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  text-transform: uppercase;
 
   cursor: pointer;
 
-  transition: 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 
 .accountActions button:hover {
-  background: #333;
+  background: #d4af37;
+
+  color: #0d0d0d;
+
+  border-color: #d4af37;
 
   transform: translateY(-2px);
-
-  box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 
-/* =========================================
+/* =========================================================
    PASSWORD CARD
-========================================= */
+========================================================= */
 
 .passwordCard {
   width: 100%;
-
   max-width: 850px;
-
-  background: white;
 
   padding: 35px 40px;
 
-  border-radius: 18px;
+  background: #ffffff;
+
+  border: 1px solid #dedbd5;
+
+  border-radius: 0;
 
   box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.08);
-
-  border: 1px solid #eeeeee;
+    0 8px 28px rgba(13, 13, 13, 0.06);
 
   box-sizing: border-box;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
+
+.passwordCard:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+
+  box-shadow:
+    0 10px 32px rgba(13, 13, 13, 0.08);
+}
+
+
+/* =========================================================
+   PASSWORD HEADING
+========================================================= */
 
 .passwordCard h2 {
   margin: 0 0 25px;
 
+  color: #0d0d0d;
+
+  font-family: "Cinzel", serif;
+
   font-size: 24px;
 
-  color: #111;
+  font-weight: 500;
+
+  letter-spacing: 0.5px;
 }
 
 
-/* =========================================
+/* =========================================================
    PASSWORD FORM
-========================================= */
+========================================================= */
 
 .passwordCard form {
   display: flex;
@@ -164,78 +243,103 @@
 }
 
 
+/* =========================================================
+   PASSWORD INPUT
+========================================================= */
+
 .passwordCard input {
   width: 100%;
 
   padding: 14px 16px;
 
-  border: 1px solid #d8d8d8;
+  background: #f8f5f0;
 
-  border-radius: 8px;
+  color: #0d0d0d;
+
+  border: 1px solid #d6d2ca;
+
+  border-radius: 0;
 
   outline: none;
 
-  font-size: 15px;
-
-  background: #fafafa;
+  font-size: 14px;
 
   box-sizing: border-box;
 
-  transition: 0.2s ease;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 
 .passwordCard input:focus {
-  border-color: #111;
+  background: #ffffff;
 
-  background: white;
+  border-color: #d4af37;
 
   box-shadow:
-    0 0 0 3px rgba(0, 0, 0, 0.06);
+    0 0 0 2px rgba(212, 175, 55, 0.12);
 }
 
 
 .passwordCard input::placeholder {
-  color: #999;
+  color: #999999;
 }
 
 
-/* =========================================
+/* =========================================================
    CHANGE PASSWORD BUTTON
-========================================= */
+========================================================= */
 
 .passwordCard form button {
   margin-top: 5px;
 
   padding: 14px;
 
-  border: none;
+  background: #d4af37;
 
-  border-radius: 8px;
+  color: #0d0d0d;
 
-  background: #111;
+  border: 1px solid #d4af37;
 
-  color: white;
+  border-radius: 0;
 
-  font-size: 15px;
+  font-size: 11px;
 
-  font-weight: 600;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
 
   cursor: pointer;
 
-  transition: 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 
 .passwordCard form button:hover {
-  background: #333;
+  background: #0d0d0d;
+
+  color: #d4af37;
+
+  border-color: #0d0d0d;
 
   transform: translateY(-1px);
 }
 
 
 .passwordCard form button:disabled {
-  background: #999;
+  background: #b8b5ae;
+
+  color: #ffffff;
+
+  border-color: #b8b5ae;
 
   cursor: not-allowed;
 
@@ -243,121 +347,141 @@
 }
 
 
-/* =========================================
+/* =========================================================
    SUCCESS MESSAGE
-========================================= */
+========================================================= */
 
 .passwordSuccess {
   margin: 0;
 
   padding: 11px 14px;
 
-  border-radius: 7px;
+  background: #edf7ef;
 
-  background: #eaf8ef;
+  color: #276b39;
 
-  color: #207a3c;
+  border-left: 3px solid #4c8c5a;
 
-  font-size: 14px;
+  border-radius: 0;
+
+  font-size: 13px;
 
   font-weight: 500;
+
+  line-height: 1.5;
 }
 
 
-/* =========================================
+/* =========================================================
    ERROR MESSAGE
-========================================= */
+========================================================= */
 
 .passwordError {
   margin: 0;
 
   padding: 11px 14px;
 
-  border-radius: 7px;
+  background: #faf0ee;
 
-  background: #fff0f0;
+  color: #a83232;
 
-  color: #c62828;
+  border-left: 3px solid #a83232;
 
-  font-size: 14px;
+  border-radius: 0;
+
+  font-size: 13px;
 
   font-weight: 500;
+
+  line-height: 1.5;
 }
 
 
-/* =========================================
-   LOGOUT
-========================================= */
+/* =========================================================
+   LOGOUT BUTTON
+========================================================= */
 
 .logoutButton {
   width: 100%;
-
   max-width: 850px;
 
   padding: 14px;
 
-  border: 1px solid #d33;
+  background: #ffffff;
 
-  border-radius: 8px;
+  color: #a83232;
 
-  background: white;
+  border: 1px solid #a83232;
 
-  color: #d33;
+  border-radius: 0;
 
-  font-size: 15px;
+  font-size: 11px;
 
-  font-weight: 600;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
 
   cursor: pointer;
 
-  transition: 0.25s ease;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 
 .logoutButton:hover {
-  background: #d33;
+  background: #a83232;
 
-  color: white;
+  color: #ffffff;
 
   transform: translateY(-1px);
 
   box-shadow:
-    0 5px 15px rgba(211, 51, 51, 0.2);
+    0 5px 18px rgba(168, 50, 50, 0.15);
 }
 
 
-/* =========================================
+/* =========================================================
    LOADING
-========================================= */
+========================================================= */
 
 .accountPage > h2 {
   margin-top: 100px;
 
-  color: #555;
+  color: #666666;
 
-  font-weight: 500;
+  font-family: "Cinzel", serif;
+
+  font-size: 20px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.5px;
 }
 
 
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   .accountPage {
-    padding: 40px 5%;
+    padding: 50px 5% 70px;
   }
 
 
   .accountCard,
   .passwordCard {
-    padding: 28px;
+    padding: 30px;
   }
 
 
   .accountCard h1 {
-    font-size: 28px;
+    font-size: 29px;
   }
 
 
@@ -368,36 +492,34 @@
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 
   .accountPage {
-    padding: 25px 15px;
+    padding: 40px 5% 60px;
 
-    gap: 18px;
+    gap: 20px;
   }
 
 
   .accountCard,
   .passwordCard {
-    padding: 22px 18px;
-
-    border-radius: 14px;
+    padding: 27px;
   }
 
 
   .accountCard h1 {
-    font-size: 25px;
+    font-size: 27px;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
 
   .accountCard h2 {
-    font-size: 19px;
+    font-size: 20px;
   }
 
 
@@ -407,22 +529,84 @@
 
 
   .accountActions {
+    gap: 10px;
+
+    margin-top: 23px;
+  }
+
+
+  .passwordCard h2 {
+    font-size: 22px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .accountPage {
+    padding: 28px 15px 50px;
+
+    gap: 17px;
+  }
+
+
+  .accountCard,
+  .passwordCard {
+    padding: 22px 18px;
+  }
+
+
+  .accountCard h1 {
+    font-size: 23px;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 14px;
+  }
+
+
+  .accountCard h2 {
+    font-size: 18px;
+  }
+
+
+  .accountCard p {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+
+  .accountActions {
     flex-direction: column;
+
+    width: 100%;
   }
 
 
   .accountActions button {
     width: 100%;
+
+    padding: 12px 15px;
   }
 
 
   .passwordCard h2 {
-    font-size: 21px;
+    font-size: 20px;
+
+    margin-bottom: 20px;
   }
 
 
   .passwordCard input {
     padding: 13px;
+
+    font-size: 13px;
   }
 
 
@@ -431,8 +615,74 @@
   }
 
 
+  .passwordSuccess,
+  .passwordError {
+    font-size: 12px;
+  }
+
+
   .logoutButton {
-    font-size: 14px;
+    font-size: 10px;
+
+    padding: 13px;
+  }
+
+
+  .accountPage > h2 {
+    margin-top: 60px;
+
+    font-size: 17px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .accountPage {
+    padding-left: 10px;
+
+    padding-right: 10px;
+  }
+
+
+  .accountCard,
+  .passwordCard {
+    padding: 19px 15px;
+  }
+
+
+  .accountCard h1 {
+    font-size: 21px;
+  }
+
+
+  .accountCard h2 {
+    font-size: 17px;
+  }
+
+
+  .accountCard p {
+    font-size: 12px;
+  }
+
+
+  .passwordCard h2 {
+    font-size: 18px;
+  }
+
+
+  .passwordCard input {
+    padding: 12px;
+  }
+
+
+  .logoutButton {
+    font-size: 9px;
   }
 
 }

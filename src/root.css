@@ -1,18 +1,173 @@
-:root{
-    --gold:#D4AF37;
-    --darkGold:#B8860B;
-    --red:#8B0000;
-    --black:#111111;
-    --light:#ffffff;
+/* ==========================================
+   GLOBAL ROOT / THEME
+========================================== */
+
+:root {
+  /* Primary Luxury Colors */
+  --gold: #d4af37;
+  --gold-light: #e4c45a;
+  --dark-gold: #b8941f;
+
+  /* Main Colors */
+  --black: #0d0d0d;
+  --charcoal: #1a1a1a;
+  --ivory: #f8f5f0;
+  --white: #ffffff;
+
+  /* Neutral Colors */
+  --gray: #777777;
+  --light-gray: #e5e0d8;
+  --border: #ddd8d0;
+
+  /* Status Colors */
+  --success: #2e7d32;
+  --success-bg: #edf7ee;
+
+  --danger: #a32626;
+  --danger-bg: #fceeee;
 }
 
-body{
-    margin:0;
-    padding:0;
-    background:#f7f7f7;
-    font-family:Arial, Helvetica, sans-serif;
+
+/* ==========================================
+   GLOBAL RESET
+========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+
+/* ==========================================
+   HTML
+========================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--ivory);
+  color: var(--black);
+
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ==========================================
+   LINKS
+========================================== */
+
+a {
+  color: inherit;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   FORM ELEMENTS
+========================================== */
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+
+/* ==========================================
+   IMAGES
+========================================== */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+
+/* ==========================================
+   DARK UTILITY
+========================================== */
+
 .dark {
-    background:#111;
-    color:white;
+  background: var(--black);
+  color: var(--white);
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
+}
+
+
+/* ==========================================
+   SELECTION
+========================================== */
+
+::selection {
+  background: var(--gold);
+  color: var(--black);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
   }
+}

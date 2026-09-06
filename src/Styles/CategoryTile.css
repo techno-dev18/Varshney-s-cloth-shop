@@ -1,11 +1,268 @@
-.categoryTile{
-    width:250px;
-    text-decoration:none;
-    color:black;
+/* =========================================================
+   SV VARSHNEY'S CLOTH SHOP
+   CATEGORY TILE
+   Premium Black • Gold • Ivory
+========================================================= */
+
+
+/* =========================================================
+   CATEGORY TILE
+========================================================= */
+
+.categoryTile {
+  width: 100%;
+
+  display: block;
+
+  background: #0d0d0d;
+
+  color: #f8f5f0;
+
+  text-decoration: none;
+
+  border: 1px solid rgba(212, 175, 55, 0.25);
+
+  overflow: hidden;
+
+  position: relative;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.categoryTile img{
-    width:250px;
-    height:300px;
-    object-fit:cover;
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.categoryTile:hover {
+  transform: translateY(-6px);
+
+  border-color: #d4af37;
+
+  box-shadow:
+    0 15px 35px rgba(13, 13, 13, 0.18);
+}
+
+
+/* =========================================================
+   IMAGE CONTAINER EFFECT
+========================================================= */
+
+.categoryTile img {
+  width: 100%;
+  height: 300px;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.4s ease;
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+.categoryTile:hover img {
+  transform: scale(1.05);
+
+  filter: brightness(0.82);
+}
+
+
+/* =========================================================
+   CATEGORY NAME
+========================================================= */
+
+.categoryTile h3 {
+  width: 100%;
+
+  padding: 17px 10px;
+
+  margin: 0;
+
+  background: #0d0d0d;
+
+  color: #d4af37;
+
+  text-align: center;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.8px;
+
+  line-height: 1.4;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   GOLD DECORATIVE LINE
+========================================================= */
+
+.categoryTile h3::before {
+  content: "";
+
+  display: block;
+
+  width: 35px;
+  height: 1px;
+
+  margin: 0 auto 10px;
+
+  background: #d4af37;
+
+  transition: width 0.3s ease;
+}
+
+
+.categoryTile:hover h3::before {
+  width: 55px;
+}
+
+
+/* =========================================================
+   CATEGORY IMAGE OVERLAY
+========================================================= */
+
+.categoryTile::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 35%;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(13, 13, 13, 0.45)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .categoryTile img {
+    height: 270px;
+  }
+
+  .categoryTile h3 {
+    font-size: 15px;
+
+    padding: 15px 8px;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .categoryTile img {
+    height: 250px;
+  }
+
+  .categoryTile h3 {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .categoryTile {
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+
+  .categoryTile img {
+    height: 230px;
+  }
+
+  .categoryTile h3 {
+    padding: 13px 6px;
+
+    font-size: 13px;
+
+    letter-spacing: 0.5px;
+  }
+
+  .categoryTile h3::before {
+    width: 28px;
+
+    margin-bottom: 7px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .categoryTile img {
+    height: 190px;
+  }
+
+  .categoryTile h3 {
+    padding: 11px 4px;
+
+    font-size: 11px;
+
+    letter-spacing: 0.3px;
+  }
+
+  .categoryTile h3::before {
+    width: 23px;
+
+    margin-bottom: 6px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .categoryTile img {
+    height: 165px;
+  }
+
+  .categoryTile h3 {
+    padding: 10px 3px;
+
+    font-size: 10px;
+  }
+
 }

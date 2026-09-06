@@ -1,274 +1,951 @@
+/* =========================================================
+   SV VARSHNEY'S CLOTH SHOP
+   ABOUT US PAGE
+   Premium Black • Gold • Ivory
+========================================================= */
+
+
+/* =========================================================
+   ABOUT PAGE
+========================================================= */
+
 .about-page {
   width: 100%;
-  background: #ffffff;
-  color: #111111;
+  min-height: 100vh;
+
+  background: #f8f5f0;
+
+  color: #0d0d0d;
+
+  overflow: hidden;
 }
 
-/* =========================
-   HERO
-========================= */
+
+/* =========================================================
+   ABOUT HERO
+========================================================= */
 
 .about-hero {
-  min-height: 480px;
+  position: relative;
+
+  width: 100%;
+  min-height: 500px;
+
+  background: #0d0d0d;
+
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 80px 20px;
+
+  overflow: hidden;
+}
+
+
+/* Decorative gold line */
+
+.about-hero::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 5px;
+  height: 100%;
+
+  background: #d4af37;
+
+  z-index: 2;
+}
+
+
+/* Subtle luxury background */
+
+.about-hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.65),
-      rgba(0, 0, 0, 0.65)
-    ),
-    linear-gradient(135deg, #222222, #555555);
+      90deg,
+      rgba(13, 13, 13, 0.98) 0%,
+      rgba(13, 13, 13, 0.88) 45%,
+      rgba(13, 13, 13, 0.55) 100%
+    );
+
+  pointer-events: none;
 }
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
 
 .about-hero-content {
-  max-width: 800px;
-  color: white;
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 80px 8%;
+
+  box-sizing: border-box;
 }
 
-.about-tag,
+
+.about-tag {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color: #d4af37;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+
+.about-hero-content h1 {
+  max-width: 750px;
+
+  margin: 0 0 20px;
+
+  color: #f8f5f0;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(42px, 6vw, 76px);
+
+  font-weight: 500;
+
+  line-height: 1.08;
+
+  letter-spacing: 1px;
+}
+
+
+.about-hero-content h1::after {
+  content: "";
+
+  display: block;
+
+  width: 70px;
+  height: 2px;
+
+  margin-top: 24px;
+
+  background: #d4af37;
+}
+
+
+.about-hero-content p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #c7c4bd;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
 .section-label {
   display: inline-block;
-  font-size: 12px;
+
+  margin-bottom: 12px;
+
+  color: #b8941f;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 11px;
+
   font-weight: 700;
-  letter-spacing: 2px;
-  color: #b11226;
-  margin-bottom: 18px;
+
+  letter-spacing: 2.5px;
+
+  text-transform: uppercase;
 }
 
-.about-hero .about-tag {
-  color: #ffffff;
-}
 
-.about-hero h1 {
-  font-size: clamp(42px, 7vw, 76px);
-  line-height: 1.05;
-  margin: 0 0 25px;
-  font-weight: 700;
-}
-
-.about-hero h1 span,
-.about-intro-content h2 span,
-.about-cta h2 span {
-  color: #b11226;
-}
-
-.about-hero p {
-  max-width: 650px;
-  margin: auto;
-  font-size: 17px;
-  line-height: 1.8;
-  color: #eeeeee;
-}
-
-/* =========================
-   INTRO
-========================= */
+/* =========================================================
+   INTRO SECTION
+========================================================= */
 
 .about-intro {
+  width: 100%;
+
   max-width: 1200px;
-  margin: auto;
-  padding: 100px 30px;
+
+  margin: 0 auto;
+
+  padding: 90px 8%;
+
   display: grid;
+
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+
+  gap: 70px;
+
   align-items: center;
+
+  box-sizing: border-box;
 }
+
+
+/* =========================================================
+   INTRO IMAGE
+========================================================= */
 
 .about-intro-image {
   width: 100%;
+
+  min-height: 450px;
+
+  background: #0d0d0d;
+
+  border: 1px solid rgba(212, 175, 55, 0.45);
+
+  position: relative;
+
+  overflow: hidden;
 }
+
+
+.about-intro-image::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 14px;
+
+  border: 1px solid rgba(212, 175, 55, 0.35);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   IMAGE PLACEHOLDER
+========================================================= */
 
 .about-image-placeholder {
   width: 100%;
-  min-height: 480px;
-  background: #f2f2f2;
+  height: 100%;
+
+  min-height: 450px;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
-  position: relative;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0d0d0d,
+      #1a1a1a
+    );
+
+  color: #d4af37;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 22px;
+
+  text-align: center;
+
+  letter-spacing: 1px;
 }
 
-.about-image-placeholder::before {
-  content: "";
-  position: absolute;
-  inset: 25px;
-  border: 1px solid #d5d5d5;
+
+/* If an actual image is inside the container */
+
+.about-intro-image img {
+  width: 100%;
+  height: 100%;
+
+  min-height: 450px;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.5s ease;
 }
 
-.about-image-placeholder span {
-  font-size: 130px;
-  font-weight: 700;
-  color: #b11226;
-  z-index: 1;
+
+.about-intro-image:hover img {
+  transform: scale(1.03);
 }
+
+
+/* =========================================================
+   INTRO CONTENT
+========================================================= */
+
+.about-intro-content {
+  width: 100%;
+}
+
 
 .about-intro-content h2 {
-  font-size: 48px;
-  line-height: 1.1;
-  margin: 0 0 25px;
+  margin: 0 0 22px;
+
+  color: #0d0d0d;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(28px, 4vw, 42px);
+
+  font-weight: 500;
+
+  line-height: 1.2;
 }
+
+
+.about-intro-content h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+  height: 2px;
+
+  margin-top: 18px;
+
+  background: #d4af37;
+}
+
 
 .about-intro-content p {
-  color: #555555;
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 18px;
+  margin: 0 0 18px;
+
+  color: #666666;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.9;
 }
 
-/* =========================
-   VALUES
-========================= */
+
+/* =========================================================
+   VALUES SECTION
+========================================================= */
 
 .about-values {
-  background: #f7f7f7;
-  padding: 100px 30px;
+  width: 100%;
+
+  padding: 90px 8% 100px;
+
+  background: #0d0d0d;
+
+  box-sizing: border-box;
 }
 
+
 .about-section-heading {
-  max-width: 700px;
-  margin: 0 auto 60px;
+  max-width: 1200px;
+
+  margin: 0 auto 50px;
+
   text-align: center;
 }
 
-.about-section-heading h2 {
-  font-size: 48px;
-  margin: 0 0 15px;
+
+.about-section-heading .section-label {
+  color: #d4af37;
 }
 
-.about-section-heading p {
-  color: #666666;
-  font-size: 16px;
+
+.about-section-heading h2 {
+  margin: 0;
+
+  color: #f8f5f0;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(30px, 4vw, 45px);
+
+  font-weight: 500;
+
+  letter-spacing: 0.5px;
 }
+
+
+.about-section-heading h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+  height: 2px;
+
+  margin: 18px auto 0;
+
+  background: #d4af37;
+}
+
+
+/* =========================================================
+   VALUES GRID
+========================================================= */
 
 .values-grid {
+  width: 100%;
+
   max-width: 1200px;
-  margin: auto;
+
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
 }
 
+
+/* =========================================================
+   VALUE CARD
+========================================================= */
+
 .value-card {
-  background: white;
-  padding: 35px 28px;
-  min-height: 240px;
-  border: 1px solid #e5e5e5;
-  transition: 0.3s ease;
+  position: relative;
+
+  padding: 38px 30px;
+
+  min-height: 230px;
+
+  background: #1a1a1a;
+
+  border: 1px solid rgba(212, 175, 55, 0.22);
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
+
+
+.value-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 45px;
+  height: 2px;
+
+  background: #d4af37;
+
+  transition: width 0.3s ease;
+}
+
 
 .value-card:hover {
   transform: translateY(-6px);
-  border-color: #b11226;
+
+  background: #111111;
+
+  border-color: #d4af37;
 }
+
+
+.value-card:hover::before {
+  width: 100%;
+}
+
+
+/* =========================================================
+   VALUE NUMBER
+========================================================= */
 
 .value-number {
-  font-size: 14px;
-  font-weight: 700;
-  color: #b11226;
-  margin-bottom: 35px;
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: #d4af37;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 28px;
+
+  font-weight: 500;
 }
+
 
 .value-card h3 {
-  font-size: 23px;
-  margin: 0 0 15px;
+  margin: 0 0 14px;
+
+  color: #f8f5f0;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 20px;
+
+  font-weight: 500;
 }
+
 
 .value-card p {
-  color: #666666;
-  line-height: 1.7;
+  margin: 0;
+
+  color: #aaa8a2;
+
+  font-family: "Montserrat", sans-serif;
+
   font-size: 14px;
+
+  line-height: 1.8;
 }
 
-/* =========================
-   CTA
-========================= */
+
+/* =========================================================
+   CTA SECTION
+========================================================= */
 
 .about-cta {
-  max-width: 1200px;
-  margin: auto;
-  padding: 100px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+  width: 100%;
+
+  padding: 90px 8%;
+
+  background: #f8f5f0;
+
+  text-align: center;
+
+  box-sizing: border-box;
 }
+
 
 .about-cta h2 {
-  font-size: 48px;
-  line-height: 1.1;
-  margin: 0 0 20px;
+  margin: 0 0 15px;
+
+  color: #0d0d0d;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(30px, 4vw, 44px);
+
+  font-weight: 500;
 }
 
+
 .about-cta p {
+  max-width: 600px;
+
+  margin: 0 auto 30px;
+
   color: #666666;
-  line-height: 1.7;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 15px;
+
+  line-height: 1.8;
 }
+
+
+/* =========================================================
+   CTA BUTTON
+========================================================= */
 
 .about-cta-button {
   display: inline-block;
-  background: #b11226;
-  color: white;
-  padding: 16px 30px;
+
+  padding: 14px 32px;
+
+  background: #d4af37;
+
+  color: #0d0d0d;
+
+  border: 1px solid #d4af37;
+
+  border-radius: 0;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
   text-decoration: none;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: 0.3s ease;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
+
 
 .about-cta-button:hover {
-  background: #8f1020;
+  background: #0d0d0d;
+
+  color: #d4af37;
+
+  border-color: #0d0d0d;
+
+  transform: translateY(-2px);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 900px) {
-  .about-intro {
-    grid-template-columns: 1fr;
-    gap: 50px;
+
+  .about-hero {
+    min-height: 450px;
   }
+
+
+  .about-hero-content {
+    padding: 70px 6%;
+  }
+
+
+  .about-intro {
+    padding: 70px 6%;
+
+    gap: 45px;
+  }
+
+
+  .about-intro-image,
+  .about-image-placeholder,
+  .about-intro-image img {
+    min-height: 380px;
+  }
+
+
+  .about-values {
+    padding: 70px 6% 80px;
+  }
+
 
   .values-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+
   .about-cta {
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 70px 6%;
   }
+
 }
 
-@media (max-width: 600px) {
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
   .about-hero {
     min-height: 420px;
   }
 
-  .about-intro,
-  .about-values,
-  .about-cta {
-    padding: 70px 20px;
+
+  .about-hero-content {
+    padding: 60px 7%;
   }
 
-  .about-intro-content h2,
-  .about-section-heading h2,
-  .about-cta h2 {
-    font-size: 36px;
+
+  .about-hero-content h1 {
+    font-size: 42px;
   }
 
-  .about-image-placeholder {
-    min-height: 330px;
+
+  .about-hero-content p {
+    font-size: 14px;
+
+    line-height: 1.7;
   }
+
+
+  .about-intro {
+    grid-template-columns: 1fr;
+
+    padding: 60px 7%;
+
+    gap: 40px;
+  }
+
+
+  .about-intro-image,
+  .about-image-placeholder,
+  .about-intro-image img {
+    min-height: 350px;
+  }
+
+
+  .about-intro-content h2 {
+    font-size: 30px;
+  }
+
+
+  .about-values {
+    padding: 65px 7% 70px;
+  }
+
 
   .values-grid {
     grid-template-columns: 1fr;
+
+    gap: 18px;
   }
+
+
+  .value-card {
+    min-height: auto;
+
+    padding: 30px 25px;
+  }
+
+
+  .about-cta {
+    padding: 65px 7%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .about-hero {
+    min-height: 390px;
+  }
+
+
+  .about-hero::before {
+    width: 3px;
+  }
+
+
+  .about-hero-content {
+    padding: 50px 20px;
+  }
+
+
+  .about-tag {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .about-hero-content h1 {
+    font-size: 34px;
+
+    letter-spacing: 0.5px;
+  }
+
+
+  .about-hero-content h1::after {
+    width: 50px;
+
+    margin-top: 18px;
+  }
+
+
+  .about-hero-content p {
+    font-size: 13px;
+  }
+
+
+  .about-intro {
+    padding: 50px 20px;
+
+    gap: 30px;
+  }
+
+
+  .about-intro-image,
+  .about-image-placeholder,
+  .about-intro-image img {
+    min-height: 280px;
+  }
+
+
+  .about-intro-image::before {
+    inset: 9px;
+  }
+
+
+  .about-intro-content h2 {
+    font-size: 27px;
+  }
+
+
+  .about-intro-content p {
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+
+  .about-values {
+    padding: 55px 20px 60px;
+  }
+
+
+  .about-section-heading {
+    margin-bottom: 35px;
+  }
+
+
+  .about-section-heading h2 {
+    font-size: 29px;
+  }
+
+
+  .value-card {
+    padding: 27px 22px;
+  }
+
+
+  .value-number {
+    font-size: 24px;
+
+    margin-bottom: 15px;
+  }
+
+
+  .value-card h3 {
+    font-size: 18px;
+  }
+
+
+  .value-card p {
+    font-size: 13px;
+  }
+
+
+  .about-cta {
+    padding: 55px 20px;
+  }
+
+
+  .about-cta h2 {
+    font-size: 29px;
+  }
+
+
+  .about-cta p {
+    font-size: 13px;
+  }
+
 
   .about-cta-button {
     width: 100%;
-    text-align: center;
+
+    max-width: 280px;
+
+    padding: 13px 20px;
+
+    box-sizing: border-box;
   }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-hero-content {
+    padding: 45px 16px;
+  }
+
+
+  .about-hero-content h1 {
+    font-size: 30px;
+  }
+
+
+  .about-intro {
+    padding: 45px 16px;
+  }
+
+
+  .about-intro-image,
+  .about-image-placeholder,
+  .about-intro-image img {
+    min-height: 240px;
+  }
+
+
+  .about-intro-content h2 {
+    font-size: 24px;
+  }
+
+
+  .about-values {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  .about-section-heading h2 {
+    font-size: 25px;
+  }
+
+
+  .about-cta {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  .about-cta h2 {
+    font-size: 25px;
+  }
+
 }

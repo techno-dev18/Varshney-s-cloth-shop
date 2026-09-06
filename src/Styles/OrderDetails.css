@@ -4,8 +4,10 @@
 
 .orderDetailsPage {
   min-height: 100vh;
-  padding: 40px 7%;
-  background: #f7f7f7;
+
+  padding: 50px 7%;
+
+  background: #f8f5f0;
 }
 
 
@@ -14,32 +16,79 @@
 ========================================== */
 
 .orderDetailsHeader {
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .orderDetailsHeader h1 {
-  margin: 18px 0 5px;
-  font-size: 36px;
-  color: #222;
+  margin: 18px 0 7px;
+
+  font-family: "Cinzel", serif;
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  color: #0d0d0d;
 }
 
 .orderDetailsHeader p {
   margin: 0;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+
   color: #777;
 }
 
 .backOrdersButton {
+  padding: 0;
+
   border: none;
   background: transparent;
-  padding: 0;
-  font-size: 15px;
+
+  color: #555;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
   font-weight: 600;
+
   cursor: pointer;
-  color: #333;
+
+  transition: color 0.25s ease;
 }
 
 .backOrdersButton:hover {
-  text-decoration: underline;
+  color: #d4af37;
+  text-decoration: none;
+}
+
+
+/* ==========================================
+   TRACKING CARD
+========================================== */
+
+.trackingCard {
+  margin-bottom: 25px;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e0d8;
+  border-top: 3px solid #d4af37;
+
+  border-radius: 0;
+
+  box-shadow: 0 5px 20px rgba(13, 13, 13, 0.06);
+}
+
+.trackingCard h2 {
+  margin: 0 0 32px;
+
+  font-family: "Cinzel", serif;
+  font-size: 21px;
+  font-weight: 600;
+
+  color: #0d0d0d;
 }
 
 
@@ -47,85 +96,111 @@
    TRACKING
 ========================================== */
 
-.trackingCard {
-  background: #fff;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
-  margin-bottom: 25px;
-}
-
-.trackingCard h2 {
-  margin: 0 0 30px;
-  font-size: 22px;
-}
-
 .tracking {
   display: flex;
+
   align-items: flex-start;
   justify-content: space-between;
 }
 
 .trackingStep {
   position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   flex: 1;
+
   color: #aaa;
+
+  font-family: "Poppins", sans-serif;
 }
 
 .trackingCircle {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
-  border: 2px solid #ddd;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+
+  border: 2px solid #ddd;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #999;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
   font-weight: 700;
+
   z-index: 2;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .trackingStep span {
-  margin-top: 10px;
-  font-size: 13px;
+  margin-top: 11px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
   font-weight: 600;
+
+  text-align: center;
 }
 
 .trackingStep.completed {
-  color: #111;
+  color: #0d0d0d;
 }
 
 .trackingStep.completed .trackingCircle {
-  background: #111;
-  color: #fff;
-  border-color: #111;
+  background: #0d0d0d;
+
+  color: #d4af37;
+
+  border-color: #d4af37;
 }
 
 .trackingLine {
   position: absolute;
-  height: 3px;
-  background: #ddd;
+
+  height: 2px;
+
   top: 20px;
   left: 50%;
+
   width: 100%;
+
+  background: #ddd;
+
   z-index: 1;
 }
 
 .trackingLine.completed {
-  background: #111;
+  background: #d4af37;
 }
 
 .currentStatus {
-  margin: 25px 0 0;
+  margin: 28px 0 0;
+
   color: #777;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+
   text-align: center;
 }
 
 .currentStatus strong {
-  color: #111;
+  color: #0d0d0d;
+
+  font-weight: 700;
 }
 
 
@@ -135,20 +210,32 @@
 
 .orderDetailsGrid {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 25px;
 }
 
 .detailsCard {
-  background: #fff;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  padding: 27px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e0d8;
+
+  border-radius: 0;
+
+  box-shadow: 0 5px 20px rgba(13, 13, 13, 0.06);
 }
 
 .detailsCard h2 {
   margin: 0 0 20px;
+
+  font-family: "Cinzel", serif;
   font-size: 20px;
+  font-weight: 600;
+
+  color: #0d0d0d;
 }
 
 
@@ -158,11 +245,16 @@
 
 .detailsProduct {
   display: grid;
+
   grid-template-columns: 75px 1fr auto;
-  gap: 15px;
+
+  gap: 17px;
+
   align-items: center;
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
+
+  padding: 16px 0;
+
+  border-bottom: 1px solid #eeeae4;
 }
 
 .detailsProduct:last-child {
@@ -172,23 +264,40 @@
 .detailsProduct img {
   width: 75px;
   height: 90px;
+
   object-fit: cover;
-  border-radius: 8px;
+
+  border-radius: 0;
+
+  background: #f1eee9;
 }
 
 .detailsProduct h3 {
   margin: 0 0 7px;
-  font-size: 15px;
+
+  font-family: "Cinzel", serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #222;
 }
 
 .detailsProduct p {
-  margin: 3px 0;
+  margin: 4px 0;
+
   color: #777;
-  font-size: 13px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
 }
 
 .detailsProduct > strong {
   white-space: nowrap;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+
+  color: #111;
 }
 
 
@@ -197,32 +306,52 @@
 ========================================== */
 
 .addressBox {
-  background: #f8f8f8;
   padding: 20px;
-  border-radius: 10px;
+
+  background: #f8f5f0;
+
+  border: 1px solid #e5e0d8;
+
+  border-left: 3px solid #d4af37;
+
+  border-radius: 0;
 }
 
 .addressBox h3 {
-  margin: 0 0 12px;
+  margin: 0 0 13px;
+
+  font-family: "Cinzel", serif;
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #222;
 }
 
 .addressBox p {
   margin: 6px 0;
+
   color: #666;
-  font-size: 14px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 
 /* ==========================================
-   PAYMENT
+   PAYMENT / INFORMATION
 ========================================== */
 
 .infoRow {
   display: flex;
+
   justify-content: space-between;
+
   gap: 20px;
+
   padding: 15px 0;
-  border-bottom: 1px solid #eee;
+
+  border-bottom: 1px solid #eeeae4;
 }
 
 .infoRow:last-child {
@@ -230,11 +359,18 @@
 }
 
 .infoRow span {
-  color: #777;
+  color: #888;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
 }
 
 .infoRow strong {
   color: #222;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+
   text-align: right;
 }
 
@@ -245,53 +381,116 @@
 
 .totalRow {
   display: flex;
+
   justify-content: space-between;
+
   padding: 12px 0;
+
   color: #555;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
 }
 
 .totalCard hr {
-  border: none;
-  border-top: 1px solid #eee;
   margin: 12px 0;
+
+  border: none;
+  border-top: 1px solid #e5e0d8;
 }
 
 .grandTotal {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
-  padding-top: 12px;
+
+  padding-top: 13px;
 }
 
 .grandTotal span {
+  font-family: "Cinzel", serif;
   font-size: 17px;
+  font-weight: 600;
+
+  color: #222;
 }
 
 .grandTotal strong {
-  font-size: 26px;
+  font-family: "Cinzel", serif;
+  font-size: 25px;
+  font-weight: 600;
+
+  color: #0d0d0d;
 }
 
 
 /* ==========================================
-   LOADING
+   LOADING / ERROR
 ========================================== */
 
 .orderDetailsMessage {
   min-height: 70vh;
+
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
+
   gap: 15px;
+
+  background: #f8f5f0;
+
+  color: #666;
+
+  font-family: "Poppins", sans-serif;
 }
 
 .orderDetailsMessage button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #111;
-  color: #fff;
+  padding: 12px 22px;
+
+  border: 1px solid #d4af37;
+
+  border-radius: 0;
+
+  background: #0d0d0d;
+
+  color: #f8f5f0;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
   cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.orderDetailsMessage button:hover {
+  background: #d4af37;
+  color: #0d0d0d;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .orderDetailsPage {
+    padding: 40px 5%;
+  }
+
+  .orderDetailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailsCard {
+    padding: 24px;
+  }
 }
 
 
@@ -300,27 +499,37 @@
 ========================================== */
 
 @media (max-width: 750px) {
-
   .orderDetailsPage {
-    padding: 25px 15px;
+    padding: 30px 15px;
   }
 
   .orderDetailsHeader h1 {
-    font-size: 30px;
+    font-size: 28px;
+  }
+
+  .orderDetailsHeader p {
+    font-size: 13px;
   }
 
   .trackingCard {
-    padding: 20px 10px;
+    padding: 22px 12px;
+  }
+
+  .trackingCard h2 {
+    margin-bottom: 27px;
+
+    font-size: 19px;
   }
 
   .trackingStep span {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .trackingCircle {
     width: 35px;
     height: 35px;
-    font-size: 12px;
+
+    font-size: 11px;
   }
 
   .trackingLine {
@@ -337,6 +546,8 @@
 
   .detailsProduct {
     grid-template-columns: 60px 1fr;
+
+    gap: 13px;
   }
 
   .detailsProduct img {
@@ -346,6 +557,93 @@
 
   .detailsProduct > strong {
     grid-column: 2;
+
+    font-size: 13px;
   }
 
+  .addressBox {
+    padding: 17px;
+  }
+
+  .grandTotal strong {
+    font-size: 22px;
+  }
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 400px) {
+  .orderDetailsPage {
+    padding: 25px 12px;
+  }
+
+  .orderDetailsHeader h1 {
+    font-size: 25px;
+  }
+
+  .trackingCard {
+    padding: 20px 8px;
+  }
+
+  .trackingCard h2 {
+    font-size: 17px;
+  }
+
+  .trackingStep span {
+    font-size: 9px;
+  }
+
+  .trackingCircle {
+    width: 31px;
+    height: 31px;
+
+    font-size: 10px;
+  }
+
+  .trackingLine {
+    top: 15px;
+  }
+
+  .detailsCard {
+    padding: 17px;
+  }
+
+  .detailsProduct {
+    grid-template-columns: 55px 1fr;
+
+    gap: 11px;
+  }
+
+  .detailsProduct img {
+    width: 55px;
+    height: 70px;
+  }
+
+  .detailsProduct h3 {
+    font-size: 13px;
+  }
+
+  .detailsProduct p {
+    font-size: 11px;
+  }
+
+  .infoRow {
+    gap: 12px;
+  }
+
+  .infoRow span,
+  .infoRow strong {
+    font-size: 11px;
+  }
+
+  .grandTotal span {
+    font-size: 15px;
+  }
+
+  .grandTotal strong {
+    font-size: 20px;
+  }
 }
