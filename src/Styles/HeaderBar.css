@@ -1,10 +1,17 @@
-/* ================================
+/* =========================================================
+   SV VARSHNEY'S CLOTH SHOP
+   PREMIUM HEADER
+   Brand: Black / Gold / Ivory / Charcoal
+========================================================= */
+
+
+/* =========================================================
    HEADER
-================================ */
+========================================================= */
 
 .header {
   width: 100%;
-  height: 72px;
+  min-height: 72px;
 
   display: flex;
   align-items: center;
@@ -12,9 +19,9 @@
 
   padding: 0 5%;
 
-  background: #4f06ce;
+  background: #0d0d0d;
 
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.45);
 
   position: sticky;
   top: 0;
@@ -25,167 +32,154 @@
 }
 
 
-/* ================================
+/* =========================================================
    LOGO
-================================ */
+========================================================= */
 
 .logo {
+  display: flex;
+  align-items: center;
+
+  max-width: 100%;
+
   text-decoration: none;
 
-  color: #111111;
+  color: #d4af37;
 
-  font-size: 24px;
+  font-family: "Cinzel", serif;
 
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 500;
 
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+
+  line-height: 1.2;
 
   white-space: nowrap;
 
-  transition: 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .logo:hover {
-  color: #b08d2c;
+  color: #e4c45a;
+
+  transform: translateY(-1px);
 }
 
 
-/* ================================
+/* =========================================================
    NAVIGATION
-================================ */
+========================================================= */
 
 .links {
   display: flex;
 
   align-items: center;
+  justify-content: center;
 
-  gap: 26px;
+  gap: 20px;
 }
 
 
-/* ================================
+/* =========================================================
    ALL NAV LINKS
-================================ */
+========================================================= */
 
 .links a {
-  text-decoration: none;
-
-  color: #222222;
-
-  font-size: 20px;
+  width: 40px;
+  height: 40px;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  min-height: 40px;
+  position: relative;
+
+  text-decoration: none;
+
+  color: #f8f5f0;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 20px;
 
   transition:
     color 0.3s ease,
-    transform 0.2s ease;
+    transform 0.25s ease;
 }
 
 
-/* ================================
+/* =========================================================
    HOVER
-================================ */
+========================================================= */
 
 .links a:hover {
-  color: #b08d2c;
+  color: #d4af37;
 
   transform: translateY(-2px);
 }
 
 
-/* ================================
+/* =========================================================
    ACTIVE LINK
-================================ */
+========================================================= */
 
 .links a.active {
-  color: #b08d2c;
+  color: #d4af37;
 }
 
 
-/* ================================
-   BASKET
-================================ */
+/* Small gold line under active navigation */
 
-.links a[href="/basket"] {
-  gap: 5px;
+.links a.active::after {
+  content: "";
 
-  font-size: 18px;
-}
+  position: absolute;
 
+  bottom: -5px;
 
-/* ================================
-   BASKET NUMBER
-================================ */
+  left: 50%;
 
-.links a[href="/basket"] span {
-  font-size: 15px;
+  width: 5px;
+  height: 5px;
 
-  font-weight: 600;
-
-  white-space: nowrap;
-}
-/* ==========================================
-   WISHLIST COUNT
-========================================== */
-
-.wishlistCount {
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  min-width: 18px;
-
-  height: 18px;
-
-  padding: 0 5px;
-
-  margin-left: 3px;
+  background: #d4af37;
 
   border-radius: 50%;
 
-  background: #111;
-
-  color: white;
-
-  font-size: 11px;
-
-  font-weight: 700;
-}
-.text-link {
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #111111;
-  white-space: nowrap;
+  transform: translateX(-50%);
 }
 
-.text-link:hover {
-  color: #b11226;
+
+/* =========================================================
+   NAVIGATION SVG ICONS
+========================================================= */
+
+.links a svg {
+  width: 20px;
+  height: 20px;
+
+  display: block;
 }
 
-.text-link.active {
-  color: #b11226;
-}
-/* ================================
+
+/* =========================================================
    ABOUT & CONTACT ICONS
-================================ */
+========================================================= */
 
 .header-icon {
   display: flex !important;
+
   align-items: center;
   justify-content: center;
 
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
 
-  color: #222222 !important;
+  color: #f8f5f0 !important;
 
   font-size: 20px;
 
@@ -193,87 +187,385 @@
 
   visibility: visible !important;
   opacity: 1 !important;
+
+  transition:
+    color 0.3s ease,
+    transform 0.25s ease;
 }
+
+.header-icon:hover {
+  color: #d4af37 !important;
+
+  transform: translateY(-2px);
+}
+
+.header-icon.active {
+  color: #d4af37 !important;
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+.links a[href="/wishlist"] {
+  gap: 4px;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   WISHLIST COUNT
+========================================================= */
+
+.wishlistCount {
+  min-width: 18px;
+  height: 18px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 4px;
+
+  margin-left: 2px;
+
+  border-radius: 50%;
+
+  background: #d4af37;
+
+  color: #0d0d0d;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BASKET
+========================================================= */
+
+.links a[href="/basket"] {
+  gap: 4px;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   BASKET NUMBER
+========================================================= */
+
+.links a[href="/basket"] span {
+  min-width: 17px;
+  height: 17px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 4px;
+
+  border-radius: 50%;
+
+  background: #d4af37;
+
+  color: #0d0d0d;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TEXT LINKS
+   Kept in case used elsewhere
+========================================================= */
+
+.text-link {
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  color: #f8f5f0;
+
+  white-space: nowrap;
+
+  transition: color 0.3s ease;
+}
+
+.text-link:hover {
+  color: #d4af37;
+}
+
+.text-link.active {
+  color: #d4af37;
+}
+
+
+/* =========================================================
+   HEADER ICON SVG
+========================================================= */
 
 .header-icon svg {
   display: block;
+
   width: 20px;
   height: 20px;
 }
 
-.header-icon:hover {
-  color: #b08d2c !important;
-}
 
-.header-icon.active {
-  color: #b08d2c !important;
-}
+/* =========================================================
+   TABLET
+========================================================= */
 
-/* ================================
-   RESPONSIVE
-================================ */
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   .header {
-    height: auto;
-
-    min-height: 65px;
-
-    padding: 12px 4%;
+    padding: 0 4%;
   }
 
   .logo {
     font-size: 19px;
+
+    letter-spacing: 0.7px;
   }
 
   .links {
-    gap: 15px;
+    gap: 14px;
   }
 
   .links a {
+    width: 36px;
+    height: 36px;
+
     font-size: 18px;
   }
 
-  .links a[href="/basket"] {
-    font-size: 15px;
+  .header-icon {
+    width: 36px !important;
+    height: 36px !important;
   }
 
-  .links a[href="/basket"] span {
-    font-size: 13px;
+  .links a svg,
+  .header-icon svg {
+    width: 18px;
+    height: 18px;
   }
-
 }
 
 
-/* ================================
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .header {
+    min-height: 68px;
+
+    padding: 8px 4%;
+  }
+
+  /* -----------------------------------------
+     MOBILE BRAND
+  ----------------------------------------- */
+
+  .logo {
+    width: 125px;
+
+    white-space: normal;
+
+    display: block;
+
+    font-size: 16px;
+
+    line-height: 1.15;
+
+    letter-spacing: 0.5px;
+  }
+
+  /* -----------------------------------------
+     NAVIGATION
+  ----------------------------------------- */
+
+  .links {
+    gap: 8px;
+  }
+
+  .links a {
+    width: 34px;
+    height: 34px;
+
+    font-size: 16px;
+  }
+
+  .header-icon {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .links a svg,
+  .header-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  /* -----------------------------------------
+     COUNTERS
+  ----------------------------------------- */
+
+  .wishlistCount,
+  .links a[href="/basket"] span {
+    min-width: 16px;
+    height: 16px;
+
+    font-size: 9px;
+  }
+
+  .links a[href="/wishlist"] {
+    font-size: 15px;
+  }
+
+  .links a[href="/basket"] {
+    font-size: 16px;
+  }
+}
+
+
+/* =========================================================
    SMALL MOBILE
-================================ */
+========================================================= */
 
 @media (max-width: 480px) {
 
   .header {
-    padding: 10px 3%;
+    min-height: 64px;
+
+    padding: 7px 3%;
   }
+
+  /* -----------------------------------------
+     BRAND
+     Varshney's
+     Cloth Shop
+  ----------------------------------------- */
 
   .logo {
-    font-size: 16px;
+    width: 105px;
+
+    font-size: 14px;
+
+    line-height: 1.15;
+
+    letter-spacing: 0.3px;
   }
 
+  /* -----------------------------------------
+     NAVIGATION
+  ----------------------------------------- */
+
   .links {
-    gap: 10px;
+    gap: 4px;
   }
 
   .links a {
-    font-size: 16px;
+    width: 30px;
+    height: 30px;
+
+    font-size: 14px;
   }
 
-  .links a[href="/basket"] {
+  .header-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .links a svg,
+  .header-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* -----------------------------------------
+     COUNTERS
+  ----------------------------------------- */
+
+  .wishlistCount,
+  .links a[href="/basket"] span {
+    min-width: 14px;
+    height: 14px;
+
+    padding: 0 3px;
+
+    font-size: 8px;
+  }
+
+  .links a[href="/wishlist"] {
     font-size: 13px;
   }
 
-  .links a[href="/basket"] span {
+  .links a[href="/basket"] {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .header {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+  }
+
+  .logo {
+    width: 92px;
+
     font-size: 12px;
   }
 
+  .links {
+    gap: 2px;
+  }
+
+  .links a {
+    width: 27px;
+    height: 27px;
+  }
+
+  .header-icon {
+    width: 27px !important;
+    height: 27px !important;
+  }
+
+  .links a svg,
+  .header-icon svg {
+    width: 14px;
+    height: 14px;
+  }
 }

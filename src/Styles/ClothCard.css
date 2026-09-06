@@ -1,43 +1,333 @@
-.clothCard{
-    width:260px;
-    border:1px solid #ddd;
-    padding:15px;
-    background:white;
-    border-radius:10px;
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+.clothCard {
+    width: 260px;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.clothCard img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
+.clothCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
 }
 
-.cardTop{
-    display:flex;
-    justify-content:space-between;
+
+/* =========================================
+   PRODUCT IMAGE
+========================================= */
+
+.clothCard img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    border-radius: 7px;
 }
 
-.priceSection{
-    display:flex;
-    gap:15px;
-    align-items:center;
+
+/* =========================================
+   PRODUCT NAME
+========================================= */
+
+.clothCard h3 {
+    margin: 12px 0 8px;
+
+    color: #111111;
+
+    font-size: 17px;
+    line-height: 1.3;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
 }
 
-.oldPrice{
-    text-decoration:line-through;
-    color:gray;
+
+/* =========================================
+   BRAND + RATING
+========================================= */
+
+.cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+    color: #666666;
 }
 
-.newPrice{
-    color:var(--red);
-    font-weight:bold;
+.cardTop span {
+    white-space: nowrap;
 }
 
-.clothCard button{
-    width:100%;
-    margin-top:10px;
-    background:var(--gold);
-    border:none;
-    padding:10px;
-    cursor:pointer;
+
+/* =========================================
+   PRICE
+========================================= */
+
+.priceSection {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.oldPrice {
+    text-decoration: line-through;
+    color: #999999;
+    font-size: 14px;
+}
+
+.newPrice {
+    color: #b11226;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   SIZE
+========================================= */
+
+.clothCard select {
+    width: 100%;
+
+    padding: 9px 10px;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    font-size: 13px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    margin-bottom: 8px;
+}
+
+.clothCard select:focus {
+    border-color: #b11226;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.clothCard button {
+    width: 100%;
+
+    margin-top: 6px;
+
+    padding: 10px 8px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #d4af37;
+    color: #111111;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.clothCard button:hover {
+    background: #c09c2f;
+    transform: translateY(-1px);
+}
+
+.clothCard button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+    .clothCard {
+        width: 210px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .clothCard img {
+        height: 220px;
+        border-radius: 6px;
+    }
+
+    .clothCard h3 {
+        font-size: 14px;
+        margin: 9px 0 6px;
+    }
+
+    .cardTop {
+        font-size: 11px;
+        margin-bottom: 7px;
+    }
+
+    .priceSection {
+        gap: 7px;
+        margin-bottom: 8px;
+    }
+
+    .oldPrice {
+        font-size: 12px;
+    }
+
+    .newPrice {
+        font-size: 14px;
+    }
+
+    .clothCard select {
+        padding: 7px 8px;
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+
+    .clothCard button {
+        padding: 8px 6px;
+        font-size: 11px;
+        margin-top: 4px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .clothCard {
+        width: 100%;
+        max-width: none;
+
+        padding: 8px;
+
+        border-radius: 8px;
+    }
+
+    .clothCard img {
+        height: 180px;
+        border-radius: 6px;
+    }
+
+    .clothCard h3 {
+        font-size: 13px;
+        line-height: 1.25;
+
+        margin: 8px 0 5px;
+    }
+
+    .cardTop {
+        font-size: 10px;
+        gap: 4px;
+
+        margin-bottom: 6px;
+    }
+
+    .priceSection {
+        gap: 6px;
+        margin-bottom: 7px;
+    }
+
+    .oldPrice {
+        font-size: 11px;
+    }
+
+    .newPrice {
+        font-size: 13px;
+    }
+
+    .clothCard select {
+        padding: 7px;
+
+        font-size: 11px;
+
+        margin-bottom: 4px;
+    }
+
+    .clothCard button {
+        padding: 8px 5px;
+
+        font-size: 10px;
+
+        margin-top: 4px;
+
+        border-radius: 5px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 400px) {
+
+    .clothCard {
+        padding: 7px;
+    }
+
+    .clothCard img {
+        height: 155px;
+    }
+
+    .clothCard h3 {
+        font-size: 12px;
+    }
+
+    .cardTop {
+        font-size: 9px;
+    }
+
+    .oldPrice {
+        font-size: 10px;
+    }
+
+    .newPrice {
+        font-size: 12px;
+    }
+
+    .clothCard select {
+        padding: 6px;
+
+        font-size: 10px;
+    }
+
+    .clothCard button {
+        padding: 7px 4px;
+
+        font-size: 9px;
+    }
 }
