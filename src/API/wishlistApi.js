@@ -20,12 +20,8 @@ export const getWishlist = () => {
 // ADD TO WISHLIST
 // ==========================================
 
-export const addToWishlist = (
-  userId,
-  productId
-) => {
+export const addToWishlist = (productId) => {
   return API.post("/wishlist", {
-    userId,
     productId
   });
 };
