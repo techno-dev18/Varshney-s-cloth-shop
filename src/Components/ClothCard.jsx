@@ -265,11 +265,10 @@ const ClothCard = ({ item }) => {
           );
 
 
-          const response =
-            await addToWishlist(
-              user.id,
-              item._id
-            );
+         const response =
+  await addToWishlist(
+    item._id
+  );
 
 
           console.log(
