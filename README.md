@@ -11,8 +11,7 @@ The project provides a complete shopping experience including product discovery,
 **Frontend:**  
 https://varshneyscloth-shop-frontend.onrender.com
 
-**Backend API:**  
-https://varshney-s-cloth-shop.onrender.com
+
 
 ---
 
