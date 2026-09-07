@@ -364,7 +364,7 @@ const products = [
     ratings: 4.5,
     brand: "Weekend Co.",
     price: 899,
-    discountPercentage: 15,
+    discountPercentage: 20,
     imgURL:
       "https://images.unsplash.com/photo-1583176407414-cefc059dc06d?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL"],
@@ -391,7 +391,7 @@ const products = [
     ratings: 4.4,
     brand: "Daily Motion",
     price: 999,
-    discountPercentage: 10,
+    discountPercentage: 20,
     imgURL:
       "https://images.unsplash.com/photo-1583176407414-cefc059dc06d?auto=format&fit=crop&w=800&q=80",
     sizes: ["S", "M", "L", "XL", "XXL"],
