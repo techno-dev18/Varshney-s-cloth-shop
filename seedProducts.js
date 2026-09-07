@@ -360,7 +360,7 @@ const products = [
   {
     productName: "Classic Casual Shorts",
     category: "Shorts",
-    gender: "male",
+    gender: "female",
     ratings: 4.5,
     brand: "Weekend Co.",
     price: 899,
@@ -387,7 +387,7 @@ const products = [
   {
     productName: "Relaxed Weekend Shorts",
     category: "Shorts",
-    gender: "male",
+    gender: "female",
     ratings: 4.4,
     brand: "Daily Motion",
     price: 999,
