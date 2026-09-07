@@ -405,7 +405,7 @@ const products = [
       "Lightweight feel"
     ],
     details: [
-      "Suitable for travel",
+      "Suitable for travel and casual wear",
       "Ideal for casual outings",
       "Easy everyday styling"
     ]
